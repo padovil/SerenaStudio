@@ -61,9 +61,10 @@ function validar(){
   const faltan = [];
   form.querySelectorAll("[required]").forEach(el => {
     if (el.closest("[hidden]")) { el.removeAttribute("aria-invalid"); return; }
-    const vacio = !el.value.trim();
-    el.setAttribute("aria-invalid", vacio ? "true" : "false");
-    if (vacio) faltan.push({el, nombre: (form.querySelector('label[for="' + el.id + '"]')?.textContent || el.name).replace("*", "").trim()});
+    const v = el.value.trim();
+    const malo = !v || (el.type === "url" && !/^https?:\/\/\S+\.\S+/i.test(v));
+    el.setAttribute("aria-invalid", malo ? "true" : "false");
+    if (malo) faltan.push({el, nombre: (form.querySelector('label[for="' + el.id + '"]')?.textContent || el.name).replace("*", "").trim() + (v ? " (debe ser un link que empiece por https://)" : "")});
   });
   const caja = $("errores");
   if (faltan.length) {

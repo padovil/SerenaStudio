@@ -107,6 +107,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <li>Las direcciones o links de Google Maps de la ceremonia y la recepción.</li>
       <li>Los datos para los regalos, si los van a poner.</li>
       <li>Los hoteles o lugares que quieran recomendar a sus invitados.</li>
+      <li>Los links de las fotos (Drive o Google Fotos) y de la canción (YouTube o Drive).</li>
       <li>La lista de invitados con los cupos de cada uno, para los links personalizados.</li>
     </ul>
     <p style="margin:.6rem 0 0">Los campos con <span class="req">*</span> son necesarios. Si algo todavía no está definido, déjenlo en blanco y lo completamos después.</p>
@@ -269,18 +270,15 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>10 · Fotos y música</span>Lo que nos envían por WhatsApp</legend>
-      <p class="ayuda">Las fotos y la canción nos las mandan por WhatsApp <b>como documento</b> (así no pierden calidad) o con un link de Google Drive.</p>
+      <legend><span>10 · Fotos y música</span>Fotos y canción en link</legend>
+      <p class="ayuda">Envíennos todo en links, así las fotos no pierden calidad. Al compartir, elijan <b>“Cualquier persona con el enlace”</b> para que podamos abrirlos.</p>
       <ul class="nota" style="margin:0 0 1rem;padding-left:1.1rem">
         <li><b>Foto de portada:</b> 1 vertical, la más especial.</li>
         <li><b>Galería:</b> de 3 a 6 fotos, verticales u horizontales.</li>
       </ul>
-      <div class="campo"><label for="m_fotos">Link de Drive con las fotos (si lo usan)</label><input id="m_fotos" name="Link de fotos" type="url" inputmode="url"></div>
-      <div class="dos">
-        <div class="campo"><label for="m_cancion">Canción de fondo</label><input id="m_cancion" name="Canción" type="text" placeholder="Nombre y artista"></div>
-        <div class="campo"><label for="m_momento">¿Desde qué parte?</label><input id="m_momento" name="Canción · desde" type="text" placeholder="Ej. desde el coro, 0:45"></div>
-      </div>
-      <span class="nota">La canción la eligen y nos envían ustedes. Si prefieren, ponemos una instrumental libre de derechos.</span>
+      <div class="campo"><label for="m_fotos">Link de las fotos <span class="req">*</span></label><input id="m_fotos" name="Link de fotos" type="url" inputmode="url" placeholder="https://drive.google.com/…" required><span class="nota">Una carpeta de Google Drive o un álbum de Google Fotos. Si quieren, nombren la de portada “portada”.</span></div>
+      <div class="campo"><label for="m_cancion">Link de la canción de fondo <span class="req">*</span></label><input id="m_cancion" name="Link de la canción" type="url" inputmode="url" placeholder="https://youtube.com/… o https://drive.google.com/…" required><span class="nota">De YouTube o de Google Drive. La canción la eligen ustedes.</span></div>
+      <div class="campo"><label for="m_momento">¿Desde qué parte de la canción?</label><input id="m_momento" name="Canción · desde" type="text" placeholder="Ej. desde el coro, 0:45"></div>
     </fieldset>
 
     <fieldset>
