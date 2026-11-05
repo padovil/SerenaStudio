@@ -5,7 +5,7 @@ Uso:  python3 cambiar-dominio.py https://serenastudio.co
 """
 import pathlib, sys
 
-ACTUAL = "https://serena-studio.vercel.app"
+ACTUAL = "https://serenastudio-peach.vercel.app"
 
 if len(sys.argv) != 2 or not sys.argv[1].startswith("https://"):
     sys.exit("Uso: python3 cambiar-dominio.py https://nuevo-dominio.com")

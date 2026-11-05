@@ -2,7 +2,7 @@
 
 Sitio de Serena Studio: página del estudio, muestras de invitaciones y las invitaciones de clientes, todo en un solo proyecto.
 
-Dominio provisional: https://serena-studio.vercel.app
+Dominio provisional: https://serenastudio-peach.vercel.app
 
 ## Estructura
 
@@ -25,7 +25,7 @@ Así, cambiar una invitación nunca afecta a otra.
 
 1. En vercel.com: **Add New → Project**, importar este repositorio.
 2. Framework: **Other**. Sin comando de build. Directorio de salida: la raíz.
-3. Nombre del proyecto: `serena-studio` (queda en `serena-studio.vercel.app`).
+3. Proyecto publicado como `serenastudio` en `serenastudio-peach.vercel.app`.
 
 Cada `git push` a `main` publica el sitio completo en un par de minutos.
 

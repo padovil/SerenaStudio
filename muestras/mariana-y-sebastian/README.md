@@ -2,7 +2,7 @@
 
 Muestra de portafolio de **Serena Studio**. Datos ficticios.
 
-Sitio: https://serena-studio.vercel.app/muestras/mariana-y-sebastian/
+Sitio: https://serenastudio-peach.vercel.app/muestras/mariana-y-sebastian/
 
 ## Archivos
 

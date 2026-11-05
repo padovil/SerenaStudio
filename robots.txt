@@ -5,4 +5,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://serena-studio.vercel.app/sitemap.xml
+Sitemap: https://serenastudio-peach.vercel.app/sitemap.xml

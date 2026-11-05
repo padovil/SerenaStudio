@@ -3,7 +3,7 @@
 © 2026 Serena Studio. Todos los derechos reservados (ver `LICENSE`).
 
 Muestra de portafolio de invitación digital de boda. Datos de la pareja, lugares y cuenta bancaria son de ejemplo.
-Publicada en https://serena-studio.vercel.app/muestras/camila-y-andres/
+Publicada en https://serenastudio-peach.vercel.app/muestras/camila-y-andres/
 
 ## Archivos
 
@@ -22,7 +22,7 @@ Publicada en https://serena-studio.vercel.app/muestras/camila-y-andres/
 
 ## Personalizar el link por invitado
 
-`https://serena-studio.vercel.app/muestras/camila-y-andres/?para=Familia%20Gómez&cupos=3`
+`https://serenastudio-peach.vercel.app/muestras/camila-y-andres/?para=Familia%20Gómez&cupos=3`
 
 - `para`: nombre del saludo (máx. 60 caracteres; se muestra como texto plano).
 - `cupos`: número de lugares reservados (se convierte a número; limita el selector de personas).

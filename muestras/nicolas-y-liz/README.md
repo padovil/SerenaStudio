@@ -2,8 +2,8 @@
 
 Muestra de portafolio de **Serena Studio**: invitación web para la boda del lunes 7 de diciembre de 2026 en La Marqueza (La Calera, Cundinamarca).
 
-URL publicada: https://serena-studio.vercel.app/muestras/nicolas-y-liz/
-Link personalizado por invitado: `https://serena-studio.vercel.app/muestras/nicolas-y-liz/?para=Familia%20Pérez&cupos=2`
+URL publicada: https://serenastudio-peach.vercel.app/muestras/nicolas-y-liz/
+Link personalizado por invitado: `https://serenastudio-peach.vercel.app/muestras/nicolas-y-liz/?para=Familia%20Pérez&cupos=2`
 
 ## Archivos
 
