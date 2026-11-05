@@ -352,8 +352,12 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     <fieldset>
       <legend><span>12 · Revisión</span>Aprobación</legend>
       <div class="dos">
-        <div class="campo"><label for="a_quien">¿Quién aprueba la invitación?</label><input id="a_quien" name="Quién aprueba" type="text"></div>
+        <div class="campo"><label for="a_quien">¿Quién aprueba la invitación?</label><input id="a_quien" name="Quién aprueba" type="text" autocomplete="off"></div>
         <div class="campo"><label for="a_hora">¿En qué horario los contactamos?</label><input id="a_hora" name="Horario de contacto" type="text" placeholder="Ej. entre semana después de las 6 p. m."></div>
+      </div>
+      <div class="dos">
+        <div class="campo"><label for="a_tel">Teléfono de quien aprueba</label><input id="a_tel" name="Teléfono de quien aprueba" type="tel" inputmode="tel" autocomplete="off" placeholder="300 123 4567"></div>
+        <div class="campo"><label for="a_correo">Correo de quien aprueba</label><input id="a_correo" name="Correo de quien aprueba" type="email" inputmode="email" autocomplete="off" placeholder="nombre@gmail.com"></div>
       </div>
       <div class="campo"><label for="a_otro">¿Algo más que debamos saber?</label><textarea id="a_otro" name="Comentarios"></textarea></div>
     </fieldset>
