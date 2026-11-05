@@ -152,12 +152,16 @@ function condicionales(){
     ? "Su invitación se diseña desde cero. Si alguna de nuestras muestras les gusta como punto de partida, elíjanla; si no, elijan “Un diseño nuevo” y cuéntennos su idea en referencias."
     : "Partimos de una de nuestras muestras y la adaptamos a ustedes. Elijan la que más les guste y luego cuéntennos qué quieren cambiar.";
   const conForm = tiene("form");
-  $("r_hoja").closest("label").style.display = conForm ? "" : "none";
+  $("r_metodo").hidden = !conForm;
   if (!conForm && $("r_hoja").checked) $("r_wa").checked = true;
   if (conForm && conFormAntes === false) $("r_hoja").checked = true;
   conFormAntes = conForm;
-  $("r_nota_wa").hidden = conForm || !(plan === "esencial" || plan === "clasica");
+  $("r_nota_wa").hidden = conForm || !plan;
+  $("r_nota_wa").textContent = "Sus invitados confirman por WhatsApp con un mensaje ya escrito." +
+    (plan === "esencial" || plan === "clasica" ? " Si prefieren un formulario que llene un Excel, lo pueden sumar como extra por $30.000 en el bloque de su paquete (viene incluido en A medida)." : "");
   $("re_otro").hidden = !$("re_mismo_no").checked;
+  $("g_trans").hidden = !form.querySelector('input[name="Regalos"][value="Transferencia"]').checked;
+  $("g_mesa_box").hidden = !form.querySelector('input[name="Regalos"][value="Mesa de regalos"]').checked;
   const nuevo = $("d_muestra").value.startsWith("Un diseño nuevo");
   $("d_colores_radio").hidden = nuevo;
   $("d_colores_box").hidden = !(nuevo || $("d_cambiar").checked);

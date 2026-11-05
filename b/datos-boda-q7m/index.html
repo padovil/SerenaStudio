@@ -47,11 +47,14 @@ main{max-width:40rem;margin:0 auto;padding:1.6rem max(18px, env(safe-area-inset-
 fieldset{border:0;margin:0 0 1.2rem;padding:1.5rem 1.2rem 1.3rem;background:var(--hoja);border-radius:10px;border:1px solid var(--linea);min-width:0}
 legend{float:left;width:100%;padding:0;margin:0 0 1rem;font:400 1.5rem/1.2 var(--f-titulo)}
 legend span{display:block;font:600 .7rem/1 var(--f-texto);letter-spacing:.24em;text-transform:uppercase;color:var(--oro-osc);margin-bottom:.45rem}
-legend + *{clear:both}
+legend ~ *{clear:both}
 .ayuda{font-size:.9rem;color:var(--pizarra);margin:-.4rem 0 1rem}
-.campo{display:grid;gap:.35rem;margin-bottom:1rem}
+.campo{display:grid;gap:.35rem;margin-bottom:1rem;align-content:start}
 .campo:last-child{margin-bottom:0}
-.dos{display:grid;grid-template-columns:1fr 1fr;gap:0 .9rem}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:1rem .9rem;margin-bottom:1rem}
+.dos:last-child{margin-bottom:0}
+#r_hoja_box,#r_wa_box{margin-bottom:1rem}
+.dos > .campo{margin-bottom:0}
 @media (max-width:30rem){.dos{grid-template-columns:1fr}}
 label,.etq{font-weight:500;font-size:.95rem}
 .req{color:var(--oro-osc)}
@@ -246,8 +249,8 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <label><input type="checkbox" name="Regalos" value="Mesa de regalos"> Mesa de regalos</label>
         <label><input type="checkbox" name="Regalos" value="Solo su presencia"> Solo su presencia</label>
       </div>
-      <div class="sub" style="margin-top:1rem">
-        <p class="ayuda" style="margin:0 0 .8rem">Si quieren transferencia: puede ser cuenta o llave Bre-B / Nequi. Por seguridad, en la invitación podemos mostrar solo la llave.</p>
+      <div class="sub" id="g_trans" style="margin-top:1rem" hidden>
+        <p class="ayuda" style="margin:0 0 .8rem">Para la transferencia puede ser cuenta o llave Bre-B / Nequi. Por seguridad, en la invitación podemos mostrar solo la llave.</p>
         <div class="dos">
           <div class="campo"><label for="g_banco">Banco o app</label><input id="g_banco" name="Regalos · banco" type="text"></div>
           <div class="campo"><label for="g_tipo">Tipo de cuenta o llave</label><input id="g_tipo" name="Regalos · tipo" type="text" placeholder="Ahorros, llave Bre-B…"></div>
@@ -256,18 +259,20 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
           <div class="campo"><label for="g_numero">Número o llave</label><input id="g_numero" name="Regalos · número" type="text" inputmode="numeric" autocomplete="off"></div>
           <div class="campo"><label for="g_titular">Titular</label><input id="g_titular" name="Regalos · titular" type="text"></div>
         </div>
-        <div class="campo"><label for="g_mesa">Link de la mesa de regalos</label><input id="g_mesa" name="Regalos · link mesa" type="url" inputmode="url"></div>
+      </div>
+      <div class="sub" id="g_mesa_box" style="margin-top:1rem" hidden>
+        <div class="campo" style="margin:0"><label for="g_mesa">Link de la mesa de regalos</label><input id="g_mesa" name="Regalos · link mesa" type="url" inputmode="url"></div>
       </div>
     </fieldset>
 
     <fieldset>
       <legend><span>8 · Confirmación</span>Asistencia e invitados</legend>
-      <div class="campo"><span class="etq">¿Cómo quieren recibir las confirmaciones?</span>
+      <div class="campo" id="r_metodo"><span class="etq">¿Cómo quieren recibir las confirmaciones?</span>
         <div class="opciones">
           <label><input type="radio" name="Método de confirmación" value="Formulario que llena un Excel" id="r_hoja" checked> Formulario en la invitación que llena un Excel</label>
           <label><input type="radio" name="Método de confirmación" value="WhatsApp" id="r_wa"> Mensaje por WhatsApp</label>
         </div></div>
-      <p class="nota" id="r_nota_wa" hidden style="margin:-.4rem 0 1rem">Su paquete incluye la confirmación por WhatsApp. Si prefieren un formulario que llene un Excel, lo pueden sumar como extra por $30.000 en el bloque de su paquete (viene incluido en A medida).</p>
+      <p class="nota" id="r_nota_wa" hidden style="margin:-.4rem 0 1rem">Sus invitados confirman por WhatsApp con un mensaje ya escrito. Si prefieren un formulario que llene un Excel, lo pueden sumar como extra por $30.000 en el bloque de su paquete (viene incluido en A medida).</p>
       <div class="si-no" id="r_hoja_box">
         <p class="ayuda" style="margin:0 0 .8rem">Cada invitado llena el formulario dentro de la invitación y su respuesta queda en una hoja de Google que se descarga en Excel. Les compartimos la hoja a su correo para que la vean en tiempo real.</p>
         <div class="campo"><label for="r_gmail">Correos Gmail para compartirles la hoja <span class="req">*</span></label><input id="r_gmail" name="Correos para la hoja de confirmaciones" type="email" multiple inputmode="email" autocomplete="off" placeholder="laura@gmail.com, felipe@gmail.com" required><span class="nota">Si son varios, sepárenlos con comas.</span></div>
