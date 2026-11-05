@@ -22,7 +22,7 @@ const MEDIDA_OPCIONAL = [
   ["", "Foto de portada"], ["", "Código de vestimenta"], ["", "Regalos o lluvia de sobres con botón “Copiar”"], ["", "Vista previa al compartir en WhatsApp"],
   ["", "Galería de fotos"], ["musica", "Música de fondo con su canción"], ["", "Cronograma del día"], ["", "Preguntas frecuentes"],
   ["", "Mapa dentro de la invitación"], ["", "Calendario del mes con su fecha marcada"], ["", "Contacto de su organizadora o wedding planner"],
-  ["form", "Formulario de confirmación con número de personas y alergias"], ["links", "Link con el nombre y los cupos de cada invitado"],
+  ["form", "Formulario de confirmación que llena un Excel (número de personas y alergias)"], ["links", "Link con el nombre y los cupos de cada invitado"],
   ["", "Nuestra historia"], ["hospedaje", "Hospedaje sugerido para sus invitados"], ["", "Hashtag de la boda"], ["", "Monograma con sus iniciales"],
   ["", "Sobre animado o portada ilustrada"], ["pdfv", "Versión PDF de la invitación"]
 ];
@@ -31,7 +31,7 @@ const TODOS = p => ({ esencial: p, clasica: p, medida: p, pdf: p });
 const ITEMS = [
   { id: "hospedaje", nombre: "Hospedaje sugerido", incl: ["medida"], precio: {} },
   { id: "musica",  nombre: "Música de fondo con su canción", incl: ["clasica", "medida"], precio: { esencial: 30000 } },
-  { id: "form",    nombre: "Formulario de confirmación que llena una hoja de cálculo", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
+  { id: "form",    nombre: "Formulario de confirmación que llena un Excel (número de personas y alergias)", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
   { id: "links",   nombre: "Link con el nombre y los cupos de cada invitado", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
   { id: "pdfv",    nombre: "Versión PDF de la invitación", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
   { id: "qr",      nombre: "QR para que los invitados suban sus fotos", incl: [], precio: TODOS(40000) },
@@ -108,6 +108,7 @@ function pintarPaquete(){
 }
 
 /* ---------- Mostrar u ocultar bloques condicionales ---------- */
+let conFormAntes = null;
 function condicionales(){
   pintarPaquete();
   const plan = planActual();
@@ -117,6 +118,9 @@ function condicionales(){
   const conForm = tiene("form");
   $("r_hoja").closest("label").style.display = conForm ? "" : "none";
   if (!conForm && $("r_hoja").checked) $("r_wa").checked = true;
+  if (conForm && conFormAntes === false) $("r_hoja").checked = true;
+  conFormAntes = conForm;
+  $("r_nota_wa").hidden = conForm || !(plan === "esencial" || plan === "clasica");
   $("re_otro").hidden = !$("re_mismo_no").checked;
   $("d_colores_box").hidden = !$("d_cambiar").checked;
   $("q_link_box").hidden = !$("q_tengo").checked;

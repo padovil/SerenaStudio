@@ -261,11 +261,12 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <legend><span>8 · Confirmación</span>Asistencia e invitados</legend>
       <div class="campo"><span class="etq">¿Cómo quieren recibir las confirmaciones?</span>
         <div class="opciones">
-          <label><input type="radio" name="Método de confirmación" value="Formulario que llena una hoja de cálculo" id="r_hoja" checked> Formulario en la invitación que llena una hoja de cálculo</label>
+          <label><input type="radio" name="Método de confirmación" value="Formulario que llena un Excel" id="r_hoja" checked> Formulario en la invitación que llena un Excel</label>
           <label><input type="radio" name="Método de confirmación" value="WhatsApp" id="r_wa"> Mensaje por WhatsApp</label>
         </div></div>
+      <p class="nota" id="r_nota_wa" hidden style="margin:-.4rem 0 1rem">Su paquete incluye la confirmación por WhatsApp. Si prefieren un formulario que llene un Excel, lo pueden sumar como extra por $30.000 en el bloque de su paquete (viene incluido en A medida).</p>
       <div class="si-no" id="r_hoja_box">
-        <p class="ayuda" style="margin:0 0 .8rem">Cada invitado llena el formulario dentro de la invitación y su respuesta queda en una hoja de Google (se puede descargar en Excel). Les compartimos la hoja a su correo para que la vean en tiempo real.</p>
+        <p class="ayuda" style="margin:0 0 .8rem">Cada invitado llena el formulario dentro de la invitación y su respuesta queda en una hoja de Google que se descarga en Excel. Les compartimos la hoja a su correo para que la vean en tiempo real.</p>
         <div class="campo"><label for="r_gmail">Correos Gmail para compartirles la hoja <span class="req">*</span></label><input id="r_gmail" name="Correos para la hoja de confirmaciones" type="email" multiple inputmode="email" autocomplete="off" placeholder="laura@gmail.com, felipe@gmail.com" required><span class="nota">Si son varios, sepárenlos con comas.</span></div>
         <div class="campo"><span class="etq">¿Qué preguntamos en el formulario?</span>
           <p class="nota" style="margin:0 0 .5rem">Nombre y si asiste van siempre.</p>
