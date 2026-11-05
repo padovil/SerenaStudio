@@ -13,12 +13,23 @@ const PLANES = { esencial: 180000, clasica: 260000, medida: 400000, pdf: 130000 
 const INCLUYE = {
   esencial: ["Nombres, fecha, ceremonia y recepción", "Colores y tipografía a su elección", "“Cómo llegar” con Google Maps", "Cuenta regresiva y botón de calendario", "Confirmación de asistencia por WhatsApp", "Foto de portada", "Código de vestimenta", "Regalos o lluvia de sobres con botón “Copiar”", "Vista previa al compartir en WhatsApp", "1 ronda de ajustes", "En línea hasta 1 mes después de la boda"],
   clasica: ["Todo lo de Esencial", "Galería de fotos", "Música de fondo con su canción", "Cronograma del día", "Preguntas frecuentes", "Mapa dentro de la invitación", "Calendario del mes con su fecha marcada", "Contacto de su organizadora o wedding planner", "2 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
-  medida: ["Todo lo de Clásica", "Formulario de confirmación con número de personas y alergias", "Link con el nombre y los cupos de cada invitado", "Nuestra historia", "Hospedaje sugerido para sus invitados", "Hashtag de la boda", "Monograma con sus iniciales", "Sobre animado o portada ilustrada", "Versión PDF de la invitación", "3 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
+  medida: ["Nombres, fecha, ceremonia y recepción", "3 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
   pdf: ["Hasta 3 páginas", "Enlaces a ubicación, confirmación por WhatsApp y calendario", "Ceremonia, recepción, programa, vestimenta y regalos", "Colores y tipografía a su elección", "1 ronda de ajustes"]
 };
+/* A medida: lo incluido se puede desmarcar (id = sección que activa) */
+const MEDIDA_OPCIONAL = [
+  ["", "Colores y tipografía a su elección"], ["", "“Cómo llegar” con Google Maps"], ["", "Cuenta regresiva y botón de calendario"],
+  ["", "Foto de portada"], ["", "Código de vestimenta"], ["", "Regalos o lluvia de sobres con botón “Copiar”"], ["", "Vista previa al compartir en WhatsApp"],
+  ["", "Galería de fotos"], ["musica", "Música de fondo con su canción"], ["", "Cronograma del día"], ["", "Preguntas frecuentes"],
+  ["", "Mapa dentro de la invitación"], ["", "Calendario del mes con su fecha marcada"], ["", "Contacto de su organizadora o wedding planner"],
+  ["form", "Formulario de confirmación con número de personas y alergias"], ["links", "Link con el nombre y los cupos de cada invitado"],
+  ["", "Nuestra historia"], ["hospedaje", "Hospedaje sugerido para sus invitados"], ["", "Hashtag de la boda"], ["", "Monograma con sus iniciales"],
+  ["", "Sobre animado o portada ilustrada"], ["pdfv", "Versión PDF de la invitación"]
+];
 /* incl: paquetes donde ya viene incluido · precio: valor como extra por paquete */
 const TODOS = p => ({ esencial: p, clasica: p, medida: p, pdf: p });
 const ITEMS = [
+  { id: "hospedaje", nombre: "Hospedaje sugerido", incl: ["medida"], precio: {} },
   { id: "musica",  nombre: "Música de fondo con su canción", incl: ["clasica", "medida"], precio: { esencial: 30000 } },
   { id: "form",    nombre: "Formulario de confirmación que llena una hoja de cálculo", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
   { id: "links",   nombre: "Link con el nombre y los cupos de cada invitado", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
@@ -27,6 +38,9 @@ const ITEMS = [
   { id: "estados", nombre: "Imagen para estados o “save the date”", incl: [], precio: TODOS(40000) },
   { id: "idioma",  nombre: "Otro idioma", incl: [], precio: TODOS(50000) },
   { id: "ronda",   nombre: "Ronda de ajustes adicional", incl: [], precio: TODOS(30000) },
+  { id: "exp-mitad", grupo: "express", nombre: "Entrega express: primera versión en la mitad del tiempo", incl: [], precio: { esencial: 40000, clasica: 60000, medida: 90000, pdf: 30000 },
+    dias: { esencial: 3, clasica: 4, medida: 5, pdf: 3 } },
+  { id: "exp-hoy", grupo: "express", nombre: "Entrega express: primera versión el mismo día", incl: [], precio: { esencial: 70000, clasica: 110000, medida: 160000, pdf: 50000 } },
   { id: "dominio", nombre: "Dominio propio por un año", incl: [], precio: { esencial: 90000, clasica: 90000, medida: 90000 } }
 ];
 /* Precio acordado para un cliente: ?paquete=medida&precio=340000 */
@@ -39,6 +53,7 @@ const precioBase = plan => (PRECIO_ESPECIAL.precio && PRECIO_ESPECIAL.plan === p
 function tiene(id){
   const plan = planActual(); const it = ITEMS.find(i => i.id === id);
   if (!plan || !it) return false;
+  if (plan === "medida") { const o = $("p_incluye").querySelector('input[data-inc="' + id + '"]'); if (o) return o.checked; }
   if (it.incl.includes(plan)) return true;
   const c = $("p_extras").querySelector('input[data-id="' + id + '"]');
   return !!(c && c.checked);
@@ -56,12 +71,27 @@ function pintarPaquete(){
     const ul = document.createElement("ul");
     INCLUYE[plan].forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.append(li); });
     inc.append(ul);
+    if (plan === "medida") {
+      const t = document.createElement("p"); t.className = "nota"; t.style.margin = ".8rem 0 .5rem";
+      t.textContent = "Desmarquen lo que no quieran en su invitación:"; inc.append(t);
+      const caja = document.createElement("div"); caja.className = "extras";
+      MEDIDA_OPCIONAL.forEach(([id, txt]) => {
+        const l = document.createElement("label"); l.className = "extra";
+        const c = document.createElement("input"); c.type = "checkbox"; c.name = "Del paquete quieren"; c.value = txt; c.checked = true; c.dataset.omitir = "1";
+        if (id) c.dataset.inc = id;
+        const sp = document.createElement("span"); sp.textContent = txt;
+        l.append(c, sp); caja.append(l);
+      });
+      inc.append(caja);
+    }
     const ex = $("p_extras"); ex.innerHTML = "";
     ITEMS.filter(i => i.precio[plan] && !i.incl.includes(plan)).forEach(i => {
       const l = document.createElement("label"); l.className = "extra";
       const c = document.createElement("input"); c.type = "checkbox"; c.name = "Extras";
-      c.value = i.nombre + " (+" + pesos(i.precio[plan]) + ")"; c.dataset.id = i.id; c.dataset.precio = i.precio[plan]; c.checked = antes.has(i.id);
-      const t = document.createElement("span"); t.textContent = i.nombre;
+      if (i.grupo) c.dataset.grupo = i.grupo;
+      const nom = i.dias ? i.nombre + " (" + i.dias[plan] + " días hábiles)" : i.nombre;
+      c.value = nom + " (+" + pesos(i.precio[plan]) + ")"; c.dataset.id = i.id; c.dataset.precio = i.precio[plan]; c.checked = antes.has(i.id);
+      const t = document.createElement("span"); t.textContent = nom;
       const pr = document.createElement("b"); pr.textContent = "+" + pesos(i.precio[plan]);
       l.append(c, t, pr); ex.append(l);
     });
@@ -72,6 +102,7 @@ function pintarPaquete(){
   $("p_total").textContent = pesos(total);
   const especial = precioBase(plan) !== PLANES[plan] ? " (precio acordado " + pesos(precioBase(plan)) + " + extras)" : "";
   $("p_total_in").value = pesos(total) + especial;
+  $("p_quitar").value = [...$("p_incluye").querySelectorAll("input:not(:checked)")].map(c => c.value).join(", ");
   $("total_barra").textContent = "Total estimado: " + pesos(total);
   $("total_barra").hidden = false;
 }
@@ -82,7 +113,7 @@ function condicionales(){
   const plan = planActual();
   $("m_musica_box").hidden = !tiene("musica");
   $("fs_qr").hidden = !tiene("qr");
-  $("fs_hospedaje").hidden = plan !== "medida";
+  $("fs_hospedaje").hidden = !(plan === "medida" && tiene("hospedaje"));
   const conForm = tiene("form");
   $("r_hoja").closest("label").style.display = conForm ? "" : "none";
   if (!conForm && $("r_hoja").checked) $("r_wa").checked = true;
@@ -128,6 +159,11 @@ function cargar(){
     if (el.type === "checkbox" || el.type === "radio") el.checked = !!datos[k]; else el.value = datos[k];
   });
 }
+/* Solo una opción de entrega express a la vez */
+form.addEventListener("change", e => {
+  const c = e.target;
+  if (c.dataset && c.dataset.grupo && c.checked) form.querySelectorAll('input[data-grupo="' + c.dataset.grupo + '"]').forEach(x => { if (x !== c) x.checked = false; });
+}, true);
 let t;
 form.addEventListener("input", () => { condicionales(); clearTimeout(t); t = setTimeout(guardar, 400); });
 form.addEventListener("change", e => { if (e.target.value) e.target.removeAttribute("aria-invalid"); condicionales(); guardar(); });
@@ -182,7 +218,7 @@ function resumen(){
     const items = [];
     const vistos = new Set();
     fs.querySelectorAll("input, select, textarea").forEach(el => {
-      if (el.closest("[hidden]")) return;
+      if (el.closest("[hidden]") || el.dataset.omitir) return;
       let v = "";
       if (el.type === "checkbox" || el.type === "radio") {
         if (vistos.has(el.name)) return; vistos.add(el.name);
