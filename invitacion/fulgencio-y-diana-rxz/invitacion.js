@@ -152,7 +152,6 @@ btnMusica.addEventListener("click", () => {
 (function(){
   $("btn-hospedaje-wa").href = "https://wa.me/" + EVENTO.hospedajeTel + "?text=" +
     encodeURIComponent("Hola Carlos, voy a la boda de " + EVENTO.novios + " el 5 de diciembre y quisiera información sobre el hospedaje.");
-  $("btn-hospedaje-tel").href = "tel:+" + EVENTO.hospedajeTel;
 })();
 
 /* ---------- Álbum de fotos (QR) ---------- */
