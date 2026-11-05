@@ -130,6 +130,14 @@
       },
       {
         "@type": "Question",
+        "name": "¿Con cuánto tiempo debemos pedirla?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lo ideal es enviarla a sus invitados entre dos y tres meses antes de la boda, y con más tiempo si vienen invitados de otras ciudades o del exterior. Como la primera versión llega en 3 días, con un mes de margen alcanzan a ajustarla con calma."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "¿Cuánto se demora?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -483,14 +491,16 @@ td svg{color:var(--oro-osc)}
 .puente a{color:var(--tinta);font-weight:600;text-decoration-color:var(--oro);text-underline-offset:4px;white-space:nowrap}
 .puente a:hover{color:var(--oro-osc)}
 .sello{display:inline-block;margin-bottom:.45rem;padding:.2rem .5rem;background:var(--tinta);color:var(--oro-claro);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.3}
-@media (max-width:30rem){.sello{font-size:.5rem;letter-spacing:0;padding:.15rem .25rem;max-width:100%;box-sizing:border-box}}
-@media (max-width:22rem){.sello{font-size:.44rem;padding-inline:.15rem}}
+@media (max-width:30rem){.sello{font-size:.46rem;letter-spacing:0;padding:.15rem .2rem;max-width:100%;box-sizing:border-box;white-space:nowrap}}
+@media (max-width:22rem){.sello{font-size:.42rem;padding-inline:.12rem}}
 .guia{margin-top:2.4rem;max-width:46rem}
 .guia h3{font-size:1.6rem;margin-bottom:.8rem}
 .guia ul{margin:0;padding:0;list-style:none;display:grid;gap:.75rem}
 .guia li{padding-left:1rem;border-left:2px solid var(--oro)}
 .guia b{color:var(--tinta)}
 .intro-pasos{margin:.9rem 0 0;max-width:36rem;color:var(--claro)}
+.por-invitado{margin:1.2rem 0 0;color:var(--pizarra)}
+.por-invitado b{color:var(--tinta);font-variant-numeric:lining-nums}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .muestra .cel{transition:none}
@@ -623,13 +633,13 @@ td svg{color:var(--oro-osc)}
 
     <div class="tabla-caja" role="region" aria-labelledby="t-precios" tabindex="0">
       <table>
-        <caption class="sr">Comparación de los paquetes Esencial, Completa y A medida</caption>
+        <caption class="sr">Comparación de los paquetes A medida, Completa y Esencial</caption>
         <thead>
           <tr>
             <th scope="col"><span class="sr">Qué incluye</span></th>
-            <th scope="col"><span class="paq">Esencial</span><span class="monto">$180.000</span><span class="que">Uno de estos diseños con sus datos y colores</span></th>
-            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Completa</span><span class="monto">$260.000</span><span class="que">Con fotos, música y link por invitado</span></th>
             <th scope="col"><span class="paq">A medida</span><span class="monto">$340.000</span><span class="que">Un diseño creado desde cero</span></th>
+            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Completa</span><span class="monto">$260.000</span><span class="que">Con fotos, música y link por invitado</span></th>
+            <th scope="col"><span class="paq">Esencial</span><span class="monto">$180.000</span><span class="que">Uno de estos diseños con sus datos y colores</span></th>
           </tr>
         </thead>
         <tbody>
@@ -637,17 +647,17 @@ td svg{color:var(--oro-osc)}
           <tr><th scope="row">“Cómo llegar” con Google Maps</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
           <tr><th scope="row">Cuenta regresiva y botón de calendario</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
           <tr><th scope="row">Confirmación de asistencia por WhatsApp</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Foto de portada y galería</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Música de fondo con botón de play</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Regalos o lluvia de sobres con botón “Copiar”</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Cronograma y código de vestimenta</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Vista previa al compartir en WhatsApp</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Link con el nombre de cada invitado</th><td><small>+$50.000</small></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Estilo, paleta y tipografía exclusivos</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Monograma con sus iniciales</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Sobre animado o portada ilustrada</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Versión PDF de la invitación</th><td><small>+$40.000</small></td><td class="col-dest"><small>+$40.000</small></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
-          <tr><th scope="row">Rondas de ajustes</th><td>1</td><td class="col-dest">2</td><td>3</td></tr>
+          <tr><th scope="row">Foto de portada y galería</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Música de fondo con botón de play</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Regalos o lluvia de sobres con botón “Copiar”</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Cronograma y código de vestimenta</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Vista previa al compartir en WhatsApp</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Link con el nombre de cada invitado</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><small>+$50.000</small></td></tr>
+          <tr><th scope="row">Estilo, paleta y tipografía exclusivos</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Monograma con sus iniciales</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Sobre animado o portada ilustrada</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
+          <tr><th scope="row">Versión PDF de la invitación</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><small>+$40.000</small></td><td><small>+$40.000</small></td></tr>
+          <tr><th scope="row">Rondas de ajustes</th><td>3</td><td class="col-dest">2</td><td>1</td></tr>
         </tbody>
       </table>
     </div>
@@ -655,10 +665,11 @@ td svg{color:var(--oro-osc)}
     <div class="guia">
       <h3>¿Cuál les conviene?</h3>
       <ul>
-        <li><b>Esencial</b> si lo que necesitan es que todos sepan cuándo y dónde, y recibir las confirmaciones por WhatsApp.</li>
-        <li><b>Completa</b> si quieren sus fotos, su canción y que cada invitado vea su nombre al abrirla. El Esencial con link por invitado ya suma $230.000. Por $30.000 más, la Completa trae también galería, música, regalos y cronograma.</li>
         <li><b>A medida</b> si quieren un diseño que no tenga ninguna otra pareja, con su monograma y la versión PDF incluida.</li>
+        <li><b>Completa</b> si quieren sus fotos, su canción y que cada invitado vea su nombre al abrirla. El Esencial con link por invitado ya suma $230.000. Por $30.000 más, la Completa trae también galería, música, regalos y cronograma.</li>
+        <li><b>Esencial</b> si lo que necesitan es que todos sepan cuándo y dónde, y recibir las confirmaciones por WhatsApp.</li>
       </ul>
+      <p class="por-invitado">Con 150 invitados, la Completa sale a menos de <b>$1.800 por invitado</b>, con la publicación incluida.</p>
     </div>
 
     <div class="otros">
@@ -694,6 +705,8 @@ td svg{color:var(--oro-osc)}
       <p>Los nombres como quieren que aparezcan, la fecha y hora, los lugares de la ceremonia y la recepción con su ubicación, la fecha límite para confirmar y, según el paquete, sus fotos, la canción y los datos de regalos. Si algo todavía no está definido, empezamos con lo que tengan.</p></details>
     <details><summary>¿Y los invitados que no usan mucho el celular?</summary>
       <p>La invitación se abre como cualquier link de WhatsApp, sin instalar nada ni crear cuentas. Para quienes prefieren algo impreso o para reenviar por correo, pueden pedir la versión PDF, que viene incluida en el paquete A medida.</p></details>
+    <details><summary>¿Con cuánto tiempo debemos pedirla?</summary>
+      <p>Lo ideal es enviarla a sus invitados entre dos y tres meses antes de la boda, y con más tiempo si vienen invitados de otras ciudades o del exterior. Como la primera versión llega en 3 días, con un mes de margen alcanzan a ajustarla con calma.</p></details>
     <details><summary>¿Cuánto se demora?</summary>
       <p>Reciben la primera versión 3 días después de enviarnos los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
     <details><summary>¿Atienden bodas fuera de Bogotá?</summary>
