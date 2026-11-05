@@ -438,13 +438,14 @@ td svg{color:var(--oro-osc)}
 .solo-pdf{border-color:var(--oro)}
 .solo-pdf strong{color:var(--oro-osc)}
 
-/* Proceso sobre plata */
-.proceso{background:var(--plata);color:var(--tinta);border-top:0}
-.proceso h2,.proceso h3,.proceso p{color:var(--tinta)}
-.pasos li::before{color:var(--tinta)}
-.pasos li{border-top-color:rgba(28,31,36,.3)}
-@media (min-width:56rem){.pasos li{border-top-color:var(--tinta)}}
-.proceso :focus-visible{outline-color:var(--tinta)}
+/* Proceso sobre noche, igual que la portada */
+.proceso{background:var(--tinta);color:var(--papel);border-top:0}
+.proceso h2,.proceso h3{color:var(--papel)}
+.proceso p{color:var(--claro)}
+.pasos li::before{color:var(--oro)}
+.pasos li{border-top-color:rgba(154,163,173,.3)}
+@media (min-width:56rem){.pasos li{border-top-color:var(--oro)}}
+.proceso :focus-visible{outline-color:var(--oro)}
 
 /* Pie sobre noche */
 .pie-oscuro{background:var(--tinta);color:var(--claro)}
