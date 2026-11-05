@@ -1,0 +1,13 @@
+# Bruma
+
+*Manifiesto visual de Serena Studio. Lámina: `lamina-bruma.jpg`. Reemplaza a "Materia". Paleta entregada por el estudio: Eucalyptus #98AA9D, Mist #B3C9D6, Plaster #F2EFE2, Soot #2D3536, Moss #697C70.*
+
+**Bruma** es la calma con carácter. Nace de la hora en que la luz entra filtrada por una ventana y todo lo vegetal se vuelve gris verdoso, cuando el aire tiene color y los objetos parecen flotar en él. Su elegancia no viene de la suavidad sino del contraste: tonos de hoja y de cielo nublado que se apoyan en un solo negro carbón, profundo y firme, que les da peso y presencia. Es una estética serena que no pide permiso, ejecutada con el cuidado de alguien que ha pasado años mezclando pigmentos hasta encontrar el gris exacto: meticulosamente calibrada, sin un tono fuera de lugar.
+
+**Color y luz.** La paleta tiene dos temperaturas y un ancla. El eucalipto y el musgo son la vida vegetal, apagada y sobria; la bruma es un azul de cielo cubierto, el único tono frío, que aporta aire y sorpresa; el yeso es la luz, la pared encalada sobre la que todo descansa; el hollín es la gravedad, un carbón con un fondo verde que ordena y sostiene. Los tonos claros nunca se enfrentan entre sí: solo dialogan con el oscuro. Esa disciplina de contraste es fruto de una calibración paciente, tono contra tono, hasta que cada combinación se lee con nitidez y belleza.
+
+**Forma y crecimiento.** Las formas vienen de la botánica: hojas redondas que se ordenan en espiral, tallos que se curvan, racimos que crecen siguiendo una regla secreta. La acumulación es el método: cientos de formas iguales, dispuestas según una proporción precisa, que juntas construyen algo vivo. Cada hoja se dibuja con la misma atención, y el conjunto debe sentirse como el estudio de un naturalista que pasó estaciones enteras observando una sola rama.
+
+**Escala y tipografía.** Una serifa de alto contraste aparece en tamaños monumentales, con la cursiva reservada para el momento emotivo. Frente a ella, rótulos diminutos y espaciados en mayúsculas, como las etiquetas de un herbario. No hay tamaños intermedios que diluyan la tensión. Cada letra y cada espacio se ajustan a mano, con la precisión de un tipógrafo que trabaja punto por punto.
+
+**Composición y presencia.** La composición alterna campos completos de color, oscuro, vegetal, claro, frío, como estaciones de un mismo día. Dentro de cada campo, una sola forma manda y todo lo demás la rodea con calma. Una hoja azul entre cientos verdes basta para que la mirada se detenga y recuerde. El texto es escaso y esencial, colocado como una firma. El resultado debe sentirse como obra de incontables horas de alguien en la cima de su oficio: sereno a primera vista, inolvidable al mirarlo dos veces.

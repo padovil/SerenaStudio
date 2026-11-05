@@ -1,6 +1,6 @@
 # Materia
 
-*Manifiesto visual de Serena Studio. Lámina: `lamina-materia.jpg`. Reemplaza a "Carmín". Paleta tomada de una referencia de color entregada por el estudio.*
+*Manifiesto visual de Serena Studio (versión anterior, reemplazada por `bruma.md`). Lámina: `lamina-materia.jpg`.*
 
 **Materia** entiende el color como algo que se toca. Cada tono pertenece a una sustancia: el hueso de una tela de lino sin teñir, el espresso de una madera encerada, la oliva tostada de una seda que guarda sombra, el óxido de un hierro que envejeció bien, el latón apagado de un metal pulido por las manos. Nada es plano ni sintético; todo parece tener peso, temperatura y pliegue. Es una estética del lujo silencioso, ejecutada con la paciencia de quien ha pasado años eligiendo telas a la luz de una ventana: meticulosamente calibrada, sin una sola decisión apresurada.
 
