@@ -54,8 +54,8 @@
     "@type": "OfferCatalog",
     "name": "Invitaciones digitales",
     "itemListElement": [
-      {"@type": "Offer", "name": "Invitación Estándar", "price": "180000", "priceCurrency": "COP"},
-      {"@type": "Offer", "name": "Invitación Esencial", "price": "260000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Invitación Esencial", "price": "180000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Invitación Clásica", "price": "260000", "priceCurrency": "COP"},
       {"@type": "Offer", "name": "Invitación A medida", "price": "400000", "priceCurrency": "COP"},
       {"@type": "Offer", "name": "Tarjeta en PDF", "price": "130000", "priceCurrency": "COP"}
     ]
@@ -109,7 +109,7 @@
         "name": "¿Cada invitado puede ver su nombre en la invitación?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en el Esencial se agrega por $40.000 y en el Estándar por $50.000."
+          "text": "Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en la Clásica y en el Esencial se agrega por $40.000."
         }
       },
       {
@@ -141,7 +141,7 @@
         "name": "¿Cuánto se demora?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Reciben la primera versión en 5 días hábiles con el Estándar, 7 con el Esencial y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete."
+          "text": "Reciben la primera versión en 5 días hábiles con el Esencial, 7 con la Clásica y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete."
         }
       },
       {
@@ -158,6 +158,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "No. Las invitaciones de nuestros clientes se publican ocultas para los buscadores, así la fecha y la dirección de su boda solo las ve quien tiene el link. Las muestras de esta página sí son públicas porque los datos son de ejemplo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es una ronda de ajustes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es una lista de cambios que nos envían en un solo mensaje: la aplicamos completa y les mostramos el resultado. En cada ronda podemos tener una reunión virtual de revisión. Si después de publicada cambia la hora o el lugar de la boda, la corrección es gratis y no cuenta como ronda."
         }
       },
       {
@@ -638,13 +646,13 @@ td svg{color:var(--oro-osc)}
 
     <div class="tabla-caja" role="region" aria-labelledby="t-precios" tabindex="0">
       <table>
-        <caption class="sr">Comparación de los paquetes A medida, Esencial y Estándar</caption>
+        <caption class="sr">Comparación de los paquetes A medida, Clásica y Esencial</caption>
         <thead>
           <tr>
             <th scope="col"><span class="sr">Qué incluye</span></th>
             <th scope="col"><span class="paq">A medida</span><span class="monto">$400.000</span><span class="que">Un diseño creado desde cero</span></th>
-            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Esencial</span><span class="monto">$260.000</span><span class="que">Con galería, música y cronograma</span></th>
-            <th scope="col"><span class="paq">Estándar</span><span class="monto">$180.000</span><span class="que">Uno de estos diseños con sus datos y colores</span></th>
+            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Clásica</span><span class="monto">$260.000</span><span class="que">Con galería, música y cronograma</span></th>
+            <th scope="col"><span class="paq">Esencial</span><span class="monto">$180.000</span><span class="que">Uno de estos diseños con sus datos y colores</span></th>
           </tr>
         </thead>
         <tbody>
@@ -661,14 +669,14 @@ td svg{color:var(--oro-osc)}
           <tr><th scope="row">Música de fondo con la canción que ustedes nos envíen</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><small>+$30.000</small></td></tr>
           <tr><th scope="row">Cronograma del día</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
           <tr><th scope="row">Preguntas frecuentes</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
-          <tr><th scope="row">Link con el nombre de cada invitado</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><small>+$40.000</small></td><td><small>+$50.000</small></td></tr>
+          <tr><th scope="row">Link con el nombre de cada invitado</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><small>+$40.000</small></td><td><small>+$40.000</small></td></tr>
           <tr><th scope="row">Nuestra historia</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
           <tr><th scope="row">Monograma con sus iniciales</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
           <tr><th scope="row">Sobre animado o portada ilustrada</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td></tr>
           <tr><th scope="row">Versión PDF de la invitación</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><small>+$40.000</small></td><td><small>+$40.000</small></td></tr>
           <tr><th scope="row">Primera versión</th><td>10 días hábiles</td><td class="col-dest">7 días hábiles</td><td>5 días hábiles</td></tr>
-          <tr><th scope="row">Tiempo en línea</th><td>12 meses</td><td class="col-dest">12 meses</td><td>6 meses</td></tr>
-          <tr><th scope="row">Rondas de ajustes</th><td>3</td><td class="col-dest">2</td><td>1</td></tr>
+          <tr><th scope="row">En línea hasta</th><td>6 meses tras la boda</td><td class="col-dest">6 meses tras la boda</td><td>1 mes tras la boda</td></tr>
+          <tr><th scope="row">Rondas de ajustes, cada una con reunión virtual</th><td>3</td><td class="col-dest">2</td><td>1</td></tr>
         </tbody>
       </table>
     </div>
@@ -677,10 +685,10 @@ td svg{color:var(--oro-osc)}
       <h3>¿Cuál les conviene?</h3>
       <ul>
         <li><b>A medida</b> si quieren un diseño que no tenga ninguna otra pareja, con su historia, su monograma, el link con el nombre de cada invitado y la versión PDF incluidos.</li>
-        <li><b>Esencial</b> si quieren una galería de fotos, su canción, el cronograma del día y las preguntas frecuentes para sus invitados. Si además quieren que cada invitado vea su nombre al abrirla, se agrega por $40.000.</li>
-        <li><b>Estándar</b> si lo que necesitan es que todos sepan cuándo y dónde, tengan los datos de regalos y confirmen por WhatsApp.</li>
+        <li><b>Clásica</b> si quieren una galería de fotos, su canción, el cronograma del día y las preguntas frecuentes para sus invitados. Si además quieren que cada invitado vea su nombre al abrirla, se agrega por $40.000.</li>
+        <li><b>Esencial</b> si lo que necesitan es que todos sepan cuándo y dónde, tengan los datos de regalos y confirmen por WhatsApp.</li>
       </ul>
-      <p class="por-invitado">Con 150 invitados, el Esencial sale a menos de <b>$1.800 por invitado</b>, con la publicación incluida.</p>
+      <p class="por-invitado">Con 150 invitados, la Clásica sale a menos de <b>$1.800 por invitado</b>, con la publicación incluida.</p>
     </div>
 
     <div class="otros">
@@ -714,7 +722,7 @@ td svg{color:var(--oro-osc)}
     <details><summary>¿Hay un límite de invitados?</summary>
       <p>No. El link de su invitación lo pueden enviar a todas las personas que quieran, sin costo adicional. Si eligen el link con el nombre de cada invitado, tampoco tiene límite.</p></details>
     <details><summary>¿Cada invitado puede ver su nombre en la invitación?</summary>
-      <p>Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en el Esencial se agrega por $40.000 y en el Estándar por $50.000.</p></details>
+      <p>Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en la Clásica y en el Esencial se agrega por $40.000.</p></details>
     <details><summary>¿Qué tenemos que enviarles?</summary>
       <p>Los nombres como quieren que aparezcan, la fecha y hora, los lugares de la ceremonia y la recepción con su ubicación, la fecha límite para confirmar y, según el paquete, sus fotos, la canción y los datos de regalos. Si algo todavía no está definido, empezamos con lo que tengan.</p></details>
     <details><summary>¿Y los invitados que no usan mucho el celular?</summary>
@@ -722,11 +730,13 @@ td svg{color:var(--oro-osc)}
     <details><summary>¿Con cuánto tiempo debemos pedirla?</summary>
       <p>Lo ideal es enviarla a sus invitados entre dos y tres meses antes de la boda, y con más tiempo si vienen invitados de otras ciudades o del exterior. Como la primera versión llega entre 5 y 10 días hábiles según el paquete, con un mes y medio de margen alcanzan a ajustarla con calma.</p></details>
     <details><summary>¿Cuánto se demora?</summary>
-      <p>Reciben la primera versión en 5 días hábiles con el Estándar, 7 con el Esencial y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
+      <p>Reciben la primera versión en 5 días hábiles con el Esencial, 7 con la Clásica y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
     <details><summary>¿Atienden bodas fuera de Bogotá?</summary>
       <p>Sí. Todo el proceso es en línea, así que diseñamos invitaciones para bodas en cualquier ciudad de Colombia y también para bodas en el exterior. Podemos hacer una versión en otro idioma.</p></details>
     <details><summary>¿Nuestra invitación va a aparecer en Google?</summary>
       <p>No. Las invitaciones de nuestros clientes se publican ocultas para los buscadores, así la fecha y la dirección de su boda solo las ve quien tiene el link. Las muestras de esta página sí son públicas porque los datos son de ejemplo.</p></details>
+    <details><summary>¿Qué es una ronda de ajustes?</summary>
+      <p>Es una lista de cambios que nos envían en un solo mensaje: la aplicamos completa y les mostramos el resultado. En cada ronda podemos tener una reunión virtual de revisión. Si después de publicada cambia la hora o el lugar de la boda, la corrección es gratis y no cuenta como ronda.</p></details>
     <details><summary>¿Cómo se paga?</summary>
       <p>Se separa con el 50% del valor y el saldo se paga al aprobar el diseño. Los precios están en pesos colombianos e incluyen la publicación en línea.</p></details>
     </div>
