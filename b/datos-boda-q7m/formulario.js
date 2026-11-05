@@ -212,7 +212,7 @@ form.addEventListener("change", e => {
 }, true);
 let t;
 form.addEventListener("input", () => { condicionales(); clearTimeout(t); t = setTimeout(guardar, 400); });
-form.addEventListener("change", e => { if (e.target.value) e.target.removeAttribute("aria-invalid"); condicionales(); guardar(); });
+form.addEventListener("change", () => { condicionales(); guardar(); });
 cargar(); condicionales(); cargar(); condicionales();
 if (PRECIO_ESPECIAL.precio && PLANES[PRECIO_ESPECIAL.plan]) {
   const r = form.querySelector('input[data-plan="' + PRECIO_ESPECIAL.plan + '"]');
@@ -230,26 +230,101 @@ function fecha(v){ if (!v) return ""; const [a, m, d] = v.split("-").map(Number)
 function hora(v){ if (!v) return ""; let [h, mi] = v.split(":").map(Number); const pm = h >= 12; h = h % 12 || 12; return h + ":" + String(mi).padStart(2, "0") + (pm ? " p. m." : " a. m."); }
 
 /* ---------- Validación ---------- */
+const RE_CORREO = /^[^\s@,;]+@[^\s@,;]+\.[a-z]{2,}$/i;
+const hoyISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+function telValido(v){
+  const d = v.replace(/[\s().-]/g, "");
+  if (/^3\d{9}$/.test(d)) return true;                 // celular colombiano
+  if (/^(\+?57)3\d{9}$/.test(d)) return true;           // con indicativo
+  return /^\+\d{8,15}$/.test(d);                        // otro país, con +
+}
+function dominioDe(v){ try { return new URL(v).hostname.replace(/^www\./, "").toLowerCase(); } catch (e) { return ""; } }
+
+/* Devuelve el mensaje de error del campo, o "" si está bien */
+function errorDe(el){
+  if (el.closest("[hidden]") || el.disabled) return "";
+  const v = (el.value || "").trim();
+  if (!v) return el.required ? "Este dato es obligatorio." : "";
+  if (el.minLength > 0 && v.length < el.minLength) return "Escriban al menos " + el.minLength + " caracteres.";
+  if (el.type === "tel" && !telValido(v)) return "Escriban un celular válido de 10 dígitos, ej. 300 123 4567 (si es de otro país, con + e indicativo).";
+  if (el.type === "email") {
+    const lista = el.multiple ? v.split(",").map(x => x.trim()).filter(Boolean) : [v];
+    const malo = lista.find(x => !RE_CORREO.test(x));
+    if (malo) return "«" + malo + "» no es un correo válido." + (el.multiple ? " Si son varios, sepárenlos con comas." : "");
+  }
+  if (el.type === "url") {
+    if (!/^https?:\/\/\S+\.\S+$/i.test(v)) return "Debe ser un link completo que empiece por https://";
+    if (el.dataset.dominios) {
+      const h = dominioDe(v), ok = el.dataset.dominios.split(" ").some(d => h === d || h.endsWith("." + d));
+      if (!ok) {
+        const n = { m_fotos: "Google Drive o Google Fotos", q_link: "Google Fotos o Google Drive", m_cancion: "YouTube o Google Drive", ce_maps: "Google Maps", re_maps: "Google Maps" }[el.id] || "el sitio indicado";
+        return "Este link debe ser de " + n + ".";
+      }
+    }
+  }
+  if (el.type === "date") {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return "Elijan una fecha válida.";
+    if ("futuro" in el.dataset && v <= hoyISO()) return "La fecha debe ser posterior a hoy.";
+    const otra = el.dataset.antes && $(el.dataset.antes).value;
+    if (otra && v >= otra) return "Debe ser antes de la fecha de la boda.";
+  }
+  if (el.dataset.tipo === "persona" && !/^[\p{L}][\p{L}\s.'&-]*$/u.test(v)) return "Usen solo letras.";
+  if (el.dataset.tipo === "hashtag" && !/^#[\p{L}\p{N}_]+$/u.test(v)) return "Un hashtag va sin espacios ni signos, ej. #LauraYFelipe2026.";
+  if (el.dataset.tipo === "dominio" && !/^([a-z0-9-]+\.)+[a-z]{2,}$/i.test(v.replace(/^https?:\/\//i, "").replace(/^www\./i, "").replace(/\/$/, ""))) return "Escriban un dominio como lauryfelipe.com";
+  return "";
+}
+
+/* Muestra u oculta el mensaje debajo del campo */
+function marcar(el, msg){
+  const id = "err-" + el.id;
+  let p = $(id);
+  if (msg) {
+    if (!p) {
+      p = document.createElement("p"); p.className = "err"; p.id = id;
+      const campo = el.closest(".campo") || el.parentElement;
+      campo.append(p);
+      el.setAttribute("aria-describedby", ((el.getAttribute("aria-describedby") || "") + " " + id).trim());
+    }
+    p.textContent = msg;
+    el.setAttribute("aria-invalid", "true");
+  } else {
+    if (p) p.remove();
+    el.removeAttribute("aria-invalid");
+  }
+}
+const campos = () => [...form.querySelectorAll("input:not([type=hidden]):not([type=radio]):not([type=checkbox]), select, textarea")].filter(el => el.id);
+
+/* Arreglos automáticos al salir del campo */
+form.addEventListener("focusout", e => {
+  const el = e.target;
+  if (!el.id || !("value" in el)) return;
+  if (el.dataset.tipo === "hashtag" && el.value.trim() && !el.value.trim().startsWith("#")) el.value = "#" + el.value.trim().replace(/\s+/g, "");
+  if (el.type === "url" && /^([a-z0-9-]+\.)+[a-z]{2,}(\/|$)/i.test(el.value.trim())) el.value = "https://" + el.value.trim();
+  if (el.value && el.value.trim() !== el.value && el.tagName !== "TEXTAREA") el.value = el.value.trim();
+  marcar(el, errorDe(el));
+  if (el.id === "f_fecha" && $("r_limite").value) marcar($("r_limite"), errorDe($("r_limite")));
+});
+/* Mientras corrigen, el error se quita apenas el dato queda bien */
+form.addEventListener("input", e => { const el = e.target; if (el.getAttribute && el.getAttribute("aria-invalid") === "true" && !errorDe(el)) marcar(el, ""); });
+
 function validar(){
-  const faltan = [];
-  form.querySelectorAll("[required]").forEach(el => {
-    if (el.closest("[hidden]")) { el.removeAttribute("aria-invalid"); return; }
-    const v = el.value.trim();
-    const malo = !v || (el.type === "url" && !/^https?:\/\/\S+\.\S+/i.test(v));
-    el.setAttribute("aria-invalid", malo ? "true" : "false");
-    if (malo) faltan.push({el, nombre: (form.querySelector('label[for="' + el.id + '"]')?.textContent || el.name).replace("*", "").trim() + (v ? " (debe ser un link que empiece por https://)" : "")});
+  const malos = [];
+  if (!planActual()) malos.push({ el: form.querySelector('input[name="Paquete"]'), nombre: "Paquete", msg: "Elijan un paquete." });
+  campos().forEach(el => {
+    const msg = errorDe(el);
+    marcar(el, msg);
+    if (msg) malos.push({ el, nombre: (form.querySelector('label[for="' + el.id + '"]')?.textContent || el.name).replace("*", "").replace(/\s+/g, " ").trim(), msg });
   });
-  if (!planActual()) { const r = form.querySelector('input[name="Paquete"]'); faltan.unshift({el: r, nombre: "Paquete"}); }
   const caja = $("errores");
-  if (faltan.length) {
+  if (malos.length) {
     caja.innerHTML = "";
-    caja.append("Falta completar:");
+    caja.append("Revisen estos datos:");
     const ul = document.createElement("ul");
-    faltan.forEach(f => { const li = document.createElement("li"); li.textContent = f.nombre; ul.append(li); });
+    malos.forEach(f => { const li = document.createElement("li"); li.textContent = f.nombre + ": " + f.msg; ul.append(li); });
     caja.append(ul);
     caja.hidden = false;
-    faltan[0].el.focus();
-    caja.scrollIntoView({behavior: "smooth", block: "start"});
+    caja.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => malos[0].el.focus({ preventScroll: true }), 400);
     return false;
   }
   caja.hidden = true;
