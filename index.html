@@ -395,8 +395,8 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0;font-weight:600}
 .pasos{list-style:none;margin:2.2rem 0 0;padding:0;display:grid;gap:0;counter-reset:paso}
 @media (min-width:56rem){.pasos{grid-template-columns:repeat(4, minmax(0,1fr))}}
 .pasos li{counter-increment:paso;display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem .8rem;padding-block:1.1rem;border-top:1px solid var(--linea);min-width:0}
-@media (min-width:56rem){.pasos li{grid-template-columns:1fr;padding:1.2rem 1.5rem 0 0;border-top:1px solid var(--tinta)}}
-.pasos li::before{content:counter(paso);font-family:var(--f-display);font-style:italic;font-size:2.1rem;line-height:.9;color:var(--vino);grid-row:span 2}
+@media (min-width:56rem){.pasos li{grid-template-columns:1fr;align-content:start;padding:1.2rem 1.5rem 0 0;border-top:1px solid var(--tinta)}.pasos li::before{grid-row:auto}}
+.pasos li::before{content:counter(paso);font-family:var(--f-display);font-style:italic;font-size:2.1rem;line-height:.9;color:var(--vino);grid-row:span 2;font-variant-numeric:lining-nums}
 .pasos h3{font-family:var(--f-texto);font-size:1.02rem;font-weight:600}
 .pasos p{margin:0;color:var(--gris);font-size:.95rem}
 
