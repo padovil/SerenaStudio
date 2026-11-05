@@ -22,7 +22,7 @@ const EVENTO = {
      Pegar aquí la URL de la aplicación web de Apps Script (termina en /exec). */
   hojaUrl: "https://script.google.com/macros/s/AKfycbyVDkS45jm6eb2AXaP-B_Ou71Yk3o5O6AhZuk9vTD7GjkwTtrTUg3ac5BUzNOZj9ak2-Q/exec",
   /* Álbum compartido para el QR de fotos (lo crea el estudio). */
-  albumUrl: "",                              // [PENDIENTE]
+  albumUrl: "https://photos.app.goo.gl/9xH57wp1kxcYctmg7",
   hospedajeTel: "573124301798"
 };
 

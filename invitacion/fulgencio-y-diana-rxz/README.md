@@ -21,7 +21,7 @@ Link por invitado: `…/fulgencio-y-diana-rxz/?para=Familia%20Pérez&cupos=3`
 - [x] Foto de portada (`portada.jpg`): en arco dorado debajo del versículo, y también en la vista previa de WhatsApp (`og-imagen.jpg`).
 - [x] `cancion.mp3`: "Las locuras mías" (Silvestre Dangond), recibida el 5 nov, comprimida a 112 kbps (3 MB), suena desde el inicio. [PENDIENTE] confirmar con la pareja que pueden usarla.
 - [x] Hoja de confirmaciones: "Confirmaciones · Fulgencio & Diana · 5 dic 2026" en Drive (cuenta del estudio), conectada en `EVENTO.hojaUrl`. Falta probar envíos y compartirla con kmarin290@gmail.com.
-- [ ] Álbum del QR (lo crea el estudio): pegar el link en `EVENTO.albumUrl` y generar el QR para imprimir.
+- [x] Álbum del QR: Google Fotos https://photos.app.goo.gl/9xH57wp1kxcYctmg7 (cuenta del estudio), conectado en `EVENTO.albumUrl`; QR para imprimir entregado.
 - [ ] Confirmar con Karen el hospedaje: "Carlos Salamanca Olarte Pensil" ¿es el nombre completo del contacto o "Pensil" es el nombre de la hacienda?
 - [ ] Confirmar textos del itinerario: "Sesión de fotos y pasabocas" (snacks), "Ingreso de los invitados a la recepción" (entrada de invitados 4:40), "Cena" (catering).
 - [ ] Probar en iPhone y Android: sello, calendario, mapa, "Cómo llegar", formulario. Revisar la vista previa en WhatsApp.
