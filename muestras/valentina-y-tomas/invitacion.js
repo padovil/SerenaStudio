@@ -119,6 +119,33 @@ $("form-rsvp").addEventListener("submit", e => {
 });
 
 
+/* ---------- Música ----------
+   Intenta sonar apenas carga la página. Los navegadores bloquean el sonido
+   automático hasta que el invitado interactúa, así que si lo bloquean,
+   arranca con el primer toque, scroll, clic o tecla en cualquier parte.
+   El botón flotante la pausa o la reanuda. */
+(function(){
+  const au = $("audio"), b = $("btn-musica");
+  if (!au || !b) return;
+  const estado = on => { b.setAttribute("aria-pressed", on ? "true" : "false"); b.setAttribute("aria-label", on ? "Pausar música" : "Reproducir música"); };
+  au.addEventListener("play", () => estado(true));
+  au.addEventListener("pause", () => estado(false));
+  let pausadaPorInvitado = false;
+  const evs = ["pointerdown", "touchstart", "keydown", "wheel", "scroll"];
+  const quitar = () => evs.forEach(ev => window.removeEventListener(ev, primerGesto, true));
+  function primerGesto(e){
+    if (e.target && e.target.closest && e.target.closest("#btn-musica")) return quitar();
+    if (au.paused && !pausadaPorInvitado) au.play().then(quitar).catch(() => {});
+    else quitar();
+  }
+  evs.forEach(ev => window.addEventListener(ev, primerGesto, {capture:true, passive:true}));
+  au.play().catch(() => {});
+  b.addEventListener("click", () => {
+    if (au.paused) { pausadaPorInvitado = false; au.play().catch(() => aviso("Falta el archivo de la canción.")); }
+    else { pausadaPorInvitado = true; au.pause(); }
+  });
+})();
+
 /* ---------- Aparición suave al hacer scroll (respeta "reducir movimiento") ---------- */
 (function aparecer(){
   const els = document.querySelectorAll(".rv");

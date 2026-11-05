@@ -297,12 +297,23 @@ form .btn{width:100%;margin-top:.4rem}
 .hashtag{font:500 .8rem/1 var(--f-texto);letter-spacing:.2em;color:var(--claro);margin:1.2rem 0 0}
 
 /* ===================== CRÉDITO DEL ESTUDIO (solo en muestras) ===================== */
-.credito{margin:0;padding:1.4rem max(16px, env(safe-area-inset-right, 0px)) calc(1.6rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+.credito{margin:0;padding:1.4rem max(16px, env(safe-area-inset-right, 0px)) calc(5.5rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
   text-align:center;font-size:.8rem;letter-spacing:.06em;background:var(--marfil);color:var(--tinta)}
 .credito a{color:inherit;text-underline-offset:3px}
 
+/* Botón de música flotante: una medalla oliva con borde de hilo */
+.musica{position:fixed;z-index:20;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:52px;height:52px;border-radius:50%;border:1px solid var(--marfil);background:var(--oliva-osc);color:var(--marfil);
+  display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 3px var(--oliva-osc), 0 10px 24px -8px rgba(0,0,0,.45);transition:background .2s}
+.musica:hover{background:var(--oliva)}
+.musica:focus-visible{outline:2px solid var(--marfil);outline-offset:4px}
+.musica svg{width:19px;height:19px}
+.musica .ic-pausa{display:none}
+.musica[aria-pressed="true"] .ic-pausa{display:block}
+.musica[aria-pressed="true"] .ic-play{display:none}
+
 /* Aviso flotante (copiar, calendario) */
-.aviso{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;
+.aviso{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;
   background:var(--tinta);color:var(--marfil);padding:.7rem 1.2rem;border-radius:999px;font-size:.9rem;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
 
 /* ===================== ANIMACIÓN SUAVE AL HACER SCROLL ===================== */
@@ -548,6 +559,13 @@ form .btn{width:100%;margin-top:.4rem}
 </footer>
 
 </div>
+<!-- Música: intenta sonar al abrir; si el navegador lo bloquea, arranca con el primer toque, scroll o tecla.
+     Archivo: cancion.mp3 en la misma carpeta (con licencia confirmada). -->
+<audio id="audio" src="cancion.mp3" loop preload="metadata"></audio>
+<button class="musica" id="btn-musica" type="button" aria-label="Reproducir música" aria-pressed="false">
+  <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="ic-pausa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+</button>
 <div class="aviso" id="aviso" role="status" hidden></div>
 </body>
 </html>
