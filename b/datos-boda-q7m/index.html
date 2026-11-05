@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- © 2026 Serena Studio. Formulario de datos para la invitación (uso con clientes). -->
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#1C1F24">
+<title>Datos de su invitación · Serena Studio</title>
+<link rel="icon" href="/img/favicon-64.png">
+<script src="formulario.js" defer></script>
+<style>
+@font-face{font-family:"Bodoni Moda";src:url(/fuentes/bodoni-moda-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(/fuentes/bodoni-moda-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/fuentes/hanken-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/fuentes/hanken-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/fuentes/hanken-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+
+/* Paleta Medianoche de Serena Studio */
+:root{
+  --noche:#1C1F24; --pizarra:#3A4452; --plata:#9AA3AD; --marfil:#F2EEE7; --hoja:#FAF8F4;
+  --oro:#C79C5A; --oro-osc:#7D5F2C; --linea:#DDD8CE; --error:#9A2B1E;
+  --f-titulo:"Bodoni Moda", Georgia, serif; --f-texto:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--marfil);color:var(--noche);font:400 17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased}
+a{color:var(--oro-osc)}
+:focus-visible{outline:2px solid var(--oro-osc);outline-offset:3px}
+
+.tope{background:var(--noche);color:var(--marfil);padding:2.6rem max(18px, env(safe-area-inset-right,0px)) 2.4rem max(18px, env(safe-area-inset-left,0px));text-align:center}
+.tope img{width:58px;height:auto;margin:0 auto .9rem;display:block}
+.tope .rot{font:600 .72rem/1 var(--f-texto);letter-spacing:.26em;text-transform:uppercase;color:var(--oro);margin:0 0 .8rem}
+.tope h1{font:400 clamp(2rem, 8vw, 2.7rem)/1.08 var(--f-titulo);margin:0 0 .9rem;text-wrap:balance}
+.tope h1 em{color:var(--oro)}
+.tope p{max-width:34rem;margin:0 auto;color:#C8CDD3}
+
+main{max-width:40rem;margin:0 auto;padding:1.6rem max(18px, env(safe-area-inset-right,0px)) 4rem max(18px, env(safe-area-inset-left,0px))}
+.guia{background:var(--hoja);border:1px solid var(--linea);border-radius:8px;padding:1.1rem 1.2rem;margin-bottom:1.6rem;font-size:.95rem}
+.guia b{font-weight:600}
+.guia ul{margin:.5rem 0 0;padding-left:1.1rem}
+
+fieldset{border:0;margin:0 0 1.2rem;padding:1.5rem 1.2rem 1.3rem;background:var(--hoja);border-radius:10px;border:1px solid var(--linea);min-width:0}
+legend{float:left;width:100%;padding:0;margin:0 0 1rem;font:400 1.5rem/1.2 var(--f-titulo)}
+legend span{display:block;font:600 .7rem/1 var(--f-texto);letter-spacing:.24em;text-transform:uppercase;color:var(--oro-osc);margin-bottom:.45rem}
+legend + *{clear:both}
+.ayuda{font-size:.9rem;color:var(--pizarra);margin:-.4rem 0 1rem}
+.campo{display:grid;gap:.35rem;margin-bottom:1rem}
+.campo:last-child{margin-bottom:0}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:0 .9rem}
+@media (max-width:30rem){.dos{grid-template-columns:1fr}}
+label,.etq{font-weight:500;font-size:.95rem}
+.req{color:var(--oro-osc)}
+.nota{font-size:.85rem;color:var(--pizarra)}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=time],input[type=url],select,textarea{
+  width:100%;min-height:48px;padding:.65rem .8rem;font:400 16px/1.4 var(--f-texto);color:var(--noche);
+  background:#fff;border:1px solid #C4BDB1;border-radius:6px}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px solid rgba(199,156,90,.35);outline-offset:0}
+[aria-invalid=true]{border-color:var(--error)!important;background:#FDF5F3}
+.opciones{display:flex;flex-wrap:wrap;gap:.5rem}
+.opciones label{display:flex;align-items:center;gap:.5rem;min-height:44px;padding:.45rem .85rem;background:#fff;border:1px solid #C4BDB1;border-radius:999px;font-weight:400;cursor:pointer}
+.opciones input{accent-color:var(--oro-osc);width:18px;height:18px;margin:0}
+.si-no[hidden]{display:none}
+.sub{border-top:1px dashed var(--linea);padding-top:1rem;margin-top:.4rem}
+
+.enviar{position:sticky;bottom:0;background:linear-gradient(transparent, var(--marfil) 30%);padding:1.4rem 0 calc(1rem + env(safe-area-inset-bottom,0px));display:grid;gap:.6rem;justify-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;width:100%;max-width:26rem;padding:.8rem 1.4rem;border-radius:999px;border:1px solid var(--noche);
+  background:var(--noche);color:var(--marfil);font:600 .85rem/1 var(--f-texto);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--pizarra)}
+.btn.claro{background:transparent;color:var(--noche)}
+.btn.claro:hover{background:var(--noche);color:var(--marfil)}
+.btn svg{width:18px;height:18px;flex:none}
+.guardado{font-size:.82rem;color:var(--pizarra);margin:0}
+.errores{background:#FDF5F3;border:1px solid var(--error);color:var(--error);border-radius:8px;padding:.9rem 1rem;margin:0 0 1rem;font-size:.95rem}
+.errores ul{margin:.3rem 0 0;padding-left:1.1rem}
+
+.listo{text-align:center;background:var(--hoja);border:1px solid var(--linea);border-radius:12px;padding:2rem 1.3rem;margin-top:1rem}
+.listo h2{font:400 1.8rem/1.15 var(--f-titulo);margin:.4rem 0 .6rem}
+.listo p{margin:0 auto 1rem;max-width:30rem;color:var(--pizarra)}
+.listo .acciones{display:grid;gap:.7rem;justify-items:center;margin-top:1.2rem}
+.listo pre{text-align:left;white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid var(--linea);border-radius:8px;padding:1rem;font:400 .85rem/1.5 ui-monospace, Menlo, monospace;max-height:16rem;overflow:auto;margin:1.2rem 0 0}
+.check{width:54px;height:54px;color:var(--oro-osc)}
+</style>
+</head>
+<body>
+<header class="tope">
+  <img src="/img/logo-crema.png" width="240" height="240" alt="Serena Studio">
+  <p class="rot">Serena Studio</p>
+  <h1>Los datos de <em>su invitación</em></h1>
+  <p>Con esta información dejamos su invitación lista. Les toma unos 10 minutos. Lo que escriben se guarda en este celular mientras lo llenan.</p>
+</header>
+
+<main>
+  <div class="guia">
+    <b>Antes de empezar, tengan a la mano:</b>
+    <ul>
+      <li>Las direcciones o links de Google Maps de la ceremonia y la recepción.</li>
+      <li>Los datos para los regalos, si los van a poner.</li>
+      <li>La lista de invitados con los cupos de cada uno, para los links personalizados.</li>
+    </ul>
+    <p style="margin:.6rem 0 0">Los campos con <span class="req">*</span> son necesarios. Si algo todavía no está definido, déjenlo en blanco y lo completamos después.</p>
+  </div>
+
+  <div class="errores" id="errores" role="alert" tabindex="-1" hidden></div>
+
+  <form id="form" novalidate>
+
+    <fieldset>
+      <legend><span>1 · Contacto</span>¿Quién llena el formulario?</legend>
+      <div class="dos">
+        <div class="campo"><label for="c_nombre">Su nombre <span class="req">*</span></label><input id="c_nombre" name="Quién llena" type="text" autocomplete="name" required></div>
+        <div class="campo"><label for="c_whatsapp">Su WhatsApp <span class="req">*</span></label><input id="c_whatsapp" name="WhatsApp de contacto" type="tel" inputmode="tel" autocomplete="tel" placeholder="300 123 4567" required></div>
+      </div>
+      <div class="campo"><label for="c_correo">Correo (Gmail, si tienen) </label><input id="c_correo" name="Correo" type="email" autocomplete="email" inputmode="email"><span class="nota">Lo usamos para compartirles el álbum del QR de fotos.</span></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>2 · La pareja</span>Sus nombres</legend>
+      <div class="campo"><label for="p_nombres">Nombres como quieren que aparezcan <span class="req">*</span></label><input id="p_nombres" name="Nombres en la invitación" type="text" placeholder="Ej. Nicolás & Liz" required></div>
+      <div class="dos">
+        <div class="campo"><label for="p_iniciales">Iniciales para el monograma y el sello <span class="req">*</span></label><input id="p_iniciales" name="Iniciales del monograma" type="text" placeholder="Ej. N & L" required></div>
+        <div class="campo"><label for="p_orden">¿Quién va primero?</label><select id="p_orden" name="Orden de los nombres"><option>Como lo escribimos arriba</option><option>La novia primero</option><option>El novio primero</option></select></div>
+      </div>
+      <div class="campo"><label for="p_frase">Frase, versículo o canción que los represente</label><textarea id="p_frase" name="Frase o versículo" placeholder="Ej. «El amor es paciente, es bondadoso…» 1 Corintios 13:4"></textarea></div>
+      <div class="campo"><label for="p_saludo">Mensaje de bienvenida para sus invitados</label><textarea id="p_saludo" name="Mensaje de bienvenida" placeholder="Si lo dejan en blanco, les proponemos uno."></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>3 · Fecha y lugares</span>¿Cuándo y dónde?</legend>
+      <div class="dos">
+        <div class="campo"><label for="f_fecha">Fecha de la boda <span class="req">*</span></label><input id="f_fecha" name="Fecha" type="date" required></div>
+        <div class="campo"><label for="f_ciudad">Ciudad <span class="req">*</span></label><input id="f_ciudad" name="Ciudad" type="text" required></div>
+      </div>
+      <p class="etq" style="margin:.4rem 0 .6rem">Ceremonia</p>
+      <div class="dos">
+        <div class="campo"><label for="ce_lugar">Lugar <span class="req">*</span></label><input id="ce_lugar" name="Ceremonia · lugar" type="text" placeholder="Ej. Parroquia San Juan" required></div>
+        <div class="campo"><label for="ce_hora">Hora <span class="req">*</span></label><input id="ce_hora" name="Ceremonia · hora" type="time" required></div>
+      </div>
+      <div class="campo"><label for="ce_dir">Dirección <span class="req">*</span></label><input id="ce_dir" name="Ceremonia · dirección" type="text" required></div>
+      <div class="campo"><label for="ce_maps">Link de Google Maps</label><input id="ce_maps" name="Ceremonia · Google Maps" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/…"><span class="nota">En Google Maps: busquen el lugar, toquen Compartir y peguen el link aquí.</span></div>
+      <div class="sub">
+        <span class="etq">¿La recepción es en el mismo lugar?</span>
+        <div class="opciones" style="margin-top:.5rem">
+          <label><input type="radio" name="Recepción en el mismo lugar" value="Sí" id="re_mismo_si" checked> Sí</label>
+          <label><input type="radio" name="Recepción en el mismo lugar" value="No" id="re_mismo_no"> No, es en otro lugar</label>
+        </div>
+        <div class="si-no" id="re_otro" hidden>
+          <div class="dos" style="margin-top:1rem">
+            <div class="campo"><label for="re_lugar">Lugar de la recepción</label><input id="re_lugar" name="Recepción · lugar" type="text"></div>
+            <div class="campo"><label for="re_hora">Hora</label><input id="re_hora" name="Recepción · hora" type="time"></div>
+          </div>
+          <div class="campo"><label for="re_dir">Dirección</label><input id="re_dir" name="Recepción · dirección" type="text"></div>
+          <div class="campo"><label for="re_maps">Link de Google Maps</label><input id="re_maps" name="Recepción · Google Maps" type="url" inputmode="url"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>4 · El día</span>Itinerario</legend>
+      <p class="ayuda">Una línea por momento, con la hora.</p>
+      <div class="campo"><label for="i_itinerario">Itinerario del día</label><textarea id="i_itinerario" name="Itinerario" placeholder="3:00 p. m. Ceremonia&#10;5:00 p. m. Cóctel&#10;7:00 p. m. Cena&#10;8:30 p. m. Fiesta"></textarea></div>
+      <div class="campo"><label for="i_notas">Para tener en cuenta</label><textarea id="i_notas" name="Para tener en cuenta" placeholder="Ej. Solo adultos, parqueadero, transporte, clima…"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>5 · Vestimenta</span>Código de vestimenta</legend>
+      <div class="campo"><label for="v_codigo">Código <span class="req">*</span></label>
+        <select id="v_codigo" name="Código de vestimenta" required><option value="">Elijan una opción…</option><option>Formal</option><option>Etiqueta</option><option>Coctel</option><option>Casual elegante</option><option>Otro (lo escriben abajo)</option></select></div>
+      <div class="dos">
+        <div class="campo"><label for="v_colores">Colores sugeridos</label><input id="v_colores" name="Colores sugeridos" type="text" placeholder="Ej. tonos tierra"></div>
+        <div class="campo"><label for="v_evitar">Colores a evitar</label><input id="v_evitar" name="Colores a evitar" type="text" placeholder="Ej. blanco, marfil"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>6 · Regalos</span>¿Qué quieren poner?</legend>
+      <div class="opciones" role="group" aria-label="Tipo de regalo">
+        <label><input type="checkbox" name="Regalos" value="Lluvia de sobres"> Lluvia de sobres</label>
+        <label><input type="checkbox" name="Regalos" value="Transferencia"> Transferencia</label>
+        <label><input type="checkbox" name="Regalos" value="Mesa de regalos"> Mesa de regalos</label>
+        <label><input type="checkbox" name="Regalos" value="Solo su presencia"> Solo su presencia</label>
+      </div>
+      <div class="sub" style="margin-top:1rem">
+        <p class="ayuda" style="margin:0 0 .8rem">Si quieren transferencia: puede ser cuenta o llave Bre-B / Nequi. Por seguridad, en la invitación podemos mostrar solo la llave.</p>
+        <div class="dos">
+          <div class="campo"><label for="g_banco">Banco o app</label><input id="g_banco" name="Regalos · banco" type="text"></div>
+          <div class="campo"><label for="g_tipo">Tipo de cuenta o llave</label><input id="g_tipo" name="Regalos · tipo" type="text" placeholder="Ahorros, llave Bre-B…"></div>
+        </div>
+        <div class="dos">
+          <div class="campo"><label for="g_numero">Número o llave</label><input id="g_numero" name="Regalos · número" type="text" inputmode="numeric" autocomplete="off"></div>
+          <div class="campo"><label for="g_titular">Titular</label><input id="g_titular" name="Regalos · titular" type="text"></div>
+        </div>
+        <div class="campo"><label for="g_mesa">Link de la mesa de regalos</label><input id="g_mesa" name="Regalos · link mesa" type="url" inputmode="url"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>7 · Confirmación</span>Asistencia e invitados</legend>
+      <div class="dos">
+        <div class="campo"><label for="r_whatsapp">WhatsApp que recibe las confirmaciones <span class="req">*</span></label><input id="r_whatsapp" name="WhatsApp para confirmaciones" type="tel" inputmode="tel" required></div>
+        <div class="campo"><label for="r_limite">Fecha límite para confirmar <span class="req">*</span></label><input id="r_limite" name="Fecha límite para confirmar" type="date" required></div>
+      </div>
+      <div class="campo"><label for="r_lista">Lista de invitados con sus cupos</label><textarea id="r_lista" name="Lista de invitados" placeholder="Familia López, 4&#10;Andrés Gómez, 2&#10;Tía Marta, 1"></textarea>
+        <span class="nota">Con esta lista armamos un link para cada invitado con su nombre y sus cupos. También la pueden enviar en Excel por WhatsApp.</span></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>8 · Diseño</span>Su versión del sobre de terciopelo</legend>
+      <p class="ayuda">Partimos de la muestra de Nicolás & Liz. Cuéntennos qué quieren mantener o cambiar.</p>
+      <div class="campo"><span class="etq">Colores</span>
+        <div class="opciones">
+          <label><input type="radio" name="Colores del diseño" value="Iguales a la muestra" checked> Iguales a la muestra</label>
+          <label><input type="radio" name="Colores del diseño" value="Quiero cambiarlos" id="d_cambiar"> Quiero cambiarlos</label>
+        </div></div>
+      <div class="campo si-no" id="d_colores_box" hidden><label for="d_colores">¿Qué colores quieren?</label><input id="d_colores" name="Colores deseados" type="text" placeholder="Ej. verde oliva y dorado, los de su decoración"></div>
+      <div class="campo"><label for="d_tipo">Tipografía</label><select id="d_tipo" name="Tipografía"><option>Igual a la muestra</option><option>Más clásica y elegante</option><option>Más moderna y sencilla</option><option>Con más letra de caligrafía</option></select></div>
+      <div class="campo"><label for="d_refs">Referencias o detalles que les gustaría</label><textarea id="d_refs" name="Referencias de diseño" placeholder="Pueden pegar links de Pinterest o contarnos de la decoración, las flores, el lugar…"></textarea></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>9 · Fotos y música</span>Lo que nos envían por WhatsApp</legend>
+      <p class="ayuda">Las fotos y la canción nos las mandan por WhatsApp <b>como documento</b> (así no pierden calidad) o con un link de Google Drive.</p>
+      <ul class="nota" style="margin:0 0 1rem;padding-left:1.1rem">
+        <li><b>Foto de portada:</b> 1 vertical, la más especial.</li>
+        <li><b>Galería:</b> de 3 a 6 fotos, verticales u horizontales.</li>
+      </ul>
+      <div class="campo"><label for="m_fotos">Link de Drive con las fotos (si lo usan)</label><input id="m_fotos" name="Link de fotos" type="url" inputmode="url"></div>
+      <div class="dos">
+        <div class="campo"><label for="m_cancion">Canción de fondo</label><input id="m_cancion" name="Canción" type="text" placeholder="Nombre y artista"></div>
+        <div class="campo"><label for="m_momento">¿Desde qué parte?</label><input id="m_momento" name="Canción · desde" type="text" placeholder="Ej. desde el coro, 0:45"></div>
+      </div>
+      <span class="nota">La canción la eligen y nos envían ustedes. Si prefieren, ponemos una instrumental libre de derechos.</span>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>10 · QR de fotos</span>Álbum para las fotos de sus invitados</legend>
+      <p class="ayuda">Ponemos un QR en la invitación (y uno para imprimir en las mesas) que lleva a un álbum donde los invitados suben sus fotos de la boda.</p>
+      <div class="campo"><span class="etq">¿Ya tienen el álbum?</span>
+        <div class="opciones">
+          <label><input type="radio" name="Álbum del QR" value="Lo crean ustedes" checked> Créenlo ustedes</label>
+          <label><input type="radio" name="Álbum del QR" value="Ya tenemos uno" id="q_tengo"> Ya tenemos uno</label>
+        </div></div>
+      <div class="campo si-no" id="q_link_box" hidden><label for="q_link">Link del álbum</label><input id="q_link" name="Link del álbum" type="url" inputmode="url" placeholder="Google Fotos, Drive u otra app"></div>
+      <div class="campo"><label for="q_imprimir">¿Quieren el QR para imprimir en las mesas?</label><select id="q_imprimir" name="QR para imprimir"><option>Sí</option><option>No, solo en la invitación</option></select></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>11 · Revisión</span>Para entregarla hoy</legend>
+      <div class="dos">
+        <div class="campo"><label for="a_quien">¿Quién aprueba la invitación?</label><input id="a_quien" name="Quién aprueba" type="text"></div>
+        <div class="campo"><label for="a_hora">¿A qué hora pueden revisarla hoy?</label><input id="a_hora" name="Hora de revisión" type="time"></div>
+      </div>
+      <div class="campo"><label for="a_otro">¿Algo más que debamos saber?</label><textarea id="a_otro" name="Comentarios"></textarea></div>
+    </fieldset>
+
+    <div class="enviar">
+      <button class="btn" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+        Revisar y enviar
+      </button>
+      <p class="guardado" id="guardado" aria-live="polite">Lo que escriben se guarda en este celular.</p>
+    </div>
+  </form>
+
+  <section class="listo" id="listo" tabindex="-1" hidden aria-labelledby="t-listo">
+    <svg class="check" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M14.5 24.5l6.5 6.5 13-14"/></svg>
+    <h2 id="t-listo">Sus respuestas están listas</h2>
+    <p>Toquen <b>Enviar por WhatsApp</b> y luego <b>Enviar</b> en el chat. Si el mensaje queda incompleto, usen <b>Copiar respuestas</b> y péguenlas en el chat.</p>
+    <div class="acciones">
+      <a class="btn" id="btn-wa" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.3 18.7z"/></svg>
+        Enviar por WhatsApp
+      </a>
+      <button class="btn claro" id="btn-copiar" type="button">Copiar respuestas</button>
+      <button class="btn claro" id="btn-editar" type="button">Volver a editar</button>
+    </div>
+    <p class="guardado" id="copiado" aria-live="polite"></p>
+    <pre id="resumen"></pre>
+  </section>
+</main>
+</body>
+</html>
