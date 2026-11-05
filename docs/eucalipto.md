@@ -1,6 +1,6 @@
 # Eucalipto
 
-*Manifiesto visual de Serena Studio. Lámina: `lamina-eucalipto.jpg`. Reemplaza a "Bruma" (sin el azul Mist). Paleta entregada por el estudio: Eucalyptus #98AA9D, Plaster #F2EFE2, Soot #2D3536, Moss #697C70.*
+*Manifiesto visual de Serena Studio (versión anterior, reemplazada por `medianoche.md`). Lámina: `lamina-eucalipto.jpg`.*
 
 **Eucalipto** es la elegancia de lo vegetal visto de cerca. Nace de una rama cortada sobre una mesa de yeso: hojas redondas de verde grisáceo, un tallo que se curva, la sombra profunda que la luz deja detrás. Es una estética de pocas notas y mucha presencia, donde un verde apagado se vuelve protagonista porque todo a su alrededor se calla. Debe sentirse como el trabajo de alguien que pasó años observando una misma planta hasta conocer cada matiz: meticulosamente calibrada, sin un solo tono de sobra.
 

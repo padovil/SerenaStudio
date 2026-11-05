@@ -14,7 +14,7 @@
 <meta name="description" content="Invitaciones digitales para bodas que se comparten por WhatsApp: cuenta regresiva, mapa, calendario y confirmación de asistencia. Vean muestras y precios.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://serenastudio-peach.vercel.app/">
-<meta name="theme-color" content="#2D3536">
+<meta name="theme-color" content="#1C1F24">
 <link rel="icon" href="img/favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
@@ -162,23 +162,23 @@
    tabla comparativa (como una hoja de cotización); cierre con el mensaje de WhatsApp ya escrito.
    Marca: la del brochure (papel, tinta, vino; Cormorant + Hanken). Un solo look a propósito. */
 :root{
-  /* Paleta "Eucalipto" (docs/eucalipto.md): eucalipto, musgo, hollín y yeso */
-  --papel:#F2EFE2;     /* yeso: fondo de lectura */
-  --hoja:#FAF8F1;      /* yeso claro: tabla y burbuja */
-  --tinta:#2D3536;     /* hollín: texto, portada y pie */
-  --euca:#98AA9D;      /* eucalipto: banda de muestras */
-  --musgo-banda:#5C6E62; /* musgo un punto más profundo: banda del proceso (texto yeso AA 4,7:1) */
-  --musgo:#697C70;     /* musgo: filetes y detalles grandes */
-  --musgo-osc:#4E5E54; /* musgo oscuro: acentos de texto sobre yeso (AA) */
-  --vino:#4E5E54;      /* alias de acento de texto */
-  --vino-2:#3A4740;
-  --oro:#697C70;
-  --gris:#4E5E54;      /* texto secundario (AA sobre yeso) */
-  --linea:#D9D8CB;
-  --linea-2:#B9BDB2;
-  --rubor:#98AA9D;
-  --claro:#D5DCD6;     /* texto secundario sobre hollín */
-  --chat:#E1E8E2;      /* burbuja del mensaje enviado: verde muy apagado, sin imitar a WhatsApp */
+  /* Paleta "Medianoche" (docs/medianoche.md): noche, pizarra, plata, marfil y oro */
+  --papel:#F2EEE7;     /* marfil: fondo de lectura */
+  --hoja:#FAF8F4;      /* marfil claro: tabla y burbuja */
+  --tinta:#1C1F24;     /* noche: texto, portada y pie */
+  --pizarra:#3A4452;   /* pizarra: banda de muestras y texto secundario */
+  --plata:#9AA3AD;     /* plata: banda del proceso */
+  --oro:#C79C5A;       /* oro: el detalle; texto solo sobre noche (6,6:1) */
+  --oro-claro:#E3CFA6; /* oro claro: rótulos sobre pizarra (6,5:1) */
+  --oro-osc:#7D5F2C;   /* oro profundo: acentos de texto sobre marfil (5,1:1) */
+  --vino:#7D5F2C;
+  --vino-2:#5E4720;
+  --gris:#3A4452;      /* texto secundario sobre marfil (8,5:1) */
+  --linea:#DDD8CE;
+  --linea-2:#C4BDB1;
+  --rubor:#C79C5A;
+  --claro:#C8CDD3;     /* texto secundario sobre noche */
+  --chat:#E6E2DA;      /* burbuja del mensaje enviado: verde muy apagado, sin imitar a WhatsApp */
   --crema:#D9D1C5;     /* texto secundario sobre tinta */
 
   --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
@@ -391,67 +391,67 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
 .pie p{margin:0}
 
 
-/* ===================== DIRECCIÓN "EUCALIPTO" ===================== */
+/* ===================== DIRECCIÓN "MEDIANOCHE" ===================== */
 h2{font-size:clamp(2.3rem, 7vw, 3.7rem);line-height:1.02;letter-spacing:-.02em}
 .muestra h3{font-size:1.55rem;letter-spacing:-.01em}
 summary{font-size:1.3rem;letter-spacing:-.01em}
 .monto{letter-spacing:-.02em}
 .pasos li::before{font-size:2.4rem}
 
-/* Portada y cabecera sobre hollín */
+/* Portada y cabecera sobre noche, con el oro como detalle */
 .tope{background:var(--tinta);color:var(--papel)}
 .tope .marca{color:var(--papel)}
 .tope .cabecera nav a{color:var(--claro)}
-.tope .cabecera nav a:hover{color:var(--papel);text-decoration:underline;text-underline-offset:4px}
-.tope .portada{border-top-color:rgba(152,170,157,.35)}
-.tope .portada h1 .rotulo{color:var(--euca)}
+.tope .cabecera nav a:hover{color:var(--oro);text-decoration:underline;text-underline-offset:4px}
+.tope .portada{border-top-color:rgba(154,163,173,.25)}
+.tope .portada h1 .rotulo{color:var(--oro)}
 .tope .portada .eslogan{color:var(--papel);font-size:clamp(3.6rem, 14vw, 7.4rem);line-height:.88;letter-spacing:-.04em}
-.tope .portada .eslogan em{color:var(--euca)}
+.tope .portada .eslogan em{color:var(--oro)}
 .tope .portada .lema{color:var(--claro)}
-.tope .datos{border-top-color:var(--musgo);color:var(--claro)}
+.tope .datos{border-top-color:var(--oro);color:var(--claro)}
 .tope .datos b{color:var(--papel)}
 .tope .btn{border-color:var(--papel);color:var(--papel)}
 .tope .btn:hover{background:var(--papel);color:var(--tinta)}
-.tope .btn-tinta{background:var(--euca);color:var(--tinta);border-color:var(--euca)}
+.tope .btn-tinta{background:var(--oro);color:var(--tinta);border-color:var(--oro)}
 .tope .btn-tinta:hover{background:var(--papel);border-color:var(--papel);color:var(--tinta)}
-.tope :focus-visible{outline-color:var(--euca)}
+.tope :focus-visible{outline-color:var(--oro)}
 .tope .pie-escena{color:var(--claro)}
-.tope .cel{border-color:#161B1B;background:#161B1B;box-shadow:0 40px 70px -35px rgba(0,0,0,.8)}
+.tope .cel{border-color:#0D0F12;background:#0D0F12;box-shadow:0 40px 70px -35px rgba(0,0,0,.85)}
 .tope .saltar{background:var(--papel);color:var(--tinta)}
 .tope .mensaje{color:var(--tinta)}
 
-/* Muestras sobre eucalipto: texto en hollín */
-.muestras{background:var(--euca);color:var(--tinta)}
-.muestras .encabezado p,.muestras .muestra p:not(.estilo),.muestras .deslizar{color:var(--tinta)}
-.muestras .cel{border-color:var(--tinta);background:var(--tinta);box-shadow:0 30px 60px -30px rgba(29,36,37,.6)}
-.muestras .estilo{color:var(--tinta)}
-.muestras :focus-visible{outline-color:var(--tinta)}
-.muestra a:hover .cel{border-color:var(--papel);background:var(--papel)}
-.muestra .abrir{text-decoration-color:var(--tinta)}
-.muestra a:hover .abrir{color:var(--tinta);text-decoration-thickness:2px}
+/* Muestras sobre pizarra */
+.muestras{background:var(--pizarra);color:var(--papel)}
+.muestras .encabezado p,.muestras .muestra p:not(.estilo),.muestras .deslizar{color:var(--papel)}
+.muestras .cel{border-color:var(--tinta);background:var(--tinta);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.muestras .estilo{color:var(--oro-claro)}
+.muestras :focus-visible{outline-color:var(--oro-claro)}
+.muestra a:hover .cel{border-color:var(--oro);background:var(--oro)}
+.muestra .abrir{text-decoration-color:var(--oro)}
+.muestra a:hover .abrir{color:var(--oro-claro)}
 
-/* Precios sobre yeso, columna destacada en eucalipto */
-.col-dest{background:rgba(152,170,157,.26)}
-thead .col-dest{box-shadow:inset 0 4px 0 var(--musgo)}
+/* Precios sobre marfil, columna destacada en oro */
+.col-dest{background:rgba(199,156,90,.14)}
+thead .col-dest{box-shadow:inset 0 4px 0 var(--oro)}
 .tabla-caja{border-color:var(--tinta)}
-td svg{color:var(--musgo-osc)}
-.solo-pdf{border-color:var(--musgo)}
-.solo-pdf strong{color:var(--musgo-osc)}
+td svg{color:var(--oro-osc)}
+.solo-pdf{border-color:var(--oro)}
+.solo-pdf strong{color:var(--oro-osc)}
 
-/* Proceso sobre musgo */
-.proceso{background:var(--musgo-banda);color:var(--papel);border-top:0}
-.proceso h2,.proceso h3,.proceso p{color:var(--papel)}
-.pasos li::before{color:var(--papel)}
-.pasos li{border-top-color:rgba(242,239,226,.35)}
-@media (min-width:56rem){.pasos li{border-top-color:var(--euca)}}
-.proceso :focus-visible{outline-color:var(--papel)}
+/* Proceso sobre plata */
+.proceso{background:var(--plata);color:var(--tinta);border-top:0}
+.proceso h2,.proceso h3,.proceso p{color:var(--tinta)}
+.pasos li::before{color:var(--tinta)}
+.pasos li{border-top-color:rgba(28,31,36,.3)}
+@media (min-width:56rem){.pasos li{border-top-color:var(--tinta)}}
+.proceso :focus-visible{outline-color:var(--tinta)}
 
-/* Pie sobre hollín */
+/* Pie sobre noche */
 .pie-oscuro{background:var(--tinta);color:var(--claro)}
 .pie-oscuro .pie{border-top:0;color:var(--claro)}
-.pie-oscuro a{color:var(--papel);text-decoration-color:var(--euca)}
-.pie-oscuro a:hover{color:var(--euca)}
-.pie-oscuro :focus-visible{outline-color:var(--euca)}
+.pie-oscuro a{color:var(--papel);text-decoration-color:var(--oro)}
+.pie-oscuro a:hover{color:var(--oro)}
+.pie-oscuro :focus-visible{outline-color:var(--oro)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .muestra .cel{transition:none}
