@@ -10,7 +10,7 @@ const EVENTO = {
   finUTC:    "20270613T070000Z",            // 2:00 a. m.
   lugar: "Parroquia Santa Lucía, Calle 12 # 10-40, Chía",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Ch%C3%ADa%2C%20Cundinamarca", // [EJEMPLO]
-  formularioUrl: "https://forms.gle/",      // [EJEMPLO] link del formulario de confirmación
+  whatsapp: "573000000000",                 // [EJEMPLO] número de la pareja, con indicativo, sin +
   whatsappOrganizadora: "573000000000",     // [EJEMPLO] con indicativo, sin +
   novios: "Mariana y Sebastián"
 };
@@ -32,7 +32,6 @@ function aviso(t){ const a=$("aviso"); a.textContent=t; a.hidden=false; clearTim
 
 /* ---------- Enlaces ---------- */
 $("btn-maps").href = EVENTO.mapsUrl;
-$("btn-form").href = EVENTO.formularioUrl;
 $("btn-wa").href = "https://wa.me/" + EVENTO.whatsappOrganizadora + "?text=" +
   encodeURIComponent("Hola Daniela, tengo una pregunta sobre la boda de " + EVENTO.novios + ".");
 $("btn-gcal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
@@ -104,3 +103,31 @@ if (window.top !== window.self) {
   try { window.top.location.replace(window.self.location.href); }
   catch (e) { document.documentElement.hidden = true; }
 }
+
+/* ---------- Aviso: la confirmación quedó lista ---------- */
+function mostrarConfirmacion(waUrl, titulo, texto){
+  const ok = document.getElementById("rsvp-ok");
+  if (!ok) return;
+  document.getElementById("rsvp-ok-t").textContent = titulo;
+  document.getElementById("rsvp-ok-txt").innerHTML = "";
+  document.getElementById("rsvp-ok-txt").append(texto, " Solo falta tocar ", Object.assign(document.createElement("b"), {textContent: "Enviar"}), " en WhatsApp.");
+  document.getElementById("rsvp-ok-wa").href = waUrl;
+  ok.hidden = false;
+  ok.style.animation = "none"; void ok.offsetWidth; ok.style.animation = "";
+  ok.focus({preventScroll: true});
+  ok.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center"});
+}
+
+/* ---------- Confirmar por WhatsApp ---------- */
+(function(){
+  const b = document.getElementById("btn-form");
+  const para = (new URLSearchParams(location.search).get("para") || "").trim().slice(0, 60);
+  const plural = /familia|\sy\s|&|,/i.test(para);
+  const msg = para
+    ? "Hola, " + (plural ? "somos " + para + " y confirmamos" : "soy " + para + " y confirmo") + " asistencia a la boda de " + EVENTO.novios + "."
+    : "Hola, confirmo mi asistencia a la boda de " + EVENTO.novios + ". Mi nombre es: ";
+  b.href = "https://wa.me/" + EVENTO.whatsapp + "?text=" + encodeURIComponent(msg);
+  b.addEventListener("click", () => {
+    setTimeout(() => mostrarConfirmacion(b.href, para ? "¡Gracias, " + para + "!" : "¡Gracias por confirmar!", "Tu confirmación ya está escrita."), 150);
+  });
+})();

@@ -410,6 +410,20 @@ form .btn{width:100%;margin-top:.4rem}
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
 }
+
+/* ===================== AVISO DE CONFIRMACIÓN ===================== */
+.rsvp-ok{max-width:24rem;margin:1.6rem auto 0;padding:1.6rem 1.3rem;text-align:center;border:1px solid currentColor;border-radius:10px;
+  animation:rsvpOk .5s ease both}
+.rsvp-ok:focus{outline:none}
+.rsvp-ok-ic{width:52px;height:52px;display:block;margin:0 auto .7rem}
+.rsvp-ok-ic path{stroke-dasharray:40;stroke-dashoffset:40;animation:rsvpTrazo .6s .25s ease forwards}
+.rsvp-ok-t{font-size:1.25rem;font-weight:500;margin:0 0 .35rem}
+.rsvp-ok-x{margin:0 0 .9rem}
+.rsvp-ok-l{margin:0;font-size:.92rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem 1rem}
+.rsvp-ok-l a,.rsvp-ok-l button{color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:.5rem 0;cursor:pointer;min-height:44px}
+@keyframes rsvpOk{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes rsvpTrazo{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.rsvp-ok{animation:none}.rsvp-ok-ic path{animation:none;stroke-dashoffset:0}}
 </style>
 </head>
 <body>
@@ -673,6 +687,13 @@ form .btn{width:100%;margin-top:.4rem}
       Confirmar por WhatsApp
     </button>
   </form>
+    <!-- Aviso cuando la confirmación queda lista en WhatsApp -->
+    <div class="rsvp-ok" id="rsvp-ok" role="status" tabindex="-1" hidden>
+      <svg class="rsvp-ok-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M14.5 24.5l6.5 6.5 13-14"/></svg>
+      <p class="rsvp-ok-t" id="rsvp-ok-t">¡Confirmación lista!</p>
+      <p class="rsvp-ok-x" id="rsvp-ok-txt">Abrimos WhatsApp con tu mensaje. Solo falta tocar <b>Enviar</b>.</p>
+      <p class="rsvp-ok-l"><a id="rsvp-ok-wa" target="_blank" rel="noopener noreferrer">¿No se abrió WhatsApp? Ábrelo aquí</a><button type="button" id="rsvp-otra">Cambiar mi respuesta</button></p>
+    </div>
 </section>
 
 </main>

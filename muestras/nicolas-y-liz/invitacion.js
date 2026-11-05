@@ -17,7 +17,8 @@ const EVENTO = {
   direccion: "La Calera, Cundinamarca",   // confirmar con la pareja
   coordenadas: "4.7714794,-73.9799389",  // Hacienda Márquez (Google Maps)
   mapsUrl: "https://maps.app.goo.gl/EBWsDJNrXgrXSqiQ8",
-  formularioUrl: ""                  // [PENDIENTE]
+  whatsapp: "573000000000",          // [EJEMPLO] número de la pareja, con indicativo, sin +
+  novios: "Nicolás y Liz"
 };
 
 /* ---------- Personalización: ?para=Familia%20Pérez&cupos=2 ---------- */
@@ -168,7 +169,6 @@ function avisar(t){
   }
   document.getElementById("btn-maps").href = EVENTO.mapsUrl ||
     "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(EVENTO.lugar + " " + EVENTO.direccion);
-  document.getElementById("btn-form").href = EVENTO.formularioUrl || "#confirmar";
 })();
 
 /* ---------- Cuenta regresiva ---------- */
@@ -242,4 +242,32 @@ document.querySelectorAll(".foto img").forEach(img => {
     try { window.top.location.replace(window.self.location.href); }
     catch (e) { document.documentElement.style.display = "none"; }
   }
+})();
+
+/* ---------- Aviso: la confirmación quedó lista ---------- */
+function mostrarConfirmacion(waUrl, titulo, texto){
+  const ok = document.getElementById("rsvp-ok");
+  if (!ok) return;
+  document.getElementById("rsvp-ok-t").textContent = titulo;
+  document.getElementById("rsvp-ok-txt").innerHTML = "";
+  document.getElementById("rsvp-ok-txt").append(texto, " Solo falta tocar ", Object.assign(document.createElement("b"), {textContent: "Enviar"}), " en WhatsApp.");
+  document.getElementById("rsvp-ok-wa").href = waUrl;
+  ok.hidden = false;
+  ok.style.animation = "none"; void ok.offsetWidth; ok.style.animation = "";
+  ok.focus({preventScroll: true});
+  ok.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center"});
+}
+
+/* ---------- Confirmar por WhatsApp ---------- */
+(function(){
+  const b = document.getElementById("btn-form");
+  const para = (new URLSearchParams(location.search).get("para") || "").trim().slice(0, 60);
+  const plural = /familia|\sy\s|&|,/i.test(para);
+  const msg = para
+    ? "Hola, " + (plural ? "somos " + para + " y confirmamos" : "soy " + para + " y confirmo") + " asistencia a la boda de " + EVENTO.novios + "."
+    : "Hola, confirmo mi asistencia a la boda de " + EVENTO.novios + ". Mi nombre es: ";
+  b.href = "https://wa.me/" + EVENTO.whatsapp + "?text=" + encodeURIComponent(msg);
+  b.addEventListener("click", () => {
+    setTimeout(() => mostrarConfirmacion(b.href, para ? "¡Gracias, " + para + "!" : "¡Gracias por confirmar!", "Tu confirmación ya está escrita."), 150);
+  });
 })();

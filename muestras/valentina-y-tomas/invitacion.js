@@ -101,6 +101,20 @@ $("btn-copiar").addEventListener("click", () => {
 });
 
 /* ---------- RSVP por WhatsApp ---------- */
+/* ---------- Aviso: la confirmación quedó lista ---------- */
+function mostrarConfirmacion(waUrl, titulo, texto){
+  const ok = document.getElementById("rsvp-ok");
+  if (!ok) return;
+  document.getElementById("rsvp-ok-t").textContent = titulo;
+  document.getElementById("rsvp-ok-txt").innerHTML = "";
+  document.getElementById("rsvp-ok-txt").append(texto, " Solo falta tocar ", Object.assign(document.createElement("b"), {textContent: "Enviar"}), " en WhatsApp.");
+  document.getElementById("rsvp-ok-wa").href = waUrl;
+  ok.hidden = false;
+  ok.style.animation = "none"; void ok.offsetWidth; ok.style.animation = "";
+  ok.focus({preventScroll: true});
+  ok.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center"});
+}
+
 $("form-rsvp").addEventListener("submit", e => {
   e.preventDefault();
   const nombre = $("rsvp-nombre").value.trim();
@@ -116,6 +130,13 @@ $("form-rsvp").addEventListener("submit", e => {
   a.href = "https://wa.me/" + EVENTO.whatsapp + "?text=" + encodeURIComponent(msg);
   a.target = "_blank"; a.rel = "noopener";
   document.body.appendChild(a); a.click(); a.remove();
+  $("form-rsvp").hidden = true;
+  mostrarConfirmacion(a.href,
+    si ? "¡Gracias, " + nombre + "!" : "Gracias por avisarnos, " + nombre,
+    si ? "Tu confirmación ya está escrita." : "Tu mensaje ya está escrito.");
+});
+$("rsvp-otra").addEventListener("click", () => {
+  $("rsvp-ok").hidden = true; $("form-rsvp").hidden = false; $("rsvp-nombre").focus();
 });
 
 
