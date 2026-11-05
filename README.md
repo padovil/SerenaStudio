@@ -12,7 +12,7 @@ Dominio provisional: https://serenastudio-peach.vercel.app
 | `muestras/nicolas-y-liz/` | Estilo “Sobre de terciopelo” | Sí |
 | `muestras/mariana-y-sebastian/` | Estilo “Bosque” | Sí |
 | `muestras/camila-y-andres/` | Estilo “Cereza” | Sí |
-| `muestras/valentina-y-tomas/` | Estilo “Editorial” | Sí |
+| `muestras/valentina-y-tomas/` | Estilo “Bolillo” (encaje) | Sí |
 | `b/<pareja>-<código>/` | Invitaciones de clientes (instrucciones en `b/README.md`) | No |
 | `vercel.json` | Encabezados de seguridad y `noindex` para `b/` | |
 | `robots.txt`, `sitemap.xml` | Indicaciones para buscadores | |

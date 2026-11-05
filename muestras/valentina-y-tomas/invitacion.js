@@ -32,8 +32,9 @@ function aviso(txt){
   const para = (q.get("para") || "").trim().slice(0, 60);
   const cupos = parseInt(q.get("cupos"), 10);
   if (para) {
-    const plural = /familia|\sy\s|&|,/i.test(para);
-    $("para").textContent = (plural ? "Queridos " : "Para ") + para;
+    const saludo = /^familia\b/i.test(para) ? "Querida "
+                 : /\sy\s|&|,/i.test(para) ? "Queridos " : "Para ";
+    $("para").textContent = saludo + para;
     $("rsvp-nombre").value = para;
   }
   if (cupos > 0) {
@@ -117,6 +118,17 @@ $("form-rsvp").addEventListener("submit", e => {
   document.body.appendChild(a); a.click(); a.remove();
 });
 
+
+/* ---------- Aparición suave al hacer scroll (respeta "reducir movimiento") ---------- */
+(function aparecer(){
+  const els = document.querySelectorAll(".rv");
+  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.documentElement.classList.add("js");
+  const io = new IntersectionObserver(entradas => {
+    entradas.forEach(en => { if (en.isIntersecting) { en.target.classList.add("visible"); io.unobserve(en.target); } });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  els.forEach(el => io.observe(el));
+})();
 
 /* ---------- Fotos: si una no carga, se muestra el marcador ---------- */
 document.querySelectorAll(".foto img").forEach(img => {
