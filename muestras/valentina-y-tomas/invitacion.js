@@ -146,6 +146,39 @@ $("form-rsvp").addEventListener("submit", e => {
   });
 })();
 
+/* ---------- Apertura: sobre con sello de lacre ----------
+   Al tocar el sello se abre la solapa, sube la tarjeta y aparece la invitación.
+   El toque también arranca la música (lo detecta el bloque de música). */
+(function(){
+  const sobre = $("sobre"), btn = $("abrir-sobre"), inv = document.querySelector(".inv"), esc = $("s-escena");
+  if (!sobre || !btn) return;
+  const q = new URLSearchParams(location.search);
+  const para = (q.get("para") || "").trim().slice(0, 60);
+  if (para) { $("s-para").textContent = "Para " + para; $("s-quien").textContent = para; }
+  const solapa = $("s-solapa");
+  const reducido = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.add("sin-scroll");
+  if (inv) inv.inert = true;
+  const fijarAlto = () => $("s-sobre").style.setProperty("--alto-solapa", solapa.offsetHeight + "px");
+  fijarAlto(); addEventListener("resize", fijarAlto);
+  let abierto = false;
+  function abrir(){
+    if (abierto) return; abierto = true;
+    sobre.classList.add("abierto");
+    const t1 = reducido ? 50 : 3000, t2 = reducido ? 350 : 3900;
+    setTimeout(() => sobre.classList.add("fuera"), t1);
+    setTimeout(() => {
+      sobre.hidden = true;
+      document.body.classList.remove("sin-scroll");
+      if (inv) inv.inert = false;
+      const h = document.querySelector(".portada h1");
+      if (h) { h.setAttribute("tabindex", "-1"); h.focus({preventScroll:true}); }
+    }, t2);
+  }
+  btn.addEventListener("click", abrir);
+  sobre.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrir(); } });
+})();
+
 /* ---------- Aparición suave al hacer scroll (respeta "reducir movimiento") ---------- */
 (function aparecer(){
   const els = document.querySelectorAll(".rv");
