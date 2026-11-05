@@ -1,6 +1,6 @@
 # Carmín
 
-*Manifiesto visual de Serena Studio. Lámina: `lamina-carmin.jpg`. Reemplaza a "Correspondencia".*
+*Manifiesto visual de Serena Studio (versión anterior, reemplazada por `materia.md`). Lámina: `lamina-carmin.jpg`.*
 
 **Carmín** no susurra: declara. Nace del instante en que algo se vuelve inolvidable, cuando un color ocupa toda la vista y deja de ser fondo para convertirse en acontecimiento. El rojo no aparece como acento tímido en una esquina; inunda el campo entero, y todo lo demás se recorta contra él como letras de crema sobre una tela encendida. Es una estética de la convicción, ejecutada con la precisión obsesiva de quien ha pasado años calibrando un solo tono hasta que vibra exactamente como debe: meticulosamente ajustada, sin un milímetro al azar.
 

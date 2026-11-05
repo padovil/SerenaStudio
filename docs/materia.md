@@ -1,0 +1,13 @@
+# Materia
+
+*Manifiesto visual de Serena Studio. Lámina: `lamina-materia.jpg`. Reemplaza a "Carmín". Paleta tomada de una referencia de color entregada por el estudio.*
+
+**Materia** entiende el color como algo que se toca. Cada tono pertenece a una sustancia: el hueso de una tela de lino sin teñir, el espresso de una madera encerada, la oliva tostada de una seda que guarda sombra, el óxido de un hierro que envejeció bien, el latón apagado de un metal pulido por las manos. Nada es plano ni sintético; todo parece tener peso, temperatura y pliegue. Es una estética del lujo silencioso, ejecutada con la paciencia de quien ha pasado años eligiendo telas a la luz de una ventana: meticulosamente calibrada, sin una sola decisión apresurada.
+
+**Color y material.** La paleta es tierra y arquitectura. El hueso es la base y el aire; el espresso da profundidad y gravedad; la oliva tostada aporta carácter; el óxido es la intensidad, el único tono que se acerca a la emoción; el latón es el detalle, y aparece solo en líneas finas, anillos y bordes, como un herraje. Los colores se usan en grandes campos que se superponen como telas apiladas, nunca en degradados. La armonía entre ellos es el resultado de una calibración minuciosa, revisada tono contra tono hasta que ninguno grita y todos sostienen al otro.
+
+**Forma y pliegue.** Las formas vienen del cuerpo de la tela: curvas lentas, líneas que se repiten con pequeñas variaciones como los hilos de una trama, arcos que recuerdan una puerta antigua. La repetición es la técnica central: cientos de trazos finos, cada uno dibujado con el mismo cuidado, que juntos construyen volumen y sombra. Ese tejido de líneas, ejecutado con precisión de maestro, es lo que hace que una superficie plana parezca drapeada.
+
+**Escala y tipografía.** Una serifa de alto contraste, elegante y sobria, aparece en tamaños grandes y pocas palabras; las mayúsculas pequeñas y muy espaciadas funcionan como etiquetas de archivo de un taller. El texto es escaso, esencial, colocado como la etiqueta cosida en el interior de una prenda. Cada espaciado se ajusta a mano, con la atención de quien sabe que la diferencia entre lo común y lo memorable está en un punto.
+
+**Composición y quietud.** El equilibrio es arquitectónico: bloques de color que se apilan con firmeza, márgenes generosos, una sola forma protagonista y todo lo demás en calma. La jerarquía se gana con materia, no con brillo: un anillo de latón entre cientos de líneas oscuras basta para que la mirada encuentre el centro. El resultado debe parecer el trabajo de incontables horas de alguien en la cima de su oficio, una pieza tan cuidada que su calma resulta inolvidable.

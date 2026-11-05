@@ -14,7 +14,7 @@
 <meta name="description" content="Invitaciones digitales para bodas que se comparten por WhatsApp: cuenta regresiva, mapa, calendario y confirmación de asistencia. Vean muestras y precios.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://serenastudio-peach.vercel.app/">
-<meta name="theme-color" content="#B3122E">
+<meta name="theme-color" content="#2B211C">
 <link rel="icon" href="img/favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
@@ -162,21 +162,23 @@
    tabla comparativa (como una hoja de cotización); cierre con el mensaje de WhatsApp ya escrito.
    Marca: la del brochure (papel, tinta, vino; Cormorant + Hanken). Un solo look a propósito. */
 :root{
-  /* Paleta "Carmín" (docs/carmin.md): carmín dominante, vino, rosa empolvado, crema y tinta */
-  --papel:#FBF3EA;     /* crema: fondo de lectura */
-  --hoja:#FFF9F3;      /* superficies claras: tabla, burbuja */
-  --tinta:#170F10;     /* tinta casi negra */
-  --carmin:#B3122E;    /* campo dominante: portada y pie */
-  --vino:#9E1029;      /* carmín para texto y detalles sobre crema (AA) */
-  --vino-2:#6E0B1E;    /* vino profundo: hover y sombra */
-  --rosa:#F4C9C4;      /* rosa empolvado: banda del proceso, acentos sobre tinta */
-  --oro:#D8BDB3;       /* filetes suaves */
-  --gris:#5E4A47;      /* texto secundario (AA sobre crema) */
-  --linea:#EAD7CF;
-  --linea-2:#D8BDB3;
-  --rubor:#F4C9C4;
-  --sobre-carmin:#FBE3DA; /* texto claro sobre carmín (AA) */
-  --chat:#E6F0DE;      /* burbuja del mensaje enviado: verde muy apagado, sin imitar a WhatsApp */
+  /* Paleta "Materia" (docs/materia.md): hueso, espresso, oliva tostada, óxido y latón */
+  --papel:#E8E0D2;     /* hueso: fondo */
+  --hoja:#F3EEE6;      /* hueso claro: tabla, burbuja */
+  --tinta:#2B211C;     /* espresso: texto, portada y pie */
+  --oxido:#633A38;     /* óxido: intensidad (banda de muestras, acentos de texto) */
+  --oliva:#6B6947;     /* oliva tostada: carácter (banda del proceso) */
+  --laton:#A58A61;     /* latón: detalle, filetes y anillos */
+  --laton-claro:#E2C9A6; /* latón claro: texto pequeño sobre fondos oscuros (AA) */
+  --vino:#633A38;      /* alias: acentos de texto sobre hueso */
+  --vino-2:#4A2B2A;
+  --oro:#A58A61;
+  --gris:#5C5047;      /* texto secundario (AA sobre hueso) */
+  --linea:#D3C8B6;
+  --linea-2:#BFB19B;
+  --rubor:#E2C9A6;
+  --claro:#DCD2C2;     /* texto secundario sobre espresso, óxido y oliva */
+  --chat:#E4E2CF;      /* burbuja del mensaje enviado: verde muy apagado, sin imitar a WhatsApp */
   --crema:#D9D1C5;     /* texto secundario sobre tinta */
 
   --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
@@ -329,7 +331,11 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0;font-weight:600}
   tbody td{width:auto}
   .que{display:none}
   .paq{font-size:.6rem;letter-spacing:.06em}
-  .monto{font-size:1.08rem;letter-spacing:-.01em}
+  .monto{font-size:.84rem;letter-spacing:-.03em;font-weight:500}
+}
+@media (max-width:22rem){
+  .monto{font-size:.74rem}
+  thead th{padding-inline:.2rem}
   td small{font-size:.72rem}
 }
 .otros{display:grid;gap:2rem;margin-top:2.6rem}
@@ -385,64 +391,65 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
 .pie p{margin:0}
 
 
-/* ===================== DIRECCIÓN "CARMÍN" ===================== */
-/* Tipografía Bodoni: más contraste, escala monumental */
+/* ===================== DIRECCIÓN "MATERIA" ===================== */
 h2{font-size:clamp(2.3rem, 7vw, 3.7rem);line-height:1.02;letter-spacing:-.02em}
 .muestra h3{font-size:1.55rem;letter-spacing:-.01em}
 summary{font-size:1.3rem;letter-spacing:-.01em}
 .monto{letter-spacing:-.02em}
 .pasos li::before{font-size:2.4rem}
 
-/* Portada y cabecera sobre carmín, a todo el ancho */
-.tope{background:var(--carmin);color:var(--papel)}
-.tope .cabecera{color:var(--papel)}
+/* Portada y cabecera sobre espresso */
+.tope{background:var(--tinta);color:var(--papel)}
 .tope .marca{color:var(--papel)}
-.tope .cabecera nav a{color:var(--sobre-carmin)}
+.tope .cabecera nav a{color:var(--claro)}
 .tope .cabecera nav a:hover{color:var(--papel);text-decoration:underline;text-underline-offset:4px}
-.tope .portada{border-top-color:rgba(251,243,234,.28)}
-.tope .portada h1 .rotulo{color:var(--rosa)}
+.tope .portada{border-top-color:rgba(165,138,97,.45)}
+.tope .portada h1 .rotulo{color:var(--laton-claro)}
 .tope .portada .eslogan{color:var(--papel);font-size:clamp(3.6rem, 14vw, 7.4rem);line-height:.88;letter-spacing:-.04em}
-.tope .portada .eslogan em{color:var(--rosa)}
-.tope .portada .lema{color:var(--sobre-carmin)}
-.tope .datos{border-top-color:rgba(251,243,234,.4);color:var(--sobre-carmin)}
+.tope .portada .eslogan em{color:var(--laton)}
+.tope .portada .lema{color:var(--claro)}
+.tope .datos{border-top-color:var(--laton);color:var(--claro)}
 .tope .datos b{color:var(--papel)}
 .tope .btn{border-color:var(--papel);color:var(--papel)}
-.tope .btn:hover{background:var(--papel);color:var(--carmin)}
-.tope .btn-tinta{background:var(--papel);color:var(--carmin);border-color:var(--papel)}
-.tope .btn-tinta:hover{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
-.tope :focus-visible{outline-color:var(--papel)}
-.tope .pie-escena{color:var(--sobre-carmin)}
-.tope .cel{box-shadow:0 40px 70px -35px rgba(40,0,8,.75)}
-.tope .saltar{background:var(--papel);color:var(--carmin)}
+.tope .btn:hover{background:var(--papel);color:var(--tinta)}
+.tope .btn-tinta{background:var(--papel);color:var(--tinta);border-color:var(--papel)}
+.tope .btn-tinta:hover{background:var(--laton);border-color:var(--laton);color:var(--tinta)}
+.tope :focus-visible{outline-color:var(--laton-claro)}
+.tope .pie-escena{color:var(--claro)}
+.tope .cel{border-color:#14100D;background:#14100D;box-shadow:0 40px 70px -35px rgba(0,0,0,.8)}
+.tope .saltar{background:var(--papel);color:var(--tinta)}
 .tope .mensaje{color:var(--tinta)}
 
-/* Muestras sobre tinta, con acentos rosa */
-.muestras .estilo{color:var(--rosa)}
-.muestra a:hover .cel{border-color:var(--carmin);background:var(--carmin)}
-.muestra a:hover .abrir{color:var(--rosa)}
-.muestra .abrir{text-decoration-color:var(--carmin)}
+/* Muestras sobre óxido */
+.muestras{background:var(--oxido)}
+.muestras .cel{border-color:#3E2322;background:#3E2322;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.muestras .estilo{color:var(--laton-claro)}
+.muestra a:hover .cel{border-color:var(--laton);background:var(--laton)}
+.muestra .abrir{text-decoration-color:var(--laton)}
+.muestra a:hover .abrir{color:var(--laton-claro)}
 
-/* Precios: columna destacada en rosa */
-.col-dest{background:rgba(244,201,196,.35)}
-thead .col-dest{box-shadow:inset 0 4px 0 var(--carmin)}
+/* Precios sobre hueso, columna destacada en oliva */
+.col-dest{background:rgba(107,105,71,.13)}
+thead .col-dest{box-shadow:inset 0 4px 0 var(--oliva)}
 .tabla-caja{border-color:var(--tinta)}
-td svg{color:var(--carmin)}
-.solo-pdf{border-color:var(--carmin)}
-.solo-pdf strong{color:var(--carmin)}
+td svg{color:var(--oxido)}
+.solo-pdf{border-color:var(--laton)}
+.solo-pdf strong{color:var(--oxido)}
 
-/* Proceso sobre rosa empolvado */
-.proceso{background:var(--rosa);border-top:0}
-.proceso p{color:#4A2A2B}
-.pasos li{border-top-color:rgba(23,15,16,.25)}
-@media (min-width:56rem){.pasos li{border-top-color:var(--tinta)}}
+/* Proceso sobre oliva tostada */
+.proceso{background:var(--oliva);color:var(--hoja);border-top:0}
+.proceso h2,.proceso h3{color:var(--hoja)}
+.proceso p{color:var(--hoja)}
+.pasos li::before{color:var(--laton-claro)}
+.pasos li{border-top-color:rgba(243,238,230,.35)}
+@media (min-width:56rem){.pasos li{border-top-color:var(--laton-claro)}}
 
-/* Pie sobre carmín */
-.pie-carmin{background:var(--carmin);color:var(--sobre-carmin)}
-.pie-carmin .pie{border-top:0;color:var(--sobre-carmin)}
-.pie-carmin a{color:var(--papel);text-decoration-color:rgba(251,243,234,.5)}
-.pie-carmin a:hover{color:var(--rosa)}
-.pie-carmin :focus-visible{outline-color:var(--papel)}
-
+/* Pie sobre espresso */
+.pie-oscuro{background:var(--tinta);color:var(--claro)}
+.pie-oscuro .pie{border-top:0;color:var(--claro)}
+.pie-oscuro a{color:var(--papel);text-decoration-color:var(--laton)}
+.pie-oscuro a:hover{color:var(--laton-claro)}
+.pie-oscuro :focus-visible{outline-color:var(--laton-claro)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .muestra .cel{transition:none}
@@ -644,7 +651,7 @@ td svg{color:var(--carmin)}
 
 </main>
 
-<div class="pie-carmin">
+<div class="pie-oscuro">
 <footer class="wrap pie">
   <p>© 2026 <span translate="no">Serena Studio</span> · Invitaciones digitales para bodas en Bogotá y toda Colombia</p>
   <p><a href="#muestras">Muestras</a> · <a href="#precios">Precios</a> · <a href="#preguntas">Preguntas</a></p>
