@@ -8,8 +8,84 @@ const CLAVE = "serena-formulario-v1";
 const $ = id => document.getElementById(id);
 const form = $("form");
 
+/* ---------- Paquetes y extras (precios en pesos) ---------- */
+const PLANES = { esencial: 180000, clasica: 260000, medida: 400000, pdf: 130000 };
+const INCLUYE = {
+  esencial: ["Nombres, fecha, ceremonia y recepción", "Colores y tipografía a su elección", "“Cómo llegar” con Google Maps", "Cuenta regresiva y botón de calendario", "Confirmación de asistencia por WhatsApp", "Foto de portada", "Código de vestimenta", "Regalos o lluvia de sobres con botón “Copiar”", "Vista previa al compartir en WhatsApp", "1 ronda de ajustes", "En línea hasta 1 mes después de la boda"],
+  clasica: ["Todo lo de Esencial", "Galería de fotos", "Música de fondo con su canción", "Cronograma del día", "Preguntas frecuentes", "Mapa dentro de la invitación", "Calendario del mes con su fecha marcada", "Contacto de su organizadora o wedding planner", "2 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
+  medida: ["Todo lo de Clásica", "Formulario de confirmación con número de personas y alergias", "Link con el nombre y los cupos de cada invitado", "Nuestra historia", "Hospedaje sugerido para sus invitados", "Hashtag de la boda", "Monograma con sus iniciales", "Sobre animado o portada ilustrada", "Versión PDF de la invitación", "3 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
+  pdf: ["Hasta 3 páginas", "Enlaces a ubicación, confirmación por WhatsApp y calendario", "Ceremonia, recepción, programa, vestimenta y regalos", "Colores y tipografía a su elección", "1 ronda de ajustes"]
+};
+/* incl: paquetes donde ya viene incluido · precio: valor como extra por paquete */
+const TODOS = p => ({ esencial: p, clasica: p, medida: p, pdf: p });
+const ITEMS = [
+  { id: "musica",  nombre: "Música de fondo con su canción", incl: ["clasica", "medida"], precio: { esencial: 30000 } },
+  { id: "form",    nombre: "Formulario de confirmación que llena una hoja de cálculo", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
+  { id: "links",   nombre: "Link con el nombre y los cupos de cada invitado", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
+  { id: "pdfv",    nombre: "Versión PDF de la invitación", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
+  { id: "qr",      nombre: "QR para que los invitados suban sus fotos", incl: [], precio: TODOS(40000) },
+  { id: "estados", nombre: "Imagen para estados o “save the date”", incl: [], precio: TODOS(40000) },
+  { id: "idioma",  nombre: "Otro idioma", incl: [], precio: TODOS(50000) },
+  { id: "ronda",   nombre: "Ronda de ajustes adicional", incl: [], precio: TODOS(30000) },
+  { id: "dominio", nombre: "Dominio propio por un año", incl: [], precio: { esencial: 90000, clasica: 90000, medida: 90000 } }
+];
+/* Precio acordado para un cliente: ?paquete=medida&precio=340000 */
+const URLP = new URLSearchParams(location.search);
+const PRECIO_ESPECIAL = { plan: URLP.get("paquete"), precio: Number(URLP.get("precio")) || 0 };
+
+const pesos = n => "$" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const planActual = () => { const r = form.querySelector('input[name="Paquete"]:checked'); return r ? r.dataset.plan : ""; };
+const precioBase = plan => (PRECIO_ESPECIAL.precio && PRECIO_ESPECIAL.plan === plan) ? PRECIO_ESPECIAL.precio : PLANES[plan];
+function tiene(id){
+  const plan = planActual(); const it = ITEMS.find(i => i.id === id);
+  if (!plan || !it) return false;
+  if (it.incl.includes(plan)) return true;
+  const c = $("p_extras").querySelector('input[data-id="' + id + '"]');
+  return !!(c && c.checked);
+}
+
+let planPintado = null;
+function pintarPaquete(){
+  const plan = planActual();
+  $("p_detalle").hidden = !plan;
+  if (!plan) { $("total_barra").hidden = true; return; }
+  if (plan !== planPintado) {
+    const antes = new Set([...$("p_extras").querySelectorAll("input:checked")].map(c => c.dataset.id));
+    const inc = $("p_incluye"); inc.innerHTML = "";
+    const b = document.createElement("b"); b.textContent = "Incluye:"; inc.append(b);
+    const ul = document.createElement("ul");
+    INCLUYE[plan].forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.append(li); });
+    inc.append(ul);
+    const ex = $("p_extras"); ex.innerHTML = "";
+    ITEMS.filter(i => i.precio[plan] && !i.incl.includes(plan)).forEach(i => {
+      const l = document.createElement("label"); l.className = "extra";
+      const c = document.createElement("input"); c.type = "checkbox"; c.name = "Extras";
+      c.value = i.nombre + " (+" + pesos(i.precio[plan]) + ")"; c.dataset.id = i.id; c.dataset.precio = i.precio[plan]; c.checked = antes.has(i.id);
+      const t = document.createElement("span"); t.textContent = i.nombre;
+      const pr = document.createElement("b"); pr.textContent = "+" + pesos(i.precio[plan]);
+      l.append(c, t, pr); ex.append(l);
+    });
+    planPintado = plan;
+  }
+  let total = precioBase(plan);
+  $("p_extras").querySelectorAll("input:checked").forEach(c => { total += Number(c.dataset.precio); });
+  $("p_total").textContent = pesos(total);
+  const especial = precioBase(plan) !== PLANES[plan] ? " (precio acordado " + pesos(precioBase(plan)) + " + extras)" : "";
+  $("p_total_in").value = pesos(total) + especial;
+  $("total_barra").textContent = "Total estimado: " + pesos(total);
+  $("total_barra").hidden = false;
+}
+
 /* ---------- Mostrar u ocultar bloques condicionales ---------- */
 function condicionales(){
+  pintarPaquete();
+  const plan = planActual();
+  $("m_musica_box").hidden = !tiene("musica");
+  $("fs_qr").hidden = !tiene("qr");
+  $("fs_hospedaje").hidden = plan !== "medida";
+  const conForm = tiene("form");
+  $("r_hoja").closest("label").style.display = conForm ? "" : "none";
+  if (!conForm && $("r_hoja").checked) $("r_wa").checked = true;
   $("re_otro").hidden = !$("re_mismo_no").checked;
   $("d_colores_box").hidden = !$("d_cambiar").checked;
   $("q_link_box").hidden = !$("q_tengo").checked;
@@ -23,6 +99,13 @@ function condicionales(){
     $("d_vista_img").alt = "Vista previa de la muestra " + op.value;
     $("d_vista_link").href = op.dataset.url;
   }
+  /* numerar solo los bloques visibles */
+  let n = 0;
+  form.querySelectorAll("fieldset").forEach(fs => {
+    const sp = fs.querySelector("legend span");
+    if (!sp.dataset.t) sp.dataset.t = sp.textContent.replace(/^\d+\s·\s/, "");
+    if (!fs.hidden) sp.textContent = (++n) + " · " + sp.dataset.t;
+  });
 }
 
 /* ---------- Borrador en este celular ---------- */
@@ -48,7 +131,15 @@ function cargar(){
 let t;
 form.addEventListener("input", () => { condicionales(); clearTimeout(t); t = setTimeout(guardar, 400); });
 form.addEventListener("change", e => { if (e.target.value) e.target.removeAttribute("aria-invalid"); condicionales(); guardar(); });
-cargar(); condicionales();
+cargar(); condicionales(); cargar(); condicionales();
+if (PRECIO_ESPECIAL.precio && PLANES[PRECIO_ESPECIAL.plan]) {
+  const r = form.querySelector('input[data-plan="' + PRECIO_ESPECIAL.plan + '"]');
+  r.checked = true;
+  form.querySelectorAll('input[name="Paquete"]').forEach(x => { if (x !== r) x.closest("label").style.display = "none"; });
+  r.closest("label").querySelector(".plan-p").textContent = pesos(PRECIO_ESPECIAL.precio);
+  r.closest("label").querySelector(".plan-d").textContent = "Precio acordado con Serena Studio.";
+  condicionales();
+}
 
 /* ---------- Formato de fechas y horas en español ---------- */
 const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
@@ -66,6 +157,7 @@ function validar(){
     el.setAttribute("aria-invalid", malo ? "true" : "false");
     if (malo) faltan.push({el, nombre: (form.querySelector('label[for="' + el.id + '"]')?.textContent || el.name).replace("*", "").trim() + (v ? " (debe ser un link que empiece por https://)" : "")});
   });
+  if (!planActual()) { const r = form.querySelector('input[name="Paquete"]'); faltan.unshift({el: r, nombre: "Paquete"}); }
   const caja = $("errores");
   if (faltan.length) {
     caja.innerHTML = "";

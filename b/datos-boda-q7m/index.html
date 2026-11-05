@@ -89,6 +89,27 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
 .vista-cel img{display:block;width:100%;height:auto}
 .vista a{font-weight:500}
 .vista[hidden]{display:none}
+.planes{display:grid;gap:.7rem}
+.plan{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:.15rem .7rem;align-items:baseline;padding:1rem 1.1rem;background:#fff;border:1px solid #C4BDB1;border-radius:10px;cursor:pointer}
+.plan input{grid-row:1;align-self:center;accent-color:var(--oro-osc);width:20px;height:20px;margin:0}
+.plan-n{font:400 1.3rem/1.2 var(--f-titulo)}
+.plan-n em{font:600 .62rem/1 var(--f-texto);letter-spacing:.16em;text-transform:uppercase;color:var(--oro-osc);font-style:normal;margin-left:.3rem;vertical-align:middle}
+.plan-p{font-weight:600}
+.plan-d{grid-column:2 / 4;font-size:.88rem;color:var(--pizarra);line-height:1.45}
+.plan:has(input:checked){border-color:var(--oro-osc);box-shadow:0 0 0 2px rgba(199,156,90,.4);background:#FFFDF8}
+.incluye{margin-top:1.2rem;padding:1rem 1.1rem;background:var(--marfil);border-radius:8px;font-size:.92rem}
+.incluye ul{margin:.4rem 0 0;padding-left:1.1rem}
+.extras{display:grid;gap:.5rem}
+.extra{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.6rem .9rem;background:#fff;border:1px solid #C4BDB1;border-radius:8px;cursor:pointer;font-weight:400}
+.extra input{accent-color:var(--oro-osc);width:18px;height:18px;margin:0;flex:none}
+.extra span{flex:1}
+.extra b{font-weight:600;white-space:nowrap}
+.extra:has(input:checked){border-color:var(--oro-osc);background:#FFFDF8}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:1rem;padding:1rem 1.1rem;background:var(--noche);color:var(--marfil);border-radius:8px}
+.total span{font:600 .75rem/1 var(--f-texto);letter-spacing:.18em;text-transform:uppercase;color:var(--oro)}
+.total b{font:400 1.7rem/1 var(--f-titulo)}
+.total-barra{margin:0;font-weight:600;font-size:.95rem}
+.total-barra[hidden],#p_detalle[hidden]{display:none}
 .check{width:54px;height:54px;color:var(--oro-osc)}
 </style>
 </head>
@@ -104,6 +125,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
   <div class="guia">
     <b>Antes de empezar, tengan a la mano:</b>
     <ul>
+      <li>El paquete que eligieron y los extras que quieran sumar.</li>
       <li>Las direcciones o links de Google Maps de la ceremonia y la recepción.</li>
       <li>Los datos para los regalos, si los van a poner.</li>
       <li>Los hoteles o lugares que quieran recomendar a sus invitados.</li>
@@ -116,6 +138,26 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
   <div class="errores" id="errores" role="alert" tabindex="-1" hidden></div>
 
   <form id="form" novalidate>
+
+    <fieldset id="fs_paquete">
+      <legend><span>1 · Su paquete</span>Elijan su paquete</legend>
+      <div class="planes" role="radiogroup" aria-label="Paquete">
+        <label class="plan"><input type="radio" name="Paquete" value="Esencial" data-plan="esencial"><span class="plan-n">Esencial</span><span class="plan-p">$180.000</span><span class="plan-d">Lo esencial, bien hecho. Primera versión en 5 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="Clásica" data-plan="clasica"><span class="plan-n">Clásica <em>Recomendada</em></span><span class="plan-p">$260.000</span><span class="plan-d">Con galería, música, cronograma, mapa y preguntas frecuentes. 7 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="A medida" data-plan="medida"><span class="plan-n">A medida</span><span class="plan-p">$400.000</span><span class="plan-d">Todo incluido: formulario, links por invitado, hospedaje, monograma, sobre animado y PDF. 10 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="Solo PDF" data-plan="pdf"><span class="plan-n">Solo PDF</span><span class="plan-p">$130.000</span><span class="plan-d">Tarjeta de hasta 3 páginas con enlaces. 5 días hábiles.</span></label>
+      </div>
+      <a class="nota" href="/#precios" target="_blank" rel="noopener" style="display:inline-block;margin-top:.8rem">Ver la tabla completa de paquetes</a>
+      <div id="p_detalle" hidden>
+        <div class="incluye" id="p_incluye"></div>
+        <p class="etq" style="margin:1.2rem 0 .3rem">Extras que pueden sumar</p>
+        <p class="nota" style="margin:0 0 .7rem">Marquen los que quieran; el total se actualiza solo.</p>
+        <div class="extras" id="p_extras"></div>
+        <div class="total" aria-live="polite"><span>Total estimado</span><b id="p_total">$0</b></div>
+        <input type="hidden" name="Total estimado" id="p_total_in">
+      </div>
+    </fieldset>
+
 
     <fieldset>
       <legend><span>1 · Contacto</span>¿Quién llena el formulario?</legend>
@@ -174,7 +216,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <div class="campo"><label for="i_notas">Para tener en cuenta</label><textarea id="i_notas" name="Para tener en cuenta" placeholder="Ej. Solo adultos, parqueadero, transporte, clima…"></textarea></div>
     </fieldset>
 
-    <fieldset>
+    <fieldset id="fs_hospedaje">
       <legend><span>5 · Hospedaje</span>Hospedaje y lugares recomendados</legend>
       <p class="ayuda">Para los invitados que vienen de otra ciudad o quieren quedarse cerca. Por cada lugar: nombre, link o dirección y, si tienen, precio aproximado o código de descuento.</p>
       <div class="campo"><label for="h_hospedaje">Hoteles, glampings o casas recomendados</label><textarea id="h_hospedaje" name="Hospedaje recomendado" placeholder="Hotel Casa Real · a 10 min del lugar · desde $250.000 la noche · código BODALF&#10;https://…"></textarea></div>
@@ -277,11 +319,13 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <li><b>Galería:</b> de 3 a 6 fotos, verticales u horizontales.</li>
       </ul>
       <div class="campo"><label for="m_fotos">Link de las fotos <span class="req">*</span></label><input id="m_fotos" name="Link de fotos" type="url" inputmode="url" placeholder="https://drive.google.com/…" required><span class="nota">Una carpeta de Google Drive o un álbum de Google Fotos. Si quieren, nombren la de portada “portada”.</span></div>
+      <div id="m_musica_box">
       <div class="campo"><label for="m_cancion">Link de la canción de fondo <span class="req">*</span></label><input id="m_cancion" name="Link de la canción" type="url" inputmode="url" placeholder="https://youtube.com/… o https://drive.google.com/…" required><span class="nota">De YouTube o de Google Drive. La canción la eligen ustedes.</span></div>
       <div class="campo"><label for="m_momento">¿Desde qué parte de la canción?</label><input id="m_momento" name="Canción · desde" type="text" placeholder="Ej. desde el coro, 0:45"></div>
+      </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset id="fs_qr">
       <legend><span>11 · QR de fotos</span>Álbum para las fotos de sus invitados</legend>
       <p class="ayuda">Ponemos un QR en la invitación (y uno para imprimir en las mesas) que lleva a un álbum donde los invitados suben sus fotos de la boda.</p>
       <div class="campo"><span class="etq">¿Ya tienen el álbum?</span>
@@ -307,6 +351,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
         Revisar y enviar
       </button>
+      <p class="total-barra" id="total_barra" hidden></p>
       <p class="guardado" id="guardado" aria-live="polite">Lo que escriben se guarda en este celular.</p>
     </div>
   </form>
