@@ -380,8 +380,9 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
 
   <section class="listo" id="listo" tabindex="-1" hidden aria-labelledby="t-listo">
     <svg class="check" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M14.5 24.5l6.5 6.5 13-14"/></svg>
-    <h2 id="t-listo">Sus respuestas están listas</h2>
-    <p>Toquen <b>Enviar por WhatsApp</b> y luego <b>Enviar</b> en el chat. Si el mensaje queda incompleto, usen <b>Copiar respuestas</b> y péguenlas en el chat.</p>
+    <h2 id="t-listo">¡Gracias<span id="listo-nombres"></span>!</h2>
+    <p>Nos hace mucha ilusión acompañarlos en este momento. Con lo que nos contaron ya podemos empezar a darle forma a su invitación.</p>
+    <p>Solo falta un paso: toquen <b>Enviar por WhatsApp</b> y luego <b>Enviar</b> en el chat. Apenas recibamos sus respuestas les escribimos para confirmar los detalles y arrancar.</p>
     <div class="acciones">
       <a class="btn" id="btn-wa" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.3 18.7z"/></svg>
@@ -390,6 +391,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <button class="btn claro" id="btn-copiar" type="button">Copiar respuestas</button>
       <button class="btn claro" id="btn-editar" type="button">Volver a editar</button>
     </div>
+    <p class="nota" style="margin:1rem auto 0">Si el mensaje queda incompleto, usen <b>Copiar respuestas</b> y péguenlas en el chat.</p>
     <p class="guardado" id="copiado" aria-live="polite"></p>
     <pre id="resumen"></pre>
   </section>

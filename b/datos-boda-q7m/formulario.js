@@ -362,6 +362,8 @@ form.addEventListener("submit", e => {
   $("resumen").textContent = txt;
   $("btn-wa").href = "https://wa.me/" + WHATSAPP_ESTUDIO + "?text=" + encodeURIComponent(txt);
   form.hidden = true;
+  const nom = $("p_nombres").value.trim();
+  $("listo-nombres").textContent = nom ? ", " + nom : "";
   $("listo").hidden = false;
   $("listo").focus();
   window.scrollTo({top: $("listo").offsetTop - 20, behavior: "smooth"});
