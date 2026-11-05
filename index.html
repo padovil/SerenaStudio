@@ -158,14 +158,17 @@
    tabla comparativa (como una hoja de cotización); cierre con el mensaje de WhatsApp ya escrito.
    Marca: la del brochure (papel, tinta, vino; Cormorant + Hanken). Un solo look a propósito. */
 :root{
-  --papel:#F6F1EA;     /* fondo, el mismo del brochure */
-  --hoja:#FFFDF9;      /* superficies claras: tabla, burbuja */
-  --tinta:#22201C;     /* texto principal y cierre */
-  --vino:#7A2E3A;      /* acento de marca, usado con moderación */
+  /* Paleta "Correspondencia" (docs/correspondencia.md): papel, tinta, lacre y oro viejo */
+  --papel:#F3EEE6;     /* papel de algodón: fondo */
+  --hoja:#FBF8F3;      /* hoja más clara: tabla, burbuja */
+  --tinta:#1D1A17;     /* tinta casi negra con fondo café */
+  --vino:#7A2E3A;      /* lacre: el único color intenso, usado una vez por sección */
   --vino-2:#5A1F2A;
-  --gris:#4F4A43;      /* texto secundario (AA) */
-  --linea:#DDD4C8;     /* filetes */
-  --linea-2:#C9BEB0;
+  --oro:#9C8456;       /* oro viejo: solo filetes y detalles, nunca texto */
+  --gris:#544D46;      /* texto secundario (AA sobre papel) */
+  --linea:#D9CFC1;     /* filetes */
+  --linea-2:#C3B7A7;
+  --rubor:#E2BCAE;     /* acento claro sobre tinta */
   --chat:#E6F0DE;      /* burbuja del mensaje enviado: verde muy apagado, sin imitar a WhatsApp */
   --crema:#D9D1C5;     /* texto secundario sobre tinta */
 
@@ -179,15 +182,16 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:rgba(122,46,58,.14)}
-body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased}
+body{margin:0;background-color:var(--papel);color:var(--tinta);font:17px/1.65 var(--f-texto);-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .2 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}
 a{color:var(--tinta);text-decoration-color:var(--linea-2);text-underline-offset:4px}
 a:hover{color:var(--vino);text-decoration-color:currentColor}
 a,button,summary{touch-action:manipulation}
 :focus-visible{outline:2px solid var(--vino);outline-offset:3px}
 p{margin:0 0 1rem;text-wrap:pretty}
-h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance}
-h2{font-size:clamp(2.2rem, 6.5vw, 3.2rem);line-height:1.02;letter-spacing:-.005em}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.4rem, 7vw, 3.6rem);line-height:1;letter-spacing:-.012em}
 [id]{scroll-margin-top:1rem}
 .wrap{
   max-width:var(--ancho);margin:0 auto;
@@ -240,11 +244,11 @@ h2{font-size:clamp(2.2rem, 6.5vw, 3.2rem);line-height:1.02;letter-spacing:-.005e
 @media (min-width:56rem){.portada{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:4rem;padding-block:4rem 5rem}}
 .portada h1{display:grid;gap:1.1rem;margin-bottom:1.6rem}
 .portada h1 .rotulo{font:600 .78rem/1.3 var(--f-texto);letter-spacing:.2em;text-transform:uppercase;color:var(--vino)}
-.portada .eslogan{font-size:clamp(3.3rem, 12.5vw, 6.2rem);line-height:.92;letter-spacing:-.015em}
+.portada .eslogan{font-size:clamp(3.5rem, 13vw, 6.8rem);line-height:.9;letter-spacing:-.02em;font-weight:400}
 .portada .eslogan em{font-style:italic;font-weight:400;color:var(--vino)}
 .portada .lema{font-size:1.12rem;color:var(--gris);max-width:31rem;margin-bottom:1.8rem}
 .portada .botones{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.2rem}
-.datos{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:0;padding:1rem 0 0;border-top:1px solid var(--linea);list-style:none;font-size:.9rem;color:var(--gris)}
+.datos{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:0;padding:1rem 0 0;border-top:1px solid var(--oro);list-style:none;font-size:.9rem;color:var(--gris)}
 .datos b{color:var(--tinta);font-weight:600;font-variant-numeric:lining-nums}
 
 /* Escena: la invitación en el celular y el mensaje con el que llega */
@@ -265,7 +269,10 @@ h2{font-size:clamp(2.2rem, 6.5vw, 3.2rem);line-height:1.02;letter-spacing:-.005e
 .pie-escena{font-size:.8rem;color:var(--gris);text-align:center;margin:1.1rem 0 0;min-height:2.5rem}
 
 /* ===================== MUESTRAS ===================== */
-.muestras{padding-block:4.5rem;background:var(--hoja);border-block:1px solid var(--linea)}
+.muestras{padding-block:5rem;background:var(--tinta);color:var(--papel)}
+.muestras .encabezado p,.muestras .muestra p:not(.estilo),.muestras .deslizar{color:var(--crema)}
+.muestras .cel{border-color:#3A3530;background:#3A3530;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.muestras :focus-visible{outline-color:var(--papel)}
 .encabezado{display:grid;gap:.9rem;margin-bottom:2.4rem}
 @media (min-width:56rem){.encabezado{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:3rem}}
 .encabezado p{margin:0;color:var(--gris);max-width:32rem}
@@ -279,12 +286,12 @@ h2{font-size:clamp(2.2rem, 6.5vw, 3.2rem);line-height:1.02;letter-spacing:-.005e
 .muestra{scroll-snap-align:start;min-width:0}
 .muestra a{display:grid;gap:.9rem;text-decoration:none;color:inherit}
 .muestra .cel{transition:transform .25s ease, box-shadow .25s ease}
-.muestra a:hover .cel{transform:translateY(-4px);box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 36px 60px -28px rgba(34,32,28,.55)}
-.muestra .estilo{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--vino);margin:0}
-.muestra h3{font-size:1.55rem;line-height:1.1}
+.muestra a:hover .cel{transform:translateY(-4px);border-color:var(--oro);background:var(--oro)}
+.muestra .estilo{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--rubor);margin:0}
+.muestra h3{font-size:1.7rem;line-height:1.05}
 .muestra p{margin:0;font-size:.93rem;color:var(--gris)}
-.muestra .abrir{font-size:.9rem;font-weight:600;text-decoration:underline;text-decoration-color:var(--linea-2);text-underline-offset:4px}
-.muestra a:hover .abrir{color:var(--vino);text-decoration-color:currentColor}
+.muestra .abrir{font-size:.9rem;font-weight:600;text-decoration:underline;text-decoration-color:var(--oro);text-underline-offset:4px}
+.muestra a:hover .abrir{color:var(--rubor);text-decoration-color:currentColor}
 .deslizar{font-size:.82rem;color:var(--gris);margin:.4rem 0 0}
 @media (min-width:56rem){.deslizar{display:none}}
 
@@ -329,12 +336,12 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0;font-weight:600}
 .solo-pdf strong{font-family:var(--f-display);font-size:2rem;font-weight:500;color:var(--vino)}
 
 /* ===================== PROCESO ===================== */
-.proceso{padding-block:4.5rem;background:var(--hoja);border-block:1px solid var(--linea)}
+.proceso{padding-block:4.5rem;background:var(--hoja);border-top:1px solid var(--linea)}
 .pasos{list-style:none;margin:2.2rem 0 0;padding:0;display:grid;gap:0;counter-reset:paso}
 @media (min-width:56rem){.pasos{grid-template-columns:repeat(4, minmax(0,1fr))}}
 .pasos li{counter-increment:paso;display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem .8rem;padding-block:1.1rem;border-top:1px solid var(--linea);min-width:0}
 @media (min-width:56rem){.pasos li{grid-template-columns:1fr;padding:1.2rem 1.5rem 0 0;border-top:1px solid var(--tinta)}}
-.pasos li::before{content:counter(paso);font-family:var(--f-display);font-size:1.7rem;line-height:1;color:var(--vino);grid-row:span 2}
+.pasos li::before{content:counter(paso);font-family:var(--f-display);font-style:italic;font-size:2.1rem;line-height:.9;color:var(--vino);grid-row:span 2}
 .pasos h3{font-family:var(--f-texto);font-size:1.02rem;font-weight:600}
 .pasos p{margin:0;color:var(--gris);font-size:.95rem}
 
@@ -367,7 +374,7 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
 .contacto .btn{width:100%;background:var(--papel);border-color:var(--papel);color:var(--tinta)}
 .contacto .btn:hover{background:var(--chat);border-color:var(--chat);color:var(--tinta)}
 
-.pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;padding-block:1.6rem calc(1.6rem + env(safe-area-inset-bottom, 0px));font-size:.85rem;color:var(--gris)}
+.pie{border-top:1px solid var(--oro);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;padding-block:1.6rem calc(1.6rem + env(safe-area-inset-bottom, 0px));font-size:.85rem;color:var(--gris)}
 .pie p{margin:0}
 
 @media (prefers-reduced-motion:reduce){
