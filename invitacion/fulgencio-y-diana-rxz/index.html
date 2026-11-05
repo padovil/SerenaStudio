@@ -17,7 +17,7 @@
 <meta name="description" content="Boda de Fulgencio y Diana: sábado 5 de diciembre de 2026, Hacienda El Jardín Secreto, Tenjo. Ceremonia 3:00 p. m.">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <link rel="canonical" href="https://serenastudio-peach.vercel.app/invitacion/fulgencio-y-diana-rxz/">
-<meta name="theme-color" content="#4A1C24">
+<meta name="theme-color" content="#45222B">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
 <!-- ========== OPEN GRAPH (vista previa en WhatsApp, imagen 1200×630) ========== -->
@@ -60,24 +60,25 @@
    Columna de paneles: sobre → nombres → fecha → cuenta → lugar → itinerario → vestimenta →
    detalles → fotos → QR de fotos → confirmación → cierre. */
 :root{
-  /* ---- Paleta ---- */
-  --vino-osc:#4A1C24;   /* sobre y fondo */
-  --vino:#6A2E3A;       /* títulos, paneles oscuros (satín vino de la referencia) */
-  --terciopelo:#893941; /* botones y día de la boda (#893941 de la referencia) */
-  --rosa:#CB7885;       /* rosa de los lirios: acentos */
-  --rosa-tierra:#8E4F55;/* etiquetas sobre claro (contraste AA) */
-  --palo-rosa:#D2ACA8;  /* arcos y fondos suaves */
-  --champan:#E8DDCF;    /* paneles claros (satín champaña) */
-  --papel:#F7F1E8;      /* crema */
-  --oliva:#5E6623;      /* hojas, cuenta regresiva (#5E6623 de la referencia) */
-  --oliva-osc:#454B19;
-  --salvia:#D4D994;     /* verde claro de la referencia: detalles sobre oliva */
-  --oro:#C8A867;        /* lacre y marco */
-  --oro-claro:#EAD3A0;
+  /* ---- Paleta (tomada de su referencia de satines: burdeos, champaña, rosa empolvado, oliva y salvia) ---- */
+  --vino-osc:#45222B;   /* satín burdeos en sombra: sobre y fondo */
+  --vino:#62303B;       /* burdeos: títulos y paneles oscuros */
+  --terciopelo:#62303B; /* botones y día de la boda */
+  --rosa:#AF8081;       /* rosa empolvado (satín): acentos */
+  --rosa-tierra:#72464A;/* etiquetas sobre claro (contraste AA) */
+  --palo-rosa:#BF9D9B;  /* rosa empolvado: arcos y fondos suaves */
+  --champan:#D9CDBD;    /* champaña: paneles claros */
+  --papel:#F2ECE3;      /* crema champaña claro */
+  --oliva:#616143;      /* oliva: cuenta regresiva, fotos compartidas */
+  --oliva-osc:#42462E;  /* oliva satín en sombra */
+  --salvia:#DDE1CF;     /* salvia muy clara: texto sobre oliva */
+  --salvia-media:#838A74;/* salvia de la referencia: hojas y ramitas */
+  --oro:#B29B87;        /* champaña satín: lacre y marco */
+  --oro-claro:#E3D3BD;
   --tinta:#3A2226;
-  --tinta-suave:#6B5753;
-  --crema-suave:#EBDAD2;/* texto suave sobre vino */
-  --linea:rgba(106,46,58,.22);
+  --tinta-suave:#5C4845;
+  --crema-suave:#E6D3CF;/* texto suave sobre burdeos */
+  --linea:rgba(98,48,59,.24);
 
   /* ---- Tipografía ---- */
   --f-titulo:"Cormorant SC","Cormorant Garamond",Georgia,serif;
@@ -92,7 +93,7 @@
 body{
   margin:0;color:var(--tinta);font:17px/1.6 var(--f-body);
   background:var(--vino-osc);
-  background-image:radial-gradient(ellipse at 50% 0%, #6A2E3A 0%, var(--vino-osc) 70%);
+  background-image:radial-gradient(ellipse at 50% 0%, #62303B 0%, var(--vino-osc) 70%);
   -webkit-font-smoothing:antialiased;
 }
 body.cerrado{overflow:hidden}
@@ -118,7 +119,7 @@ svg{display:block}
 }
 .panel.claro{background:var(--papel)}
 .panel.oscuro{background:var(--vino);color:var(--papel)}
-.panel + .panel{border-top:1px solid rgba(106,46,58,.12)}
+.panel + .panel{border-top:1px solid rgba(98,48,59,.12)}
 
 .titulo{
   font-family:var(--f-titulo);font-weight:500;font-size:2.05rem;letter-spacing:.06em;
@@ -131,7 +132,7 @@ p{margin:0 0 1rem}
 .suave{color:var(--tinta-suave)}
 .oscuro .suave{color:var(--crema-suave)}
 .corazon{width:10px;height:10px;margin:.9rem auto;color:var(--terciopelo)}
-.ramito{width:120px;height:34px;margin:0 auto 1rem;color:var(--oliva)}
+.ramito{width:120px;height:34px;margin:0 auto 1rem;color:var(--salvia-media)}
 .oscuro .ramito{color:var(--salvia)}
 
 /* ===================== SOBRE (pantalla de apertura) ===================== */
@@ -170,7 +171,7 @@ p{margin:0 0 1rem}
 .btn-musica{
   position:fixed;z-index:40;
   right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
-  width:48px;height:48px;border-radius:50%;border:1px solid rgba(234,211,160,.6);background:var(--vino-osc);
+  width:48px;height:48px;border-radius:50%;border:1px solid rgba(227,211,189,.6);background:var(--vino-osc);
   color:var(--oro-claro);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(40,15,20,.35);
   transition:background-color .2s, color .2s;
 }
@@ -192,7 +193,7 @@ p{margin:0 0 1rem}
 
 /* ===================== PANEL FECHA (calendario en arco) ===================== */
 .p-fecha{background:var(--papel)}
-.p-fecha .ramas{position:absolute;inset:0;width:100%;height:100%;color:var(--oliva);opacity:.28}
+.p-fecha .ramas{position:absolute;inset:0;width:100%;height:100%;color:var(--salvia-media);opacity:.4}
 .arco-cal{
   position:relative;margin:0 auto;width:min(272px,100%);background:var(--palo-rosa);
   border-radius:140px 140px 18px 18px;padding:3.1rem 1.1rem 1.6rem;
@@ -200,10 +201,10 @@ p{margin:0 0 1rem}
 .arco-cal .titulo{font-size:1.6rem;margin:0}
 .dia-sem{font-family:var(--f-serif);font-style:italic;font-size:1.25rem;color:var(--vino);margin:.2rem 0 0}
 .fecha-num{font-family:var(--f-titulo);font-size:2.05rem;color:var(--vino);letter-spacing:.06em;margin:0 0 .1rem;line-height:1.1}
-.mes{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--vino);margin:0 0 .6rem;font-weight:600}
+.mes{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--vino-osc);margin:0 0 .6rem;font-weight:600}
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:.15rem;font-size:.8rem;font-variant-numeric:tabular-nums}
 .cal span{display:grid;place-items:center;aspect-ratio:1;color:var(--tinta)}
-.cal .dow{font-weight:600;color:var(--vino);font-size:.68rem}
+.cal .dow{font-weight:600;color:var(--vino-osc);font-size:.68rem}
 .cal .fuera{opacity:.32}
 .cal .dia-boda{position:relative;z-index:0;color:var(--papel);font-weight:600}
 .cal .dia-boda::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:var(--terciopelo);z-index:-1}
@@ -232,12 +233,12 @@ p{margin:0 0 1rem}
 }
 .btn svg{width:17px;height:17px;flex:none}
 .btn-lleno{background:var(--terciopelo);color:var(--papel)}
-.btn-lleno:hover{background:var(--vino);border-color:var(--vino)}
+.btn-lleno:hover{background:var(--vino-osc);border-color:var(--vino-osc)}
 .btn-borde{background:transparent;color:var(--terciopelo)}
 .btn-borde:hover{background:var(--terciopelo);color:var(--papel)}
 .oscuro .btn-lleno{background:var(--papel);color:var(--vino);border-color:var(--papel)}
 .oscuro .btn-lleno:hover{background:var(--oro-claro);border-color:var(--oro-claro)}
-.oscuro .btn-borde{color:var(--papel);border-color:rgba(247,241,232,.7)}
+.oscuro .btn-borde{color:var(--papel);border-color:rgba(242,236,227,.7)}
 .oscuro .btn-borde:hover{background:var(--papel);color:var(--vino)}
 .btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
 
@@ -250,7 +251,7 @@ p{margin:0 0 1rem}
 .nota-lugar{font-size:.92rem;color:var(--crema-suave);max-width:20rem;margin:0 auto}
 .arco-mapa{
   margin:2rem auto 0;width:min(320px,100%);aspect-ratio:1;max-width:100%;
-  border-radius:50% 50% 0 0;overflow:hidden;background:#5A2530;
+  border-radius:50% 50% 0 0;overflow:hidden;background:#532933;
   display:grid;place-items:center;padding:2rem;font-size:.9rem;color:var(--crema-suave);
 }
 .arco-mapa iframe{width:100%;height:100%;border:0}
@@ -280,7 +281,7 @@ p{margin:0 0 1rem}
 .tonos{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem .4rem;margin:0;padding:0;list-style:none}
 .tonos li{width:4.4rem;display:grid;justify-items:center;gap:.3rem;font-size:.74rem;line-height:1.2;color:var(--tinta-suave)}
 .tonos i{width:34px;height:34px;border-radius:50%;border:2px solid var(--papel);box-shadow:0 0 0 1px var(--linea)}
-.evitar{max-width:21rem;margin:0 auto;padding:1.1rem 1.1rem .4rem;border:1px dashed rgba(137,57,65,.45);border-radius:14px;background:rgba(247,241,232,.6);text-align:left}
+.evitar{max-width:21rem;margin:0 auto;padding:1.1rem 1.1rem .4rem;border:1px dashed rgba(98,48,59,.45);border-radius:14px;background:rgba(242,236,227,.7);text-align:left}
 .evitar h3{font-family:var(--f-titulo);font-weight:500;font-size:1.2rem;letter-spacing:.06em;color:var(--terciopelo);margin:0 0 .5rem;text-align:center}
 .evitar ul{margin:0 0 .7rem;padding:0;list-style:none}
 .evitar li{position:relative;padding-left:1.4rem;margin-bottom:.45rem;font-size:.95rem;line-height:1.4;color:var(--tinta)}
@@ -317,8 +318,8 @@ p{margin:0 0 1rem}
 /* ===================== PANEL QR DE FOTOS ===================== */
 .p-album{background:var(--oliva);color:var(--papel)}
 .p-album .titulo{color:var(--papel)}
-.p-album p{color:#F1EEDB}
-.p-album .ic-camara{width:56px;height:48px;margin:0 auto 1rem;color:var(--salvia)}
+.p-album p{color:var(--salvia)}
+.p-album .ic-camara{width:56px;height:48px;margin:0 auto 1rem;color:var(--oro-claro)}
 .p-album .btn-lleno{background:var(--papel);color:var(--oliva-osc);border-color:var(--papel)}
 .p-album .btn-lleno:hover{background:var(--salvia);border-color:var(--salvia)}
 .p-album :focus-visible{outline-color:var(--papel)}
@@ -335,12 +336,12 @@ p{margin:0 0 1rem}
 .campo .opc{font-weight:400;color:var(--tinta-suave)}
 .campo input[type=text],.campo input[type=tel],.campo select,.campo textarea{
   width:100%;font:16px/1.4 var(--f-body);color:var(--tinta);background:#fff;
-  border:1px solid rgba(106,46,58,.35);border-radius:10px;padding:.7rem .85rem;min-height:46px;
+  border:1px solid rgba(98,48,59,.35);border-radius:10px;padding:.7rem .85rem;min-height:46px;
 }
 .campo textarea{min-height:5.5rem;resize:vertical}
 .campo input:focus-visible,.campo select:focus-visible,.campo textarea:focus-visible{outline:2px solid var(--terciopelo);outline-offset:1px;border-color:var(--terciopelo)}
 .radios{display:flex;gap:.6rem;flex-wrap:wrap}
-.radios label{flex:1 1 9rem;display:flex;align-items:center;gap:.55rem;min-height:46px;padding:.55rem .85rem;border:1px solid rgba(106,46,58,.35);border-radius:10px;background:#fff;cursor:pointer;font-size:.95rem}
+.radios label{flex:1 1 9rem;display:flex;align-items:center;gap:.55rem;min-height:46px;padding:.55rem .85rem;border:1px solid rgba(98,48,59,.35);border-radius:10px;background:#fff;cursor:pointer;font-size:.95rem}
 .radios input{accent-color:var(--terciopelo);width:18px;height:18px;margin:0}
 .radios label:has(input:checked){border-color:var(--terciopelo);box-shadow:inset 0 0 0 1px var(--terciopelo)}
 .solo-si[hidden]{display:none}
@@ -369,7 +370,7 @@ p{margin:0 0 1rem}
 /* Terciopelo: vetas verticales + brillo suave, sobre el color de fondo del panel */
 .tx-terciopelo{
   background-image:
-    radial-gradient(ellipse at 30% 20%, rgba(255,215,215,.08), transparent 60%),
+    radial-gradient(ellipse at 30% 20%, rgba(255,220,215,.07), transparent 60%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .9 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.018 0.045' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .42 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)'/%3E%3C/svg%3E");
 }
@@ -386,7 +387,7 @@ p{margin:0 0 1rem}
 }
 
 /* ===================== ACCESIBILIDAD Y USO TÁCTIL ===================== */
-html{scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom, 0px));-webkit-tap-highlight-color:rgba(137,57,65,.14)}
+html{scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom, 0px));-webkit-tap-highlight-color:rgba(98,48,59,.14)}
 a,button,summary,label,select,input{touch-action:manipulation}
 p{text-wrap:pretty}
 [id]{scroll-margin-top:1rem}
@@ -470,7 +471,7 @@ p{text-wrap:pretty}
     <rect width="100%" height="100%" fill="url(#hojas)"/>
   </svg>
   <svg class="solapa" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 0L50 52L100 0" fill="rgba(0,0,0,.12)" stroke="rgba(200,168,103,.35)" stroke-width=".25" vector-effect="non-scaling-stroke"/>
+    <path d="M0 0L50 52L100 0" fill="rgba(0,0,0,.12)" stroke="rgba(178,155,135,.35)" stroke-width=".25" vector-effect="non-scaling-stroke"/>
     <path d="M0 100L50 52L100 100" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="1" vector-effect="non-scaling-stroke"/>
   </svg>
   <div class="sobre-centro">
@@ -479,18 +480,18 @@ p{text-wrap:pretty}
       <svg viewBox="0 0 140 140">
         <defs>
           <radialGradient id="lacre" cx="40%" cy="35%" r="70%">
-            <stop offset="0" stop-color="#F3DCA4"/><stop offset=".55" stop-color="#C8A867"/><stop offset="1" stop-color="#8F7034"/>
+            <stop offset="0" stop-color="#F1E6D6"/><stop offset=".55" stop-color="#C9B6A1"/><stop offset="1" stop-color="#8C7663"/>
           </radialGradient>
         </defs>
         <path d="M70 6c12 0 18 6 28 9s18 6 23 16 4 18 7 28 3 20-3 29-12 14-19 21-14 13-26 14-20-1-30-5-19-8-25-17-7-18-9-28-2-21 4-30 12-12 20-20S58 6 70 6z" fill="url(#lacre)"/>
-        <circle cx="70" cy="70" r="44" fill="none" stroke="#8F7034" stroke-width="2.5" opacity=".7"/>
-        <circle cx="70" cy="70" r="40" fill="none" stroke="#F3DCA4" stroke-width="1" opacity=".6"/>
+        <circle cx="70" cy="70" r="44" fill="none" stroke="#8C7663" stroke-width="2.5" opacity=".7"/>
+        <circle cx="70" cy="70" r="40" fill="none" stroke="#F1E6D6" stroke-width="1" opacity=".6"/>
         <!-- ramitas de olivo alrededor del monograma -->
-        <g fill="none" stroke="#7A5D22" stroke-width="1.4" stroke-linecap="round" opacity=".85">
+        <g fill="none" stroke="#6B5848" stroke-width="1.4" stroke-linecap="round" opacity=".85">
           <path d="M44 92c-8-10-10-24-4-36M96 92c8-10 10-24 4-36"/>
           <path d="M42 80c-6-1-9 2-10 5 5 1 8-1 10-5zM40 68c-5-2-9 0-10 3 5 2 8 0 10-3zM100 68c5-2 9 0 10 3-5 2-8 0-10-3zM98 80c6-1 9 2 10 5-5 1-8-1-10-5z"/>
         </g>
-        <text x="70" y="84" text-anchor="middle" font-family="Pinyon Script, Snell Roundhand, cursive" font-size="34" fill="#6E521B">F&amp;D</text>
+        <text x="70" y="84" text-anchor="middle" font-family="Pinyon Script, Snell Roundhand, cursive" font-size="34" fill="#5A4636">F&amp;D</text>
       </svg>
     </button>
     <p class="toca">Toca el sello para abrir</p>
@@ -552,12 +553,12 @@ p{text-wrap:pretty}
             <feComposite in2="SourceAlpha" operator="in"/>
           </filter>
           <radialGradient id="brillo" cx="35%" cy="25%" r="70%">
-            <stop offset="0" stop-color="#7D8636"/><stop offset=".6" stop-color="#5E6623"/><stop offset="1" stop-color="#3F4416"/>
+            <stop offset="0" stop-color="#7B7B57"/><stop offset=".6" stop-color="#616143"/><stop offset="1" stop-color="#42462E"/>
           </radialGradient>
         </defs>
         <ellipse cx="140" cy="186" rx="128" ry="170" fill="url(#brillo)"/>
         <ellipse cx="140" cy="186" rx="128" ry="170" fill="#000" filter="url(#tercio-f)"/>
-        <ellipse cx="140" cy="186" rx="116" ry="158" fill="none" stroke="#EAD3A0" stroke-width="1" opacity=".7"/>
+        <ellipse cx="140" cy="186" rx="116" ry="158" fill="none" stroke="#E3D3BD" stroke-width="1" opacity=".75"/>
       </svg>
       <div class="dentro">
         <h2 class="titulo">Faltan</h2>

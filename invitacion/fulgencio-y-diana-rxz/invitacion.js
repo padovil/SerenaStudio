@@ -116,17 +116,17 @@ btnMusica.addEventListener("click", () => {
   s.innerHTML = `
     <defs>
       <linearGradient id="oro-marco" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#EDD59C"/><stop offset=".35" stop-color="#B08A3A"/>
-        <stop offset=".6" stop-color="#EAD09A"/><stop offset="1" stop-color="#9C7A30"/>
+        <stop offset="0" stop-color="#F0E4D3"/><stop offset=".35" stop-color="#A28A74"/>
+        <stop offset=".6" stop-color="#E3D3BD"/><stop offset="1" stop-color="#86705D"/>
       </linearGradient>
       <filter id="sombra" x="-10%" y="-10%" width="120%" height="120%">
         <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1E0A0E" flood-opacity=".45"/>
       </filter>
     </defs>
-    <path d="${d}" transform="translate(150 200) scale(1.075) translate(-150 -200)" fill="#EFE2D6" filter="url(#sombra)"/>
-    <path d="${d}" fill="#F7F1E8"/>
+    <path d="${d}" transform="translate(150 200) scale(1.075) translate(-150 -200)" fill="#E7DCCD" filter="url(#sombra)"/>
+    <path d="${d}" fill="#F4EFE7"/>
     <!-- ramitas de olivo arriba y abajo, muy suaves -->
-    <g fill="none" stroke="#5E6623" stroke-width="1.1" opacity=".5" stroke-linecap="round">
+    <g fill="none" stroke="#838A74" stroke-width="1.1" opacity=".5" stroke-linecap="round">
       <path d="M120 64c20-8 40-8 60 0"/>
       <path d="M134 60c-3-6-9-8-14-6 3 5 9 7 14 6zM150 57c0-6-4-10-9-10 0 6 4 9 9 10zM166 60c3-6 9-8 14-6-3 5-9 7-14 6z"/>
       <path d="M120 336c20 8 40 8 60 0"/>
