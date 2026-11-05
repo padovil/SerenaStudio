@@ -65,7 +65,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
 .opciones{display:flex;flex-wrap:wrap;gap:.5rem}
 .opciones label{display:flex;align-items:center;gap:.5rem;min-height:44px;padding:.45rem .85rem;background:#fff;border:1px solid #C4BDB1;border-radius:999px;font-weight:400;cursor:pointer}
 .opciones input{accent-color:var(--oro-osc);width:18px;height:18px;margin:0}
-.si-no[hidden]{display:none}
+.si-no[hidden],[hidden]{display:none!important}
 .sub{border-top:1px dashed var(--linea);padding-top:1rem;margin-top:.4rem}
 
 .enviar{position:sticky;bottom:0;background:linear-gradient(transparent, var(--marfil) 30%);padding:1.4rem 0 calc(1rem + env(safe-area-inset-bottom,0px));display:grid;gap:.6rem;justify-items:center}
@@ -179,6 +179,8 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       </div>
       <div class="campo"><label for="p_frase">Frase, versículo o canción que los represente</label><textarea id="p_frase" name="Frase o versículo" placeholder="Ej. «El amor es paciente, es bondadoso…» 1 Corintios 13:4"></textarea></div>
       <div class="campo"><label for="p_saludo">Mensaje de bienvenida para sus invitados</label><textarea id="p_saludo" name="Mensaje de bienvenida" placeholder="Si lo dejan en blanco, les proponemos uno."></textarea></div>
+      <div class="campo" id="x_historia_box"><label for="p_historia">Nuestra historia</label><textarea id="p_historia" name="Nuestra historia" style="min-height:170px" placeholder="Cómo se conocieron, su primera cita, momentos especiales, la propuesta… Si quieren, con fechas o años."></textarea><span class="nota">Escríbanla como les salga; nosotros la ajustamos para que se lea bonita. Si tienen fotos de esos momentos, inclúyanlas en el link de fotos.</span></div>
+      <div class="campo" id="x_hashtag_box"><label for="p_hashtag">Hashtag de la boda</label><input id="p_hashtag" name="Hashtag" type="text" placeholder="Ej. #LauraYFelipe2026"><span class="nota">Si no tienen uno, déjenlo en blanco y les proponemos opciones.</span></div>
     </fieldset>
 
     <fieldset>
@@ -216,6 +218,11 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <p class="ayuda">Una línea por momento, con la hora.</p>
       <div class="campo"><label for="i_itinerario">Itinerario del día</label><textarea id="i_itinerario" name="Itinerario" placeholder="3:00 p. m. Ceremonia&#10;5:00 p. m. Cóctel&#10;7:00 p. m. Cena&#10;8:30 p. m. Fiesta"></textarea></div>
       <div class="campo"><label for="i_notas">Para tener en cuenta</label><textarea id="i_notas" name="Para tener en cuenta" placeholder="Ej. Solo adultos, parqueadero, transporte, clima…"></textarea></div>
+      <div class="campo" id="x_faq_box"><label for="i_faq">Preguntas frecuentes</label><textarea id="i_faq" name="Preguntas frecuentes" placeholder="¿Pueden ir niños? No, es una celebración solo para adultos.&#10;¿Hay parqueadero? Sí, en el lugar.&#10;¿Hay transporte? Saldrá un bus a las 2:00 p. m. desde…"></textarea><span class="nota">Una pregunta con su respuesta por línea.</span></div>
+      <div class="dos" id="x_organizadora_box">
+        <div class="campo"><label for="i_org">Organizadora o wedding planner</label><input id="i_org" name="Organizadora · nombre" type="text"></div>
+        <div class="campo"><label for="i_org_wa">Su WhatsApp</label><input id="i_org_wa" name="Organizadora · WhatsApp" type="tel" inputmode="tel"></div>
+      </div>
     </fieldset>
 
     <fieldset id="fs_hospedaje">

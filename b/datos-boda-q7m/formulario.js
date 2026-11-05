@@ -20,15 +20,19 @@ const INCLUYE = {
 const MEDIDA_OPCIONAL = [
   ["", "Colores y tipografía a su elección"], ["", "“Cómo llegar” con Google Maps"], ["", "Cuenta regresiva y botón de calendario"],
   ["", "Foto de portada"], ["", "Código de vestimenta"], ["", "Regalos o lluvia de sobres con botón “Copiar”"], ["", "Vista previa al compartir en WhatsApp"],
-  ["", "Galería de fotos"], ["musica", "Música de fondo con su canción"], ["", "Cronograma del día"], ["", "Preguntas frecuentes"],
-  ["", "Mapa dentro de la invitación"], ["", "Calendario del mes con su fecha marcada"], ["", "Contacto de su organizadora o wedding planner"],
+  ["", "Galería de fotos"], ["musica", "Música de fondo con su canción"], ["", "Cronograma del día"], ["faq", "Preguntas frecuentes"],
+  ["", "Mapa dentro de la invitación"], ["", "Calendario del mes con su fecha marcada"], ["organizadora", "Contacto de su organizadora o wedding planner"],
   ["form", "Formulario de confirmación que llena un Excel (número de personas y alergias)"], ["links", "Link con el nombre y los cupos de cada invitado"],
-  ["", "Nuestra historia"], ["hospedaje", "Hospedaje sugerido para sus invitados"], ["", "Hashtag de la boda"], ["", "Monograma con sus iniciales"],
+  ["historia", "Nuestra historia"], ["hospedaje", "Hospedaje sugerido para sus invitados"], ["hashtag", "Hashtag de la boda"], ["", "Monograma con sus iniciales"],
   ["", "Sobre animado o portada ilustrada"], ["pdfv", "Versión PDF de la invitación"]
 ];
 /* incl: paquetes donde ya viene incluido · precio: valor como extra por paquete */
 const TODOS = p => ({ esencial: p, clasica: p, medida: p, pdf: p });
 const ITEMS = [
+  { id: "historia", nombre: "Nuestra historia", incl: ["medida"], precio: {} },
+  { id: "hashtag", nombre: "Hashtag", incl: ["medida"], precio: {} },
+  { id: "faq", nombre: "Preguntas frecuentes", incl: ["clasica", "medida"], precio: {} },
+  { id: "organizadora", nombre: "Contacto de la organizadora", incl: ["clasica", "medida"], precio: {} },
   { id: "hospedaje", nombre: "Hospedaje sugerido", incl: ["medida"], precio: {} },
   { id: "musica",  nombre: "Música de fondo con su canción", incl: ["clasica", "medida"], precio: { esencial: 30000 } },
   { id: "form",    nombre: "Formulario de confirmación que llena un Excel (número de personas y alergias)", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
@@ -113,6 +117,7 @@ function condicionales(){
   pintarPaquete();
   const plan = planActual();
   $("m_musica_box").hidden = !tiene("musica");
+  ["historia", "hashtag", "faq", "organizadora"].forEach(id => { $("x_" + id + "_box").hidden = !tiene(id); });
   $("fs_qr").hidden = !tiene("qr");
   $("fs_hospedaje").hidden = !(plan === "medida" && tiene("hospedaje"));
   const conForm = tiene("form");
