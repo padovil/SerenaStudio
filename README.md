@@ -15,7 +15,7 @@ Dominio provisional: https://serenastudio-peach.vercel.app
 | `muestras/valentina-y-tomas/` | Estilo “Bolillo” (encaje) | Sí |
 | `muestras/isabella-y-martin/` | Tarjeta en PDF | Sí |
 | `formulario/` | Formulario de datos para clientes: paquete, extras, total y datos de la boda (llega por WhatsApp) | No |
-| `formulario/v1/` | El mismo formulario con los paquetes y precios anteriores | No |
+| `datos/v1/` | El mismo formulario con los paquetes y precios anteriores | No |
 | `invitacion/<pareja>-<código>/` | Invitaciones de clientes (instrucciones en `invitacion/README.md`) | No |
 | `descargas/` | Brochure de precios en PDF | |
 | `docs/` | Documentos internos (no se publican) | |
@@ -60,7 +60,7 @@ Funcionan igual en muestras y clientes: `…/invitacion/laura-y-juan-7k2/?para=F
 
 ### Formulario con los paquetes anteriores
 
-`https://serenastudio-peach.vercel.app/formulario/v1/` — para clientes que compraron con los precios iniciales (Esencial $180.000, Completa $260.000, A medida $340.000, Solo PDF $130.000, primera versión en 3 días). Es una copia de `formulario/` con su propio catálogo en `formulario/v1/formulario.js`; en A medida incluye de cortesía el formulario a Excel y el hospedaje.
+`https://serenastudio-peach.vercel.app/datos/v1/` — para clientes que compraron con los precios iniciales (Esencial $180.000, Completa $260.000, A medida $340.000, Solo PDF $130.000, primera versión en 3 días). Es una copia de `formulario/` con su propio catálogo en `datos/v1/formulario.js`. No tiene enlaces hacia `/formulario/`; en A medida incluye de cortesía el formulario a Excel y el hospedaje.
 
 ## Licencia
 

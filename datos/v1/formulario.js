@@ -1,4 +1,4 @@
-/*! © 2026 Serena Studio · Formulario de datos con los paquetes anteriores (/formulario/v1/) */
+/*! © 2026 Serena Studio · Formulario de datos con los paquetes anteriores (/datos/v1/) */
 "use strict";
 
 /* =====================================================================
@@ -74,7 +74,7 @@ const EXTRAS = [
   { id: "dominio", nombre: "Dominio propio por un año", precio: { esencial: 90000, completa: 90000, medida: 90000 } }
 ];
 
-/* Precio acordado para un cliente puntual: /formulario/v1/?paquete=medida&precio=300000 */
+/* Precio acordado para un cliente puntual: /datos/v1/?paquete=medida&precio=300000 */
 const URL_PARAMS = new URLSearchParams(location.search);
 const PRECIO_ESPECIAL = { plan: URL_PARAMS.get("paquete"), precio: Number(URL_PARAMS.get("precio")) || 0 };
 
