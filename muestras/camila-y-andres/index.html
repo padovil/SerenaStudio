@@ -88,7 +88,7 @@
 /* =========================================================
    PLANTILLA "CEREZA" — tiras de papel crema y paneles bordó.
    Layout: en celular, una sola tira continua de paneles que alternan
-   crema y bordó. En pantallas anchas, dos tiras desfasadas sobre fondo
+   crema y bordó. En pantallas anchas, la misma tira centrada sobre fondo
    de lino, como una invitación impresa vista desde arriba.
    Un solo look a propósito (noche urbana, bordó y crema).
    Para otro cliente: cambiar tokens aquí y el bloque EVENTO en el script.
@@ -301,7 +301,7 @@ h2{
   @keyframes aparece{from{transform:translateY(22px)}to{transform:none}}
 }
 
-/* ===================== PANTALLAS ANCHAS: dos tiras desfasadas ===================== */
+/* ===================== PANTALLAS ANCHAS: una tira centrada sobre lino ===================== */
 @media (min-width:820px){
   body{
     background:var(--lino);
@@ -309,17 +309,15 @@ h2{
                      repeating-linear-gradient(90deg, rgba(42,29,31,.03) 0 1px, transparent 1px 4px);
   }
   .lienzo{
-    display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;
-    max-width:56rem;margin:0 auto;padding-block:3rem 4rem;
+    display:block;max-width:30rem;margin:0 auto;padding-block:3rem 4rem;
     padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px));
   }
-  .col-a{padding-top:1rem}
-  .col-b{margin-top:-1rem}
+  .col-a > :not(.rotulo),.col-b{box-shadow:0 24px 50px -30px rgba(42,29,31,.6)}
   .rotulo{display:block;color:var(--crema);margin:0 0 3rem}
   .rotulo b{display:block;font-family:var(--f-display);font-weight:500;text-transform:uppercase;font-size:2.6rem;line-height:1;letter-spacing:.04em}
   .rotulo span{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
-  .panel{--gutter:2.2rem;--gutter-r:2.2rem;box-shadow:0 18px 40px -28px rgba(42,29,31,.55)}
-  .cierre{background:transparent;grid-column:1/-1;color:var(--crema);padding-block:2rem 3rem;box-shadow:none}
+  .panel{--gutter:2.2rem;--gutter-r:2.2rem}
+  .cierre{background:transparent;color:var(--crema);padding-block:2.5rem 3rem;box-shadow:none}
   .cierre p{color:var(--crema)}
   .cierre .mono em{color:var(--crema);opacity:.7}
 }
