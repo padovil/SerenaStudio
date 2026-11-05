@@ -12,7 +12,7 @@ const form = $("form");
 const PLANES = { esencial: 180000, clasica: 260000, medida: 400000, pdf: 130000 };
 const INCLUYE = {
   esencial: ["Nombres, fecha, ceremonia y recepción", "Colores y tipografía a su elección", "“Cómo llegar” con Google Maps", "Cuenta regresiva y botón de calendario", "Confirmación de asistencia por WhatsApp", "Foto de portada", "Código de vestimenta", "Regalos o lluvia de sobres con botón “Copiar”", "Vista previa al compartir en WhatsApp", "1 ronda de ajustes", "En línea hasta 1 mes después de la boda"],
-  clasica: ["Todo lo de Esencial", "Galería de fotos", "Música de fondo con su canción", "Cronograma del día", "Preguntas frecuentes", "Mapa dentro de la invitación", "Calendario del mes con su fecha marcada", "Contacto de su organizadora o wedding planner", "2 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
+  clasica: ["Todo lo de Esencial", "Galería de fotos", "Música de fondo con su canción", "Cronograma del día", "Preguntas frecuentes", "Mapa dentro de la invitación", "Calendario del mes con su fecha marcada", "2 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
   medida: ["Nombres, fecha, ceremonia y recepción", "Colores y tipografía a su elección", "3 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
   pdf: ["Hasta 3 páginas", "Enlaces a ubicación, confirmación por WhatsApp y calendario", "Ceremonia, recepción, programa, vestimenta y regalos", "Colores y tipografía a su elección", "1 ronda de ajustes"]
 };
@@ -30,7 +30,6 @@ const MEDIDA_OPCIONAL = [
   ["faq", "Preguntas frecuentes"],
   ["mapa", "Mapa dentro de la invitación"],
   ["calendario", "Calendario del mes con su fecha marcada"],
-  ["organizadora", "Contacto de su organizadora o wedding planner"],
   ["form", "Formulario de confirmación que llena un Excel (número de personas y alergias)"],
   ["links", "Link con el nombre y los cupos de cada invitado"],
   ["historia", "Nuestra historia"],
@@ -45,7 +44,7 @@ const E = "esencial", C = "clasica", M = "medida", P = "pdf";
 const INCL = {
   colores: [E, C, M, P], comoLlegar: [E, C, M, P], cuenta: [E, C, M], portada: [E, C, M], vestimenta: [E, C, M, P],
   regalos: [E, C, M, P], vista: [E, C, M], galeria: [C, M], musica: [C, M], cronograma: [C, M, P], faq: [C, M],
-  mapa: [C, M], calendario: [C, M], organizadora: [C, M], form: [M], links: [M], historia: [M], hospedaje: [M],
+  mapa: [C, M], calendario: [C, M], form: [M], links: [M], historia: [M], hospedaje: [M],
   hashtag: [M], monograma: [M], sobre: [M], pdfv: [M]
 };
 /* incl: paquetes donde ya viene incluido · precio: valor como extra por paquete */

@@ -11,7 +11,6 @@ const EVENTO = {
   lugar: "Parroquia Santa Lucía, Calle 12 # 10-40, Chía",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Ch%C3%ADa%2C%20Cundinamarca", // [EJEMPLO]
   whatsapp: "573000000000",                 // [EJEMPLO] número de la pareja, con indicativo, sin +
-  whatsappOrganizadora: "573000000000",     // [EJEMPLO] con indicativo, sin +
   novios: "Mariana y Sebastián"
 };
 
@@ -32,8 +31,6 @@ function aviso(t){ const a=$("aviso"); a.textContent=t; a.hidden=false; clearTim
 
 /* ---------- Enlaces ---------- */
 $("btn-maps").href = EVENTO.mapsUrl;
-$("btn-wa").href = "https://wa.me/" + EVENTO.whatsappOrganizadora + "?text=" +
-  encodeURIComponent("Hola Daniela, tengo una pregunta sobre la boda de " + EVENTO.novios + ".");
 $("btn-gcal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
   + "&text=" + encodeURIComponent(EVENTO.titulo)
   + "&dates=" + EVENTO.inicioUTC + "/" + EVENTO.finUTC
