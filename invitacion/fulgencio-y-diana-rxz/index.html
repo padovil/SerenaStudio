@@ -294,6 +294,9 @@ a,button,label,select,input{touch-action:manipulation}
 /* ===================== COMPARTAN SUS FOTOS ===================== */
 .ic-camara{width:52px;height:44px;margin:0 auto 1rem;color:var(--vino)}
 
+.hashtag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--f-serif);font-style:italic;font-size:1.6rem;color:var(--vino);background:none;border:0;border-bottom:1px solid var(--linea);padding:.2rem .3rem .3rem;cursor:pointer;min-height:44px}
+.hashtag svg{width:17px;height:17px;flex:none;opacity:.7}
+
 /* ===================== RSVP ===================== */
 .limite{display:inline-block;font-family:var(--f-titulo);font-size:1.25rem;letter-spacing:.06em;color:var(--papel);border-top:1px solid rgba(244,239,231,.35);border-bottom:1px solid rgba(244,239,231,.35);padding:.35rem 1.2rem;margin:.2rem 0 .4rem}
 .cupos{font-weight:600;color:var(--papel) !important}
@@ -605,7 +608,10 @@ a,button,label,select,input{touch-action:manipulation}
     <svg class="ic-camara" viewBox="0 0 56 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 14h11l4-6h18l4 6h11v30H4z"/><circle cx="28" cy="28" r="9"/><path d="M45 20h3"/></svg>
     <h2 class="tit"><span class="ini">C</span>ompartan sus fotos</h2>
     <p class="mensaje">Queremos ver la boda a través de sus ojos. El día de la celebración encontrarán un código QR en las mesas para subir sus fotos y videos a nuestro álbum.</p>
-    <p class="mensaje">También pueden subirlas desde aquí:</p>
+    <p class="mensaje">Y si las comparten en redes, usen nuestro hashtag:</p>
+    <button class="hashtag" id="btn-hashtag" type="button" aria-label="Copiar el hashtag #NuestroJardínSecreto">#NuestroJardínSecreto
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></button>
+    <p class="mensaje" style="margin-top:1.4rem">También pueden subir sus fotos desde aquí:</p>
     <div class="botones">
       <a class="btn btn-lleno" id="btn-album" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>Subir mis fotos</a>

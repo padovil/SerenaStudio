@@ -162,6 +162,14 @@ btnMusica.addEventListener("click", () => {
   b.addEventListener("click", e => { e.preventDefault(); avisar("El álbum estará disponible muy pronto."); });
 })();
 
+/* ---------- Copiar el hashtag ---------- */
+$("btn-hashtag").addEventListener("click", () => {
+  const t = "#NuestroJardínSecreto";
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject())
+    .then(() => avisar("Hashtag copiado"))
+    .catch(() => avisar(t));
+});
+
 /* ---------- Fotos: marcador si aún no están ---------- */
 document.querySelectorAll(".foto img").forEach(img => {
   const marcar = () => img.parentElement.classList.add("sin-foto");
