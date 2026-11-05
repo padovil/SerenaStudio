@@ -193,7 +193,7 @@ function guardar(){
     const k = el.type === "checkbox" || el.type === "radio" ? el.name + "|" + el.value : el.id;
     datos[k] = el.type === "checkbox" || el.type === "radio" ? el.checked : el.value;
   });
-  try { localStorage.setItem(CLAVE, JSON.stringify(datos)); $("guardado").textContent = "Guardado en este celular."; } catch (e) {}
+  try { localStorage.setItem(CLAVE, JSON.stringify(datos)); $("guardado").textContent = "Guardado en este dispositivo."; } catch (e) {}
 }
 function cargar(){
   let datos = null;

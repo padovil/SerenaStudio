@@ -34,12 +34,15 @@ a{color:var(--oro-osc)}
 
 .tope{background:var(--noche);color:var(--marfil);padding:2.6rem max(18px, env(safe-area-inset-right,0px)) 2.4rem max(18px, env(safe-area-inset-left,0px));text-align:center}
 .tope img{width:58px;height:auto;margin:0 auto .9rem;display:block}
-.tope .rot{font:600 .72rem/1 var(--f-texto);letter-spacing:.26em;text-transform:uppercase;color:var(--oro);margin:0 0 .8rem}
+.tope .rot{font:600 .72rem/1 var(--f-texto);letter-spacing:.26em;text-transform:uppercase;color:var(--oro);margin:0 auto .8rem}
 .tope h1{font:400 clamp(2rem, 8vw, 2.7rem)/1.08 var(--f-titulo);margin:0 0 .9rem;text-wrap:balance}
 .tope h1 em{color:var(--oro)}
 .tope p{max-width:34rem;margin:0 auto;color:#C8CDD3}
 
 main{max-width:40rem;margin:0 auto;padding:1.6rem max(18px, env(safe-area-inset-right,0px)) 4rem max(18px, env(safe-area-inset-left,0px))}
+.ayuda-wa{margin:0 0 1rem;padding:.9rem 1.1rem;background:var(--noche);color:var(--marfil);border-radius:8px;font-size:.95rem;line-height:1.55}
+.ayuda-wa a{color:var(--oro);font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:.3rem;text-underline-offset:3px}
+.ayuda-wa svg{width:16px;height:16px}
 .guia{background:var(--hoja);border:1px solid var(--linea);border-radius:8px;padding:1.1rem 1.2rem;margin-bottom:1.6rem;font-size:.95rem}
 .guia b{font-weight:600}
 .guia ul{margin:.5rem 0 0;padding-left:1.1rem}
@@ -122,10 +125,12 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
   <img src="/img/logo-crema.png" width="240" height="240" alt="Serena Studio">
   <p class="rot">Serena Studio</p>
   <h1>Los datos de <em>su invitación</em></h1>
-  <p>Con esta información dejamos su invitación lista. Les toma unos 10 minutos. Lo que escriben se guarda en este celular mientras lo llenan.</p>
+  <p>Con esta información dejamos su invitación lista. Les toma unos 10 minutos. Lo que escriben se guarda en este dispositivo mientras lo llenan.</p>
 </header>
 
 <main>
+  <p class="ayuda-wa">¿Tienen alguna duda con el formulario o quieren consultarnos algo más? Escríbannos por WhatsApp al <a href="https://wa.me/573185088370?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20el%20formulario%20de%20mi%20invitaci%C3%B3n." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.3 18.7z"/></svg>318 508 8370</a>.</p>
+
   <div class="guia">
     <b>Antes de empezar, tengan a la mano:</b>
     <ul>
@@ -369,7 +374,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         Revisar y enviar
       </button>
       <p class="total-barra" id="total_barra" hidden></p>
-      <p class="guardado" id="guardado" aria-live="polite">Lo que escriben se guarda en este celular.</p>
+      <p class="guardado" id="guardado" aria-live="polite">Lo que escriben se guarda en este dispositivo.</p>
     </div>
   </form>
 
