@@ -158,15 +158,21 @@ $("form-rsvp").addEventListener("submit", e => {
   const solapa = $("s-solapa");
   const reducido = matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.body.classList.add("sin-scroll");
-  if (inv) inv.inert = true;
+  if (inv) { inv.inert = true; if (!reducido) inv.classList.add("en-espera"); }
   const fijarAlto = () => $("s-sobre").style.setProperty("--alto-solapa", solapa.offsetHeight + "px");
   fijarAlto(); addEventListener("resize", fijarAlto);
   let abierto = false;
   function abrir(){
     if (abierto) return; abierto = true;
     sobre.classList.add("abierto");
-    const t1 = reducido ? 50 : 3000, t2 = reducido ? 350 : 3900;
-    setTimeout(() => sobre.classList.add("fuera"), t1);
+    // 1) el sobre baja y se desvanece mientras la tarjeta crece y se disuelve;
+    // 2) el fondo pasa al mismo oliva de la portada y la invitación sube suavemente.
+    const t1 = reducido ? 50 : 2750, t2 = reducido ? 350 : 4900;
+    setTimeout(() => {
+      sobre.classList.add("despide");
+      if (inv) inv.classList.remove("en-espera");
+      setTimeout(() => sobre.classList.add("fuera"), reducido ? 0 : 1100);
+    }, t1);
     setTimeout(() => {
       sobre.hidden = true;
       document.body.classList.remove("sin-scroll");
