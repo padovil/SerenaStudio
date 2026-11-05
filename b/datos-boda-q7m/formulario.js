@@ -13,12 +13,11 @@ const PLANES = { esencial: 180000, clasica: 260000, medida: 400000, pdf: 130000 
 const INCLUYE = {
   esencial: ["Nombres, fecha, ceremonia y recepción", "Colores y tipografía a su elección", "“Cómo llegar” con Google Maps", "Cuenta regresiva y botón de calendario", "Confirmación de asistencia por WhatsApp", "Foto de portada", "Código de vestimenta", "Regalos o lluvia de sobres con botón “Copiar”", "Vista previa al compartir en WhatsApp", "1 ronda de ajustes", "En línea hasta 1 mes después de la boda"],
   clasica: ["Todo lo de Esencial", "Galería de fotos", "Música de fondo con su canción", "Cronograma del día", "Preguntas frecuentes", "Mapa dentro de la invitación", "Calendario del mes con su fecha marcada", "Contacto de su organizadora o wedding planner", "2 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
-  medida: ["Nombres, fecha, ceremonia y recepción", "3 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
+  medida: ["Nombres, fecha, ceremonia y recepción", "Colores y tipografía a su elección", "3 rondas de ajustes", "En línea hasta 6 meses después de la boda"],
   pdf: ["Hasta 3 páginas", "Enlaces a ubicación, confirmación por WhatsApp y calendario", "Ceremonia, recepción, programa, vestimenta y regalos", "Colores y tipografía a su elección", "1 ronda de ajustes"]
 };
 /* A medida: lo incluido se puede desmarcar (id = sección que activa) */
 const MEDIDA_OPCIONAL = [
-  ["colores", "Colores y tipografía a su elección"],
   ["comoLlegar", "“Cómo llegar” con Google Maps"],
   ["cuenta", "Cuenta regresiva y botón de calendario"],
   ["portada", "Foto de portada"],
@@ -56,10 +55,10 @@ const ITEMS = [
   { id: "form",    nombre: "Formulario de confirmación que llena un Excel (número de personas y alergias)", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
   { id: "links",   nombre: "Link con el nombre y los cupos de cada invitado", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
   { id: "pdfv",    nombre: "Versión PDF de la invitación", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
-  { id: "qr",      nombre: "QR para que los invitados suban sus fotos", incl: [], precio: TODOS(40000) },
+  { id: "qr",      nombre: "QR para que sus invitados suban las fotos de la boda", incl: [], precio: TODOS(40000) },
   { id: "estados", nombre: "Imagen para estados o “save the date”", incl: [], precio: TODOS(40000) },
-  { id: "idioma",  nombre: "Otro idioma", incl: [], precio: TODOS(50000) },
-  { id: "ronda",   nombre: "Ronda de ajustes adicional", incl: [], precio: TODOS(30000) },
+  { id: "idioma",  nombre: "Versión en otro idioma", incl: [], precio: TODOS(50000) },
+  { id: "ronda",   nombre: "Ronda adicional de ajustes", incl: [], precio: TODOS(30000) },
   { id: "exp-mitad", grupo: "express", nombre: "Entrega express: primera versión en la mitad del tiempo", incl: [], precio: { esencial: 40000, clasica: 60000, medida: 90000, pdf: 30000 },
     dias: { esencial: 3, clasica: 4, medida: 5, pdf: 3 } },
   { id: "exp-hoy", grupo: "express", nombre: "Entrega express: primera versión el mismo día", incl: [], precio: { esencial: 70000, clasica: 110000, medida: 160000, pdf: 50000 } },
@@ -143,10 +142,16 @@ function condicionales(){
   const sel = $("d_muestra");
   [...sel.options].forEach(o => {
     if (!o.dataset.tipo) return;
-    const ok = !plan || (plan === "pdf") === (o.dataset.tipo === "pdf");
+    const ok = o.dataset.tipo === "nuevo" ? plan === "medida" : (!plan || (plan === "pdf") === (o.dataset.tipo === "pdf"));
     o.hidden = !ok; o.disabled = !ok;
   });
   if (sel.selectedOptions[0] && sel.selectedOptions[0].disabled) sel.value = "";
+  const medida = plan === "medida";
+  sel.required = !medida; $("d_req").hidden = medida;
+  $("d_label").textContent = medida ? "Muestra de partida (opcional)" : "Muestra";
+  $("d_ayuda").textContent = medida
+    ? "Su invitación se diseña desde cero. Si alguna de nuestras muestras les gusta como punto de partida, elíjanla; si no, elijan “Un diseño nuevo” y cuéntennos su idea en referencias."
+    : "Partimos de una de nuestras muestras y la adaptamos a ustedes. Elijan la que más les guste y luego cuéntennos qué quieren cambiar.";
   const conForm = tiene("form");
   $("r_hoja").closest("label").style.display = conForm ? "" : "none";
   if (!conForm && $("r_hoja").checked) $("r_wa").checked = true;
@@ -154,7 +159,9 @@ function condicionales(){
   conFormAntes = conForm;
   $("r_nota_wa").hidden = conForm || !(plan === "esencial" || plan === "clasica");
   $("re_otro").hidden = !$("re_mismo_no").checked;
-  $("d_colores_box").hidden = !$("d_cambiar").checked;
+  const nuevo = $("d_muestra").value.startsWith("Un diseño nuevo");
+  $("d_colores_radio").hidden = nuevo;
+  $("d_colores_box").hidden = !(nuevo || $("d_cambiar").checked);
   $("q_link_box").hidden = !$("q_tengo").checked;
   $("r_hoja_box").hidden = !$("r_hoja").checked;
   $("r_wa_box").hidden = !$("r_wa").checked;

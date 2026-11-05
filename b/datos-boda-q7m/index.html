@@ -142,10 +142,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     <fieldset id="fs_paquete">
       <legend><span>1 · Su paquete</span>Elijan su paquete</legend>
       <div class="planes" role="radiogroup" aria-label="Paquete">
-        <label class="plan"><input type="radio" name="Paquete" value="Esencial" data-plan="esencial"><span class="plan-n">Esencial</span><span class="plan-p">$180.000</span><span class="plan-d">Lo esencial, bien hecho. Primera versión en 5 días hábiles.</span></label>
-        <label class="plan"><input type="radio" name="Paquete" value="Clásica" data-plan="clasica"><span class="plan-n">Clásica <em>Recomendada</em></span><span class="plan-p">$260.000</span><span class="plan-d">Con galería, música, cronograma, mapa y preguntas frecuentes. 7 días hábiles.</span></label>
-        <label class="plan"><input type="radio" name="Paquete" value="A medida" data-plan="medida"><span class="plan-n">A medida</span><span class="plan-p">$400.000</span><span class="plan-d">Todo incluido: formulario, links por invitado, hospedaje, monograma, sobre animado y PDF. 10 días hábiles.</span></label>
-        <label class="plan"><input type="radio" name="Paquete" value="Solo PDF" data-plan="pdf"><span class="plan-n">Solo PDF</span><span class="plan-p">$130.000</span><span class="plan-d">Tarjeta de hasta 3 páginas con enlaces. 5 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="Esencial" data-plan="esencial"><span class="plan-n">Esencial</span><span class="plan-p">$180.000</span><span class="plan-d">Uno de nuestros diseños con sus datos y colores. Primera versión en 5 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="Clásica" data-plan="clasica"><span class="plan-n">Clásica <em>Recomendada</em></span><span class="plan-p">$260.000</span><span class="plan-d">Con galería, música, cronograma, mapa y preguntas frecuentes. Primera versión en 7 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="A medida" data-plan="medida"><span class="plan-n">A medida</span><span class="plan-p">$400.000</span><span class="plan-d">Un diseño creado desde cero, con formulario a Excel, links por invitado, hospedaje, monograma, sobre animado y PDF. Primera versión en 10 días hábiles.</span></label>
+        <label class="plan"><input type="radio" name="Paquete" value="Solo PDF" data-plan="pdf"><span class="plan-n">Solo PDF</span><span class="plan-p">$130.000</span><span class="plan-d">Tarjeta de hasta 3 páginas con enlaces. Primera versión en 5 días hábiles.</span></label>
       </div>
       <a class="nota" href="/#precios" target="_blank" rel="noopener" style="display:inline-block;margin-top:.8rem">Ver la tabla completa de paquetes</a>
       <div id="p_detalle" hidden>
@@ -157,6 +157,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <div class="campo" data-si="dominio" style="margin-top:1rem"><label for="x_dominio">Dominio que les gustaría</label><input id="x_dominio" name="Dominio deseado" type="text" placeholder="Ej. lauryfelipe.com"><span class="nota">Revisamos que esté disponible y les confirmamos.</span></div>
         <p class="nota" style="margin:.6rem 0 0">La entrega express está sujeta a disponibilidad. Para el mismo día necesitamos todos los datos, fotos y canción antes de las 12:00 m.</p>
         <div class="total" aria-live="polite"><span>Total estimado</span><b id="p_total">$0</b></div>
+        <p class="nota" style="margin:.6rem 0 0">Se separa con el 50 % y el saldo se paga al aprobar el diseño. Publicación incluida y sin límite de invitados.</p>
         <input type="hidden" name="No quieren del paquete" id="p_quitar">
         <input type="hidden" name="Total estimado" id="p_total_in">
       </div>
@@ -296,10 +297,11 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
 
     <fieldset>
       <legend><span>9 · Diseño</span>Elijan su muestra</legend>
-      <p class="ayuda">Partimos de una de nuestras muestras y la adaptamos a ustedes. Elijan la que más les guste y luego cuéntennos qué quieren cambiar.</p>
-      <div class="campo"><label for="d_muestra">Muestra <span class="req">*</span></label>
+      <p class="ayuda" id="d_ayuda">Partimos de una de nuestras muestras y la adaptamos a ustedes. Elijan la que más les guste y luego cuéntennos qué quieren cambiar.</p>
+      <div class="campo"><label for="d_muestra"><span id="d_label">Muestra</span> <span class="req" id="d_req">*</span></label>
         <select id="d_muestra" name="Muestra elegida" required>
           <option value="">Elijan una muestra…</option>
+          <option value="Un diseño nuevo, creado desde cero" data-tipo="nuevo">Un diseño nuevo, creado desde cero</option>
           <option value="Nicolás & Liz · Sobre de terciopelo" data-img="nicolas-y-liz.webp" data-url="/muestras/nicolas-y-liz/" data-tipo="web">Nicolás & Liz · Sobre de terciopelo</option>
           <option value="Mariana & Sebastián · Bosque" data-img="mariana-y-sebastian.webp" data-url="/muestras/mariana-y-sebastian/" data-tipo="web">Mariana & Sebastián · Bosque</option>
           <option value="Camila & Andrés · Cereza" data-img="camila-y-andres-2.webp" data-url="/muestras/camila-y-andres/" data-tipo="web">Camila & Andrés · Cereza</option>
@@ -310,7 +312,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <div class="vista-cel"><img id="d_vista_img" alt="" width="585" height="1266"></div>
         <a id="d_vista_link" href="#" target="_blank" rel="noopener">Ver la muestra completa</a>
       </div>
-      <div class="campo"><span class="etq">Colores</span>
+      <div class="campo" id="d_colores_radio"><span class="etq">Colores</span>
         <div class="opciones">
           <label><input type="radio" name="Colores del diseño" value="Iguales a la muestra" checked> Iguales a la muestra</label>
           <label><input type="radio" name="Colores del diseño" value="Quiero cambiarlos" id="d_cambiar"> Quiero cambiarlos</label>
