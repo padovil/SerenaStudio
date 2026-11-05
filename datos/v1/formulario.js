@@ -190,11 +190,13 @@ function actualizarPaquete(){
   $("total_barra").textContent = "Total estimado: " + pesos(total);
 }
 
-/* Cliente con precio acordado: deja solo su paquete con su precio */
+/* ?paquete=… deja ese paquete elegido (por ejemplo, desde los botones "Elegir" de la página).
+   Con &precio=… además deja solo ese paquete con el precio acordado */
 function aplicarPrecioEspecial(){
-  if (!PRECIO_ESPECIAL.precio || !PLANES[PRECIO_ESPECIAL.plan]) return;
+  if (!PLANES[PRECIO_ESPECIAL.plan]) return;
   const radio = form.querySelector('input[data-plan="' + PRECIO_ESPECIAL.plan + '"]');
   radio.checked = true;
+  if (!PRECIO_ESPECIAL.precio) return;
   form.querySelectorAll('input[name="Paquete"]').forEach(r => { r.closest("label").hidden = r !== radio; });
   const tarjeta = radio.closest("label");
   tarjeta.querySelector(".plan-p").textContent = pesos(PRECIO_ESPECIAL.precio);

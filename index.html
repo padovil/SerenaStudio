@@ -445,6 +445,9 @@ summary{font-size:1.3rem;letter-spacing:-.01em}
 .tope .marca{color:var(--papel)}
 .tope .cabecera nav a{color:var(--claro)}
 .tope .cabecera nav a:hover{color:var(--oro);text-decoration:underline;text-underline-offset:4px}
+.tope .cabecera nav .wa{color:var(--oro);border-bottom-color:var(--oro)}
+.cabecera nav .wa{white-space:nowrap}
+@media (max-width:40rem){.solo-ancho{display:none}}
 .tope .portada{border-top-color:rgba(154,163,173,.25)}
 .tope .portada h1 .rotulo{color:var(--oro)}
 .tope .portada .eslogan{color:var(--papel);font-size:clamp(3.6rem, 14vw, 7.4rem);line-height:.88;letter-spacing:-.04em}
@@ -516,6 +519,18 @@ td svg{color:var(--oro-osc)}
 .descarga a:hover{color:var(--oro-osc)}
 .descarga svg{width:18px;height:18px;flex:none}
 .descarga span{font-size:.88rem;color:var(--pizarra)}
+/* Llamados a contratar (llevan al formulario) */
+tfoot th,tfoot td{padding:.9rem .5rem 1.1rem;border-bottom:0;text-align:center;border-top:1px solid var(--tinta)}
+.elegir{display:inline-flex;align-items:center;justify-content:center;min-height:44px;width:100%;max-width:9rem;padding:.5rem .6rem;border:1px solid var(--tinta);border-radius:4px;color:var(--tinta);font-weight:600;font-size:.9rem;text-decoration:none}
+.elegir:hover,.elegir-dest{background:var(--tinta);color:var(--papel)}
+.elegir-dest:hover{background:var(--oro-osc);border-color:var(--oro-osc)}
+.empezar{display:grid;gap:1.2rem;align-items:center;margin-top:2.4rem;padding:1.6rem 1.4rem;background:var(--tinta);color:var(--papel)}
+.empezar h3{margin:0 0 .4rem;font-size:1.6rem;color:var(--papel)}
+.empezar p{margin:0;color:#C8CDD3;max-width:38rem}
+.empezar .btn-tinta{background:var(--oro);border-color:var(--oro);color:var(--tinta);justify-self:start}
+.empezar .btn-tinta:hover{background:var(--papel);border-color:var(--papel);color:var(--tinta)}
+@media (min-width:48rem){.empezar{grid-template-columns:1fr auto;padding:1.8rem 2rem}}
+.pdf-acciones{display:flex;flex-wrap:wrap;gap:0 1.4rem;margin:.5rem 0 0}
 .ver-pdf{display:inline-block;margin-top:.5rem;min-height:44px;line-height:44px;font-weight:600;color:var(--tinta);text-decoration:underline;text-decoration-color:var(--oro);text-underline-offset:4px}
 .ver-pdf:hover{color:var(--oro-osc)}
 .solo-pdf strong{display:block}
@@ -544,6 +559,7 @@ td svg{color:var(--oro-osc)}
     <a href="#muestras">Muestras</a>
     <a href="#precios">Precios</a>
     <a href="#preguntas">Preguntas</a>
+    <a class="wa" href="formulario/">Empezar<span class="solo-ancho"> mi invitación</span></a>
   </nav>
 </header>
 </div>
@@ -647,7 +663,7 @@ td svg{color:var(--oro-osc)}
     <h2 id="t-pasos">Cómo se hace su invitación</h2>
     <p class="intro-pasos">Diseñamos cada invitación una por una, y durante todo el proceso hablan directamente con quien la está diseñando.</p>
     <ol class="pasos">
-      <li><h3>Nos cuentan</h3><p>Nos envían los nombres, la fecha, los lugares y, si quieren, sus fotos.</p></li>
+      <li><h3>Nos cuentan</h3><p>Llenan <a href="formulario/">un formulario corto</a> con el paquete, los nombres, la fecha, los lugares y, si quieren, sus fotos.</p></li>
       <li><h3>Diseñamos</h3><p>Entre 5 y 10 días hábiles, según el paquete, reciben la primera versión, antes de pagar el saldo.</p></li>
       <li><h3>Ajustamos</h3><p>Afinamos textos, fotos y colores con ustedes.</p></li>
       <li><h3>La envían</h3><p>Les entregamos el link publicado y ustedes lo mandan por WhatsApp a sus invitados.</p></li>
@@ -702,6 +718,14 @@ td svg{color:var(--oro-osc)}
           <tr><th scope="row">En línea hasta</th><td>6 meses tras la boda</td><td class="col-dest">6 meses tras la boda</td><td>1 mes tras la boda</td></tr>
           <tr><th scope="row">Rondas de ajustes, cada una con reunión virtual</th><td>3</td><td class="col-dest">2</td><td>1</td></tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row"><span class="sr">Contratar</span></th>
+            <td><a class="elegir" href="formulario/?paquete=medida" aria-label="Elegir A medida">Elegir</a></td>
+            <td class="col-dest"><a class="elegir elegir-dest" href="formulario/?paquete=clasica" aria-label="Elegir Clásica">Elegir</a></td>
+            <td><a class="elegir" href="formulario/?paquete=esencial" aria-label="Elegir Esencial">Elegir</a></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
@@ -715,6 +739,14 @@ td svg{color:var(--oro-osc)}
       <p class="por-invitado">Con 150 invitados, la Clásica sale a menos de <b>$1.800 por invitado</b>, con la publicación incluida.</p>
     </div>
 
+    <div class="empezar">
+      <div>
+        <h3>¿Listos para empezar?</h3>
+        <p>Llenen el formulario: eligen el paquete y los extras, ven el total al instante y nos cuentan los datos de su boda. Toma unos 10 minutos.</p>
+      </div>
+      <a class="btn btn-tinta" href="formulario/">Empezar mi invitación<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
     <div class="otros">
       <div class="solo-pdf">
         <p>¿Solo necesitan una tarjeta en PDF para enviar por WhatsApp?</p>
@@ -726,7 +758,7 @@ td svg{color:var(--oro-osc)}
           <li>Colores y tipografía a su elección</li>
           <li>Primera versión en 5 días hábiles · 1 ronda de ajustes</li>
         </ul>
-        <a class="ver-pdf" href="muestras/isabella-y-martin/isabella-y-martin.pdf">Ver una muestra en PDF</a>
+        <p class="pdf-acciones"><a class="ver-pdf" href="muestras/isabella-y-martin/isabella-y-martin.pdf">Ver una muestra en PDF</a><a class="ver-pdf" href="formulario/?paquete=pdf">Elegir la tarjeta en PDF</a></p>
       </div>
       <div>
         <h3>Extras</h3>
