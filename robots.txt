@@ -1,7 +1,7 @@
 # © 2026 Serena Studio
-# Las muestras se pueden indexar. Las invitaciones de clientes (/b/) llevan
+# Las muestras se pueden indexar. Las invitaciones de clientes (/invitacion/) y el formulario (/formulario/) llevan
 # "noindex" en la página y en el encabezado X-Robots-Tag (ver vercel.json).
-# No se bloquea /b/ aquí a propósito: Google tiene que poder leer el "noindex".
+# No se bloquean /invitacion/ ni /formulario/ aquí a propósito: Google tiene que poder leer el "noindex".
 User-agent: *
 Allow: /
 

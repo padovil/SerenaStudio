@@ -1,20 +1,20 @@
 # Invitaciones de clientes
 
-Cada invitación real va en su propia carpeta dentro de `b/`:
+Cada invitación real va en su propia carpeta dentro de `invitacion/`:
 
 ```
-b/laura-y-juan-7k2/
+invitacion/laura-y-juan-7k2/
   index.html
   invitacion.js
   fuentes/
   fotos, cancion.mp3, og-imagen.jpg…
 ```
 
-La invitación queda en `https://DOMINIO/b/laura-y-juan-7k2/`.
+La invitación queda en `https://DOMINIO/invitacion/laura-y-juan-7k2/`.
 
 ## Pasos para una invitación nueva
 
-1. **Copiar** la carpeta de la muestra que eligió la pareja (`muestras/<estilo>/`) a `b/<nombres>-<3 caracteres al azar>/`.
+1. **Copiar** la carpeta de la muestra que eligió la pareja (`muestras/<estilo>/`) a `invitacion/<nombres>-<3 caracteres al azar>/`.
    Los caracteres al azar evitan que alguien adivine el link cambiando los nombres.
 2. **Cambiar los datos** en `index.html` y en el bloque `EVENTO` de `invitacion.js`.
 3. **Privacidad (obligatorio):** en `index.html`
@@ -24,4 +24,4 @@ La invitación queda en `https://DOMINIO/b/laura-y-juan-7k2/`.
 4. **Actualizar las URL** de `canonical`, `og:url`, `og:image` y `twitter:image` con la dirección nueva.
 5. **No agregarla** a `sitemap.xml`.
 
-Aunque se olvide el paso 3, `vercel.json` ya envía `X-Robots-Tag: noindex` para todo lo que está en `b/`.
+Aunque se olvide el paso 3, `vercel.json` ya envía `X-Robots-Tag: noindex` para todo lo que está en `invitacion/`.
