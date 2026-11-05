@@ -1,6 +1,6 @@
 # Correspondencia
 
-*Manifiesto visual de Serena Studio. Lámina: `lamina-correspondencia.jpg`.*
+*Manifiesto visual de Serena Studio (versión anterior, reemplazada por `carmin.md`). Lámina: `lamina-correspondencia.jpg`.*
 
 **Correspondencia** trata la pantalla como papel que llega. Antes de leerse, una invitación se recibe: tiene peso, tiene borde, tiene un sello que alguien presionó con la mano. Este movimiento traslada esa llegada al espacio: márgenes amplios como el blanco de un pliego de algodón, composiciones que respiran como una carta doblada en tres, y una sola marca de color intenso, el lacre, que aparece una vez y se recuerda. Todo debe parecer hecho a mano por alguien que ha pasado años frente a una mesa de papelería fina: meticulosamente ajustado, sin una línea de más.
 
