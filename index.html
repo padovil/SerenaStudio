@@ -420,15 +420,15 @@ summary{font-size:1.3rem;letter-spacing:-.01em}
 .tope .saltar{background:var(--papel);color:var(--tinta)}
 .tope .mensaje{color:var(--tinta)}
 
-/* Muestras sobre pizarra */
-.muestras{background:var(--pizarra);color:var(--papel)}
-.muestras .encabezado p,.muestras .muestra p:not(.estilo),.muestras .deslizar{color:var(--papel)}
-.muestras .cel{border-color:var(--tinta);background:var(--tinta);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
-.muestras .estilo{color:var(--oro-claro)}
-.muestras :focus-visible{outline-color:var(--oro-claro)}
+/* Muestras sobre fondo blanco */
+.muestras{background:#FFFFFF;color:var(--tinta);border-block:1px solid var(--linea)}
+.muestras .encabezado p,.muestras .muestra p:not(.estilo),.muestras .deslizar{color:var(--pizarra)}
+.muestras .cel{border-color:var(--tinta);background:var(--tinta);box-shadow:0 30px 60px -32px rgba(28,31,36,.45)}
+.muestras .estilo{color:var(--oro-osc)}
+.muestras :focus-visible{outline-color:var(--tinta)}
 .muestra a:hover .cel{border-color:var(--oro);background:var(--oro)}
-.muestra .abrir{text-decoration-color:var(--oro)}
-.muestra a:hover .abrir{color:var(--oro-claro)}
+.muestra .abrir{color:var(--tinta);text-decoration-color:var(--oro)}
+.muestra a:hover .abrir{color:var(--oro-osc)}
 
 /* Precios sobre marfil, columna destacada en oro */
 .col-dest{background:rgba(199,156,90,.14)}
