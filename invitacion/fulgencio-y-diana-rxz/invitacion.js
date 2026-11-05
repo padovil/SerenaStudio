@@ -211,14 +211,17 @@ document.querySelectorAll(".foto img").forEach(img => {
     datos.append("Acompañantes", va === "Sí" ? $("f-acomp").value.trim() : "");
     datos.append("Teléfono", $("f-tel").value.trim());
     datos.append("Alergias o restricciones", va === "Sí" ? $("f-alergias").value.trim() : "");
-    datos.append("Canción", va === "Sí" ? $("f-cancion").value.trim() : "");
     datos.append("Mensaje para los novios", $("f-mensaje").value.trim());
     datos.append("Link", PARA ? "para=" + PARA + (CUPOS ? " · cupos=" + CUPOS : "") : "");
     datos.append("_hp", form.querySelector('input[name="_hp"]').value);
 
+    /* Estado "Enviando…": el invitado ve que la confirmación está en camino */
     btn.disabled = true; btn.setAttribute("aria-busy", "true");
+    btn.classList.add("enviando"); form.classList.add("enviando");
+    avisar("Enviando tu confirmación…");
+    const espera = new Promise(r => setTimeout(r, 900));   // mínimo visible, para que no parpadee
     try {
-      await fetch(EVENTO.hojaUrl, { method: "POST", mode: "no-cors", body: datos });
+      await Promise.all([fetch(EVENTO.hojaUrl, { method: "POST", mode: "no-cors", body: datos }), espera]);
       form.hidden = true;
       const ok = $("rsvp-ok");
       $("rsvp-ok-t").textContent = va === "Sí" ? "¡Gracias, " + nombre.split(" ")[0] + "!" : "Gracias por avisarnos";
@@ -230,6 +233,7 @@ document.querySelectorAll(".foto img").forEach(img => {
       mostrarError("No pudimos enviar tu confirmación. Revisa tu conexión e inténtalo de nuevo.");
     } finally {
       btn.disabled = false; btn.removeAttribute("aria-busy");
+      btn.classList.remove("enviando"); form.classList.remove("enviando");
     }
   });
 

@@ -317,6 +317,16 @@ a,button,label,select,input{touch-action:manipulation}
 .solo-si[hidden]{display:none}
 .trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-rsvp .btn{width:100%;margin-top:.3rem}
+/* Estado "Enviando…" del botón de confirmar */
+.btn-enviar span{display:inline-flex;align-items:center;gap:.6rem}
+.btn-enviar .txt-cargando{display:none}
+.btn-enviar.enviando{cursor:progress;opacity:.92}
+.btn-enviar.enviando .txt-normal{display:none}
+.btn-enviar.enviando .txt-cargando{display:inline-flex}
+.girando{width:18px;height:18px;border-radius:50%;border:2px solid currentColor;border-right-color:transparent;animation:girar .8s linear infinite}
+@keyframes girar{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.girando{animation-duration:2.4s}}
+.form-rsvp.enviando .campo{opacity:.6;pointer-events:none}
 .form-error{color:#F3C9C2 !important;font-size:.92rem;margin:0;text-align:center}
 .form-error[hidden]{display:none}
 .rsvp-ok{max-width:24rem;margin:1.6rem auto 0;padding:1.6rem 1.3rem;text-align:center;border:1px solid rgba(244,239,231,.5);border-radius:14px;color:var(--papel);animation:rsvpOk .5s ease both}
@@ -654,18 +664,15 @@ a,button,label,select,input{touch-action:manipulation}
         <label for="f-alergias">Alergias o restricciones de comida <span class="opc">(opcional)</span></label>
         <input type="text" id="f-alergias" name="Alergias o restricciones" maxlength="200">
       </div>
-      <div class="campo solo-si">
-        <label for="f-cancion">La canción que no puede faltar <span class="opc">(opcional)</span></label>
-        <input type="text" id="f-cancion" name="Canción" maxlength="120">
-      </div>
       <div class="campo">
         <label for="f-mensaje">Mensaje para los novios <span class="opc">(opcional)</span></label>
         <textarea id="f-mensaje" name="Mensaje para los novios" maxlength="500"></textarea>
       </div>
       <div class="trampa" aria-hidden="true"><label>No llenar <input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
       <p class="form-error" id="form-error" role="alert" hidden></p>
-      <button class="btn btn-lleno" type="submit" id="btn-enviar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Enviar confirmación</button>
+      <button class="btn btn-lleno btn-enviar" type="submit" id="btn-enviar">
+        <span class="txt-normal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Enviar confirmación</span>
+        <span class="txt-cargando" aria-hidden="true"><i class="girando"></i>Enviando…</span></button>
     </form>
 
     <div class="rsvp-ok" id="rsvp-ok" role="status" tabindex="-1" hidden>
