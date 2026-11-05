@@ -17,7 +17,8 @@ Link por invitado: `…/fulgencio-y-diana-rxz/?para=Familia%20Pérez&cupos=3`
 
 ## Pendientes antes de publicar
 
-- [ ] `foto-1.jpg` (vertical 4:5, mín. 1080×1350), `foto-2.jpg` y `foto-3.jpg` (verticales 4:5, mín. 800×1000). El link de Drive que mandaron es la página de inicio de Drive, no una carpeta.
+- [x] Galería "Nosotros": 6 fotos recibidas el 5 nov (`foto-1` a `foto-6`, `foto-4` es la horizontal del atardecer en la ciudad).
+- [ ] Foto de portada: pendiente, la envían aparte. Definir con Karen dónde va (la portada actual es el sobre y el marco con los nombres).
 - [ ] `cancion.mp3`: la pareja debe enviar el archivo de audio (no se puede usar el link de YouTube) y confirmar que tiene derecho a usarla. Suena desde el inicio. Sin archivo, el botón de música no aparece.
 - [ ] Hoja de confirmaciones: crear con `docs/rsvp-hoja-google.md`, pegar la URL `/exec` en `EVENTO.hojaUrl` (`invitacion.js`) y compartir la hoja con kmarin290@gmail.com. Probar 2 envíos y borrarlos.
 - [ ] Álbum del QR (lo crea el estudio): pegar el link en `EVENTO.albumUrl` y generar el QR para imprimir.

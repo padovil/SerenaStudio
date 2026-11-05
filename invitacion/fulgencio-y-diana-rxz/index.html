@@ -289,11 +289,13 @@ p{margin:0 0 1rem}
 .sep{width:60px;height:1px;background:var(--linea);margin:0 auto}
 
 /* ===================== PANEL FOTOS ===================== */
-.galeria{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+.galeria{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.5rem}
 .galeria figure{margin:0}
 .galeria figure.grande{grid-column:1 / -1}
 .galeria figure.grande .foto{aspect-ratio:4/4.6}
-.galeria figure:nth-child(3){margin-top:2.2rem}
+.galeria figure.baja{margin-top:2.2rem}
+.galeria figure.ancha{grid-column:1 / -1;margin-top:.4rem}
+.galeria figure.ancha .foto{aspect-ratio:4/3;border-radius:10px}
 .foto{
   position:relative;aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 10px 10px;overflow:hidden;
   background:var(--palo-rosa);border:5px solid var(--papel);outline:1px solid var(--linea);
@@ -682,14 +684,18 @@ p{text-wrap:pretty}
   </section>
 
   <!-- ===================== FOTOS =====================
-       Reemplazar foto-1.jpg (vertical 4:5, mín. 1080×1350), foto-2.jpg y foto-3.jpg (verticales 4:5, mín. 800×1000).
-       Mientras no estén, se ve un marcador con el nombre del archivo. -->
+       foto-1 (grande), foto-2/3 y foto-5/6 (en pareja, desfasadas), foto-4 (horizontal, banda ancha).
+       object-position ajusta el encuadre de cada foto en el arco. -->
   <section class="panel reveal tx-papel">
     <h2 class="titulo">Nosotros</h2>
+    <svg class="ramito" aria-hidden="true"><use href="#olivo"/></svg>
     <div class="galeria">
-      <figure class="grande"><div class="foto"><img src="foto-1.jpg" alt="Fulgencio y Diana" width="1080" height="1350" loading="lazy" decoding="async"><span class="ph">foto-1.jpg</span></div></figure>
-      <figure><div class="foto"><img src="foto-2.jpg" alt="Fulgencio y Diana juntos" width="800" height="1000" loading="lazy" decoding="async"><span class="ph">foto-2.jpg</span></div></figure>
-      <figure><div class="foto"><img src="foto-3.jpg" alt="Fulgencio y Diana sonriendo" width="800" height="1000" loading="lazy" decoding="async"><span class="ph">foto-3.jpg</span></div></figure>
+      <figure class="grande"><div class="foto"><img src="foto-1.jpg" alt="Fulgencio y Diana se besan en una escalera de madera, él de saco claro y ella de chaqueta roja" width="900" height="1200" loading="lazy" decoding="async" style="object-position:50% 45%"><span class="ph">foto-1.jpg</span></div></figure>
+      <figure><div class="foto"><img src="foto-2.jpg" alt="Fulgencio y Diana, vestidos de blanco, a punto de besarse frente a un espejo" width="900" height="1200" loading="lazy" decoding="async" style="object-position:50% 25%"><span class="ph">foto-2.jpg</span></div></figure>
+      <figure class="baja"><div class="foto"><img src="foto-3.jpg" alt="Fulgencio y Diana abrazados en un puente entre guaduales" width="900" height="1200" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="ph">foto-3.jpg</span></div></figure>
+      <figure class="ancha"><div class="foto"><img src="foto-4.jpg" alt="Atardecer sobre una bahía con la ciudad iluminada a la orilla del mar" width="1160" height="868" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="ph">foto-4.jpg</span></div></figure>
+      <figure><div class="foto"><img src="foto-5.jpg" alt="Fulgencio y Diana forman un corazón con los brazos en el mar al atardecer" width="900" height="1200" loading="lazy" decoding="async" style="object-position:50% 62%"><span class="ph">foto-5.jpg</span></div></figure>
+      <figure class="baja"><div class="foto"><img src="foto-6.jpg" alt="Fulgencio besa la mano de Diana" width="675" height="1200" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="ph">foto-6.jpg</span></div></figure>
     </div>
   </section>
 
