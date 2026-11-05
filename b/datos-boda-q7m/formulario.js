@@ -13,6 +13,8 @@ function condicionales(){
   $("re_otro").hidden = !$("re_mismo_no").checked;
   $("d_colores_box").hidden = !$("d_cambiar").checked;
   $("q_link_box").hidden = !$("q_tengo").checked;
+  $("r_hoja_box").hidden = !$("r_hoja").checked;
+  $("r_wa_box").hidden = !$("r_wa").checked;
 }
 
 /* ---------- Borrador en este celular ---------- */
@@ -50,6 +52,7 @@ function hora(v){ if (!v) return ""; let [h, mi] = v.split(":").map(Number); con
 function validar(){
   const faltan = [];
   form.querySelectorAll("[required]").forEach(el => {
+    if (el.closest("[hidden]")) { el.removeAttribute("aria-invalid"); return; }
     const vacio = !el.value.trim();
     el.setAttribute("aria-invalid", vacio ? "true" : "false");
     if (vacio) faltan.push({el, nombre: (form.querySelector('label[for="' + el.id + '"]')?.textContent || el.name).replace("*", "").trim()});
