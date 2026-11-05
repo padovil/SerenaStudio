@@ -125,12 +125,12 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
   <div class="guia">
     <b>Antes de empezar, tengan a la mano:</b>
     <ul>
-      <li>El paquete que eligieron y los extras que quieran sumar.</li>
-      <li>Las direcciones o links de Google Maps de la ceremonia y la recepción.</li>
-      <li>Los datos para los regalos, si los van a poner.</li>
-      <li>Los hoteles o lugares que quieran recomendar a sus invitados.</li>
-      <li>Los links de las fotos (Drive o Google Fotos) y de la canción (YouTube o Drive).</li>
-      <li>La lista de invitados con los cupos de cada uno, para los links personalizados.</li>
+      <li>El paquete que quieren y los extras que quieran sumar.</li>
+      <li>Las direcciones de la ceremonia y la recepción<span data-si="comoLlegar mapa"> y sus links de Google Maps</span>.</li>
+      <li data-si="regalos">Los datos para los regalos, si los van a poner.</li>
+      <li data-si="hospedaje">Los hoteles o lugares que quieran recomendar a sus invitados.</li>
+      <li data-si="portada galeria historia musica">Los links de <span data-si="portada galeria historia">las fotos (Drive o Google Fotos)</span><span data-si="musica"> y la canción (YouTube o Drive)</span>.</li>
+      <li data-si="links">La lista de invitados con los cupos de cada uno, para los links personalizados.</li>
     </ul>
     <p style="margin:.6rem 0 0">Los campos con <span class="req">*</span> son necesarios. Si algo todavía no está definido, déjenlo en blanco y lo completamos después.</p>
   </div>
@@ -153,6 +153,8 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <p class="etq" style="margin:1.2rem 0 .3rem">Extras que pueden sumar</p>
         <p class="nota" style="margin:0 0 .7rem">Marquen los que quieran; el total se actualiza solo.</p>
         <div class="extras" id="p_extras"></div>
+        <div class="campo" data-si="idioma" style="margin-top:1rem"><label for="x_idioma">¿En qué otro idioma? <span class="req">*</span></label><input id="x_idioma" name="Otro idioma" type="text" placeholder="Ej. inglés" required></div>
+        <div class="campo" data-si="dominio" style="margin-top:1rem"><label for="x_dominio">Dominio que les gustaría</label><input id="x_dominio" name="Dominio deseado" type="text" placeholder="Ej. lauryfelipe.com"><span class="nota">Revisamos que esté disponible y les confirmamos.</span></div>
         <p class="nota" style="margin:.6rem 0 0">La entrega express está sujeta a disponibilidad. Para el mismo día necesitamos todos los datos, fotos y canción antes de las 12:00 m.</p>
         <div class="total" aria-live="polite"><span>Total estimado</span><b id="p_total">$0</b></div>
         <input type="hidden" name="No quieren del paquete" id="p_quitar">
@@ -167,20 +169,18 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <div class="campo"><label for="c_nombre">Su nombre <span class="req">*</span></label><input id="c_nombre" name="Quién llena" type="text" autocomplete="name" required></div>
         <div class="campo"><label for="c_whatsapp">Su WhatsApp <span class="req">*</span></label><input id="c_whatsapp" name="WhatsApp de contacto" type="tel" inputmode="tel" autocomplete="tel" placeholder="300 123 4567" required></div>
       </div>
-      <div class="campo"><label for="c_correo">Correo (Gmail, si tienen) </label><input id="c_correo" name="Correo" type="email" autocomplete="email" inputmode="email"><span class="nota">Lo usamos para compartirles el álbum del QR de fotos.</span></div>
+      <div class="campo"><label for="c_correo">Correo (Gmail, si tienen) </label><input id="c_correo" name="Correo" type="email" autocomplete="email" inputmode="email"><span class="nota">Para compartirles archivos de su invitación.</span></div>
     </fieldset>
 
     <fieldset>
       <legend><span>2 · La pareja</span>Sus nombres</legend>
       <div class="campo"><label for="p_nombres">Nombres como quieren que aparezcan <span class="req">*</span></label><input id="p_nombres" name="Nombres en la invitación" type="text" placeholder="Ej. Nicolás & Liz" required></div>
-      <div class="dos">
-        <div class="campo"><label for="p_iniciales">Iniciales para el monograma y el sello <span class="req">*</span></label><input id="p_iniciales" name="Iniciales del monograma" type="text" placeholder="Ej. N & L" required></div>
-        <div class="campo"><label for="p_orden">¿Quién va primero?</label><select id="p_orden" name="Orden de los nombres"><option>Como lo escribimos arriba</option><option>La novia primero</option><option>El novio primero</option></select></div>
-      </div>
+      <div class="campo"><label for="p_orden">¿Quién va primero?</label><select id="p_orden" name="Orden de los nombres"><option>Como lo escribimos arriba</option><option>La novia primero</option><option>El novio primero</option></select></div>
+      <div class="campo" data-si="monograma sobre"><label for="p_iniciales">Iniciales para el monograma y el sello <span class="req">*</span></label><input id="p_iniciales" name="Iniciales del monograma" type="text" placeholder="Ej. N & L" required></div>
       <div class="campo"><label for="p_frase">Frase, versículo o canción que los represente</label><textarea id="p_frase" name="Frase o versículo" placeholder="Ej. «El amor es paciente, es bondadoso…» 1 Corintios 13:4"></textarea></div>
       <div class="campo"><label for="p_saludo">Mensaje de bienvenida para sus invitados</label><textarea id="p_saludo" name="Mensaje de bienvenida" placeholder="Si lo dejan en blanco, les proponemos uno."></textarea></div>
-      <div class="campo" id="x_historia_box"><label for="p_historia">Nuestra historia</label><textarea id="p_historia" name="Nuestra historia" style="min-height:170px" placeholder="Cómo se conocieron, su primera cita, momentos especiales, la propuesta… Si quieren, con fechas o años."></textarea><span class="nota">Escríbanla como les salga; nosotros la ajustamos para que se lea bonita. Si tienen fotos de esos momentos, inclúyanlas en el link de fotos.</span></div>
-      <div class="campo" id="x_hashtag_box"><label for="p_hashtag">Hashtag de la boda</label><input id="p_hashtag" name="Hashtag" type="text" placeholder="Ej. #LauraYFelipe2026"><span class="nota">Si no tienen uno, déjenlo en blanco y les proponemos opciones.</span></div>
+      <div class="campo" data-si="historia"><label for="p_historia">Nuestra historia</label><textarea id="p_historia" name="Nuestra historia" style="min-height:170px" placeholder="Cómo se conocieron, su primera cita, momentos especiales, la propuesta… Si quieren, con fechas o años."></textarea><span class="nota">Escríbanla como les salga; nosotros la ajustamos para que se lea bonita. Si tienen fotos de esos momentos, inclúyanlas en el link de fotos.</span></div>
+      <div class="campo" data-si="hashtag"><label for="p_hashtag">Hashtag de la boda</label><input id="p_hashtag" name="Hashtag" type="text" placeholder="Ej. #LauraYFelipe2026"><span class="nota">Si no tienen uno, déjenlo en blanco y les proponemos opciones.</span></div>
     </fieldset>
 
     <fieldset>
@@ -195,7 +195,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <div class="campo"><label for="ce_hora">Hora <span class="req">*</span></label><input id="ce_hora" name="Ceremonia · hora" type="time" required></div>
       </div>
       <div class="campo"><label for="ce_dir">Dirección <span class="req">*</span></label><input id="ce_dir" name="Ceremonia · dirección" type="text" required></div>
-      <div class="campo"><label for="ce_maps">Link de Google Maps</label><input id="ce_maps" name="Ceremonia · Google Maps" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/…"><span class="nota">En Google Maps: busquen el lugar, toquen Compartir y peguen el link aquí.</span></div>
+      <div class="campo" data-si="comoLlegar mapa"><label for="ce_maps">Link de Google Maps</label><input id="ce_maps" name="Ceremonia · Google Maps" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/…"><span class="nota">En Google Maps: busquen el lugar, toquen Compartir y peguen el link aquí.</span></div>
       <div class="sub">
         <span class="etq">¿La recepción es en el mismo lugar?</span>
         <div class="opciones" style="margin-top:.5rem">
@@ -208,31 +208,30 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
             <div class="campo"><label for="re_hora">Hora</label><input id="re_hora" name="Recepción · hora" type="time"></div>
           </div>
           <div class="campo"><label for="re_dir">Dirección</label><input id="re_dir" name="Recepción · dirección" type="text"></div>
-          <div class="campo"><label for="re_maps">Link de Google Maps</label><input id="re_maps" name="Recepción · Google Maps" type="url" inputmode="url"></div>
+          <div class="campo" data-si="comoLlegar mapa"><label for="re_maps">Link de Google Maps</label><input id="re_maps" name="Recepción · Google Maps" type="url" inputmode="url"></div>
         </div>
       </div>
     </fieldset>
 
     <fieldset>
-      <legend><span>4 · El día</span>Itinerario</legend>
-      <p class="ayuda">Una línea por momento, con la hora.</p>
-      <div class="campo"><label for="i_itinerario">Itinerario del día</label><textarea id="i_itinerario" name="Itinerario" placeholder="3:00 p. m. Ceremonia&#10;5:00 p. m. Cóctel&#10;7:00 p. m. Cena&#10;8:30 p. m. Fiesta"></textarea></div>
+      <legend><span>4 · El día</span>Detalles del día</legend>
+      <div class="campo" data-si="cronograma"><label for="i_itinerario">Itinerario del día</label><textarea id="i_itinerario" name="Itinerario" placeholder="3:00 p. m. Ceremonia&#10;5:00 p. m. Cóctel&#10;7:00 p. m. Cena&#10;8:30 p. m. Fiesta"></textarea><span class="nota">Una línea por momento, con la hora.</span></div>
       <div class="campo"><label for="i_notas">Para tener en cuenta</label><textarea id="i_notas" name="Para tener en cuenta" placeholder="Ej. Solo adultos, parqueadero, transporte, clima…"></textarea></div>
-      <div class="campo" id="x_faq_box"><label for="i_faq">Preguntas frecuentes</label><textarea id="i_faq" name="Preguntas frecuentes" placeholder="¿Pueden ir niños? No, es una celebración solo para adultos.&#10;¿Hay parqueadero? Sí, en el lugar.&#10;¿Hay transporte? Saldrá un bus a las 2:00 p. m. desde…"></textarea><span class="nota">Una pregunta con su respuesta por línea.</span></div>
-      <div class="dos" id="x_organizadora_box">
+      <div class="campo" data-si="faq"><label for="i_faq">Preguntas frecuentes</label><textarea id="i_faq" name="Preguntas frecuentes" placeholder="¿Pueden ir niños? No, es una celebración solo para adultos.&#10;¿Hay parqueadero? Sí, en el lugar.&#10;¿Hay transporte? Saldrá un bus a las 2:00 p. m. desde…"></textarea><span class="nota">Una pregunta con su respuesta por línea.</span></div>
+      <div class="dos" data-si="organizadora">
         <div class="campo"><label for="i_org">Organizadora o wedding planner</label><input id="i_org" name="Organizadora · nombre" type="text"></div>
         <div class="campo"><label for="i_org_wa">Su WhatsApp</label><input id="i_org_wa" name="Organizadora · WhatsApp" type="tel" inputmode="tel"></div>
       </div>
     </fieldset>
 
-    <fieldset id="fs_hospedaje">
+    <fieldset id="fs_hospedaje" data-si="hospedaje">
       <legend><span>5 · Hospedaje</span>Hospedaje y lugares recomendados</legend>
       <p class="ayuda">Para los invitados que vienen de otra ciudad o quieren quedarse cerca. Por cada lugar: nombre, link o dirección y, si tienen, precio aproximado o código de descuento.</p>
       <div class="campo"><label for="h_hospedaje">Hoteles, glampings o casas recomendados</label><textarea id="h_hospedaje" name="Hospedaje recomendado" placeholder="Hotel Casa Real · a 10 min del lugar · desde $250.000 la noche · código BODALF&#10;https://…"></textarea></div>
       <div class="campo"><label for="h_lugares">Otros lugares recomendados</label><textarea id="h_lugares" name="Lugares recomendados" placeholder="Restaurantes, salones de belleza, planes para el día siguiente…"></textarea></div>
     </fieldset>
 
-    <fieldset>
+    <fieldset data-si="vestimenta">
       <legend><span>6 · Vestimenta</span>Código de vestimenta</legend>
       <div class="campo"><label for="v_codigo">Código <span class="req">*</span></label>
         <select id="v_codigo" name="Código de vestimenta" required><option value="">Elijan una opción…</option><option>Formal</option><option>Etiqueta</option><option>Coctel</option><option>Casual elegante</option><option>Otro (lo escriben abajo)</option></select></div>
@@ -242,7 +241,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset data-si="regalos">
       <legend><span>7 · Regalos</span>¿Qué quieren poner?</legend>
       <div class="opciones" role="group" aria-label="Tipo de regalo">
         <label><input type="checkbox" name="Regalos" value="Lluvia de sobres"> Lluvia de sobres</label>
@@ -291,7 +290,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
         <div class="campo"><label for="r_whatsapp">WhatsApp que recibe las confirmaciones <span class="req">*</span></label><input id="r_whatsapp" name="WhatsApp para confirmaciones" type="tel" inputmode="tel" required></div>
       </div>
       <div class="campo"><label for="r_limite">Fecha límite para confirmar <span class="req">*</span></label><input id="r_limite" name="Fecha límite para confirmar" type="date" required></div>
-      <div class="campo"><label for="r_lista">Lista de invitados con sus cupos</label><textarea id="r_lista" name="Lista de invitados" placeholder="Familia López, 4&#10;Andrés Gómez, 2&#10;Tía Marta, 1"></textarea>
+      <div class="campo" data-si="links"><label for="r_lista">Lista de invitados con sus cupos</label><textarea id="r_lista" name="Lista de invitados" placeholder="Familia López, 4&#10;Andrés Gómez, 2&#10;Tía Marta, 1"></textarea>
         <span class="nota">Con esta lista armamos un link para cada invitado con su nombre y sus cupos. También la pueden enviar en Excel por WhatsApp.</span></div>
     </fieldset>
 
@@ -301,11 +300,11 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <div class="campo"><label for="d_muestra">Muestra <span class="req">*</span></label>
         <select id="d_muestra" name="Muestra elegida" required>
           <option value="">Elijan una muestra…</option>
-          <option value="Nicolás & Liz · Sobre de terciopelo" data-img="nicolas-y-liz.webp" data-url="/muestras/nicolas-y-liz/">Nicolás & Liz · Sobre de terciopelo</option>
-          <option value="Mariana & Sebastián · Bosque" data-img="mariana-y-sebastian.webp" data-url="/muestras/mariana-y-sebastian/">Mariana & Sebastián · Bosque</option>
-          <option value="Camila & Andrés · Cereza" data-img="camila-y-andres-2.webp" data-url="/muestras/camila-y-andres/">Camila & Andrés · Cereza</option>
-          <option value="Valentina & Tomás · Encaje" data-img="valentina-y-tomas-4.webp" data-url="/muestras/valentina-y-tomas/">Valentina & Tomás · Encaje</option>
-          <option value="Isabella & Martín · Tarjeta en PDF" data-img="isabella-y-martin.webp" data-url="/muestras/isabella-y-martin/isabella-y-martin.pdf">Isabella & Martín · Tarjeta en PDF</option>
+          <option value="Nicolás & Liz · Sobre de terciopelo" data-img="nicolas-y-liz.webp" data-url="/muestras/nicolas-y-liz/" data-tipo="web">Nicolás & Liz · Sobre de terciopelo</option>
+          <option value="Mariana & Sebastián · Bosque" data-img="mariana-y-sebastian.webp" data-url="/muestras/mariana-y-sebastian/" data-tipo="web">Mariana & Sebastián · Bosque</option>
+          <option value="Camila & Andrés · Cereza" data-img="camila-y-andres-2.webp" data-url="/muestras/camila-y-andres/" data-tipo="web">Camila & Andrés · Cereza</option>
+          <option value="Valentina & Tomás · Encaje" data-img="valentina-y-tomas-4.webp" data-url="/muestras/valentina-y-tomas/" data-tipo="web">Valentina & Tomás · Encaje</option>
+          <option value="Isabella & Martín · Tarjeta en PDF" data-img="isabella-y-martin.webp" data-url="/muestras/isabella-y-martin/isabella-y-martin.pdf" data-tipo="pdf">Isabella & Martín · Tarjeta en PDF</option>
         </select></div>
       <div class="vista" id="d_vista" hidden>
         <div class="vista-cel"><img id="d_vista_img" alt="" width="585" height="1266"></div>
@@ -321,21 +320,21 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
       <div class="campo"><label for="d_refs">Referencias o detalles que les gustaría</label><textarea id="d_refs" name="Referencias de diseño" placeholder="Pueden pegar links de Pinterest o contarnos de la decoración, las flores, el lugar…"></textarea></div>
     </fieldset>
 
-    <fieldset>
-      <legend><span>10 · Fotos y música</span>Fotos y canción en link</legend>
+    <fieldset data-si="portada galeria historia musica">
+      <legend><span>10 · Fotos y música</span><b id="m_titulo" style="font-weight:400">Fotos y canción en link</b></legend>
       <p class="ayuda">Envíennos todo en links, así las fotos no pierden calidad. Al compartir, elijan <b>“Cualquier persona con el enlace”</b> para que podamos abrirlos.</p>
       <ul class="nota" style="margin:0 0 1rem;padding-left:1.1rem">
-        <li><b>Foto de portada:</b> 1 vertical, la más especial.</li>
-        <li><b>Galería:</b> de 3 a 6 fotos, verticales u horizontales.</li>
+        <li data-si="portada"><b>Foto de portada:</b> 1 vertical, la más especial.</li>
+        <li data-si="galeria"><b>Galería:</b> de 3 a 6 fotos, verticales u horizontales.</li>
       </ul>
-      <div class="campo"><label for="m_fotos">Link de las fotos <span class="req">*</span></label><input id="m_fotos" name="Link de fotos" type="url" inputmode="url" placeholder="https://drive.google.com/…" required><span class="nota">Una carpeta de Google Drive o un álbum de Google Fotos. Si quieren, nombren la de portada “portada”.</span></div>
-      <div id="m_musica_box">
+      <div class="campo" data-si="portada galeria historia"><label for="m_fotos">Link de las fotos <span class="req">*</span></label><input id="m_fotos" name="Link de fotos" type="url" inputmode="url" placeholder="https://drive.google.com/…" required><span class="nota">Una carpeta de Google Drive o un álbum de Google Fotos. Si quieren, nombren la de portada “portada”.</span></div>
+      <div data-si="musica">
       <div class="campo"><label for="m_cancion">Link de la canción de fondo <span class="req">*</span></label><input id="m_cancion" name="Link de la canción" type="url" inputmode="url" placeholder="https://youtube.com/… o https://drive.google.com/…" required><span class="nota">De YouTube o de Google Drive. La canción la eligen ustedes.</span></div>
       <div class="campo"><label for="m_momento">¿Desde qué parte de la canción?</label><input id="m_momento" name="Canción · desde" type="text" placeholder="Ej. desde el coro, 0:45"></div>
       </div>
     </fieldset>
 
-    <fieldset id="fs_qr">
+    <fieldset id="fs_qr" data-si="qr">
       <legend><span>11 · QR de fotos</span>Álbum para las fotos de sus invitados</legend>
       <p class="ayuda">Ponemos un QR en la invitación (y uno para imprimir en las mesas) que lleva a un álbum donde los invitados suben sus fotos de la boda.</p>
       <div class="campo"><span class="etq">¿Ya tienen el álbum?</span>

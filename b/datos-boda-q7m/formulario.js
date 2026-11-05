@@ -18,22 +18,40 @@ const INCLUYE = {
 };
 /* A medida: lo incluido se puede desmarcar (id = sección que activa) */
 const MEDIDA_OPCIONAL = [
-  ["", "Colores y tipografía a su elección"], ["", "“Cómo llegar” con Google Maps"], ["", "Cuenta regresiva y botón de calendario"],
-  ["", "Foto de portada"], ["", "Código de vestimenta"], ["", "Regalos o lluvia de sobres con botón “Copiar”"], ["", "Vista previa al compartir en WhatsApp"],
-  ["", "Galería de fotos"], ["musica", "Música de fondo con su canción"], ["", "Cronograma del día"], ["faq", "Preguntas frecuentes"],
-  ["", "Mapa dentro de la invitación"], ["", "Calendario del mes con su fecha marcada"], ["organizadora", "Contacto de su organizadora o wedding planner"],
-  ["form", "Formulario de confirmación que llena un Excel (número de personas y alergias)"], ["links", "Link con el nombre y los cupos de cada invitado"],
-  ["historia", "Nuestra historia"], ["hospedaje", "Hospedaje sugerido para sus invitados"], ["hashtag", "Hashtag de la boda"], ["", "Monograma con sus iniciales"],
-  ["", "Sobre animado o portada ilustrada"], ["pdfv", "Versión PDF de la invitación"]
+  ["colores", "Colores y tipografía a su elección"],
+  ["comoLlegar", "“Cómo llegar” con Google Maps"],
+  ["cuenta", "Cuenta regresiva y botón de calendario"],
+  ["portada", "Foto de portada"],
+  ["vestimenta", "Código de vestimenta"],
+  ["regalos", "Regalos o lluvia de sobres con botón “Copiar”"],
+  ["vista", "Vista previa al compartir en WhatsApp"],
+  ["galeria", "Galería de fotos"],
+  ["musica", "Música de fondo con su canción"],
+  ["cronograma", "Cronograma del día"],
+  ["faq", "Preguntas frecuentes"],
+  ["mapa", "Mapa dentro de la invitación"],
+  ["calendario", "Calendario del mes con su fecha marcada"],
+  ["organizadora", "Contacto de su organizadora o wedding planner"],
+  ["form", "Formulario de confirmación que llena un Excel (número de personas y alergias)"],
+  ["links", "Link con el nombre y los cupos de cada invitado"],
+  ["historia", "Nuestra historia"],
+  ["hospedaje", "Hospedaje sugerido para sus invitados"],
+  ["hashtag", "Hashtag de la boda"],
+  ["monograma", "Monograma con sus iniciales"],
+  ["sobre", "Sobre animado o portada ilustrada"],
+  ["pdfv", "Versión PDF de la invitación"]
 ];
+/* Qué trae cada paquete (decide qué preguntas se muestran) */
+const E = "esencial", C = "clasica", M = "medida", P = "pdf";
+const INCL = {
+  colores: [E, C, M, P], comoLlegar: [E, C, M, P], cuenta: [E, C, M], portada: [E, C, M], vestimenta: [E, C, M, P],
+  regalos: [E, C, M, P], vista: [E, C, M], galeria: [C, M], musica: [C, M], cronograma: [C, M, P], faq: [C, M],
+  mapa: [C, M], calendario: [C, M], organizadora: [C, M], form: [M], links: [M], historia: [M], hospedaje: [M],
+  hashtag: [M], monograma: [M], sobre: [M], pdfv: [M]
+};
 /* incl: paquetes donde ya viene incluido · precio: valor como extra por paquete */
 const TODOS = p => ({ esencial: p, clasica: p, medida: p, pdf: p });
 const ITEMS = [
-  { id: "historia", nombre: "Nuestra historia", incl: ["medida"], precio: {} },
-  { id: "hashtag", nombre: "Hashtag", incl: ["medida"], precio: {} },
-  { id: "faq", nombre: "Preguntas frecuentes", incl: ["clasica", "medida"], precio: {} },
-  { id: "organizadora", nombre: "Contacto de la organizadora", incl: ["clasica", "medida"], precio: {} },
-  { id: "hospedaje", nombre: "Hospedaje sugerido", incl: ["medida"], precio: {} },
   { id: "musica",  nombre: "Música de fondo con su canción", incl: ["clasica", "medida"], precio: { esencial: 30000 } },
   { id: "form",    nombre: "Formulario de confirmación que llena un Excel (número de personas y alergias)", incl: ["medida"], precio: { esencial: 30000, clasica: 30000 } },
   { id: "links",   nombre: "Link con el nombre y los cupos de cada invitado", incl: ["medida"], precio: { esencial: 40000, clasica: 40000 } },
@@ -55,10 +73,10 @@ const pesos = n => "$" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const planActual = () => { const r = form.querySelector('input[name="Paquete"]:checked'); return r ? r.dataset.plan : ""; };
 const precioBase = plan => (PRECIO_ESPECIAL.precio && PRECIO_ESPECIAL.plan === plan) ? PRECIO_ESPECIAL.precio : PLANES[plan];
 function tiene(id){
-  const plan = planActual(); const it = ITEMS.find(i => i.id === id);
-  if (!plan || !it) return false;
+  const plan = planActual();
+  if (!plan) return false;
   if (plan === "medida") { const o = $("p_incluye").querySelector('input[data-inc="' + id + '"]'); if (o) return o.checked; }
-  if (it.incl.includes(plan)) return true;
+  if ((INCL[id] || []).includes(plan)) return true;
   const c = $("p_extras").querySelector('input[data-id="' + id + '"]');
   return !!(c && c.checked);
 }
@@ -116,10 +134,19 @@ let conFormAntes = null;
 function condicionales(){
   pintarPaquete();
   const plan = planActual();
-  $("m_musica_box").hidden = !tiene("musica");
-  ["historia", "hashtag", "faq", "organizadora"].forEach(id => { $("x_" + id + "_box").hidden = !tiene(id); });
-  $("fs_qr").hidden = !tiene("qr");
-  $("fs_hospedaje").hidden = !(plan === "medida" && tiene("hospedaje"));
+  /* Cada pregunta con data-si="id1 id2" se muestra solo si el paquete o los extras traen alguno de esos ítems */
+  document.querySelectorAll("[data-si]").forEach(el => { el.hidden = !el.dataset.si.split(" ").some(tiene); });
+  const fotos = ["portada", "galeria", "historia"].some(tiene), musica = tiene("musica");
+  $("m_titulo").textContent = fotos && musica ? "Fotos y canción en link" : fotos ? "Fotos en link" : "Canción en link";
+  $("m_titulo").previousElementSibling.dataset.t = fotos && musica ? "Fotos y música" : fotos ? "Fotos" : "Música";
+  /* Muestras: Solo PDF ve la muestra en PDF; los demás, las muestras web */
+  const sel = $("d_muestra");
+  [...sel.options].forEach(o => {
+    if (!o.dataset.tipo) return;
+    const ok = !plan || (plan === "pdf") === (o.dataset.tipo === "pdf");
+    o.hidden = !ok; o.disabled = !ok;
+  });
+  if (sel.selectedOptions[0] && sel.selectedOptions[0].disabled) sel.value = "";
   const conForm = tiene("form");
   $("r_hoja").closest("label").style.display = conForm ? "" : "none";
   if (!conForm && $("r_hoja").checked) $("r_wa").checked = true;
