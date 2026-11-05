@@ -1,6 +1,6 @@
 # Bruma
 
-*Manifiesto visual de Serena Studio. Lámina: `lamina-bruma.jpg`. Reemplaza a "Materia". Paleta entregada por el estudio: Eucalyptus #98AA9D, Mist #B3C9D6, Plaster #F2EFE2, Soot #2D3536, Moss #697C70.*
+*Manifiesto visual de Serena Studio (versión anterior, reemplazada por `eucalipto.md`). Lámina: `lamina-bruma.jpg`.*
 
 **Bruma** es la calma con carácter. Nace de la hora en que la luz entra filtrada por una ventana y todo lo vegetal se vuelve gris verdoso, cuando el aire tiene color y los objetos parecen flotar en él. Su elegancia no viene de la suavidad sino del contraste: tonos de hoja y de cielo nublado que se apoyan en un solo negro carbón, profundo y firme, que les da peso y presencia. Es una estética serena que no pide permiso, ejecutada con el cuidado de alguien que ha pasado años mezclando pigmentos hasta encontrar el gris exacto: meticulosamente calibrada, sin un tono fuera de lugar.
 
