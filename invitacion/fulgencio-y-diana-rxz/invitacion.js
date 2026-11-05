@@ -146,25 +146,6 @@ btnMusica.addEventListener("click", () => {
   $("btn-gcal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
     "&text=" + encodeURIComponent(EVENTO.titulo) + "&dates=" + EVENTO.calInicioUTC + "/" + EVENTO.calFinUTC +
     "&details=" + encodeURIComponent(det) + "&location=" + encodeURIComponent(lugar);
-  /* Texto seguro para .ics (norma iCalendar) */
-  const esc = t => String(t).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
-  $("btn-ics").addEventListener("click", () => {
-    const ics = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Serena Studio//Boda//ES","CALSCALE:GREGORIAN","METHOD:PUBLISH","BEGIN:VEVENT",
-      "UID:boda-fulgencio-diana-20261205@serenastudio",
-      "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g,"").split(".")[0] + "Z",
-      "DTSTART:" + EVENTO.calInicioUTC, "DTEND:" + EVENTO.calFinUTC,
-      "SUMMARY:" + esc(EVENTO.titulo), "LOCATION:" + esc(lugar),
-      "DESCRIPTION:" + esc(det), "URL:" + EVENTO.mapsUrl,
-      "BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:" + esc("Mañana es la boda de Fulgencio & Diana"),"END:VALARM",
-      "END:VEVENT","END:VCALENDAR"].join("\r\n");
-    const esIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    if (esIOS) { location.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics); return; }
-    const url = URL.createObjectURL(new Blob([ics], {type:"text/calendar;charset=utf-8"}));
-    const a = document.createElement("a");
-    a.href = url; a.download = "boda-fulgencio-diana.ics";
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 4000);
-  });
 })();
 
 /* ---------- Hospedaje ---------- */
