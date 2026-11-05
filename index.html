@@ -54,8 +54,8 @@
     "@type": "OfferCatalog",
     "name": "Invitaciones digitales",
     "itemListElement": [
-      {"@type": "Offer", "name": "Invitación Esencial", "price": "180000", "priceCurrency": "COP"},
-      {"@type": "Offer", "name": "Invitación Completa", "price": "260000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Invitación Estándar", "price": "180000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Invitación Esencial", "price": "260000", "priceCurrency": "COP"},
       {"@type": "Offer", "name": "Invitación A medida", "price": "400000", "priceCurrency": "COP"},
       {"@type": "Offer", "name": "Tarjeta en PDF", "price": "130000", "priceCurrency": "COP"}
     ]
@@ -109,7 +109,7 @@
         "name": "¿Cada invitado puede ver su nombre en la invitación?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en la Completa se agrega por $40.000 y en el Esencial por $50.000."
+          "text": "Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en el Esencial se agrega por $40.000 y en el Estándar por $50.000."
         }
       },
       {
@@ -141,7 +141,7 @@
         "name": "¿Cuánto se demora?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Reciben la primera versión en 5 días hábiles con el Esencial, 7 con la Completa y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete."
+          "text": "Reciben la primera versión en 5 días hábiles con el Estándar, 7 con el Esencial y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete."
         }
       },
       {
@@ -501,6 +501,11 @@ td svg{color:var(--oro-osc)}
 .intro-pasos{margin:.9rem 0 0;max-width:36rem;color:var(--claro)}
 .por-invitado{margin:1.2rem 0 0;color:var(--pizarra)}
 .por-invitado b{color:var(--tinta);font-variant-numeric:lining-nums}
+.descarga{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1rem;margin:2.4rem 0 0;padding-top:1.4rem;border-top:1px solid var(--linea)}
+.descarga a{display:inline-flex;align-items:center;gap:.55rem;min-height:44px;font-weight:600;color:var(--tinta);text-decoration:underline;text-decoration-color:var(--oro);text-underline-offset:4px}
+.descarga a:hover{color:var(--oro-osc)}
+.descarga svg{width:18px;height:18px;flex:none}
+.descarga span{font-size:.88rem;color:var(--pizarra)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .muestra .cel{transition:none}
@@ -633,13 +638,13 @@ td svg{color:var(--oro-osc)}
 
     <div class="tabla-caja" role="region" aria-labelledby="t-precios" tabindex="0">
       <table>
-        <caption class="sr">Comparación de los paquetes A medida, Completa y Esencial</caption>
+        <caption class="sr">Comparación de los paquetes A medida, Esencial y Estándar</caption>
         <thead>
           <tr>
             <th scope="col"><span class="sr">Qué incluye</span></th>
             <th scope="col"><span class="paq">A medida</span><span class="monto">$400.000</span><span class="que">Un diseño creado desde cero</span></th>
-            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Completa</span><span class="monto">$260.000</span><span class="que">Con galería, música y cronograma</span></th>
-            <th scope="col"><span class="paq">Esencial</span><span class="monto">$180.000</span><span class="que">Uno de estos diseños con sus datos y colores</span></th>
+            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Esencial</span><span class="monto">$260.000</span><span class="que">Con galería, música y cronograma</span></th>
+            <th scope="col"><span class="paq">Estándar</span><span class="monto">$180.000</span><span class="que">Uno de estos diseños con sus datos y colores</span></th>
           </tr>
         </thead>
         <tbody>
@@ -672,10 +677,10 @@ td svg{color:var(--oro-osc)}
       <h3>¿Cuál les conviene?</h3>
       <ul>
         <li><b>A medida</b> si quieren un diseño que no tenga ninguna otra pareja, con su historia, su monograma, el link con el nombre de cada invitado y la versión PDF incluidos.</li>
-        <li><b>Completa</b> si quieren una galería de fotos, su canción, el cronograma del día y las preguntas frecuentes para sus invitados. Si además quieren que cada invitado vea su nombre al abrirla, se agrega por $40.000.</li>
-        <li><b>Esencial</b> si lo que necesitan es que todos sepan cuándo y dónde, tengan los datos de regalos y confirmen por WhatsApp.</li>
+        <li><b>Esencial</b> si quieren una galería de fotos, su canción, el cronograma del día y las preguntas frecuentes para sus invitados. Si además quieren que cada invitado vea su nombre al abrirla, se agrega por $40.000.</li>
+        <li><b>Estándar</b> si lo que necesitan es que todos sepan cuándo y dónde, tengan los datos de regalos y confirmen por WhatsApp.</li>
       </ul>
-      <p class="por-invitado">Con 150 invitados, la Completa sale a menos de <b>$1.800 por invitado</b>, con la publicación incluida.</p>
+      <p class="por-invitado">Con 150 invitados, el Esencial sale a menos de <b>$1.800 por invitado</b>, con la publicación incluida.</p>
     </div>
 
     <div class="otros">
@@ -693,6 +698,7 @@ td svg{color:var(--oro-osc)}
         </dl>
       </div>
     </div>
+    <p class="descarga"><a href="descargas/serena-studio-precios.pdf" download="Serena-Studio-precios.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar los precios en PDF</a><span>Para guardarlos o enviarlos por WhatsApp · 1 página</span></p>
   </div>
 </section>
 
@@ -708,7 +714,7 @@ td svg{color:var(--oro-osc)}
     <details><summary>¿Hay un límite de invitados?</summary>
       <p>No. El link de su invitación lo pueden enviar a todas las personas que quieran, sin costo adicional. Si eligen el link con el nombre de cada invitado, tampoco tiene límite.</p></details>
     <details><summary>¿Cada invitado puede ver su nombre en la invitación?</summary>
-      <p>Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en la Completa se agrega por $40.000 y en el Esencial por $50.000.</p></details>
+      <p>Sí. Cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. Viene incluido en el paquete A medida; en el Esencial se agrega por $40.000 y en el Estándar por $50.000.</p></details>
     <details><summary>¿Qué tenemos que enviarles?</summary>
       <p>Los nombres como quieren que aparezcan, la fecha y hora, los lugares de la ceremonia y la recepción con su ubicación, la fecha límite para confirmar y, según el paquete, sus fotos, la canción y los datos de regalos. Si algo todavía no está definido, empezamos con lo que tengan.</p></details>
     <details><summary>¿Y los invitados que no usan mucho el celular?</summary>
@@ -716,7 +722,7 @@ td svg{color:var(--oro-osc)}
     <details><summary>¿Con cuánto tiempo debemos pedirla?</summary>
       <p>Lo ideal es enviarla a sus invitados entre dos y tres meses antes de la boda, y con más tiempo si vienen invitados de otras ciudades o del exterior. Como la primera versión llega entre 5 y 10 días hábiles según el paquete, con un mes y medio de margen alcanzan a ajustarla con calma.</p></details>
     <details><summary>¿Cuánto se demora?</summary>
-      <p>Reciben la primera versión en 5 días hábiles con el Esencial, 7 con la Completa y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
+      <p>Reciben la primera versión en 5 días hábiles con el Estándar, 7 con el Esencial y 10 con el A medida, contados desde que nos envían los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
     <details><summary>¿Atienden bodas fuera de Bogotá?</summary>
       <p>Sí. Todo el proceso es en línea, así que diseñamos invitaciones para bodas en cualquier ciudad de Colombia y también para bodas en el exterior. Podemos hacer una versión en otro idioma.</p></details>
     <details><summary>¿Nuestra invitación va a aparecer en Google?</summary>
