@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!-- © 2026 Serena Studio. Todos los derechos reservados. -->
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ========== SEGURIDAD ==========
+     frame-src: solo el mapa embebido de Google.
+     connect-src: solo el envío del formulario de confirmación a la hoja de Google (Apps Script). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; frame-src https://www.google.com; connect-src https://script.google.com https://script.googleusercontent.com; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<!-- ========== INVITACIÓN DE CLIENTE: privada, fuera de buscadores ========== -->
+<title>Fulgencio &amp; Diana · 5 de diciembre de 2026</title>
+<meta name="description" content="Boda de Fulgencio y Diana: sábado 5 de diciembre de 2026, Hacienda El Jardín Secreto, Tenjo. Ceremonia 3:00 p. m.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="canonical" href="https://serenastudio-peach.vercel.app/invitacion/fulgencio-y-diana-rxz/">
+<meta name="theme-color" content="#4A1C24">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- ========== OPEN GRAPH (vista previa en WhatsApp, imagen 1200×630) ========== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fulgencio &amp; Diana">
+<meta property="og:locale" content="es_CO">
+<meta property="og:url" content="https://serenastudio-peach.vercel.app/invitacion/fulgencio-y-diana-rxz/">
+<meta property="og:title" content="Fulgencio &amp; Diana · Nos casamos">
+<meta property="og:description" content="Sábado 5 de diciembre de 2026 · Hacienda El Jardín Secreto, Tenjo. Queremos celebrarlo contigo.">
+<meta property="og:image" content="https://serenastudio-peach.vercel.app/invitacion/fulgencio-y-diana-rxz/og-imagen.jpg">
+<meta property="og:image:alt" content="Fulgencio y Diana, sábado 5 de diciembre de 2026">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fulgencio &amp; Diana · Nos casamos">
+<meta name="twitter:description" content="Sábado 5 de diciembre de 2026 · Hacienda El Jardín Secreto, Tenjo.">
+<meta name="twitter:image" content="https://serenastudio-peach.vercel.app/invitacion/fulgencio-y-diana-rxz/og-imagen.jpg">
+
+<!-- ========== FUENTES (alojadas en la misma carpeta) ========== -->
+<link rel="preload" href="fuentes/cormorant-sc-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/mulish-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script src="invitacion.js" defer></script>
+
+<style>
+/* ===================== FUENTES (SIL Open Font License, ver fuentes/) ===================== */
+@font-face{font-family:"Cormorant SC";font-style:normal;font-weight:500;font-display:swap;src:url("fuentes/cormorant-sc-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant SC";font-style:normal;font-weight:600;font-display:swap;src:url("fuentes/cormorant-sc-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("fuentes/cormorant-garamond-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("fuentes/cormorant-garamond-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("fuentes/cormorant-garamond-latin-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Pinyon Script";font-style:normal;font-weight:400;font-display:swap;src:url("fuentes/pinyon-script-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Mulish";font-style:normal;font-weight:400;font-display:swap;src:url("fuentes/mulish-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Mulish";font-style:normal;font-weight:600;font-display:swap;src:url("fuentes/mulish-latin-600-normal.woff2") format("woff2")}
+
+/* Estilo "Sobre de terciopelo", versión Fulgencio & Diana.
+   Paleta tomada de sus referencias: vino (satín), palo de rosa, champaña y verde oliva.
+   Columna de paneles: sobre → nombres → fecha → cuenta → lugar → itinerario → vestimenta →
+   detalles → fotos → QR de fotos → confirmación → cierre. */
+:root{
+  /* ---- Paleta ---- */
+  --vino-osc:#4A1C24;   /* sobre y fondo */
+  --vino:#6A2E3A;       /* títulos, paneles oscuros (satín vino de la referencia) */
+  --terciopelo:#893941; /* botones y día de la boda (#893941 de la referencia) */
+  --rosa:#CB7885;       /* rosa de los lirios: acentos */
+  --rosa-tierra:#8E4F55;/* etiquetas sobre claro (contraste AA) */
+  --palo-rosa:#D2ACA8;  /* arcos y fondos suaves */
+  --champan:#E8DDCF;    /* paneles claros (satín champaña) */
+  --papel:#F7F1E8;      /* crema */
+  --oliva:#5E6623;      /* hojas, cuenta regresiva (#5E6623 de la referencia) */
+  --oliva-osc:#454B19;
+  --salvia:#D4D994;     /* verde claro de la referencia: detalles sobre oliva */
+  --oro:#C8A867;        /* lacre y marco */
+  --oro-claro:#EAD3A0;
+  --tinta:#3A2226;
+  --tinta-suave:#6B5753;
+  --crema-suave:#EBDAD2;/* texto suave sobre vino */
+  --linea:rgba(106,46,58,.22);
+
+  /* ---- Tipografía ---- */
+  --f-titulo:"Cormorant SC","Cormorant Garamond",Georgia,serif;
+  --f-serif:"Cormorant Garamond",Georgia,serif;
+  --f-script:"Pinyon Script","Snell Roundhand",cursive;
+  --f-body:"Mulish","Segoe UI",system-ui,-apple-system,sans-serif;
+
+  --panel:27rem;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;color:var(--tinta);font:17px/1.6 var(--f-body);
+  background:var(--vino-osc);
+  background-image:radial-gradient(ellipse at 50% 0%, #6A2E3A 0%, var(--vino-osc) 70%);
+  -webkit-font-smoothing:antialiased;
+}
+body.cerrado{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:var(--terciopelo)}
+:focus-visible{outline:2px solid var(--terciopelo);outline-offset:3px;border-radius:4px}
+svg{display:block}
+
+.paneles{
+  max-width:var(--panel);margin:0 auto;
+  padding-left:max(0px, env(safe-area-inset-left,0px));
+  padding-right:max(0px, env(safe-area-inset-right,0px));
+  padding-block:0 3rem;
+}
+@media (min-width:30rem){
+  .paneles{padding-block:2.5rem 4rem}
+  .panel{box-shadow:0 18px 40px rgba(0,0,0,.25)}
+}
+.panel{
+  position:relative;overflow:hidden;text-align:center;
+  padding:3.5rem max(22px, env(safe-area-inset-right,0px)) 3.5rem max(22px, env(safe-area-inset-left,0px));
+  background:var(--champan);
+}
+.panel.claro{background:var(--papel)}
+.panel.oscuro{background:var(--vino);color:var(--papel)}
+.panel + .panel{border-top:1px solid rgba(106,46,58,.12)}
+
+.titulo{
+  font-family:var(--f-titulo);font-weight:500;font-size:2.05rem;letter-spacing:.06em;
+  line-height:1.1;margin:0 0 1rem;color:var(--vino);text-wrap:balance;
+}
+.oscuro .titulo{color:var(--papel)}
+.sub{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rosa-tierra);margin:0 0 .5rem;font-weight:600}
+.oscuro .sub,.p-nombres .sub{color:var(--oro-claro)}
+p{margin:0 0 1rem}
+.suave{color:var(--tinta-suave)}
+.oscuro .suave{color:var(--crema-suave)}
+.corazon{width:10px;height:10px;margin:.9rem auto;color:var(--terciopelo)}
+.ramito{width:120px;height:34px;margin:0 auto 1rem;color:var(--oliva)}
+.oscuro .ramito{color:var(--salvia)}
+
+/* ===================== SOBRE (pantalla de apertura) ===================== */
+.sobre{
+  position:fixed;inset:0;z-index:50;display:grid;place-items:center;
+  background:var(--vino-osc);overflow:hidden;
+  transition:transform 1.1s cubic-bezier(.7,0,.3,1), opacity 1.1s ease;
+}
+.sobre .textura{position:absolute;inset:0;width:100%;height:100%}
+.sobre .solapa{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.sobre-centro{position:relative;display:grid;justify-items:center;gap:1.25rem;padding:1rem;text-align:center;color:var(--papel)}
+.sobre .para{font-family:var(--f-serif);font-style:italic;font-size:1.3rem;color:var(--oro-claro);min-height:1.5em;margin:0}
+.sello{
+  width:132px;height:132px;border:0;padding:0;background:none;cursor:pointer;border-radius:50%;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.45));transition:transform .3s;
+}
+.sello:hover{transform:scale(1.04)}
+.sello svg{width:100%;height:100%}
+.sobre .toca{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--crema-suave);margin:0}
+.sobre.abierto{transform:translateY(-100%);opacity:0;pointer-events:none}
+.sobre.abierto .sello{transform:scale(.85) rotate(-12deg)}
+
+/* ===================== PANEL NOMBRES (marco de cartela) ===================== */
+.p-nombres{background:var(--vino-osc);color:var(--papel);padding-block:4rem}
+.p-nombres .textura{position:absolute;inset:0;width:100%;height:100%}
+.encaje{position:relative;width:min(300px,84vw);margin:0 auto;aspect-ratio:3/4;max-width:100%}
+.encaje svg.marco{position:absolute;inset:0;width:100%;height:100%}
+.encaje .dentro{position:absolute;inset:0;display:grid;place-content:center;gap:0;color:var(--vino);padding:2.2rem 1.6rem}
+.encaje .nombres{font-family:var(--f-script);font-weight:400;font-size:clamp(2.6rem,12.5vw,3.1rem);line-height:1.15;margin:0}
+.encaje .amp{font-family:var(--f-serif);font-style:italic;font-size:1.7rem;line-height:1;color:var(--rosa-tierra);margin:.1rem 0}
+.cita{position:relative;margin:.75rem 0 0;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--oro-claro)}
+.frase{
+  position:relative;font-family:var(--f-serif);font-style:italic;font-size:1.35rem;line-height:1.4;
+  max-width:19rem;margin:2.25rem auto 0;color:var(--crema-suave);text-wrap:balance;
+}
+.btn-musica{
+  position:fixed;z-index:40;
+  right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:48px;height:48px;border-radius:50%;border:1px solid rgba(234,211,160,.6);background:var(--vino-osc);
+  color:var(--oro-claro);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(40,15,20,.35);
+  transition:background-color .2s, color .2s;
+}
+.btn-musica svg{width:18px;height:18px}
+.btn-musica .ic-off{display:none}
+.btn-musica.mudo .ic-on{display:none}
+.btn-musica.mudo .ic-off{display:block}
+.btn-musica:hover{background:var(--vino)}
+.btn-musica[hidden]{display:none}
+
+/* ===================== PANEL FECHA (calendario en arco) ===================== */
+.p-fecha{background:var(--papel)}
+.p-fecha .ramas{position:absolute;inset:0;width:100%;height:100%;color:var(--oliva);opacity:.28}
+.arco-cal{
+  position:relative;margin:0 auto;width:min(272px,100%);background:var(--palo-rosa);
+  border-radius:140px 140px 18px 18px;padding:3.1rem 1.1rem 1.6rem;
+}
+.arco-cal .titulo{font-size:1.6rem;margin:0}
+.dia-sem{font-family:var(--f-serif);font-style:italic;font-size:1.25rem;color:var(--vino);margin:.2rem 0 0}
+.fecha-num{font-family:var(--f-titulo);font-size:2.05rem;color:var(--vino);letter-spacing:.06em;margin:0 0 .1rem;line-height:1.1}
+.mes{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--vino);margin:0 0 .6rem;font-weight:600}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:.15rem;font-size:.8rem;font-variant-numeric:tabular-nums}
+.cal span{display:grid;place-items:center;aspect-ratio:1;color:var(--tinta)}
+.cal .dow{font-weight:600;color:var(--vino);font-size:.68rem}
+.cal .fuera{opacity:.32}
+.cal .dia-boda{position:relative;z-index:0;color:var(--papel);font-weight:600}
+.cal .dia-boda::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:var(--terciopelo);z-index:-1}
+.hora-cer{margin:1.4rem 0 0;font-family:var(--f-titulo);font-size:1.25rem;letter-spacing:.06em;color:var(--vino)}
+
+/* ===================== PANEL CUENTA REGRESIVA (óvalo oliva) ===================== */
+.p-cuenta{background:var(--champan)}
+.oval{position:relative;width:min(270px,78vw);aspect-ratio:3/4;margin:0 auto;max-width:100%}
+.oval > svg:first-child{position:absolute;inset:0;width:100%;height:100%}
+.oval .dentro{position:absolute;inset:0;display:grid;place-content:center;padding:2rem}
+.oval .titulo{font-size:1.6rem;margin:0 0 .6rem;color:var(--papel)}
+.cuenta{display:flex;justify-content:center;gap:.2rem;font-family:var(--f-titulo);color:var(--papel)}
+.cuenta div{display:grid;justify-items:center;min-width:2.3rem}
+.cuenta b{font-weight:500;font-size:1.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.cuenta small{font-family:var(--f-body);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--salvia);margin-top:.35rem}
+.cuenta i{font-style:normal;font-size:1.3rem;line-height:1.1;color:var(--salvia)}
+.oval .corazon{color:var(--rosa)}
+
+/* ===================== BOTONES ===================== */
+.botones{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.5rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:46px;
+  padding:.7rem 1.3rem;border-radius:999px;font:600 .82rem/1 var(--f-body);letter-spacing:.12em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;border:1.5px solid var(--terciopelo);
+  transition:background-color .2s,color .2s,border-color .2s;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-lleno{background:var(--terciopelo);color:var(--papel)}
+.btn-lleno:hover{background:var(--vino);border-color:var(--vino)}
+.btn-borde{background:transparent;color:var(--terciopelo)}
+.btn-borde:hover{background:var(--terciopelo);color:var(--papel)}
+.oscuro .btn-lleno{background:var(--papel);color:var(--vino);border-color:var(--papel)}
+.oscuro .btn-lleno:hover{background:var(--oro-claro);border-color:var(--oro-claro)}
+.oscuro .btn-borde{color:var(--papel);border-color:rgba(247,241,232,.7)}
+.oscuro .btn-borde:hover{background:var(--papel);color:var(--vino)}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+
+/* ===================== PANEL LUGAR ===================== */
+.p-lugar{padding-bottom:0}
+.farol{width:90px;height:96px;margin:0 auto 1rem;color:var(--oro-claro)}
+.lugar-nombre{font-family:var(--f-serif);font-style:italic;font-size:1.55rem;line-height:1.25;color:var(--papel);margin:0 0 .9rem}
+.direccion{font-size:.95rem;max-width:20rem;margin:0 auto .5rem;color:var(--crema-suave)}
+.direccion svg{display:inline-block;width:17px;height:17px;vertical-align:-3px;margin-right:.3rem;color:var(--oro-claro)}
+.nota-lugar{font-size:.92rem;color:var(--crema-suave);max-width:20rem;margin:0 auto}
+.arco-mapa{
+  margin:2rem auto 0;width:min(320px,100%);aspect-ratio:1;max-width:100%;
+  border-radius:50% 50% 0 0;overflow:hidden;background:#5A2530;
+  display:grid;place-items:center;padding:2rem;font-size:.9rem;color:var(--crema-suave);
+}
+.arco-mapa iframe{width:100%;height:100%;border:0}
+.arco-mapa.con-mapa{padding:0}
+.borde-encaje{display:block;width:100%;height:18px;color:var(--papel);margin-top:-1px}
+
+/* ===================== PANEL ITINERARIO (línea de tiempo) ===================== */
+.p-itin{background:var(--papel)}
+.itin{list-style:none;margin:1.6rem auto 0;padding:0;max-width:20rem;text-align:left}
+.itin li{display:grid;grid-template-columns:5.6rem 1.4rem 1fr;align-items:start;gap:0 .6rem;position:relative;padding-bottom:1.15rem}
+.itin .h{font-family:var(--f-titulo);font-size:1.15rem;color:var(--vino);text-align:right;line-height:1.35;white-space:nowrap}
+.itin .h small{font-size:.8em}
+.itin .punto{position:relative;height:100%;display:flex;justify-content:center}
+.itin .punto::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--papel);border:1.5px solid var(--oliva);margin-top:.5rem;position:relative;z-index:1}
+.itin .punto::after{content:"";position:absolute;top:.9rem;bottom:-1.15rem;left:50%;width:1px;background:var(--oliva);opacity:.45}
+.itin li:last-child .punto::after{display:none}
+.itin li.clave .punto::before{background:var(--terciopelo);border-color:var(--terciopelo)}
+.itin .q{font-size:.98rem;line-height:1.4;color:var(--tinta);padding-top:.15rem}
+.itin .q span{display:block;font-size:.82rem;color:var(--tinta-suave)}
+
+/* ===================== PANEL VESTIMENTA ===================== */
+.p-vestir{background:var(--champan)}
+.etiqueta-formal{display:inline-block;font-family:var(--f-titulo);font-size:1.3rem;letter-spacing:.08em;color:var(--terciopelo);border:1px solid var(--linea);border-radius:999px;padding:.35rem 1.3rem;margin:0 0 1.1rem}
+.intro-vestir{max-width:21rem;margin:0 auto 1.6rem;color:var(--tinta-suave)}
+.grupo-tonos{margin:0 auto 1.6rem;max-width:21rem}
+.grupo-tonos h3{font-family:var(--f-script);font-weight:400;font-size:2.1rem;line-height:1;color:var(--vino);margin:0 0 .8rem}
+.tonos{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem .4rem;margin:0;padding:0;list-style:none}
+.tonos li{width:4.4rem;display:grid;justify-items:center;gap:.3rem;font-size:.74rem;line-height:1.2;color:var(--tinta-suave)}
+.tonos i{width:34px;height:34px;border-radius:50%;border:2px solid var(--papel);box-shadow:0 0 0 1px var(--linea)}
+.evitar{max-width:21rem;margin:0 auto;padding:1.1rem 1.1rem .4rem;border:1px dashed rgba(137,57,65,.45);border-radius:14px;background:rgba(247,241,232,.6);text-align:left}
+.evitar h3{font-family:var(--f-titulo);font-weight:500;font-size:1.2rem;letter-spacing:.06em;color:var(--terciopelo);margin:0 0 .5rem;text-align:center}
+.evitar ul{margin:0 0 .7rem;padding:0;list-style:none}
+.evitar li{position:relative;padding-left:1.4rem;margin-bottom:.45rem;font-size:.95rem;line-height:1.4;color:var(--tinta)}
+.evitar li::before{content:"";position:absolute;left:.15rem;top:.55em;width:.65rem;height:1.5px;background:var(--terciopelo);transform:rotate(45deg)}
+.evitar li::after{content:"";position:absolute;left:.15rem;top:.55em;width:.65rem;height:1.5px;background:var(--terciopelo);transform:rotate(-45deg)}
+.gracias-vestir{font-family:var(--f-serif);font-style:italic;font-size:1.15rem;color:var(--vino);max-width:20rem;margin:1.4rem auto 0}
+
+/* ===================== PANEL DETALLES ===================== */
+.detalles{display:grid;gap:1.75rem;text-align:center}
+.detalle h3{font-family:var(--f-titulo);font-weight:500;font-size:1.35rem;margin:0 0 .3rem;color:var(--vino);letter-spacing:.05em}
+.detalle p{margin:0 auto;color:var(--tinta-suave);max-width:21rem}
+.detalle .contacto{margin-top:.5rem;color:var(--tinta)}
+.detalle .botones{margin-top:.9rem}
+.ic-sobre{width:44px;height:34px;margin:0 auto .6rem;color:var(--terciopelo)}
+.sep{width:60px;height:1px;background:var(--linea);margin:0 auto}
+
+/* ===================== PANEL FOTOS ===================== */
+.galeria{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.25rem}
+.galeria figure{margin:0}
+.galeria figure.grande{grid-column:1 / -1}
+.galeria figure.grande .foto{aspect-ratio:4/4.6}
+.galeria figure:nth-child(3){margin-top:2.2rem}
+.foto{
+  position:relative;aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 10px 10px;overflow:hidden;
+  background:var(--palo-rosa);border:5px solid var(--papel);outline:1px solid var(--linea);
+}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto.sin-foto img{display:none}
+.foto .ph{position:absolute;inset:0;display:none;place-items:center;padding:.75rem;font-size:.75rem;line-height:1.4;color:var(--vino);letter-spacing:.08em}
+.foto.sin-foto .ph{display:grid}
+
+/* ===================== PANEL QR DE FOTOS ===================== */
+.p-album{background:var(--oliva);color:var(--papel)}
+.p-album .titulo{color:var(--papel)}
+.p-album p{color:#F1EEDB}
+.p-album .ic-camara{width:56px;height:48px;margin:0 auto 1rem;color:var(--salvia)}
+.p-album .btn-lleno{background:var(--papel);color:var(--oliva-osc);border-color:var(--papel)}
+.p-album .btn-lleno:hover{background:var(--salvia);border-color:var(--salvia)}
+.p-album :focus-visible{outline-color:var(--papel)}
+
+/* ===================== PANEL RSVP (formulario → hoja de Google) ===================== */
+.limite{
+  display:inline-block;font-family:var(--f-titulo);font-size:1.3rem;color:var(--terciopelo);
+  border:1px solid var(--linea);border-radius:999px;padding:.45rem 1.2rem;margin:.25rem 0 1rem;
+}
+.cupos{font-weight:600;color:var(--vino)}
+.form-rsvp{text-align:left;max-width:22rem;margin:1.4rem auto 0;display:grid;gap:1rem}
+.campo{display:grid;gap:.35rem;margin:0;padding:0;border:0;min-width:0}
+.campo > label,.campo legend{font-size:.85rem;font-weight:600;letter-spacing:.04em;color:var(--vino);padding:0}
+.campo .opc{font-weight:400;color:var(--tinta-suave)}
+.campo input[type=text],.campo input[type=tel],.campo select,.campo textarea{
+  width:100%;font:16px/1.4 var(--f-body);color:var(--tinta);background:#fff;
+  border:1px solid rgba(106,46,58,.35);border-radius:10px;padding:.7rem .85rem;min-height:46px;
+}
+.campo textarea{min-height:5.5rem;resize:vertical}
+.campo input:focus-visible,.campo select:focus-visible,.campo textarea:focus-visible{outline:2px solid var(--terciopelo);outline-offset:1px;border-color:var(--terciopelo)}
+.radios{display:flex;gap:.6rem;flex-wrap:wrap}
+.radios label{flex:1 1 9rem;display:flex;align-items:center;gap:.55rem;min-height:46px;padding:.55rem .85rem;border:1px solid rgba(106,46,58,.35);border-radius:10px;background:#fff;cursor:pointer;font-size:.95rem}
+.radios input{accent-color:var(--terciopelo);width:18px;height:18px;margin:0}
+.radios label:has(input:checked){border-color:var(--terciopelo);box-shadow:inset 0 0 0 1px var(--terciopelo)}
+.solo-si[hidden]{display:none}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-rsvp .btn{width:100%;margin-top:.3rem}
+.form-error{color:#8A2A2A;font-size:.92rem;margin:0;text-align:center}
+.form-error[hidden]{display:none}
+
+/* ===================== CIERRE (arco) ===================== */
+.p-cierre{background:var(--papel);padding-bottom:0}
+.arco-final{
+  position:relative;margin:0 auto;width:min(300px,100%);background:var(--vino);color:var(--papel);
+  border-radius:150px 150px 0 0;padding:3.5rem 1.5rem 2.5rem;overflow:hidden;
+}
+.arco-final .titulo{position:relative;color:var(--papel);font-size:1.6rem}
+.arco-final p{position:relative}
+.anillos{position:relative;width:150px;height:40px;margin:.5rem auto 0;color:var(--oro-claro)}
+.firma{position:relative;font-family:var(--f-script);font-size:2.2rem;line-height:1.2;color:var(--oro-claro);margin:1rem 0 0}
+
+.aviso{
+  position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;
+  background:var(--vino);color:var(--papel);padding:.6rem 1rem;border-radius:999px;font-size:.9rem;
+}
+
+/* ===================== TEXTURAS ===================== */
+/* Terciopelo: vetas verticales + brillo suave, sobre el color de fondo del panel */
+.tx-terciopelo{
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(255,215,215,.08), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .9 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='v'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.018 0.045' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .42 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23v)'/%3E%3C/svg%3E");
+}
+/* Papel de algodón: grano fino */
+.tx-papel{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .2 0 0 0 0 .15 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E")}
+
+/* ===================== ANIMACIONES ===================== */
+.anim .reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+.anim .reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .sobre{transition:opacity .3s}
+  .sobre.abierto{transform:none}
+  .anim .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* ===================== ACCESIBILIDAD Y USO TÁCTIL ===================== */
+html{scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom, 0px));-webkit-tap-highlight-color:rgba(137,57,65,.14)}
+a,button,summary,label,select,input{touch-action:manipulation}
+p{text-wrap:pretty}
+[id]{scroll-margin-top:1rem}
+.saltar{
+  position:absolute;z-index:40;left:max(16px, env(safe-area-inset-left, 0px));top:calc(8px + env(safe-area-inset-top, 0px));
+  padding:.75rem 1.1rem;background:var(--terciopelo);color:var(--papel);font:600 .85rem/1 var(--f-body);text-decoration:none;
+  transform:translateY(-200%);
+}
+.saltar:focus-visible{transform:none}
+.sobre :focus-visible,.p-nombres :focus-visible,.oscuro :focus-visible,.arco-final :focus-visible,.oval :focus-visible{outline-color:var(--papel)}
+.btn-musica:focus-visible{outline-color:var(--oro-claro)}
+.encaje h1.dentro{margin:0;font-weight:400;font-size:inherit}
+.paneles:focus-visible{outline-offset:-4px}
+
+/* ===================== AVISO DE CONFIRMACIÓN ===================== */
+.rsvp-ok{max-width:24rem;margin:1.6rem auto 0;padding:1.6rem 1.3rem;text-align:center;border:1px solid currentColor;border-radius:10px;color:var(--vino);
+  animation:rsvpOk .5s ease both}
+.rsvp-ok:focus{outline:none}
+.rsvp-ok-ic{width:52px;height:52px;display:block;margin:0 auto .7rem}
+.rsvp-ok-ic path{stroke-dasharray:40;stroke-dashoffset:40;animation:rsvpTrazo .6s .25s ease forwards}
+.rsvp-ok-t{font-family:var(--f-titulo);font-size:1.5rem;font-weight:500;margin:0 0 .35rem}
+.rsvp-ok-x{margin:0 0 .4rem;color:var(--tinta-suave)}
+.rsvp-ok button{color:inherit;font:inherit;font-size:.92rem;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:.5rem 0;cursor:pointer;min-height:44px}
+@keyframes rsvpOk{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes rsvpTrazo{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.rsvp-ok{animation:none}.rsvp-ok-ic path{animation:none;stroke-dashoffset:0}}
+</style>
+</head>
+<body class="cerrado">
+
+<!-- ========== Símbolos SVG reutilizables ========== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Lirio en línea (las flores de su referencia), base del relieve del terciopelo -->
+    <symbol id="lirio" viewBox="0 0 200 210" overflow="visible">
+      <path d="M100 118C88 86 90 52 104 28c10 26 8 62-4 90z"/>
+      <path d="M100 118C72 104 50 76 46 44c26 10 46 40 54 74z"/>
+      <path d="M100 118c26-16 46-44 48-74-24 12-42 42-48 74z"/>
+      <path d="M100 120c-30 10-62 8-80-10 26-12 56-6 80 10z"/>
+      <path d="M100 120c30 10 62 8 80-10-26-12-56-6-80 10z"/>
+      <path d="M100 116c-6-18-12-30-22-38M100 116c4-20 10-32 20-40M100 116c0-20 0-34 2-46"/>
+      <path d="M100 122c-4 26-14 52-36 80"/>
+      <path d="M86 160c-30-12-56-4-68 16 26 6 52-2 68-16z"/>
+      <path d="M78 182c18-6 42 0 50 16-22 4-42-2-50-16z"/>
+      <path d="M150 34c-8-20 2-34 16-40 2 18-4 32-16 40zM150 34c-8 28-26 48-44 66"/>
+    </symbol>
+    <symbol id="cor" viewBox="0 0 10 10"><path d="M5 9L1.2 5.2A2.2 2.2 0 0 1 5 2.3a2.2 2.2 0 0 1 3.8 2.9z" fill="currentColor"/></symbol>
+    <!-- Ramita de olivo para separar títulos -->
+    <symbol id="olivo" viewBox="0 0 120 34">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M8 17h104"/>
+        <path d="M30 17c-4-6-10-8-16-7 3 5 9 8 16 7zM30 17c-4 6-10 8-16 7 3-5 9-8 16-7z"/>
+        <path d="M48 17c-4-6-10-8-15-7 3 5 8 8 15 7zM48 17c-4 6-10 8-15 7 3-5 8-8 15-7z"/>
+        <path d="M90 17c4-6 10-8 16-7-3 5-9 8-16 7zM90 17c4 6 10 8 16 7-3-5-9-8-16-7z"/>
+        <path d="M72 17c4-6 10-8 15-7-3 5-8 8-15 7zM72 17c4 6 10 8 15 7-3-5-8-8-15-7z"/>
+      </g>
+      <circle cx="60" cy="17" r="3" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===================== SOBRE ===================== -->
+<div class="sobre tx-terciopelo" id="sobre" role="dialog" aria-modal="true" aria-label="Invitación cerrada">
+  <svg class="textura" aria-hidden="true">
+    <defs>
+      <pattern id="hojas" width="380" height="460" patternUnits="userSpaceOnUse">
+        <g fill="none" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+          <g stroke="rgba(0,0,0,.42)" transform="translate(1.4 1.6)">
+            <use href="#lirio" width="260" height="273" x="-40" y="-20"/>
+            <use href="#lirio" width="220" height="231" transform="translate(380 200) rotate(155)"/>
+            <use href="#lirio" width="200" height="210" transform="translate(150 470) rotate(-150)"/>
+          </g>
+          <g stroke="rgba(255,205,210,.12)" transform="translate(-1 -1)">
+            <use href="#lirio" width="260" height="273" x="-40" y="-20"/>
+            <use href="#lirio" width="220" height="231" transform="translate(380 200) rotate(155)"/>
+            <use href="#lirio" width="200" height="210" transform="translate(150 470) rotate(-150)"/>
+          </g>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#hojas)"/>
+  </svg>
+  <svg class="solapa" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0L50 52L100 0" fill="rgba(0,0,0,.12)" stroke="rgba(200,168,103,.35)" stroke-width=".25" vector-effect="non-scaling-stroke"/>
+    <path d="M0 100L50 52L100 100" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="sobre-centro">
+    <p class="para" id="para-sobre"></p>
+    <button class="sello" id="sello" type="button" aria-label="Abrir la invitación">
+      <svg viewBox="0 0 140 140">
+        <defs>
+          <radialGradient id="lacre" cx="40%" cy="35%" r="70%">
+            <stop offset="0" stop-color="#F3DCA4"/><stop offset=".55" stop-color="#C8A867"/><stop offset="1" stop-color="#8F7034"/>
+          </radialGradient>
+        </defs>
+        <path d="M70 6c12 0 18 6 28 9s18 6 23 16 4 18 7 28 3 20-3 29-12 14-19 21-14 13-26 14-20-1-30-5-19-8-25-17-7-18-9-28-2-21 4-30 12-12 20-20S58 6 70 6z" fill="url(#lacre)"/>
+        <circle cx="70" cy="70" r="44" fill="none" stroke="#8F7034" stroke-width="2.5" opacity=".7"/>
+        <circle cx="70" cy="70" r="40" fill="none" stroke="#F3DCA4" stroke-width="1" opacity=".6"/>
+        <!-- ramitas de olivo alrededor del monograma -->
+        <g fill="none" stroke="#7A5D22" stroke-width="1.4" stroke-linecap="round" opacity=".85">
+          <path d="M44 92c-8-10-10-24-4-36M96 92c8-10 10-24 4-36"/>
+          <path d="M42 80c-6-1-9 2-10 5 5 1 8-1 10-5zM40 68c-5-2-9 0-10 3 5 2 8 0 10-3zM100 68c5-2 9 0 10 3-5 2-8 0-10-3zM98 80c6-1 9 2 10 5-5 1-8-1-10-5z"/>
+        </g>
+        <text x="70" y="84" text-anchor="middle" font-family="Pinyon Script, Snell Roundhand, cursive" font-size="34" fill="#6E521B">F&amp;D</text>
+      </svg>
+    </button>
+    <p class="toca">Toca el sello para abrir</p>
+  </div>
+</div>
+
+<main class="paneles" id="contenido" tabindex="-1" inert>
+  <a class="saltar" href="#confirmar">Ir a confirmar asistencia</a>
+
+  <!-- ===================== NOMBRES ===================== -->
+  <section class="panel p-nombres tx-terciopelo" aria-label="Fulgencio y Diana">
+    <svg class="textura" aria-hidden="true"><rect width="100%" height="100%" fill="url(#hojas)"/></svg>
+    <p class="sub" style="position:relative">Nos casamos</p>
+    <div class="encaje">
+      <svg class="marco" id="marco-encaje" viewBox="0 0 300 400" aria-hidden="true"></svg>
+      <h1 class="dentro" aria-label="Fulgencio y Diana" translate="no">
+        <span class="nombres">Fulgencio</span>
+        <span class="amp" aria-hidden="true">&amp;</span>
+        <span class="nombres">Diana</span>
+      </h1>
+    </div>
+    <p class="frase">“Y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto.”</p>
+    <p class="cita">Colosenses 3:14</p>
+  </section>
+
+  <!-- ===================== FECHA ===================== -->
+  <section class="panel p-fecha reveal tx-papel">
+    <svg class="ramas" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M-10 120C60 140 90 210 70 300S90 450 160 540"/>
+        <path d="M70 300c-30-10-60 0-70 20M80 220c30-20 60-20 80 0M60 400c-30 10-50 40-50 70"/>
+        <path d="M410 60C340 100 320 180 340 260s-20 180-80 270"/>
+        <path d="M340 260c30-10 55 5 65 25M330 160c-30-15-60-10-75 10M300 420c30 0 55 20 65 50"/>
+        <path d="M110 40c20 30 60 40 90 30M250 500c-10-30 10-60 40-70"/>
+      </g>
+    </svg>
+    <div class="arco-cal">
+      <h2 class="titulo">Fecha</h2>
+      <p class="dia-sem">Sábado</p>
+      <p class="fecha-num">05.12.2026</p>
+      <p class="mes">Diciembre 2026</p>
+      <div class="cal" id="cal" role="img" aria-label="Calendario de diciembre de 2026, marcado el sábado 5"></div>
+    </div>
+    <p class="hora-cer">Ceremonia · 3:00 p.&nbsp;m.</p>
+  </section>
+
+  <!-- ===================== CUENTA REGRESIVA ===================== -->
+  <section class="panel p-cuenta reveal">
+    <div class="oval">
+      <svg viewBox="0 0 280 373" aria-hidden="true">
+        <defs>
+          <filter id="tercio-f" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="4" seed="5"/>
+            <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0"/>
+            <feComposite in2="SourceAlpha" operator="in"/>
+          </filter>
+          <radialGradient id="brillo" cx="35%" cy="25%" r="70%">
+            <stop offset="0" stop-color="#7D8636"/><stop offset=".6" stop-color="#5E6623"/><stop offset="1" stop-color="#3F4416"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="140" cy="186" rx="128" ry="170" fill="url(#brillo)"/>
+        <ellipse cx="140" cy="186" rx="128" ry="170" fill="#000" filter="url(#tercio-f)"/>
+        <ellipse cx="140" cy="186" rx="116" ry="158" fill="none" stroke="#EAD3A0" stroke-width="1" opacity=".7"/>
+      </svg>
+      <div class="dentro">
+        <h2 class="titulo">Faltan</h2>
+        <div class="cuenta" role="timer" aria-label="Tiempo que falta para la boda">
+          <div><b id="d">--</b><small>días</small></div><i>:</i>
+          <div><b id="h">--</b><small>hrs</small></div><i>:</i>
+          <div><b id="m">--</b><small>min</small></div><i>:</i>
+          <div><b id="s">--</b><small>seg</small></div>
+        </div>
+        <svg class="corazon" viewBox="0 0 10 10" aria-hidden="true"><use href="#cor"/></svg>
+      </div>
+    </div>
+    <div class="botones">
+      <a class="btn btn-borde" id="btn-gcal" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Google Calendar</a>
+      <button class="btn btn-borde" id="btn-ics" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Otro calendario</button>
+    </div>
+  </section>
+
+  <!-- ===================== LUGAR ===================== -->
+  <section class="panel oscuro p-lugar reveal tx-terciopelo">
+    <svg class="farol" viewBox="0 0 90 96" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+      <path d="M45 2v14M40 16h10M45 16v22"/>
+      <path d="M45 38c-14 0-26 4-30 10 4 6 16 8 30 8s26-2 30-8c-4-6-16-10-30-10z"/>
+      <path d="M15 48c0 10 8 18 18 20M75 48c0 10-8 18-18 20M45 56v18"/>
+      <path d="M18 30v12M45 26v8M72 30v12"/>
+      <path d="M16 26h4l-1 4h-2zM43 22h4l-1 4h-2zM70 26h4l-1 4h-2z"/>
+      <path d="M33 68c4 6 8 9 12 9s8-3 12-9"/>
+      <path d="M45 78v6M41 88l4-4 4 4-4 6z"/>
+      <path d="M22 56v6M68 56v6M30 58v8M60 58v8" stroke-dasharray="1 2"/>
+    </svg>
+    <h2 class="titulo">Ceremonia y recepción</h2>
+    <p class="lugar-nombre">Hacienda El Jardín Secreto</p>
+    <p class="direccion">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      <span>Km 4 vía Tenjo – La Punta, Tenjo, Cundinamarca</span>
+    </p>
+    <p class="nota-lugar">La ceremonia y la recepción son en el mismo lugar. Hay parqueadero para todos los invitados.</p>
+    <div class="botones">
+      <a class="btn btn-lleno" id="btn-maps" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>Cómo llegar</a>
+    </div>
+    <div class="arco-mapa" id="mapa">El mapa aparecerá aquí.</div>
+    <svg class="borde-encaje" viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true">
+      <path id="feston" fill="currentColor" d=""/>
+    </svg>
+  </section>
+
+  <!-- ===================== ITINERARIO ===================== -->
+  <section class="panel p-itin reveal tx-papel">
+    <h2 class="titulo">Itinerario</h2>
+    <svg class="ramito" aria-hidden="true"><use href="#olivo"/></svg>
+    <ol class="itin">
+      <li><span class="h">2:00&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">Llegada de invitados</span></li>
+      <li class="clave"><span class="h">3:00&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">Ceremonia</span></li>
+      <li><span class="h">4:00&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">Sesión de fotos y pasabocas</span></li>
+      <li><span class="h">4:40&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">Ingreso de los invitados a la recepción</span></li>
+      <li class="clave"><span class="h">5:00&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">Entrada de los esposos, vals y palabras</span></li>
+      <li><span class="h">5:30&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">Cena</span></li>
+      <li class="clave"><span class="h">7:00&nbsp;<small>p.&nbsp;m.</small></span><span class="punto"></span><span class="q">¡Fiesta!<span>Hasta las 9:00 p.&nbsp;m.</span></span></li>
+    </ol>
+  </section>
+
+  <!-- ===================== VESTIMENTA ===================== -->
+  <section class="panel p-vestir reveal tx-papel">
+    <h2 class="titulo">Código de vestimenta</h2>
+    <p class="etiqueta-formal">Formal</p>
+    <p class="intro-vestir">Queremos invitarlos a acompañarnos con una paleta inspirada en la naturaleza, los tonos cálidos y la delicadeza de las flores, en armonía con el entorno y la decoración de nuestra celebración.</p>
+
+    <div class="grupo-tonos">
+      <h3>Para ellas</h3>
+      <ul class="tonos">
+        <li><i style="background:#A3B09A"></i>Verde salvia</li>
+        <li><i style="background:#6B7140"></i>Oliva</li>
+        <li><i style="background:#DDB8B3"></i>Rosa empolvado</li>
+        <li><i style="background:#C08A8B"></i>Palo de rosa</li>
+        <li><i style="background:#EBB99C"></i>Durazno</li>
+        <li><i style="background:#B8664A"></i>Terracota</li>
+        <li><i style="background:#B7A9C9"></i>Lavanda</li>
+      </ul>
+    </div>
+
+    <div class="grupo-tonos">
+      <h3>Para ellos</h3>
+      <ul class="tonos">
+        <li><i style="background:#D9C8B0"></i>Beige</li>
+        <li><i style="background:#C8B593"></i>Arena</li>
+        <li><i style="background:#B88A55"></i>Camel</li>
+        <li><i style="background:#9C7A5B"></i>Café claro</li>
+        <li><i style="background:#6B7140"></i>Verde oliva</li>
+        <li><i style="background:#A3B09A"></i>Verde salvia</li>
+        <li><i style="background:#9A938B"></i>Gris cálido</li>
+      </ul>
+    </div>
+
+    <div class="evitar">
+      <h3>Les agradecemos evitar</h3>
+      <ul>
+        <li>Blanco, marfil y blanco hueso</li>
+        <li>Champaña muy claro y tonos parecidos al vestido de la novia</li>
+        <li>Fucsia, neones y colores muy vibrantes</li>
+        <li>Azul eléctrico y morados intensos</li>
+      </ul>
+    </div>
+    <p class="gracias-vestir">¡Gracias por acompañarnos y ser parte de este día tan especial!</p>
+  </section>
+
+  <!-- ===================== DETALLES: REGALOS Y HOSPEDAJE ===================== -->
+  <section class="panel claro reveal tx-papel">
+    <h2 class="titulo">Para tener en cuenta</h2>
+    <svg class="ramito" aria-hidden="true"><use href="#olivo"/></svg>
+    <div class="detalles">
+      <div class="detalle">
+        <svg class="ic-sobre" viewBox="0 0 44 34" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="4" width="40" height="28" rx="2"/><path d="M2 6l20 15L42 6"/><path d="M22 14.5c-2.4-2.3-5.6-.4-4 2.2L22 20l4-3.3c1.6-2.6-1.6-4.5-4-2.2z" fill="currentColor" stroke="none"/></svg>
+        <h3>Lluvia de sobres</h3>
+        <p>Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, habrá lluvia de sobres en la recepción.</p>
+      </div>
+      <div class="sep"></div>
+      <div class="detalle">
+        <h3>Hospedaje</h3>
+        <p>Si quieren quedarse cerca, hay una hacienda a 5 minutos del lugar. Pueden reservar y confirmar directamente con:</p>
+        <p class="contacto"><b>Carlos Salamanca Olarte Pensil</b><br>312 430 1798</p>
+        <div class="botones">
+          <a class="btn btn-borde" id="btn-hospedaje-wa" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp</a>
+          <a class="btn btn-borde" id="btn-hospedaje-tel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Llamar</a>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="detalle">
+        <h3>Parqueadero</h3>
+        <p>La hacienda tiene parqueadero para todos los invitados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOTOS =====================
+       Reemplazar foto-1.jpg (vertical 4:5, mín. 1080×1350), foto-2.jpg y foto-3.jpg (verticales 4:5, mín. 800×1000).
+       Mientras no estén, se ve un marcador con el nombre del archivo. -->
+  <section class="panel reveal tx-papel">
+    <h2 class="titulo">Nosotros</h2>
+    <div class="galeria">
+      <figure class="grande"><div class="foto"><img src="foto-1.jpg" alt="Fulgencio y Diana" width="1080" height="1350" loading="lazy" decoding="async"><span class="ph">foto-1.jpg</span></div></figure>
+      <figure><div class="foto"><img src="foto-2.jpg" alt="Fulgencio y Diana juntos" width="800" height="1000" loading="lazy" decoding="async"><span class="ph">foto-2.jpg</span></div></figure>
+      <figure><div class="foto"><img src="foto-3.jpg" alt="Fulgencio y Diana sonriendo" width="800" height="1000" loading="lazy" decoding="async"><span class="ph">foto-3.jpg</span></div></figure>
+    </div>
+  </section>
+
+  <!-- ===================== QR DE FOTOS (álbum compartido) ===================== -->
+  <section class="panel p-album reveal tx-terciopelo">
+    <svg class="ic-camara" viewBox="0 0 56 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 14h11l4-6h18l4 6h11v30H4z"/><circle cx="28" cy="28" r="9"/><path d="M45 20h3"/></svg>
+    <h2 class="titulo">Compartan sus fotos</h2>
+    <p>Queremos ver la boda a través de sus ojos. El día de la celebración encontrarán un código QR en las mesas para subir sus fotos y videos a nuestro álbum.</p>
+    <p>También pueden subirlas desde aquí:</p>
+    <div class="botones">
+      <a class="btn btn-lleno" id="btn-album" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>Subir mis fotos</a>
+    </div>
+  </section>
+
+  <!-- ===================== RSVP ===================== -->
+  <section class="panel claro reveal tx-papel" id="confirmar">
+    <h2 class="titulo">Confirma tu asistencia</h2>
+    <p class="cupos" id="cupos-txt" hidden></p>
+    <p class="suave">Por favor confírmanos antes del</p>
+    <div class="limite">viernes 20 de noviembre</div>
+
+    <form class="form-rsvp" id="form-rsvp" novalidate>
+      <div class="campo">
+        <label for="f-nombre">Nombre completo</label>
+        <input type="text" id="f-nombre" name="Nombre" autocomplete="name" maxlength="80" required>
+      </div>
+      <fieldset class="campo">
+        <legend>¿Nos acompañas?</legend>
+        <div class="radios">
+          <label><input type="radio" name="Asiste" value="Sí" required checked> Sí, ahí estaré</label>
+          <label><input type="radio" name="Asiste" value="No"> No podré ir</label>
+        </div>
+      </fieldset>
+      <div class="campo solo-si">
+        <label for="f-personas">Número de personas <span class="opc">(contándote a ti)</span></label>
+        <select id="f-personas" name="Número de personas"></select>
+      </div>
+      <div class="campo solo-si" id="campo-acomp">
+        <label for="f-acomp">Nombres de los acompañantes</label>
+        <input type="text" id="f-acomp" name="Acompañantes" maxlength="200">
+      </div>
+      <div class="campo">
+        <label for="f-tel">Teléfono</label>
+        <input type="tel" id="f-tel" name="Teléfono" autocomplete="tel" inputmode="tel" maxlength="20">
+      </div>
+      <div class="campo solo-si">
+        <label for="f-alergias">Alergias o restricciones de comida <span class="opc">(opcional)</span></label>
+        <input type="text" id="f-alergias" name="Alergias o restricciones" maxlength="200">
+      </div>
+      <div class="campo solo-si">
+        <label for="f-cancion">La canción que no puede faltar <span class="opc">(opcional)</span></label>
+        <input type="text" id="f-cancion" name="Canción" maxlength="120">
+      </div>
+      <div class="campo">
+        <label for="f-mensaje">Mensaje para los novios <span class="opc">(opcional)</span></label>
+        <textarea id="f-mensaje" name="Mensaje para los novios" maxlength="500"></textarea>
+      </div>
+      <!-- Campo trampa contra spam: las personas no lo ven -->
+      <div class="trampa" aria-hidden="true"><label>No llenar <input type="text" name="_hp" tabindex="-1" autocomplete="off"></label></div>
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+      <button class="btn btn-lleno" type="submit" id="btn-enviar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Enviar confirmación</button>
+    </form>
+
+    <div class="rsvp-ok" id="rsvp-ok" role="status" tabindex="-1" hidden>
+      <svg class="rsvp-ok-ic" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="M14.5 24.5l6.5 6.5 13-14"/></svg>
+      <p class="rsvp-ok-t" id="rsvp-ok-t">¡Gracias!</p>
+      <p class="rsvp-ok-x" id="rsvp-ok-txt">Recibimos tu confirmación.</p>
+      <button type="button" id="rsvp-otra">Enviar otra confirmación</button>
+    </div>
+  </section>
+
+  <!-- ===================== CIERRE ===================== -->
+  <footer class="panel p-cierre tx-papel">
+    <div class="arco-final tx-terciopelo">
+      <h2 class="titulo">¡Te esperamos para celebrar!</h2>
+      <p style="color:var(--crema-suave)">Gracias por ser parte de nuestra historia.</p>
+      <svg class="anillos" viewBox="0 0 150 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+        <path d="M2 30c20 0 30-6 44-6"/>
+        <circle cx="64" cy="22" r="11"/><circle cx="80" cy="22" r="11"/>
+        <path d="M98 24c14 0 24 6 50 4"/>
+        <path d="M64 11l-3-4h6zM80 11l-3-4h6z" fill="currentColor"/>
+      </svg>
+      <p class="firma" translate="no">Fulgencio &amp; Diana</p>
+    </div>
+  </footer>
+</main>
+
+<!-- Música: cancion.mp3 en esta carpeta (la entrega la pareja, con derechos de uso).
+     Si el archivo no está, el botón de música no aparece. -->
+<button class="btn-musica mudo" id="btn-musica" type="button" inert aria-label="Reproducir música">
+  <svg class="ic-on" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+  <svg class="ic-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17V6l10-2v11" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6.5" cy="17" r="2.5" fill="currentColor"/><circle cx="16.5" cy="15" r="2.5" fill="currentColor"/></svg>
+</button>
+<audio id="audio" src="cancion.mp3" loop preload="auto"></audio>
+<div class="aviso" id="aviso" role="status" hidden></div>
+
+</body>
+</html>
