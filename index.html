@@ -154,24 +154,26 @@
 @font-face{font-family:"Hanken Grotesk";src:url(fuentes/hanken-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Hanken Grotesk";src:url(fuentes/hanken-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
 
-/* Layout: columna de lectura estrecha (se ve casi siempre en celular). Portada con el lema,
-   luego las muestras como "papelería" en fila, paquetes, pasos y contacto.
-   Un solo look a propósito: la paleta de la marca, igual que el brochure de precios. */
+/* Layout: la página muestra el producto, no lo describe. Portada con una invitación real en el
+   celular y cómo llega por WhatsApp; las muestras como una fila de pantallas; precios en una
+   tabla comparativa (como una hoja de cotización); cierre con el mensaje de WhatsApp ya escrito.
+   Marca: la del brochure (papel, tinta, vino; Cormorant + Hanken). Un solo look a propósito. */
 :root{
-  --papel:#F6F1EA;     /* fondo */
-  --blanco:#FFFFFF;    /* tarjetas */
-  --tinta:#22201C;     /* texto y panel oscuro */
-  --vino:#7A2E3A;      /* acento de la marca */
-  --vino-2:#5A1F2A;    /* hover */
-  --gris:#4F4A43;      /* texto secundario (AA sobre papel y blanco) */
+  --papel:#F6F1EA;     /* fondo, el mismo del brochure */
+  --hoja:#FFFDF9;      /* superficies claras: tabla, burbuja */
+  --tinta:#22201C;     /* texto principal y cierre */
+  --vino:#7A2E3A;      /* acento de marca, usado con moderación */
+  --vino-2:#5A1F2A;
+  --gris:#4F4A43;      /* texto secundario (AA) */
   --linea:#DDD4C8;     /* filetes */
-  --rubor:#E7B8A6;     /* acento sobre fondo oscuro */
-  --crema:#D9D1C5;     /* texto secundario sobre oscuro */
+  --linea-2:#C9BEB0;
+  --chat:#E6F0DE;      /* burbuja del mensaje enviado: verde muy apagado, sin imitar a WhatsApp */
+  --crema:#D9D1C5;     /* texto secundario sobre tinta */
 
   --f-display:"Cormorant Garamond", Garamond, Georgia, serif;
   --f-texto:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
 
-  --ancho:68rem;
+  --ancho:72rem;
   color-scheme:light;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -180,23 +182,21 @@
 html{scroll-behavior:smooth;-webkit-tap-highlight-color:rgba(122,46,58,.14)}
 body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-a{color:var(--vino);text-underline-offset:3px}
-a:hover{color:var(--vino-2)}
-a,button{touch-action:manipulation}
+a{color:var(--tinta);text-decoration-color:var(--linea-2);text-underline-offset:4px}
+a:hover{color:var(--vino);text-decoration-color:currentColor}
+a,button,summary{touch-action:manipulation}
 :focus-visible{outline:2px solid var(--vino);outline-offset:3px}
 p{margin:0 0 1rem;text-wrap:pretty}
 h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem, 6.5vw, 3.2rem);line-height:1.02;letter-spacing:-.005em}
 [id]{scroll-margin-top:1rem}
-
 .wrap{
   max-width:var(--ancho);margin:0 auto;
   padding-left:max(20px, env(safe-area-inset-left, 0px));
   padding-right:max(20px, env(safe-area-inset-right, 0px));
 }
-section{padding-block:4.5rem}
-.rotulo{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--vino);margin:0 0 .8rem}
-h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
-.intro{color:var(--gris);max-width:36rem}
+.nota{font-size:.9rem;color:var(--gris)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 .saltar{
   position:absolute;z-index:40;left:max(16px, env(safe-area-inset-left, 0px));top:calc(8px + env(safe-area-inset-top, 0px));
@@ -205,119 +205,177 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 }
 .saltar:focus-visible{transform:none}
 
-/* Botones */
+/* Botones: esquinas de 4 px, como el brochure */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.4rem;
-  font:600 .82rem/1 var(--f-texto);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.8rem 1.3rem;
+  font:600 .95rem/1 var(--f-texto);text-decoration:none;border-radius:4px;
   border:1px solid var(--tinta);color:var(--tinta);background:transparent;
   transition:background-color .2s, color .2s, border-color .2s;
 }
 .btn svg{width:18px;height:18px;flex:none}
 .btn:hover{background:var(--tinta);color:var(--papel)}
-.btn-lleno{background:var(--vino);border-color:var(--vino);color:var(--papel)}
-.btn-lleno:hover{background:var(--vino-2);border-color:var(--vino-2);color:var(--papel)}
-.botones{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn-tinta{background:var(--tinta);color:var(--papel)}
+.btn-tinta:hover{background:var(--vino);border-color:var(--vino);color:var(--papel)}
+
+/* Pantalla de celular: solo un marco redondeado, sin barra de estado falsa */
+.cel{
+  position:relative;aspect-ratio:390/844;max-width:100%;border-radius:30px;overflow:hidden;
+  background:var(--tinta);border:6px solid var(--tinta);
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 30px 60px -30px rgba(34,32,28,.45);
+}
+.cel img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:24px}
 
 /* ===================== CABECERA ===================== */
-.cabecera{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem;border-bottom:1px solid var(--linea)}
-.marca{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--tinta)}
-.marca img{width:34px;height:33px}
-.marca span{font-family:var(--f-display);font-size:1.35rem;font-weight:500;letter-spacing:.02em}
-.cabecera nav{display:flex;gap:1.2rem;font-size:.9rem}
-.cabecera nav a{color:var(--gris);text-decoration:none}
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem}
+.marca{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--tinta)}
+.marca img{width:32px;height:31px}
+.marca span{font-family:var(--f-display);font-size:1.35rem;font-weight:500}
+.cabecera nav{display:flex;align-items:center;gap:1.4rem;font-size:.92rem}
+.cabecera nav a{text-decoration:none;color:var(--gris)}
 .cabecera nav a:hover{color:var(--vino)}
+.cabecera nav .wa{color:var(--tinta);font-weight:600;border-bottom:1px solid var(--tinta);padding-bottom:1px}
+@media (max-width:40rem){.cabecera nav a:not(.wa){display:none}}
 
 /* ===================== PORTADA ===================== */
-.portada{padding-block:4rem 3.5rem;text-align:center}
-.portada .logo{width:96px;height:93px;margin:0 auto 1.6rem}
-.portada h1{margin-bottom:1.4rem}
-.portada h1 .rotulo{display:block;font-family:var(--f-texto)}
-.portada .eslogan{display:block;font-size:clamp(3.2rem, 13vw, 5.6rem);line-height:.98;letter-spacing:-.01em}
-.portada h1 em{color:var(--vino);font-style:italic;font-weight:400}
-.portada .lema{color:var(--gris);font-size:1.1rem;max-width:34rem;margin:0 auto 2rem}
-.portada .botones{justify-content:center}
-.filete{width:64px;height:1px;background:var(--tinta);opacity:.4;margin:0 auto 1.4rem}
+.portada{display:grid;gap:2.5rem;padding-block:2.5rem 4rem;border-top:1px solid var(--linea)}
+@media (min-width:56rem){.portada{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:4rem;padding-block:4rem 5rem}}
+.portada h1{display:grid;gap:1.1rem;margin-bottom:1.6rem}
+.portada h1 .rotulo{font:600 .78rem/1.3 var(--f-texto);letter-spacing:.2em;text-transform:uppercase;color:var(--vino)}
+.portada .eslogan{font-size:clamp(3.3rem, 12.5vw, 6.2rem);line-height:.92;letter-spacing:-.015em}
+.portada .eslogan em{font-style:italic;font-weight:400;color:var(--vino)}
+.portada .lema{font-size:1.12rem;color:var(--gris);max-width:31rem;margin-bottom:1.8rem}
+.portada .botones{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.2rem}
+.datos{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:0;padding:1rem 0 0;border-top:1px solid var(--linea);list-style:none;font-size:.9rem;color:var(--gris)}
+.datos b{color:var(--tinta);font-weight:600;font-variant-numeric:lining-nums}
+
+/* Escena: la invitación en el celular y el mensaje con el que llega */
+.escena{position:relative;width:min(100%, 22rem);margin-inline:auto;padding:0 0 0 2.2rem}
+.escena .cel{width:100%}
+.mensaje{
+  position:absolute;left:0;bottom:3.6rem;width:min(17.5rem, 84%);
+  background:var(--chat);border-radius:14px 14px 14px 4px;padding:.45rem .45rem .5rem;
+  box-shadow:0 18px 40px -18px rgba(34,32,28,.45);font-size:.85rem;line-height:1.35;
+}
+.mensaje .vista{background:var(--hoja);border-radius:9px;overflow:hidden}
+.mensaje .vista img{width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover}
+.mensaje .vista div{padding:.5rem .6rem .55rem}
+.mensaje .vista b{display:block;font-weight:600;font-size:.84rem}
+.mensaje .vista small{display:block;color:var(--gris);font-size:.74rem;overflow-wrap:anywhere}
+.mensaje p{margin:.45rem .3rem 0}
+.mensaje time{display:block;text-align:right;font-size:.7rem;color:var(--gris);margin:.1rem .3rem 0;font-variant-numeric:tabular-nums}
+.pie-escena{font-size:.8rem;color:var(--gris);text-align:center;margin:1.1rem 0 0;min-height:2.5rem}
 
 /* ===================== MUESTRAS ===================== */
-.muestras{display:grid;gap:2rem;margin-top:2.2rem}
-@media (min-width:44rem){.muestras{grid-template-columns:1fr 1fr;gap:2.4rem 1.6rem}}
-.muestra{display:grid;gap:.9rem;min-width:0}
-.muestra a.tarjeta{display:block;text-decoration:none;color:inherit}
-.muestra .vista{border:1px solid var(--linea);background:var(--blanco);padding:.6rem;aspect-ratio:1200/630;max-width:100%;box-sizing:content-box}
-.muestra .vista img{width:100%;height:100%;object-fit:cover}
-.muestra a.tarjeta:hover .vista{border-color:var(--tinta)}
-.muestra h3{font-size:1.65rem;line-height:1.15;margin-top:.2rem}
-.muestra .estilo{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--vino);margin:0}
-.muestra p{color:var(--gris);margin:0;font-size:.98rem}
-.muestra .ver{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.muestras{padding-block:4.5rem;background:var(--hoja);border-block:1px solid var(--linea)}
+.encabezado{display:grid;gap:.9rem;margin-bottom:2.4rem}
+@media (min-width:56rem){.encabezado{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:3rem}}
+.encabezado p{margin:0;color:var(--gris);max-width:32rem}
+.fila{
+  display:grid;grid-auto-flow:column;grid-auto-columns:min(68%, 15.5rem);gap:1.2rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+  padding-bottom:1rem;margin-inline:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));
+  padding-inline:max(20px, env(safe-area-inset-left, 0px));scroll-padding-inline:max(20px, env(safe-area-inset-left, 0px));
+}
+@media (min-width:56rem){.fila{grid-auto-flow:row;grid-template-columns:repeat(4, minmax(0,1fr));overflow:visible;margin-inline:0;padding-inline:0}}
+.muestra{scroll-snap-align:start;min-width:0}
+.muestra a{display:grid;gap:.9rem;text-decoration:none;color:inherit}
+.muestra .cel{transition:transform .25s ease, box-shadow .25s ease}
+.muestra a:hover .cel{transform:translateY(-4px);box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 36px 60px -28px rgba(34,32,28,.55)}
+.muestra .estilo{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--vino);margin:0}
+.muestra h3{font-size:1.55rem;line-height:1.1}
+.muestra p{margin:0;font-size:.93rem;color:var(--gris)}
+.muestra .abrir{font-size:.9rem;font-weight:600;text-decoration:underline;text-decoration-color:var(--linea-2);text-underline-offset:4px}
+.muestra a:hover .abrir{color:var(--vino);text-decoration-color:currentColor}
+.deslizar{font-size:.82rem;color:var(--gris);margin:.4rem 0 0}
+@media (min-width:56rem){.deslizar{display:none}}
 
-/* ===================== PAQUETES ===================== */
-.banda{background:var(--blanco);border-block:1px solid var(--linea)}
-.paquetes{display:grid;gap:1.2rem;margin-top:2.2rem}
-@media (min-width:58rem){.paquetes{grid-template-columns:repeat(3, minmax(0,1fr))}}
-.paquete{border:1px solid var(--linea);background:var(--papel);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:1rem;min-width:0}
-.paquete h3{font-family:var(--f-texto);font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gris)}
-.precio{font-family:var(--f-display);font-size:3.1rem;font-weight:500;line-height:1;margin:0;font-variant-numeric:lining-nums}
-.precio small{font-family:var(--f-texto);font-size:.8rem;letter-spacing:.1em;color:var(--gris);font-weight:500;margin-left:.3rem}
-.paquete .que{margin:0;color:var(--gris)}
-.paquete ul{list-style:none;margin:0;padding:1rem 0 0;border-top:1px solid var(--linea);display:grid;gap:.7rem;font-size:.97rem;line-height:1.45}
-.paquete li{display:grid;grid-template-columns:18px 1fr;gap:.6rem;align-items:start}
-.paquete li svg{width:18px;height:18px;margin-top:.12rem;color:var(--vino)}
-.paquete.destacado{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
-.paquete.destacado h3{color:var(--papel)}
-.paquete.destacado .que,.paquete.destacado .precio small{color:var(--crema)}
-.paquete.destacado ul{border-color:#4A4640}
-.paquete.destacado li svg{color:var(--rubor)}
-.cabeza-paquete{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap}
-.chip{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--papel);color:var(--tinta);padding:.35rem .7rem;border-radius:99px}
+/* ===================== PRECIOS: hoja de cotización ===================== */
+.precios{padding-block:4.5rem}
+.tabla-caja{overflow-x:auto;border:1px solid var(--linea-2);background:var(--hoja)}
+table{width:100%;border-collapse:collapse;min-width:21rem;font-size:.95rem}
+caption{text-align:left}
+th,td{padding:.8rem .7rem;border-bottom:1px solid var(--linea);vertical-align:top}
+thead th{vertical-align:bottom;text-align:center;padding-block:1.2rem 1rem;border-bottom:1px solid var(--tinta)}
+thead th:first-child{text-align:left}
+.paq{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gris)}
+.monto{display:block;font-family:var(--f-display);font-size:clamp(1.35rem, 4.6vw, 2.2rem);font-weight:500;line-height:1.1;margin-top:.25rem;font-variant-numeric:lining-nums}
+.que{display:block;font-weight:400;font-size:.82rem;color:var(--gris);margin-top:.35rem;line-height:1.35}
+tbody th{text-align:left;font-weight:400}
+tbody td{text-align:center;width:22%}
+td svg{width:18px;height:18px;margin:0 auto;color:var(--vino)}
+td .no{display:block;width:12px;height:1px;background:var(--linea-2);margin:.55rem auto 0}
+td small{font-size:.82rem;color:var(--gris);font-variant-numeric:tabular-nums;white-space:nowrap}
+.col-dest{background:rgba(122,46,58,.05)}
+thead .col-dest{box-shadow:inset 0 3px 0 var(--vino)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0;font-weight:600}
+@media (max-width:30rem){
+  table{font-size:.86rem;min-width:0;table-layout:fixed}
+  th,td{padding:.65rem .3rem}
+  tbody th{padding-left:.7rem}
+  thead th:first-child{width:40%}
+  tbody td{width:auto}
+  .que{display:none}
+  .paq{font-size:.6rem;letter-spacing:.06em}
+  .monto{font-size:1.08rem;letter-spacing:-.01em}
+  td small{font-size:.72rem}
+}
+.otros{display:grid;gap:2rem;margin-top:2.6rem}
+@media (min-width:56rem){.otros{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4rem}}
+.otros h3{font-size:1.6rem;margin-bottom:.6rem}
+.otros dl{margin:0}
+.otros dl div{display:flex;justify-content:space-between;gap:1rem;padding-block:.65rem;border-bottom:1px solid var(--linea)}
+.otros dd{margin:0;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.solo-pdf{border:1px dashed var(--linea-2);padding:1.2rem 1.3rem}
+.solo-pdf p{margin:0 0 .4rem}
+.solo-pdf strong{font-family:var(--f-display);font-size:2rem;font-weight:500;color:var(--vino)}
 
-.pdf{margin-top:1.4rem;border:1px dashed #B9AE9F;padding:1.1rem 1.4rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;justify-content:space-between}
-.pdf p{margin:0}
-.pdf strong{font-family:var(--f-display);font-size:1.9rem;font-weight:500;color:var(--vino);white-space:nowrap}
+/* ===================== PROCESO ===================== */
+.proceso{padding-block:4.5rem;background:var(--hoja);border-block:1px solid var(--linea)}
+.pasos{list-style:none;margin:2.2rem 0 0;padding:0;display:grid;gap:0;counter-reset:paso}
+@media (min-width:56rem){.pasos{grid-template-columns:repeat(4, minmax(0,1fr))}}
+.pasos li{counter-increment:paso;display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem .8rem;padding-block:1.1rem;border-top:1px solid var(--linea);min-width:0}
+@media (min-width:56rem){.pasos li{grid-template-columns:1fr;padding:1.2rem 1.5rem 0 0;border-top:1px solid var(--tinta)}}
+.pasos li::before{content:counter(paso);font-family:var(--f-display);font-size:1.7rem;line-height:1;color:var(--vino);grid-row:span 2}
+.pasos h3{font-family:var(--f-texto);font-size:1.02rem;font-weight:600}
+.pasos p{margin:0;color:var(--gris);font-size:.95rem}
 
-.extras{margin-top:3rem}
-.extras h3{font-size:1.9rem;margin-bottom:.6rem}
-.extras dl{margin:0;display:grid;gap:0 3rem}
-@media (min-width:44rem){.extras dl{grid-template-columns:1fr 1fr}}
-.extras div{display:flex;justify-content:space-between;gap:1rem;padding-block:.75rem;border-bottom:1px solid var(--linea)}
-.extras dt{min-width:0}
-.extras dd{margin:0;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
-.letra-chica{font-size:.88rem;color:var(--gris);margin-top:1.6rem}
-
-/* ===================== CÓMO FUNCIONA ===================== */
-.pasos{list-style:none;margin:2.2rem 0 0;padding:0;display:grid;gap:1.8rem;counter-reset:paso}
-@media (min-width:44rem){.pasos{grid-template-columns:repeat(4, minmax(0,1fr))}}
-.pasos li{display:grid;gap:.35rem;counter-increment:paso;min-width:0}
-.pasos li::before{content:counter(paso);font-family:var(--f-display);font-style:italic;font-size:2.6rem;line-height:1;color:var(--vino)}
-.pasos h3{font-family:var(--f-texto);font-size:1rem;font-weight:600}
-.pasos p{margin:0;color:var(--gris);font-size:.97rem}
-
-/* ===================== CONTACTO ===================== */
-.contacto{background:var(--tinta);color:var(--papel);text-align:center}
-.contacto h2{color:var(--papel)}
-.contacto .intro{color:var(--crema);margin:0 auto 1.8rem}
-.contacto .numero{font-family:var(--f-display);font-size:2.2rem;letter-spacing:.04em;margin:0 0 1.6rem;font-variant-numeric:lining-nums;user-select:all}
-.contacto .botones{justify-content:center}
-.contacto :focus-visible{outline-color:var(--papel)}
-.contacto .btn-lleno{background:var(--papel);border-color:var(--papel);color:var(--tinta)}
-.contacto .btn-lleno:hover{background:var(--rubor);border-color:var(--rubor)}
-
-.pie{padding-block:2rem calc(2rem + env(safe-area-inset-bottom, 0px));font-size:.85rem;color:var(--gris);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
-.pie p{margin:0}
-
-.estrecho{max-width:48rem}
+/* ===================== PREGUNTAS ===================== */
+.preguntas{padding-block:4.5rem}
+.preguntas .wrap{display:grid;gap:1.8rem}
+@media (min-width:56rem){.preguntas .wrap{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:4rem}}
 details{border-top:1px solid var(--linea)}
 details:last-of-type{border-bottom:1px solid var(--linea)}
 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;min-height:44px;
-  padding-block:1.1rem;font-family:var(--f-display);font-size:1.4rem;line-height:1.25;touch-action:manipulation}
+  padding-block:1.1rem;font-family:var(--f-display);font-size:1.4rem;line-height:1.25}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-family:var(--f-texto);font-size:1.4rem;line-height:1;color:var(--vino);flex:none}
 details[open] summary::after{content:"–"}
 summary:hover{color:var(--vino)}
 details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
-#preguntas h2{margin-bottom:1.6rem}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media (max-width:30rem){.cabecera nav{display:none}}
+
+/* ===================== CONTACTO ===================== */
+.contacto{background:var(--tinta);color:var(--papel);padding-block:4.5rem}
+.contacto .wrap{display:grid;gap:2.4rem}
+@media (min-width:56rem){.contacto .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:4rem}}
+.contacto h2{color:var(--papel);margin-bottom:1rem}
+.contacto p{color:var(--crema)}
+.contacto .numero{font-family:var(--f-display);font-size:2rem;color:var(--papel);letter-spacing:.03em;margin:0;font-variant-numeric:lining-nums;user-select:all}
+.contacto a{color:var(--papel)}
+.contacto :focus-visible{outline-color:var(--papel)}
+.borrador{background:#2E2B26;border-radius:12px;padding:1.2rem}
+.borrador .para{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crema);margin:0 0 .8rem}
+.borrador .burbuja{background:var(--chat);color:var(--tinta);border-radius:14px 14px 4px 14px;padding:.8rem 1rem;margin:0 0 1rem auto;max-width:22rem;font-size:.97rem}
+.contacto .btn{width:100%;background:var(--papel);border-color:var(--papel);color:var(--tinta)}
+.contacto .btn:hover{background:var(--chat);border-color:var(--chat);color:var(--tinta)}
+
+.pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;padding-block:1.6rem calc(1.6rem + env(safe-area-inset-bottom, 0px));font-size:.85rem;color:var(--gris)}
+.pie p{margin:0}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .muestra .cel{transition:none}
+  .muestra a:hover .cel{transform:none}
+}
 </style>
 </head>
 <body>
@@ -325,157 +383,156 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
 
 <header class="wrap cabecera">
   <a class="marca" href="/" aria-label="Serena Studio, inicio">
-    <img src="img/logo.png" alt="" width="34" height="33">
+    <img src="img/logo.png" alt="" width="32" height="31">
     <span translate="no">Serena Studio</span>
   </a>
   <nav aria-label="Secciones">
     <a href="#muestras">Muestras</a>
-    <a href="#paquetes">Precios</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#precios">Precios</a>
+    <a href="#preguntas">Preguntas</a>
+    <a class="wa" href="#contacto">Escribirnos</a>
   </nav>
 </header>
 
 <main>
 
 <!-- ===================== PORTADA ===================== -->
-<section class="portada">
-  <div class="wrap">
-    <img class="logo" src="img/logo.png" alt="Monograma de Serena Studio" width="96" height="93" fetchpriority="high">
+<section class="wrap portada" aria-label="Presentación">
+  <div>
     <h1><span class="rotulo">Invitaciones digitales para bodas</span> <span class="eslogan">Su boda empieza <em>con un link</em></span></h1>
-    <div class="filete"></div>
-    <p class="lema">Invitaciones web diseñadas para verse perfectas en el celular y compartirse por WhatsApp. Con cuenta regresiva, mapa, calendario y confirmación de asistencia en un solo lugar.</p>
+    <p class="lema">Diseñamos la invitación de su boda como una página web: la comparten por WhatsApp y sus invitados ven la cuenta regresiva, el mapa, el calendario y confirman asistencia desde el celular.</p>
     <div class="botones">
-      <a class="btn btn-lleno" href="#muestras">Ver muestras</a>
-      <a class="btn" href="#paquetes">Ver precios</a>
+      <a class="btn btn-tinta" href="#muestras">Ver las muestras</a>
+      <a class="btn" href="#precios">Ver precios</a>
     </div>
+    <ul class="datos">
+      <li>Desde <b>$180.000</b> la invitación web</li>
+      <li>Publicación en línea incluida</li>
+      <li>Primera versión en pocos días</li>
+    </ul>
   </div>
+
+  <figure class="escena" style="margin-block:0">
+    <div class="cel"><img src="img/pantallas/camila-y-andres.webp" alt="Portada de la invitación de Camila y Andrés en un celular" width="585" height="1266" fetchpriority="high"></div>
+    <div class="mensaje" aria-hidden="true">
+      <div class="vista">
+        <img src="muestras/camila-y-andres/og-imagen.jpg" alt="" width="1200" height="630">
+        <div><b>Camila &amp; Andrés · 25.09.27 · Bogotá</b><small>serenastudio-peach.vercel.app</small></div>
+      </div>
+      <p>¡Nos casamos! Aquí está nuestra invitación</p>
+      <time>7:42 p.&nbsp;m.</time>
+    </div>
+    <figcaption class="pie-escena">Así llega a sus invitados: un mensaje con la vista previa de su invitación.</figcaption>
+  </figure>
 </section>
 
 <!-- ===================== MUESTRAS ===================== -->
-<section id="muestras" class="banda" aria-labelledby="t-muestras">
+<section id="muestras" class="muestras" aria-labelledby="t-muestras">
   <div class="wrap">
-    <p class="rotulo">Cuatro estilos, cuatro parejas</p>
-    <h2 id="t-muestras">Muestras de invitaciones de boda</h2>
-    <p class="intro">Ábranlas en el celular, como las verán sus invitados. Los datos y las parejas son de ejemplo; cada invitación se diseña con la información y los colores de su boda.</p>
-
-    <div class="muestras">
+    <div class="encabezado">
+      <h2 id="t-muestras">Muestras de invitaciones de boda</h2>
+      <p>Cuatro estilos con parejas y datos de ejemplo. Ábranlas en el celular, toquen los botones y confirmen asistencia como lo harían sus invitados.</p>
+    </div>
+    <div class="fila">
       <article class="muestra">
-        <a class="tarjeta" href="muestras/nicolas-y-liz/">
-          <div class="vista"><img src="muestras/nicolas-y-liz/og-imagen.jpg" alt="Vista previa de la invitación de Nicolás y Liz" width="1200" height="630" loading="lazy" decoding="async"></div>
+        <a href="muestras/nicolas-y-liz/">
+          <div class="cel"><img src="img/pantallas/nicolas-y-liz.webp" alt="Invitación de Nicolás y Liz: sobre de terciopelo vino con sello dorado" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <p class="estilo">Sobre de terciopelo</p>
+          <h3 translate="no">Nicolás &amp; Liz</h3>
+          <p>Se abre tocando el sello de lacre, con música y calendario del mes.</p>
+          <span class="abrir">Abrir invitación</span>
         </a>
-        <p class="estilo">Sobre de terciopelo</p>
-        <h3 translate="no">Nicolás &amp; Liz</h3>
-        <p>Se abre tocando un sello de lacre. Vino, crema y dorado, con versículo y calendario del mes.</p>
-        <a class="ver" href="muestras/nicolas-y-liz/">Ver invitación</a>
       </article>
-
       <article class="muestra">
-        <a class="tarjeta" href="muestras/mariana-y-sebastian/">
-          <div class="vista"><img src="muestras/mariana-y-sebastian/og-imagen.jpg" alt="Vista previa de la invitación de Mariana y Sebastián" width="1200" height="630" loading="lazy" decoding="async"></div>
+        <a href="muestras/mariana-y-sebastian/">
+          <div class="cel"><img src="img/pantallas/mariana-y-sebastian.webp" alt="Invitación de Mariana y Sebastián: foto en el campo y tarjeta verde en arco" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <p class="estilo">Bosque</p>
+          <h3 translate="no">Mariana &amp; Sebastián</h3>
+          <p>Arcos, ondas y verde bosque, para bodas campestres.</p>
+          <span class="abrir">Abrir invitación</span>
         </a>
-        <p class="estilo">Bosque</p>
-        <h3 translate="no">Mariana &amp; Sebastián</h3>
-        <p>Fotos con arcos y ondas, tarjetas verde bosque y el dibujo de la parroquia. Para bodas campestres.</p>
-        <a class="ver" href="muestras/mariana-y-sebastian/">Ver invitación</a>
       </article>
-
       <article class="muestra">
-        <a class="tarjeta" href="muestras/camila-y-andres/">
-          <div class="vista"><img src="muestras/camila-y-andres/og-imagen.jpg" alt="Vista previa de la invitación de Camila y Andrés" width="1200" height="630" loading="lazy" decoding="async"></div>
+        <a href="muestras/camila-y-andres/">
+          <div class="cel"><img src="img/pantallas/camila-y-andres.webp" alt="Invitación de Camila y Andrés: paneles crema con foto de la pareja" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <p class="estilo">Cereza</p>
+          <h3 translate="no">Camila &amp; Andrés</h3>
+          <p>Crema y bordó como tarjetería impresa, para una noche en la ciudad.</p>
+          <span class="abrir">Abrir invitación</span>
         </a>
-        <p class="estilo">Cereza</p>
-        <h3 translate="no">Camila &amp; Andrés</h3>
-        <p>Paneles crema y bordó como tarjetería impresa. Confirmación por WhatsApp con el número de personas.</p>
-        <a class="ver" href="muestras/camila-y-andres/">Ver invitación</a>
       </article>
-
       <article class="muestra">
-        <a class="tarjeta" href="muestras/valentina-y-tomas/">
-          <div class="vista"><img src="muestras/valentina-y-tomas/og-imagen.jpg" alt="Vista previa de la invitación de Valentina y Tomás" width="1200" height="630" loading="lazy" decoding="async"></div>
+        <a href="muestras/valentina-y-tomas/">
+          <div class="cel"><img src="img/pantallas/valentina-y-tomas.webp" alt="Invitación de Valentina y Tomás: portada de revista con sus nombres" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <p class="estilo">Editorial</p>
+          <h3 translate="no">Valentina &amp; Tomás</h3>
+          <p>Una edición de revista: portada, índice, reportaje y preguntas.</p>
+          <span class="abrir">Abrir invitación</span>
         </a>
-        <p class="estilo">Editorial</p>
-        <h3 translate="no">Valentina &amp; Tomás</h3>
-        <p>Una edición única de revista: portada, índice, reportaje de la pareja y preguntas frecuentes.</p>
-        <a class="ver" href="muestras/valentina-y-tomas/">Ver invitación</a>
       </article>
+    </div>
+    <p class="deslizar" aria-hidden="true">Deslicen para ver las cuatro →</p>
+  </div>
+</section>
+
+<!-- ===================== PRECIOS ===================== -->
+<section id="precios" class="precios" aria-labelledby="t-precios">
+  <div class="wrap">
+    <div class="encabezado">
+      <h2 id="t-precios">Precios de las invitaciones digitales</h2>
+      <p>En pesos colombianos, con la publicación en línea incluida. Se separa con el 50% y el saldo se paga al aprobar el diseño.</p>
+    </div>
+
+    <div class="tabla-caja" role="region" aria-labelledby="t-precios" tabindex="0">
+      <table>
+        <caption class="sr">Comparación de los paquetes Esencial, Completa y A medida</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr">Qué incluye</span></th>
+            <th scope="col"><span class="paq">Esencial</span><span class="monto">$180.000</span><span class="que">Una plantilla con sus datos y colores</span></th>
+            <th scope="col" class="col-dest"><span class="paq">Completa</span><span class="monto">$260.000</span><span class="que">Con fotos, música y link por invitado</span></th>
+            <th scope="col"><span class="paq">A medida</span><span class="monto">$340.000</span><span class="que">Un diseño creado desde cero</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Nombres, fecha, ceremonia y recepción</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">“Cómo llegar” con Google Maps</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Cuenta regresiva y botón de calendario</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Confirmación de asistencia por WhatsApp</th><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Foto de portada y galería</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Música de fondo con botón de play</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Regalos o lluvia de sobres con botón “Copiar”</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Cronograma y código de vestimenta</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Vista previa al compartir en WhatsApp</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Link con el nombre de cada invitado</th><td><small>+$50.000</small></td><td class="col-dest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Estilo, paleta y tipografía exclusivos</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Monograma con sus iniciales</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Sobre animado o portada ilustrada</th><td><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td class="col-dest"><span class="no" aria-hidden="true"></span><span class="sr">No incluido</span></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Versión PDF de la invitación</th><td><small>+$40.000</small></td><td class="col-dest"><small>+$40.000</small></td><td><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="sr">Incluido</span></td></tr>
+          <tr><th scope="row">Rondas de ajustes</th><td>1</td><td class="col-dest">2</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="otros">
+      <div class="solo-pdf">
+        <p>¿Solo necesitan una tarjeta en PDF, con enlaces a la ubicación y a la confirmación?</p>
+        <strong>$130.000</strong>
+      </div>
+      <div>
+        <h3>Extras</h3>
+        <dl>
+          <div><dt>Ronda adicional de ajustes</dt><dd>+$30.000</dd></div>
+          <div><dt>Versión en otro idioma</dt><dd>+$50.000</dd></div>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== PAQUETES ===================== -->
-<section id="paquetes" aria-labelledby="t-paquetes">
+<!-- ===================== PROCESO ===================== -->
+<section class="proceso" aria-labelledby="t-pasos">
   <div class="wrap">
-    <p class="rotulo">Paquetes</p>
-    <h2 id="t-paquetes">Precios de las invitaciones digitales</h2>
-    <p class="intro">Precios en pesos colombianos. La publicación en línea está incluida en todos los paquetes.</p>
-
-    <div class="paquetes">
-      <article class="paquete">
-        <h3>Esencial</h3>
-        <p class="precio">$180.000<small>COP</small></p>
-        <p class="que">Una de nuestras plantillas con sus datos y sus colores.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Nombres, fecha, ceremonia y recepción</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Botón “Cómo llegar” con Google Maps</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cuenta regresiva hasta el gran día</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Botón para agregar al calendario</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmación de asistencia por WhatsApp</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ronda de ajustes</li>
-        </ul>
-      </article>
-
-      <article class="paquete destacado">
-        <div class="cabeza-paquete"><h3>Completa</h3><span class="chip">Personalizada</span></div>
-        <p class="precio">$260.000<small>COP</small></p>
-        <p class="que">Todo lo del Esencial, más fotos, música y un link con el nombre de cada invitado.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Foto de portada y galería</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Música de fondo con botón de play</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Regalos o lluvia de sobres con botón “Copiar”</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cronograma y código de vestimenta</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Vista previa elegante al compartir en WhatsApp</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Link con el nombre de cada invitado, sin límite de invitados</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 rondas de ajustes</li>
-        </ul>
-      </article>
-
-      <article class="paquete">
-        <h3>A medida</h3>
-        <p class="precio">$340.000<small>COP</small></p>
-        <p class="que">Un diseño creado desde cero, solo para ustedes.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Estilo, paleta y tipografía exclusivos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monograma con sus iniciales</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Detalles especiales (sobre animado, portada ilustrada)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Todo lo incluido en Completa</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Versión PDF de su invitación incluida</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>3 rondas de ajustes</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="pdf">
-      <p>¿Solo necesitan una tarjeta en PDF, con enlaces a ubicación y confirmación?</p>
-      <strong>$130.000</strong>
-    </div>
-
-    <div class="extras">
-      <h3>Extras</h3>
-      <dl>
-        <div><dt>Links por invitado en el Esencial</dt><dd>+$50.000</dd></div>
-        <div><dt>Versión PDF de su invitación web</dt><dd>+$40.000</dd></div>
-        <div><dt>Ronda adicional de ajustes</dt><dd>+$30.000</dd></div>
-        <div><dt>Versión en otro idioma</dt><dd>+$50.000</dd></div>
-      </dl>
-    </div>
-    <p class="letra-chica">Se separa con el 50% y el saldo se paga al aprobar el diseño.</p>
-  </div>
-</section>
-
-<!-- ===================== CÓMO FUNCIONA ===================== -->
-<section class="banda" aria-labelledby="t-pasos">
-  <div class="wrap">
-    <p class="rotulo">De sus datos a un link listo</p>
     <h2 id="t-pasos">Cómo se hace su invitación</h2>
     <ol class="pasos">
       <li><h3>Nos cuentan</h3><p>Llenan un formulario con los datos de su boda.</p></li>
@@ -487,10 +544,10 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
 </section>
 
 <!-- ===================== PREGUNTAS FRECUENTES ===================== -->
-<section id="preguntas" aria-labelledby="t-preguntas">
-  <div class="wrap estrecho">
-    <p class="rotulo">Preguntas frecuentes</p>
+<section id="preguntas" class="preguntas" aria-labelledby="t-preguntas">
+  <div class="wrap">
     <h2 id="t-preguntas">Lo que nos preguntan sobre las invitaciones digitales</h2>
+    <div>
     <details><summary>¿Qué es una invitación digital de boda?</summary>
       <p>Es una página web con toda la información de su boda: fecha, lugares, mapa, cronograma, código de vestimenta, regalos y confirmación de asistencia. Ustedes reciben un link y lo comparten por WhatsApp; sus invitados la abren en el celular sin instalar nada.</p></details>
     <details><summary>¿Cómo confirman la asistencia los invitados?</summary>
@@ -505,20 +562,24 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
       <p>No. Las invitaciones de nuestros clientes se publican ocultas para los buscadores, así la fecha y la dirección de su boda solo las ve quien tiene el link. Las muestras de esta página sí son públicas porque los datos son de ejemplo.</p></details>
     <details><summary>¿Cómo se paga?</summary>
       <p>Se separa con el 50% del valor y el saldo se paga al aprobar el diseño. Los precios están en pesos colombianos e incluyen la publicación en línea.</p></details>
+    </div>
   </div>
 </section>
 
 <!-- ===================== CONTACTO ===================== -->
 <section id="contacto" class="contacto" aria-labelledby="t-contacto">
   <div class="wrap">
-    <p class="rotulo" style="color:var(--rubor)">Contacto</p>
-    <h2 id="t-contacto">Hablemos de su boda</h2>
-    <p class="intro">Escríbannos por WhatsApp con la fecha y el estilo que les gusta, y les contamos cómo empezar.</p>
-    <p class="numero">318&nbsp;508&nbsp;8370</p>
-    <div class="botones">
-      <a class="btn btn-lleno" href="https://wa.me/573185088370?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20invitaciones%20digitales%20de%20Serena%20Studio." target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.2-1.1A8.5 8.5 0 1 0 12 3.5z"/><path d="M9 8.6c.3-.3.8-.3 1 .1l.8 1.5c.1.3.1.6-.1.8l-.6.5c.6 1.2 1.5 2.1 2.7 2.7l.5-.6c.2-.2.5-.3.8-.1l1.5.8c.4.2.4.7.1 1l-.7.7c-.4.4-1 .6-1.6.4-2.5-.9-4.5-2.9-5.4-5.4-.2-.6 0-1.2.4-1.6z"/></svg>
-        Escribir por WhatsApp
+    <div>
+      <h2 id="t-contacto">Hablemos de su boda</h2>
+      <p>Escríbannos por WhatsApp con la fecha y el estilo que les gusta, y les contamos cómo empezar.</p>
+      <p class="numero">318&nbsp;508&nbsp;8370</p>
+    </div>
+    <div class="borrador">
+      <p class="para">Mensaje listo para enviar</p>
+      <p class="burbuja">Hola, quiero información sobre las invitaciones digitales de Serena Studio.</p>
+      <a class="btn" href="https://wa.me/573185088370?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20invitaciones%20digitales%20de%20Serena%20Studio." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/><path d="M11.5 13.5L20 4"/></svg>
+        Enviar por WhatsApp
       </a>
     </div>
   </div>
@@ -528,7 +589,7 @@ details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
 
 <footer class="wrap pie">
   <p>© 2026 <span translate="no">Serena Studio</span> · Invitaciones digitales para bodas en Bogotá y toda Colombia</p>
-  <p><a href="#muestras">Muestras</a> · <a href="#paquetes">Precios</a> · <a href="#preguntas">Preguntas</a> · <a href="#contacto">Contacto</a></p>
+  <p><a href="#muestras">Muestras</a> · <a href="#precios">Precios</a> · <a href="#preguntas">Preguntas</a> · <a href="#contacto">Contacto</a></p>
 </footer>
 
 </body>
