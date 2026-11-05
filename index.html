@@ -331,7 +331,7 @@ h2{font-size:clamp(2.4rem, 7vw, 3.6rem);line-height:1;letter-spacing:-.012em}
   padding-bottom:1rem;margin-inline:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));
   padding-inline:max(20px, env(safe-area-inset-left, 0px));scroll-padding-inline:max(20px, env(safe-area-inset-left, 0px));
 }
-@media (min-width:56rem){.fila{grid-auto-flow:row;grid-template-columns:repeat(4, minmax(0,1fr));overflow:visible;margin-inline:0;padding-inline:0}}
+@media (min-width:56rem){.fila{grid-auto-flow:row;grid-template-columns:repeat(5, minmax(0,1fr));overflow:visible;margin-inline:0;padding-inline:0}}
 .muestra{scroll-snap-align:start;min-width:0}
 .muestra a{display:grid;gap:.9rem;text-decoration:none;color:inherit}
 .muestra .cel{transition:transform .25s ease, box-shadow .25s ease}
@@ -514,6 +514,9 @@ td svg{color:var(--oro-osc)}
 .descarga a:hover{color:var(--oro-osc)}
 .descarga svg{width:18px;height:18px;flex:none}
 .descarga span{font-size:.88rem;color:var(--pizarra)}
+.ver-pdf{display:inline-block;margin-top:.5rem;min-height:44px;line-height:44px;font-weight:600;color:var(--tinta);text-decoration:underline;text-decoration-color:var(--oro);text-underline-offset:4px}
+.ver-pdf:hover{color:var(--oro-osc)}
+.solo-pdf strong{display:block}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .muestra .cel{transition:none}
@@ -547,7 +550,7 @@ td svg{color:var(--oro-osc)}
     <h1><span class="rotulo">Invitaciones digitales para bodas</span> <span class="eslogan">Su boda empieza <em>con un link</em></span></h1>
     <p class="lema">Diseñamos la invitación de su boda como una página web que ustedes envían por WhatsApp. Sus invitados la abren en el celular, ven cuánto falta, encuentran el lugar en el mapa y confirman con un toque.</p>
     <div class="botones">
-      <a class="btn btn-tinta" href="#muestras">Ver las 4 muestras</a>
+      <a class="btn btn-tinta" href="#muestras">Ver las 5 muestras</a>
       <a class="btn" href="#precios">Ver precios</a>
     </div>
     <ul class="datos">
@@ -577,7 +580,7 @@ td svg{color:var(--oro-osc)}
   <div class="wrap">
     <div class="encabezado">
       <h2 id="t-muestras">Muestras de invitaciones de boda</h2>
-      <p>Cuatro estilos con parejas y datos de ejemplo. Ábranlas en el celular, toquen los botones y confirmen asistencia como lo harían sus invitados.</p>
+      <p>Cinco estilos con parejas y datos de ejemplo: cuatro invitaciones web y una tarjeta en PDF. Ábranlas en el celular, toquen los botones y confirmen asistencia como lo harían sus invitados.</p>
     </div>
     <div class="fila">
       <article class="muestra">
@@ -612,12 +615,21 @@ td svg{color:var(--oro-osc)}
           <div class="cel"><img src="img/pantallas/valentina-y-tomas-4.webp" alt="Invitación de Valentina y Tomás: sus nombres sobre verde oliva y la foto dentro de una blonda de encaje" width="585" height="1266" loading="lazy" decoding="async"></div>
           <p class="estilo">Encaje</p>
           <h3 translate="no">Valentina &amp; Tomás</h3>
-          <p>Encaje marfil sobre verde oliva, con el programa dentro de una blonda.</p>
+          <p>Se abre con un sobre y sello de lacre; encaje y marcos en relieve sobre verde oliva.</p>
           <span class="abrir">Abrir invitación</span>
         </a>
       </article>
+          <article class="muestra">
+        <a href="muestras/isabella-y-martin/isabella-y-martin.pdf">
+          <div class="cel"><img src="img/pantallas/isabella-y-martin.webp" alt="Tarjeta en PDF de Isabella y Martín: nombres en una cartela con marco barroco azul cobalto" width="585" height="1266" loading="lazy" decoding="async"></div>
+          <p class="estilo">Tarjeta en PDF</p>
+          <h3 translate="no">Isabella &amp; Martín</h3>
+          <p>Azul cobalto y marcos barrocos, para enviar como archivo con enlaces al mapa y a la confirmación.</p>
+          <span class="abrir">Abrir el PDF</span>
+        </a>
+      </article>
     </div>
-    <p class="deslizar" aria-hidden="true">Deslicen para ver las cuatro →</p>
+    <p class="deslizar" aria-hidden="true">Deslicen para ver las cinco →</p>
     <p class="puente">¿Ya tienen un estilo favorito? Cualquiera de estos diseños se hace con sus nombres, sus colores y, si quieren, sus fotos. <a href="#precios">Ver cuánto cuesta</a></p>
   </div>
 </section>
@@ -695,6 +707,7 @@ td svg{color:var(--oro-osc)}
       <div class="solo-pdf">
         <p>¿Solo necesitan una tarjeta en PDF, con enlaces a la ubicación y a la confirmación?</p>
         <strong>$130.000</strong>
+        <a class="ver-pdf" href="muestras/isabella-y-martin/isabella-y-martin.pdf">Ver una muestra en PDF</a>
       </div>
       <div>
         <h3>Extras</h3>
