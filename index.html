@@ -10,8 +10,8 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="format-detection" content="telephone=no">
 
-<title>Serena Studio · Invitaciones digitales para bodas en Colombia</title>
-<meta name="description" content="Invitaciones web para bodas que se comparten por WhatsApp: cuenta regresiva, mapa, calendario y confirmación de asistencia. Muestras y precios en pesos.">
+<title>Invitaciones digitales para bodas en Colombia | Serena Studio</title>
+<meta name="description" content="Invitaciones digitales para bodas que se comparten por WhatsApp: cuenta regresiva, mapa, calendario y confirmación de asistencia. Vean muestras y precios.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://serena-studio.vercel.app/">
 <meta name="theme-color" content="#F6F1EA">
@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Serena Studio">
 <meta property="og:locale" content="es_CO">
 <meta property="og:url" content="https://serena-studio.vercel.app/">
-<meta property="og:title" content="Serena Studio · Su boda empieza con un link">
+<meta property="og:title" content="Invitaciones digitales para bodas · Serena Studio">
 <meta property="og:description" content="Invitaciones web para bodas, listas para compartir por WhatsApp. Vean las muestras y los paquetes.">
 <meta property="og:image" content="https://serena-studio.vercel.app/img/og-imagen.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -40,13 +40,16 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://serena-studio.vercel.app/#negocio",
   "name": "Serena Studio",
   "description": "Diseño de invitaciones digitales para bodas, publicadas como página web y compartidas por WhatsApp.",
   "url": "https://serena-studio.vercel.app/",
   "logo": "https://serena-studio.vercel.app/img/logo.png",
   "image": "https://serena-studio.vercel.app/img/og-imagen.jpg",
   "telephone": "+57 318 508 8370",
+  "address": {"@type": "PostalAddress", "addressLocality": "Bogotá", "addressRegion": "Bogotá D.C.", "addressCountry": "CO"},
   "areaServed": {"@type": "Country", "name": "Colombia"},
+  "knowsLanguage": ["es"],
   "priceRange": "$130.000 - $340.000 COP",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -59,6 +62,84 @@
     ]
   }
 }
+</script>
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://serena-studio.vercel.app/#sitio",
+    "name": "Serena Studio",
+    "url": "https://serena-studio.vercel.app/",
+    "inLanguage": "es-CO",
+    "publisher": {
+      "@id": "https://serena-studio.vercel.app/#negocio"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es una invitación digital de boda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es una página web con toda la información de su boda: fecha, lugares, mapa, cronograma, código de vestimenta, regalos y confirmación de asistencia. Ustedes reciben un link y lo comparten por WhatsApp; sus invitados la abren en el celular sin instalar nada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo confirman la asistencia los invitados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Con un botón que abre WhatsApp con un mensaje ya escrito, o con un formulario si lo prefieren. Así reciben las confirmaciones en un solo lugar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cada invitado puede ver su nombre en la invitación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. En los paquetes Completa y A medida cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. En el Esencial se puede agregar como extra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto se demora?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reciben una primera versión en pocos días después de enviarnos los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Atienden bodas fuera de Bogotá?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Todo el proceso es en línea, así que diseñamos invitaciones para bodas en cualquier ciudad de Colombia y también para bodas en el exterior. Podemos hacer una versión en otro idioma."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Nuestra invitación va a aparecer en Google?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Las invitaciones de nuestros clientes se publican ocultas para los buscadores, así la fecha y la dirección de su boda solo las ve quien tiene el link. Las muestras de esta página sí son públicas porque los datos son de ejemplo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se paga?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Se separa con el 50% del valor y el saldo se paga al aprobar el diseño. Los precios están en pesos colombianos e incluyen la publicación en línea."
+        }
+      }
+    ]
+  }
+]
 </script>
 
 <link rel="preload" href="fuentes/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -149,7 +230,9 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 /* ===================== PORTADA ===================== */
 .portada{padding-block:4rem 3.5rem;text-align:center}
 .portada .logo{width:96px;height:93px;margin:0 auto 1.6rem}
-.portada h1{font-size:clamp(3.2rem, 13vw, 5.6rem);line-height:.98;letter-spacing:-.01em;margin-bottom:1.4rem}
+.portada h1{margin-bottom:1.4rem}
+.portada h1 .rotulo{display:block;font-family:var(--f-texto)}
+.portada .eslogan{display:block;font-size:clamp(3.2rem, 13vw, 5.6rem);line-height:.98;letter-spacing:-.01em}
 .portada h1 em{color:var(--vino);font-style:italic;font-weight:400}
 .portada .lema{color:var(--gris);font-size:1.1rem;max-width:34rem;margin:0 auto 2rem}
 .portada .botones{justify-content:center}
@@ -222,6 +305,17 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 .pie{padding-block:2rem calc(2rem + env(safe-area-inset-bottom, 0px));font-size:.85rem;color:var(--gris);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
 .pie p{margin:0}
 
+.estrecho{max-width:48rem}
+details{border-top:1px solid var(--linea)}
+details:last-of-type{border-bottom:1px solid var(--linea)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;min-height:44px;
+  padding-block:1.1rem;font-family:var(--f-display);font-size:1.4rem;line-height:1.25;touch-action:manipulation}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--f-texto);font-size:1.4rem;line-height:1;color:var(--vino);flex:none}
+details[open] summary::after{content:"–"}
+summary:hover{color:var(--vino)}
+details p{color:var(--gris);margin:0;padding-bottom:1.3rem;max-width:40rem}
+#preguntas h2{margin-bottom:1.6rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media (max-width:30rem){.cabecera nav{display:none}}
 </style>
@@ -236,7 +330,7 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
   </a>
   <nav aria-label="Secciones">
     <a href="#muestras">Muestras</a>
-    <a href="#paquetes">Paquetes</a>
+    <a href="#paquetes">Precios</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
@@ -247,8 +341,7 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 <section class="portada">
   <div class="wrap">
     <img class="logo" src="img/logo.png" alt="Monograma de Serena Studio" width="96" height="93" fetchpriority="high">
-    <p class="rotulo">Invitaciones digitales para bodas</p>
-    <h1>Su boda empieza <em>con un link</em></h1>
+    <h1><span class="rotulo">Invitaciones digitales para bodas</span> <span class="eslogan">Su boda empieza <em>con un link</em></span></h1>
     <div class="filete"></div>
     <p class="lema">Invitaciones web diseñadas para verse perfectas en el celular y compartirse por WhatsApp. Con cuenta regresiva, mapa, calendario y confirmación de asistencia en un solo lugar.</p>
     <div class="botones">
@@ -261,8 +354,8 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 <!-- ===================== MUESTRAS ===================== -->
 <section id="muestras" class="banda" aria-labelledby="t-muestras">
   <div class="wrap">
-    <p class="rotulo">Muestras</p>
-    <h2 id="t-muestras">Cuatro estilos, cuatro parejas</h2>
+    <p class="rotulo">Cuatro estilos, cuatro parejas</p>
+    <h2 id="t-muestras">Muestras de invitaciones de boda</h2>
     <p class="intro">Ábranlas en el celular, como las verán sus invitados. Los datos y las parejas son de ejemplo; cada invitación se diseña con la información y los colores de su boda.</p>
 
     <div class="muestras">
@@ -313,7 +406,7 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 <section id="paquetes" aria-labelledby="t-paquetes">
   <div class="wrap">
     <p class="rotulo">Paquetes</p>
-    <h2 id="t-paquetes">Elijan cómo quieren su invitación</h2>
+    <h2 id="t-paquetes">Precios de las invitaciones digitales</h2>
     <p class="intro">Precios en pesos colombianos. La publicación en línea está incluida en todos los paquetes.</p>
 
     <div class="paquetes">
@@ -382,14 +475,36 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 <!-- ===================== CÓMO FUNCIONA ===================== -->
 <section class="banda" aria-labelledby="t-pasos">
   <div class="wrap">
-    <p class="rotulo">Cómo funciona</p>
-    <h2 id="t-pasos">De sus datos a un link listo</h2>
+    <p class="rotulo">De sus datos a un link listo</p>
+    <h2 id="t-pasos">Cómo se hace su invitación</h2>
     <ol class="pasos">
       <li><h3>Nos cuentan</h3><p>Llenan un formulario con los datos de su boda.</p></li>
       <li><h3>Diseñamos</h3><p>Reciben una primera versión en pocos días.</p></li>
       <li><h3>Ajustamos</h3><p>Afinamos textos, fotos y colores con ustedes.</p></li>
       <li><h3>Compartimos</h3><p>Reciben su link listo para enviar por WhatsApp.</p></li>
     </ol>
+  </div>
+</section>
+
+<!-- ===================== PREGUNTAS FRECUENTES ===================== -->
+<section id="preguntas" aria-labelledby="t-preguntas">
+  <div class="wrap estrecho">
+    <p class="rotulo">Preguntas frecuentes</p>
+    <h2 id="t-preguntas">Lo que nos preguntan sobre las invitaciones digitales</h2>
+    <details><summary>¿Qué es una invitación digital de boda?</summary>
+      <p>Es una página web con toda la información de su boda: fecha, lugares, mapa, cronograma, código de vestimenta, regalos y confirmación de asistencia. Ustedes reciben un link y lo comparten por WhatsApp; sus invitados la abren en el celular sin instalar nada.</p></details>
+    <details><summary>¿Cómo confirman la asistencia los invitados?</summary>
+      <p>Con un botón que abre WhatsApp con un mensaje ya escrito, o con un formulario si lo prefieren. Así reciben las confirmaciones en un solo lugar.</p></details>
+    <details><summary>¿Cada invitado puede ver su nombre en la invitación?</summary>
+      <p>Sí. En los paquetes Completa y A medida cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. En el Esencial se puede agregar como extra.</p></details>
+    <details><summary>¿Cuánto se demora?</summary>
+      <p>Reciben una primera versión en pocos días después de enviarnos los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
+    <details><summary>¿Atienden bodas fuera de Bogotá?</summary>
+      <p>Sí. Todo el proceso es en línea, así que diseñamos invitaciones para bodas en cualquier ciudad de Colombia y también para bodas en el exterior. Podemos hacer una versión en otro idioma.</p></details>
+    <details><summary>¿Nuestra invitación va a aparecer en Google?</summary>
+      <p>No. Las invitaciones de nuestros clientes se publican ocultas para los buscadores, así la fecha y la dirección de su boda solo las ve quien tiene el link. Las muestras de esta página sí son públicas porque los datos son de ejemplo.</p></details>
+    <details><summary>¿Cómo se paga?</summary>
+      <p>Se separa con el 50% del valor y el saldo se paga al aprobar el diseño. Los precios están en pesos colombianos e incluyen la publicación en línea.</p></details>
   </div>
 </section>
 
@@ -412,8 +527,8 @@ h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
 </main>
 
 <footer class="wrap pie">
-  <p>© 2026 <span translate="no">Serena Studio</span> · Bogotá, Colombia</p>
-  <p>Invitaciones digitales para bodas</p>
+  <p>© 2026 <span translate="no">Serena Studio</span> · Invitaciones digitales para bodas en Bogotá y toda Colombia</p>
+  <p><a href="#muestras">Muestras</a> · <a href="#paquetes">Precios</a> · <a href="#preguntas">Preguntas</a> · <a href="#contacto">Contacto</a></p>
 </footer>
 
 </body>
