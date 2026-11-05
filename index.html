@@ -106,6 +106,22 @@
       },
       {
         "@type": "Question",
+        "name": "¿Qué tenemos que enviarles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los nombres como quieren que aparezcan, la fecha y hora, los lugares de la ceremonia y la recepción con su ubicación, la fecha límite para confirmar y, según el paquete, sus fotos, la canción y los datos de regalos. Si algo todavía no está definido, empezamos con lo que tengan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y los invitados que no usan mucho el celular?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La invitación se abre como cualquier link de WhatsApp, sin instalar nada ni crear cuentas. Para quienes prefieren algo impreso o para reenviar por correo, pueden pedir la versión PDF, que viene incluida en el paquete A medida."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "¿Cuánto se demora?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -453,6 +469,19 @@ td svg{color:var(--oro-osc)}
 .pie-oscuro a{color:var(--papel);text-decoration-color:var(--oro)}
 .pie-oscuro a:hover{color:var(--oro)}
 .pie-oscuro :focus-visible{outline-color:var(--oro)}
+
+/* ===================== CONVERSIÓN ===================== */
+.puente{margin:2rem 0 0;padding-top:1.2rem;border-top:1px solid var(--linea);max-width:40rem;color:var(--pizarra)}
+.puente a{color:var(--tinta);font-weight:600;text-decoration-color:var(--oro);text-underline-offset:4px;white-space:nowrap}
+.puente a:hover{color:var(--oro-osc)}
+.sello{display:inline-block;margin-bottom:.45rem;padding:.2rem .5rem;background:var(--tinta);color:var(--oro-claro);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;line-height:1.3}
+@media (max-width:30rem){.sello{font-size:.5rem;letter-spacing:0;padding:.15rem .25rem;max-width:100%;box-sizing:border-box}}
+@media (max-width:22rem){.sello{font-size:.44rem;padding-inline:.15rem}}
+.guia{margin-top:2.4rem;max-width:46rem}
+.guia h3{font-size:1.6rem;margin-bottom:.8rem}
+.guia ul{margin:0;padding:0;list-style:none;display:grid;gap:.75rem}
+.guia li{padding-left:1rem;border-left:2px solid var(--oro)}
+.guia b{color:var(--tinta)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .muestra .cel{transition:none}
@@ -486,7 +515,7 @@ td svg{color:var(--oro-osc)}
     <h1><span class="rotulo">Invitaciones digitales para bodas</span> <span class="eslogan">Su boda empieza <em>con un link</em></span></h1>
     <p class="lema">Diseñamos la invitación de su boda como una página web: la comparten por WhatsApp y sus invitados ven la cuenta regresiva, el mapa, el calendario y confirman asistencia desde el celular.</p>
     <div class="botones">
-      <a class="btn btn-tinta" href="#muestras">Ver las muestras</a>
+      <a class="btn btn-tinta" href="#muestras">Ver las 4 muestras</a>
       <a class="btn" href="#precios">Ver precios</a>
     </div>
     <ul class="datos">
@@ -557,6 +586,20 @@ td svg{color:var(--oro-osc)}
       </article>
     </div>
     <p class="deslizar" aria-hidden="true">Deslicen para ver las cuatro →</p>
+    <p class="puente">¿Ya tienen un estilo favorito? Cualquiera de estos diseños se adapta a sus nombres, colores y fotos. <a href="#precios">Ver cuánto cuesta</a></p>
+  </div>
+</section>
+
+<!-- ===================== PROCESO ===================== -->
+<section class="proceso" aria-labelledby="t-pasos">
+  <div class="wrap">
+    <h2 id="t-pasos">Cómo se hace su invitación</h2>
+    <ol class="pasos">
+      <li><h3>Nos cuentan</h3><p>Nos envían los nombres, la fecha, los lugares y, si quieren, sus fotos.</p></li>
+      <li><h3>Diseñamos</h3><p>Reciben una primera versión en pocos días, antes de pagar el saldo.</p></li>
+      <li><h3>Ajustamos</h3><p>Afinamos textos, fotos y colores con ustedes.</p></li>
+      <li><h3>Compartimos</h3><p>Reciben su link listo para enviar por WhatsApp.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -575,7 +618,7 @@ td svg{color:var(--oro-osc)}
           <tr>
             <th scope="col"><span class="sr">Qué incluye</span></th>
             <th scope="col"><span class="paq">Esencial</span><span class="monto">$180.000</span><span class="que">Una plantilla con sus datos y colores</span></th>
-            <th scope="col" class="col-dest"><span class="paq">Completa</span><span class="monto">$260.000</span><span class="que">Con fotos, música y link por invitado</span></th>
+            <th scope="col" class="col-dest"><span class="sello">Recomendada</span><span class="paq">Completa</span><span class="monto">$260.000</span><span class="que">Con fotos, música y link por invitado</span></th>
             <th scope="col"><span class="paq">A medida</span><span class="monto">$340.000</span><span class="que">Un diseño creado desde cero</span></th>
           </tr>
         </thead>
@@ -599,6 +642,15 @@ td svg{color:var(--oro-osc)}
       </table>
     </div>
 
+    <div class="guia">
+      <h3>¿Cuál les conviene?</h3>
+      <ul>
+        <li><b>Esencial</b> si quieren informar bien la fecha, los lugares y recibir confirmaciones, con un diseño ya probado.</li>
+        <li><b>Completa</b> si quieren sus fotos, música y un link con el nombre de cada invitado. Agregar ese link al Esencial cuesta $230.000 en total; la Completa, por $30.000 más, trae además galería, música, regalos y cronograma.</li>
+        <li><b>A medida</b> si quieren un diseño que no tenga nadie más, con su monograma y la versión PDF incluida.</li>
+      </ul>
+    </div>
+
     <div class="otros">
       <div class="solo-pdf">
         <p>¿Solo necesitan una tarjeta en PDF, con enlaces a la ubicación y a la confirmación?</p>
@@ -615,19 +667,6 @@ td svg{color:var(--oro-osc)}
   </div>
 </section>
 
-<!-- ===================== PROCESO ===================== -->
-<section class="proceso" aria-labelledby="t-pasos">
-  <div class="wrap">
-    <h2 id="t-pasos">Cómo se hace su invitación</h2>
-    <ol class="pasos">
-      <li><h3>Nos cuentan</h3><p>Llenan un formulario con los datos de su boda.</p></li>
-      <li><h3>Diseñamos</h3><p>Reciben una primera versión en pocos días.</p></li>
-      <li><h3>Ajustamos</h3><p>Afinamos textos, fotos y colores con ustedes.</p></li>
-      <li><h3>Compartimos</h3><p>Reciben su link listo para enviar por WhatsApp.</p></li>
-    </ol>
-  </div>
-</section>
-
 <!-- ===================== PREGUNTAS FRECUENTES ===================== -->
 <section id="preguntas" class="preguntas" aria-labelledby="t-preguntas">
   <div class="wrap">
@@ -639,6 +678,10 @@ td svg{color:var(--oro-osc)}
       <p>Con un botón que abre WhatsApp con un mensaje ya escrito, o con un formulario si lo prefieren. Así reciben las confirmaciones en un solo lugar.</p></details>
     <details><summary>¿Cada invitado puede ver su nombre en la invitación?</summary>
       <p>Sí. En los paquetes Completa y A medida cada invitado recibe un link con su nombre y el número de cupos que le reservaron, sin límite de invitados. En el Esencial se puede agregar como extra.</p></details>
+    <details><summary>¿Qué tenemos que enviarles?</summary>
+      <p>Los nombres como quieren que aparezcan, la fecha y hora, los lugares de la ceremonia y la recepción con su ubicación, la fecha límite para confirmar y, según el paquete, sus fotos, la canción y los datos de regalos. Si algo todavía no está definido, empezamos con lo que tengan.</p></details>
+    <details><summary>¿Y los invitados que no usan mucho el celular?</summary>
+      <p>La invitación se abre como cualquier link de WhatsApp, sin instalar nada ni crear cuentas. Para quienes prefieren algo impreso o para reenviar por correo, pueden pedir la versión PDF, que viene incluida en el paquete A medida.</p></details>
     <details><summary>¿Cuánto se demora?</summary>
       <p>Reciben una primera versión en pocos días después de enviarnos los datos. Luego ajustamos textos, fotos y colores según las rondas de ajustes de su paquete.</p></details>
     <details><summary>¿Atienden bodas fuera de Bogotá?</summary>
