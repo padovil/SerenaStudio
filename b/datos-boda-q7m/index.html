@@ -101,6 +101,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     <ul>
       <li>Las direcciones o links de Google Maps de la ceremonia y la recepción.</li>
       <li>Los datos para los regalos, si los van a poner.</li>
+      <li>Los hoteles o lugares que quieran recomendar a sus invitados.</li>
       <li>La lista de invitados con los cupos de cada uno, para los links personalizados.</li>
     </ul>
     <p style="margin:.6rem 0 0">Los campos con <span class="req">*</span> son necesarios. Si algo todavía no está definido, déjenlo en blanco y lo completamos después.</p>
@@ -168,7 +169,18 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>5 · Vestimenta</span>Código de vestimenta</legend>
+      <legend><span>5 · Hospedaje</span>Hospedaje y lugares recomendados</legend>
+      <p class="ayuda">Para los invitados que vienen de otra ciudad o quieren quedarse cerca. Por cada lugar: nombre, link o dirección y, si tienen, precio aproximado o código de descuento.</p>
+      <div class="campo"><label for="h_hospedaje">Hoteles, glampings o casas recomendados</label><textarea id="h_hospedaje" name="Hospedaje recomendado" placeholder="Hotel Casa Real · a 10 min del lugar · desde $250.000 la noche · código BODALF&#10;https://…"></textarea></div>
+      <div class="campo"><label for="h_lugares">Otros lugares recomendados</label><textarea id="h_lugares" name="Lugares recomendados" placeholder="Restaurantes, salones de belleza, planes para el día siguiente…"></textarea></div>
+      <div class="campo"><span class="etq">¿Quieren que les sugiramos opciones?</span>
+        <div class="opciones">
+          <label><input type="checkbox" name="Sugerir opciones cerca del lugar" value="Sí, sugiéranos hospedaje cerca del lugar"> Sí, sugiéranos hospedaje cerca del lugar</label>
+        </div><span class="nota">Les enviamos 3 o 4 opciones para que ustedes elijan cuáles van.</span></div>
+    </fieldset>
+
+    <fieldset>
+      <legend><span>6 · Vestimenta</span>Código de vestimenta</legend>
       <div class="campo"><label for="v_codigo">Código <span class="req">*</span></label>
         <select id="v_codigo" name="Código de vestimenta" required><option value="">Elijan una opción…</option><option>Formal</option><option>Etiqueta</option><option>Coctel</option><option>Casual elegante</option><option>Otro (lo escriben abajo)</option></select></div>
       <div class="dos">
@@ -178,7 +190,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>6 · Regalos</span>¿Qué quieren poner?</legend>
+      <legend><span>7 · Regalos</span>¿Qué quieren poner?</legend>
       <div class="opciones" role="group" aria-label="Tipo de regalo">
         <label><input type="checkbox" name="Regalos" value="Lluvia de sobres"> Lluvia de sobres</label>
         <label><input type="checkbox" name="Regalos" value="Transferencia"> Transferencia</label>
@@ -200,7 +212,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>7 · Confirmación</span>Asistencia e invitados</legend>
+      <legend><span>8 · Confirmación</span>Asistencia e invitados</legend>
       <div class="campo"><span class="etq">¿Cómo quieren recibir las confirmaciones?</span>
         <div class="opciones">
           <label><input type="radio" name="Método de confirmación" value="Formulario que llena una hoja de cálculo" id="r_hoja" checked> Formulario en la invitación que llena una hoja de cálculo</label>
@@ -230,7 +242,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>8 · Diseño</span>Su versión del sobre de terciopelo</legend>
+      <legend><span>9 · Diseño</span>Su versión del sobre de terciopelo</legend>
       <p class="ayuda">Partimos de la muestra de Nicolás & Liz. Cuéntennos qué quieren mantener o cambiar.</p>
       <div class="campo"><span class="etq">Colores</span>
         <div class="opciones">
@@ -243,7 +255,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>9 · Fotos y música</span>Lo que nos envían por WhatsApp</legend>
+      <legend><span>10 · Fotos y música</span>Lo que nos envían por WhatsApp</legend>
       <p class="ayuda">Las fotos y la canción nos las mandan por WhatsApp <b>como documento</b> (así no pierden calidad) o con un link de Google Drive.</p>
       <ul class="nota" style="margin:0 0 1rem;padding-left:1.1rem">
         <li><b>Foto de portada:</b> 1 vertical, la más especial.</li>
@@ -258,7 +270,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>10 · QR de fotos</span>Álbum para las fotos de sus invitados</legend>
+      <legend><span>11 · QR de fotos</span>Álbum para las fotos de sus invitados</legend>
       <p class="ayuda">Ponemos un QR en la invitación (y uno para imprimir en las mesas) que lleva a un álbum donde los invitados suben sus fotos de la boda.</p>
       <div class="campo"><span class="etq">¿Ya tienen el álbum?</span>
         <div class="opciones">
@@ -270,7 +282,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>11 · Revisión</span>Aprobación</legend>
+      <legend><span>12 · Revisión</span>Aprobación</legend>
       <div class="dos">
         <div class="campo"><label for="a_quien">¿Quién aprueba la invitación?</label><input id="a_quien" name="Quién aprueba" type="text"></div>
         <div class="campo"><label for="a_hora">¿En qué horario los contactamos?</label><input id="a_hora" name="Horario de contacto" type="text" placeholder="Ej. entre semana después de las 6 p. m."></div>
