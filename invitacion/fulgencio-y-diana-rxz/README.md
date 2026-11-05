@@ -19,7 +19,7 @@ Link por invitado: `…/fulgencio-y-diana-rxz/?para=Familia%20Pérez&cupos=3`
 
 - [x] Galería "Nosotros": 6 fotos recibidas el 5 nov (`foto-1` a `foto-6`, `foto-4` es la horizontal del atardecer en la ciudad).
 - [x] Foto de portada (`portada.jpg`): en arco dorado debajo del versículo, y también en la vista previa de WhatsApp (`og-imagen.jpg`).
-- [x] `cancion.mp3`: "Las locuras mías" (Silvestre Dangond), recibida el 5 nov, comprimida a 112 kbps (3 MB), suena desde el inicio. [PENDIENTE] confirmar con la pareja que pueden usarla.
+- [x] `cancion.mp3`: "Búscate un hombre que te quiera" (prueba pedida por los novios el 5 nov; antes "Las locuras mías"), desde 0:14 con fade in de 3 s y fade out al final, 112 kbps. [PENDIENTE] confirmar con la pareja que pueden usarla.
 - [x] Hoja de confirmaciones: "Confirmaciones · Fulgencio & Diana · 5 dic 2026" en Drive (cuenta del estudio), conectada en `EVENTO.hojaUrl`. Falta probar envíos y compartirla con kmarin290@gmail.com.
 - [x] Álbum del QR: Google Fotos https://photos.app.goo.gl/9xH57wp1kxcYctmg7 (cuenta del estudio), conectado en `EVENTO.albumUrl`; QR para imprimir entregado.
 - [ ] Confirmar con Karen el hospedaje: "Carlos Salamanca Olarte Pensil" ¿es el nombre completo del contacto o "Pensil" es el nombre de la hacienda?
