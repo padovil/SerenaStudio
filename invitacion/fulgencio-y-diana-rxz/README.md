@@ -20,7 +20,7 @@ Link por invitado: `…/fulgencio-y-diana-rxz/?para=Familia%20Pérez&cupos=3`
 - [x] Galería "Nosotros": 6 fotos recibidas el 5 nov (`foto-1` a `foto-6`, `foto-4` es la horizontal del atardecer en la ciudad).
 - [x] Foto de portada (`portada.jpg`): en arco dorado debajo del versículo, y también en la vista previa de WhatsApp (`og-imagen.jpg`).
 - [x] `cancion.mp3`: "Las locuras mías" (Silvestre Dangond), recibida el 5 nov, comprimida a 112 kbps (3 MB), suena desde el inicio. [PENDIENTE] confirmar con la pareja que pueden usarla.
-- [ ] Hoja de confirmaciones: crear con `docs/rsvp-hoja-google.md`, pegar la URL `/exec` en `EVENTO.hojaUrl` (`invitacion.js`) y compartir la hoja con kmarin290@gmail.com. Probar 2 envíos y borrarlos.
+- [x] Hoja de confirmaciones: "Confirmaciones · Fulgencio & Diana · 5 dic 2026" en Drive (cuenta del estudio), conectada en `EVENTO.hojaUrl`. Falta probar envíos y compartirla con kmarin290@gmail.com.
 - [ ] Álbum del QR (lo crea el estudio): pegar el link en `EVENTO.albumUrl` y generar el QR para imprimir.
 - [ ] Confirmar con Karen el hospedaje: "Carlos Salamanca Olarte Pensil" ¿es el nombre completo del contacto o "Pensil" es el nombre de la hacienda?
 - [ ] Confirmar textos del itinerario: "Sesión de fotos y pasabocas" (snacks), "Ingreso de los invitados a la recepción" (entrada de invitados 4:40), "Cena" (catering).

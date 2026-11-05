@@ -20,7 +20,7 @@ const EVENTO = {
   maxPersonas: 6,                            // tope del selector si el link no trae ?cupos=
   /* Confirmaciones → hoja de Google (ver docs/rsvp-hoja-google.md).
      Pegar aquí la URL de la aplicación web de Apps Script (termina en /exec). */
-  hojaUrl: "",                               // [PENDIENTE]
+  hojaUrl: "https://script.google.com/macros/s/AKfycbyVDkS45jm6eb2AXaP-B_Ou71Yk3o5O6AhZuk9vTD7GjkwTtrTUg3ac5BUzNOZj9ak2-Q/exec",
   /* Álbum compartido para el QR de fotos (lo crea el estudio). */
   albumUrl: "",                              // [PENDIENTE]
   hospedajeTel: "573124301798"
