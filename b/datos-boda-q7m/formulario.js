@@ -15,6 +15,14 @@ function condicionales(){
   $("q_link_box").hidden = !$("q_tengo").checked;
   $("r_hoja_box").hidden = !$("r_hoja").checked;
   $("r_wa_box").hidden = !$("r_wa").checked;
+  const op = $("d_muestra").selectedOptions[0];
+  const hay = !!(op && op.dataset.img);
+  $("d_vista").hidden = !hay;
+  if (hay && !$("d_vista_img").src.endsWith(op.dataset.img)) {
+    $("d_vista_img").src = "/img/pantallas/" + op.dataset.img;
+    $("d_vista_img").alt = "Vista previa de la muestra " + op.value;
+    $("d_vista_link").href = op.dataset.url;
+  }
 }
 
 /* ---------- Borrador en este celular ---------- */
@@ -39,7 +47,7 @@ function cargar(){
 }
 let t;
 form.addEventListener("input", () => { condicionales(); clearTimeout(t); t = setTimeout(guardar, 400); });
-form.addEventListener("change", () => { condicionales(); guardar(); });
+form.addEventListener("change", e => { if (e.target.value) e.target.removeAttribute("aria-invalid"); condicionales(); guardar(); });
 cargar(); condicionales();
 
 /* ---------- Formato de fechas y horas en español ---------- */

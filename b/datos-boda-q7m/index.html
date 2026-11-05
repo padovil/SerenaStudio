@@ -84,6 +84,11 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
 .listo p{margin:0 auto 1rem;max-width:30rem;color:var(--pizarra)}
 .listo .acciones{display:grid;gap:.7rem;justify-items:center;margin-top:1.2rem}
 .listo pre{text-align:left;white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid var(--linea);border-radius:8px;padding:1rem;font:400 .85rem/1.5 ui-monospace, Menlo, monospace;max-height:16rem;overflow:auto;margin:1.2rem 0 0}
+.vista{display:grid;justify-items:center;gap:.8rem;margin:0 0 1.2rem;padding:1.2rem;background:var(--marfil);border-radius:8px}
+.vista-cel{width:min(220px, 60vw);border-radius:22px;border:6px solid var(--noche);overflow:hidden;background:var(--noche);box-shadow:0 10px 24px rgba(28,31,36,.18)}
+.vista-cel img{display:block;width:100%;height:auto}
+.vista a{font-weight:500}
+.vista[hidden]{display:none}
 .check{width:54px;height:54px;color:var(--oro-osc)}
 </style>
 </head>
@@ -238,8 +243,21 @@ input:focus,select:focus,textarea:focus{border-color:var(--oro-osc);outline:2px 
     </fieldset>
 
     <fieldset>
-      <legend><span>9 · Diseño</span>Su versión del sobre de terciopelo</legend>
-      <p class="ayuda">Partimos de la muestra de Nicolás & Liz. Cuéntennos qué quieren mantener o cambiar.</p>
+      <legend><span>9 · Diseño</span>Elijan su muestra</legend>
+      <p class="ayuda">Partimos de una de nuestras muestras y la adaptamos a ustedes. Elijan la que más les guste y luego cuéntennos qué quieren cambiar.</p>
+      <div class="campo"><label for="d_muestra">Muestra <span class="req">*</span></label>
+        <select id="d_muestra" name="Muestra elegida" required>
+          <option value="">Elijan una muestra…</option>
+          <option value="Nicolás & Liz · Sobre de terciopelo" data-img="nicolas-y-liz.webp" data-url="/muestras/nicolas-y-liz/">Nicolás & Liz · Sobre de terciopelo</option>
+          <option value="Mariana & Sebastián · Bosque" data-img="mariana-y-sebastian.webp" data-url="/muestras/mariana-y-sebastian/">Mariana & Sebastián · Bosque</option>
+          <option value="Camila & Andrés · Cereza" data-img="camila-y-andres-2.webp" data-url="/muestras/camila-y-andres/">Camila & Andrés · Cereza</option>
+          <option value="Valentina & Tomás · Encaje" data-img="valentina-y-tomas-4.webp" data-url="/muestras/valentina-y-tomas/">Valentina & Tomás · Encaje</option>
+          <option value="Isabella & Martín · Tarjeta en PDF" data-img="isabella-y-martin.webp" data-url="/muestras/isabella-y-martin/isabella-y-martin.pdf">Isabella & Martín · Tarjeta en PDF</option>
+        </select></div>
+      <div class="vista" id="d_vista" hidden>
+        <div class="vista-cel"><img id="d_vista_img" alt="" width="585" height="1266"></div>
+        <a id="d_vista_link" href="#" target="_blank" rel="noopener">Ver la muestra completa</a>
+      </div>
       <div class="campo"><span class="etq">Colores</span>
         <div class="opciones">
           <label><input type="radio" name="Colores del diseño" value="Iguales a la muestra" checked> Iguales a la muestra</label>
