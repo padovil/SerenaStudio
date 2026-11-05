@@ -14,7 +14,7 @@ const EVENTO = {
   calFinUTC:    "20261206T020000Z",          // 9:00 p. m. fin de la fiesta
   anio: 2026, mes: 11, dia: 5,               // mes en base 0 (11 = diciembre)
   lugar: "Hacienda El Jardín Secreto",
-  direccion: "Km 4 vía Tenjo - La Punta, Tenjo, Cundinamarca",
+  direccion: "km 4 vía Tenjo - La Punta, Tenjo, Cundinamarca",
   mapsUrl: "https://maps.app.goo.gl/c9KUocV5WGahpNpf9",
   novios: "Fulgencio y Diana",
   maxPersonas: 6,                            // tope del selector si el link no trae ?cupos=
@@ -151,7 +151,7 @@ btnMusica.addEventListener("click", () => {
 /* ---------- Hospedaje ---------- */
 (function(){
   $("btn-hospedaje-wa").href = "https://wa.me/" + EVENTO.hospedajeTel + "?text=" +
-    encodeURIComponent("Hola Carlos, voy a la boda de " + EVENTO.novios + " el 5 de diciembre y quisiera información sobre el hospedaje.");
+    encodeURIComponent("Hola, Carlos. Voy a la boda de " + EVENTO.novios + " el 5 de diciembre y quisiera información sobre el hospedaje.");
 })();
 
 /* ---------- Álbum de fotos (QR) ---------- */
