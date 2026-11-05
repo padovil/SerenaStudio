@@ -11,8 +11,8 @@ Publicada en https://serenastudio-peach.vercel.app/muestras/camila-y-andres/
 |---|---|
 | `index.html` | La invitación: estructura, estilos, metadatos SEO/Open Graph y datos estructurados (JSON-LD). |
 | `invitacion.js` | Toda la lógica: cuenta regresiva, saludo personalizado, mapas, calendario, copiar cuenta, RSVP por WhatsApp, música, fotos que fallan y protección contra marcos. |
-| `fotos/portada.jpg`, `fotos/ramo.jpg`, `fotos/baile.jpg` | Fotos de la invitación. |
-| `og-imagen.jpg` | Vista previa de 1200 × 630 para WhatsApp y redes. |
+| `fotos/portada-bn.jpg`, `fotos/ramo-bn.jpg`, `fotos/baile-bn.jpg` | Fotos de la invitación. |
+| `og-imagen-bn.jpg` | Vista previa de 1200 × 630 para WhatsApp y redes. |
 | `cancion.mp3` | Música de fondo. |
 | `fuentes/*.woff2` | Cormorant Garamond, Hanken Grotesk e Italianno (subconjunto latin), servidas desde el propio sitio. |
 | `fuentes/LICENCIA-FUENTES-OFL.txt` | Copyright y licencia OFL 1.1 de las fuentes. |
