@@ -87,60 +87,11 @@ btnMusica.addEventListener("click", () => {
   if (audio.paused) sonar(); else { audio.pause(); setMusica(false); }
 });
 
-/* ---------- Marco de cartela ----------
-   Se dibuja un cuarto del contorno y se refleja para obtener la forma completa. */
+/* ---------- Cinta "nos casamos" de la portada (dos copias para que el movimiento sea continuo) ---------- */
 (function(){
-  const s = $("marco-encaje");
-  const cx = 150, cy = 200;
-  const P0 = [150,18];
-  const segs = [
-    [[162,34],[182,44],[204,44]],
-    [[216,44],[224,52],[226,62]],
-    [[240,60],[252,68],[254,82]],
-    [[272,88],[281,104],[279,126]],
-    [[277,150],[263,170],[265,186]],
-    [[269,192],[276,196],[283,200]]
-  ];
-  const bz = (a,b,c,d,t) => { const u = 1-t; return u*u*u*a + 3*u*u*t*b + 3*u*t*t*c + t*t*t*d; };
-  const q = [P0]; let prev = P0;
-  for (const [c1,c2,e] of segs){
-    for (let i = 1; i <= 24; i++){ const t = i/24;
-      q.push([bz(prev[0],c1[0],c2[0],e[0],t), bz(prev[1],c1[1],c2[1],e[1],t)]); }
-    prev = e;
-  }
-  const abajo = q.slice(0,-1).reverse().map(([x,y]) => [x, 2*cy - y]);
-  const derecha = q.concat(abajo);
-  const izquierda = derecha.slice(1,-1).reverse().map(([x,y]) => [2*cx - x, y]);
-  const pts = derecha.concat(izquierda);
-  const d = "M" + pts.map(([x,y]) => x.toFixed(1) + " " + y.toFixed(1)).join("L") + "Z";
-  s.innerHTML = `
-    <defs>
-      <linearGradient id="oro-marco" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#F0E4D3"/><stop offset=".35" stop-color="#A28A74"/>
-        <stop offset=".6" stop-color="#E3D3BD"/><stop offset="1" stop-color="#86705D"/>
-      </linearGradient>
-      <filter id="sombra" x="-10%" y="-10%" width="120%" height="120%">
-        <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#1E0A0E" flood-opacity=".45"/>
-      </filter>
-    </defs>
-    <path d="${d}" transform="translate(150 200) scale(1.075) translate(-150 -200)" fill="#E7DCCD" filter="url(#sombra)"/>
-    <path d="${d}" fill="#F4EFE7"/>
-    <!-- ramitas de olivo arriba y abajo, muy suaves -->
-    <g fill="none" stroke="#838A74" stroke-width="1.1" opacity=".5" stroke-linecap="round">
-      <path d="M120 64c20-8 40-8 60 0"/>
-      <path d="M134 60c-3-6-9-8-14-6 3 5 9 7 14 6zM150 57c0-6-4-10-9-10 0 6 4 9 9 10zM166 60c3-6 9-8 14-6-3 5-9 7-14 6z"/>
-      <path d="M120 336c20 8 40 8 60 0"/>
-      <path d="M134 340c-3 6-9 8-14 6 3-5 9-7 14-6zM150 343c0 6-4 10-9 10 0-6 4-9 9-10zM166 340c3 6 9 8 14 6-3-5-9-7-14-6z"/>
-    </g>
-    <path d="${d}" fill="none" stroke="url(#oro-marco)" stroke-width="3"/>`;
-})();
-
-/* ---------- Festón entre el panel oscuro y el siguiente ---------- */
-(function(){
-  let d = "M0 18V8";
-  for (let x = 0; x < 400; x += 20) d += ` Q${x+10} -2 ${x+20} 8`;
-  d += " V18Z";
-  $("feston").setAttribute("d", d);
+  const c = $("cinta");
+  const una = Array.from({length: 6}, () => "<span>nos casamos</span><i>&#9679;</i>").join("");
+  c.innerHTML = una + una;
 })();
 
 /* ---------- Calendario del mes ---------- */
