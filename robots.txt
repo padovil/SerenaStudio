@@ -1,0 +1,8 @@
+# © 2026 Serena Studio
+# Las muestras se pueden indexar. Las invitaciones de clientes (/b/) llevan
+# "noindex" en la página y en el encabezado X-Robots-Tag (ver vercel.json).
+# No se bloquea /b/ aquí a propósito: Google tiene que poder leer el "noindex".
+User-agent: *
+Allow: /
+
+Sitemap: https://serena-studio.vercel.app/sitemap.xml

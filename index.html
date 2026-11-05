@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- © 2026 Serena Studio · Diseño y código protegidos. Todos los derechos reservados. Ver LICENSE. -->
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ========== SEGURIDAD ==========
+     Esta página no ejecuta JavaScript: script-src 'none'. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<title>Serena Studio · Invitaciones digitales para bodas en Colombia</title>
+<meta name="description" content="Invitaciones web para bodas que se comparten por WhatsApp: cuenta regresiva, mapa, calendario y confirmación de asistencia. Muestras y precios en pesos.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://serena-studio.vercel.app/">
+<meta name="theme-color" content="#F6F1EA">
+<link rel="icon" href="img/favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<!-- ========== OPEN GRAPH (vista previa en WhatsApp) ========== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Serena Studio">
+<meta property="og:locale" content="es_CO">
+<meta property="og:url" content="https://serena-studio.vercel.app/">
+<meta property="og:title" content="Serena Studio · Su boda empieza con un link">
+<meta property="og:description" content="Invitaciones web para bodas, listas para compartir por WhatsApp. Vean las muestras y los paquetes.">
+<meta property="og:image" content="https://serena-studio.vercel.app/img/og-imagen.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo de Serena Studio con el texto: Su boda empieza con un link">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Serena Studio · Su boda empieza con un link">
+<meta name="twitter:description" content="Invitaciones web para bodas, listas para compartir por WhatsApp.">
+<meta name="twitter:image" content="https://serena-studio.vercel.app/img/og-imagen.jpg">
+
+<!-- Datos del negocio para Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Serena Studio",
+  "description": "Diseño de invitaciones digitales para bodas, publicadas como página web y compartidas por WhatsApp.",
+  "url": "https://serena-studio.vercel.app/",
+  "logo": "https://serena-studio.vercel.app/img/logo.png",
+  "image": "https://serena-studio.vercel.app/img/og-imagen.jpg",
+  "telephone": "+57 318 508 8370",
+  "areaServed": {"@type": "Country", "name": "Colombia"},
+  "priceRange": "$130.000 - $340.000 COP",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Invitaciones digitales",
+    "itemListElement": [
+      {"@type": "Offer", "name": "Invitación Esencial", "price": "180000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Invitación Completa", "price": "260000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Invitación A medida", "price": "340000", "priceCurrency": "COP"},
+      {"@type": "Offer", "name": "Tarjeta en PDF", "price": "130000", "priceCurrency": "COP"}
+    ]
+  }
+}
+</script>
+
+<link rel="preload" href="fuentes/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/hanken-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+/* Fuentes alojadas en el mismo sitio (SIL Open Font License, ver fuentes/) */
+@font-face{font-family:"Cormorant Garamond";src:url(fuentes/cormorant-garamond-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(fuentes/cormorant-garamond-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(fuentes/cormorant-garamond-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(fuentes/hanken-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(fuentes/hanken-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(fuentes/hanken-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+
+/* Layout: columna de lectura estrecha (se ve casi siempre en celular). Portada con el lema,
+   luego las muestras como "papelería" en fila, paquetes, pasos y contacto.
+   Un solo look a propósito: la paleta de la marca, igual que el brochure de precios. */
+:root{
+  --papel:#F6F1EA;     /* fondo */
+  --blanco:#FFFFFF;    /* tarjetas */
+  --tinta:#22201C;     /* texto y panel oscuro */
+  --vino:#7A2E3A;      /* acento de la marca */
+  --vino-2:#5A1F2A;    /* hover */
+  --gris:#4F4A43;      /* texto secundario (AA sobre papel y blanco) */
+  --linea:#DDD4C8;     /* filetes */
+  --rubor:#E7B8A6;     /* acento sobre fondo oscuro */
+  --crema:#D9D1C5;     /* texto secundario sobre oscuro */
+
+  --f-display:"Cormorant Garamond", Garamond, Georgia, serif;
+  --f-texto:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --ancho:68rem;
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:rgba(122,46,58,.14)}
+body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--vino);text-underline-offset:3px}
+a:hover{color:var(--vino-2)}
+a,button{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--vino);outline-offset:3px}
+p{margin:0 0 1rem;text-wrap:pretty}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance}
+[id]{scroll-margin-top:1rem}
+
+.wrap{
+  max-width:var(--ancho);margin:0 auto;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px));
+}
+section{padding-block:4.5rem}
+.rotulo{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--vino);margin:0 0 .8rem}
+h2{font-size:clamp(2.2rem, 7vw, 3rem);line-height:1.05;margin-bottom:1rem}
+.intro{color:var(--gris);max-width:36rem}
+
+.saltar{
+  position:absolute;z-index:40;left:max(16px, env(safe-area-inset-left, 0px));top:calc(8px + env(safe-area-inset-top, 0px));
+  padding:.75rem 1.1rem;background:var(--tinta);color:var(--papel);font-weight:600;font-size:.85rem;text-decoration:none;
+  transform:translateY(-200%);
+}
+.saltar:focus-visible{transform:none}
+
+/* Botones */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.4rem;
+  font:600 .82rem/1 var(--f-texto);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:999px;
+  border:1px solid var(--tinta);color:var(--tinta);background:transparent;
+  transition:background-color .2s, color .2s, border-color .2s;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:hover{background:var(--tinta);color:var(--papel)}
+.btn-lleno{background:var(--vino);border-color:var(--vino);color:var(--papel)}
+.btn-lleno:hover{background:var(--vino-2);border-color:var(--vino-2);color:var(--papel)}
+.botones{display:flex;flex-wrap:wrap;gap:.7rem}
+
+/* ===================== CABECERA ===================== */
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem;border-bottom:1px solid var(--linea)}
+.marca{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--tinta)}
+.marca img{width:34px;height:33px}
+.marca span{font-family:var(--f-display);font-size:1.35rem;font-weight:500;letter-spacing:.02em}
+.cabecera nav{display:flex;gap:1.2rem;font-size:.9rem}
+.cabecera nav a{color:var(--gris);text-decoration:none}
+.cabecera nav a:hover{color:var(--vino)}
+
+/* ===================== PORTADA ===================== */
+.portada{padding-block:4rem 3.5rem;text-align:center}
+.portada .logo{width:96px;height:93px;margin:0 auto 1.6rem}
+.portada h1{font-size:clamp(3.2rem, 13vw, 5.6rem);line-height:.98;letter-spacing:-.01em;margin-bottom:1.4rem}
+.portada h1 em{color:var(--vino);font-style:italic;font-weight:400}
+.portada .lema{color:var(--gris);font-size:1.1rem;max-width:34rem;margin:0 auto 2rem}
+.portada .botones{justify-content:center}
+.filete{width:64px;height:1px;background:var(--tinta);opacity:.4;margin:0 auto 1.4rem}
+
+/* ===================== MUESTRAS ===================== */
+.muestras{display:grid;gap:2rem;margin-top:2.2rem}
+@media (min-width:44rem){.muestras{grid-template-columns:1fr 1fr;gap:2.4rem 1.6rem}}
+.muestra{display:grid;gap:.9rem;min-width:0}
+.muestra a.tarjeta{display:block;text-decoration:none;color:inherit}
+.muestra .vista{border:1px solid var(--linea);background:var(--blanco);padding:.6rem;aspect-ratio:1200/630;max-width:100%;box-sizing:content-box}
+.muestra .vista img{width:100%;height:100%;object-fit:cover}
+.muestra a.tarjeta:hover .vista{border-color:var(--tinta)}
+.muestra h3{font-size:1.65rem;line-height:1.15;margin-top:.2rem}
+.muestra .estilo{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--vino);margin:0}
+.muestra p{color:var(--gris);margin:0;font-size:.98rem}
+.muestra .ver{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* ===================== PAQUETES ===================== */
+.banda{background:var(--blanco);border-block:1px solid var(--linea)}
+.paquetes{display:grid;gap:1.2rem;margin-top:2.2rem}
+@media (min-width:58rem){.paquetes{grid-template-columns:repeat(3, minmax(0,1fr))}}
+.paquete{border:1px solid var(--linea);background:var(--papel);padding:2rem 1.6rem;display:flex;flex-direction:column;gap:1rem;min-width:0}
+.paquete h3{font-family:var(--f-texto);font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gris)}
+.precio{font-family:var(--f-display);font-size:3.1rem;font-weight:500;line-height:1;margin:0;font-variant-numeric:lining-nums}
+.precio small{font-family:var(--f-texto);font-size:.8rem;letter-spacing:.1em;color:var(--gris);font-weight:500;margin-left:.3rem}
+.paquete .que{margin:0;color:var(--gris)}
+.paquete ul{list-style:none;margin:0;padding:1rem 0 0;border-top:1px solid var(--linea);display:grid;gap:.7rem;font-size:.97rem;line-height:1.45}
+.paquete li{display:grid;grid-template-columns:18px 1fr;gap:.6rem;align-items:start}
+.paquete li svg{width:18px;height:18px;margin-top:.12rem;color:var(--vino)}
+.paquete.destacado{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
+.paquete.destacado h3{color:var(--papel)}
+.paquete.destacado .que,.paquete.destacado .precio small{color:var(--crema)}
+.paquete.destacado ul{border-color:#4A4640}
+.paquete.destacado li svg{color:var(--rubor)}
+.cabeza-paquete{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap}
+.chip{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--papel);color:var(--tinta);padding:.35rem .7rem;border-radius:99px}
+
+.pdf{margin-top:1.4rem;border:1px dashed #B9AE9F;padding:1.1rem 1.4rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;justify-content:space-between}
+.pdf p{margin:0}
+.pdf strong{font-family:var(--f-display);font-size:1.9rem;font-weight:500;color:var(--vino);white-space:nowrap}
+
+.extras{margin-top:3rem}
+.extras h3{font-size:1.9rem;margin-bottom:.6rem}
+.extras dl{margin:0;display:grid;gap:0 3rem}
+@media (min-width:44rem){.extras dl{grid-template-columns:1fr 1fr}}
+.extras div{display:flex;justify-content:space-between;gap:1rem;padding-block:.75rem;border-bottom:1px solid var(--linea)}
+.extras dt{min-width:0}
+.extras dd{margin:0;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.letra-chica{font-size:.88rem;color:var(--gris);margin-top:1.6rem}
+
+/* ===================== CÓMO FUNCIONA ===================== */
+.pasos{list-style:none;margin:2.2rem 0 0;padding:0;display:grid;gap:1.8rem;counter-reset:paso}
+@media (min-width:44rem){.pasos{grid-template-columns:repeat(4, minmax(0,1fr))}}
+.pasos li{display:grid;gap:.35rem;counter-increment:paso;min-width:0}
+.pasos li::before{content:counter(paso);font-family:var(--f-display);font-style:italic;font-size:2.6rem;line-height:1;color:var(--vino)}
+.pasos h3{font-family:var(--f-texto);font-size:1rem;font-weight:600}
+.pasos p{margin:0;color:var(--gris);font-size:.97rem}
+
+/* ===================== CONTACTO ===================== */
+.contacto{background:var(--tinta);color:var(--papel);text-align:center}
+.contacto h2{color:var(--papel)}
+.contacto .intro{color:var(--crema);margin:0 auto 1.8rem}
+.contacto .numero{font-family:var(--f-display);font-size:2.2rem;letter-spacing:.04em;margin:0 0 1.6rem;font-variant-numeric:lining-nums;user-select:all}
+.contacto .botones{justify-content:center}
+.contacto :focus-visible{outline-color:var(--papel)}
+.contacto .btn-lleno{background:var(--papel);border-color:var(--papel);color:var(--tinta)}
+.contacto .btn-lleno:hover{background:var(--rubor);border-color:var(--rubor)}
+
+.pie{padding-block:2rem calc(2rem + env(safe-area-inset-bottom, 0px));font-size:.85rem;color:var(--gris);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+.pie p{margin:0}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:30rem){.cabecera nav{display:none}}
+</style>
+</head>
+<body>
+<a class="saltar" href="#contacto">Ir al contacto</a>
+
+<header class="wrap cabecera">
+  <a class="marca" href="/" aria-label="Serena Studio, inicio">
+    <img src="img/logo.png" alt="" width="34" height="33">
+    <span translate="no">Serena Studio</span>
+  </a>
+  <nav aria-label="Secciones">
+    <a href="#muestras">Muestras</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ===================== PORTADA ===================== -->
+<section class="portada">
+  <div class="wrap">
+    <img class="logo" src="img/logo.png" alt="Monograma de Serena Studio" width="96" height="93" fetchpriority="high">
+    <p class="rotulo">Invitaciones digitales para bodas</p>
+    <h1>Su boda empieza <em>con un link</em></h1>
+    <div class="filete"></div>
+    <p class="lema">Invitaciones web diseñadas para verse perfectas en el celular y compartirse por WhatsApp. Con cuenta regresiva, mapa, calendario y confirmación de asistencia en un solo lugar.</p>
+    <div class="botones">
+      <a class="btn btn-lleno" href="#muestras">Ver muestras</a>
+      <a class="btn" href="#paquetes">Ver precios</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MUESTRAS ===================== -->
+<section id="muestras" class="banda" aria-labelledby="t-muestras">
+  <div class="wrap">
+    <p class="rotulo">Muestras</p>
+    <h2 id="t-muestras">Cuatro estilos, cuatro parejas</h2>
+    <p class="intro">Ábranlas en el celular, como las verán sus invitados. Los datos y las parejas son de ejemplo; cada invitación se diseña con la información y los colores de su boda.</p>
+
+    <div class="muestras">
+      <article class="muestra">
+        <a class="tarjeta" href="muestras/nicolas-y-liz/">
+          <div class="vista"><img src="muestras/nicolas-y-liz/og-imagen.jpg" alt="Vista previa de la invitación de Nicolás y Liz" width="1200" height="630" loading="lazy" decoding="async"></div>
+        </a>
+        <p class="estilo">Sobre de terciopelo</p>
+        <h3 translate="no">Nicolás &amp; Liz</h3>
+        <p>Se abre tocando un sello de lacre. Vino, crema y dorado, con versículo y calendario del mes.</p>
+        <a class="ver" href="muestras/nicolas-y-liz/">Ver invitación</a>
+      </article>
+
+      <article class="muestra">
+        <a class="tarjeta" href="muestras/mariana-y-sebastian/">
+          <div class="vista"><img src="muestras/mariana-y-sebastian/og-imagen.jpg" alt="Vista previa de la invitación de Mariana y Sebastián" width="1200" height="630" loading="lazy" decoding="async"></div>
+        </a>
+        <p class="estilo">Bosque</p>
+        <h3 translate="no">Mariana &amp; Sebastián</h3>
+        <p>Fotos con arcos y ondas, tarjetas verde bosque y el dibujo de la parroquia. Para bodas campestres.</p>
+        <a class="ver" href="muestras/mariana-y-sebastian/">Ver invitación</a>
+      </article>
+
+      <article class="muestra">
+        <a class="tarjeta" href="muestras/camila-y-andres/">
+          <div class="vista"><img src="muestras/camila-y-andres/og-imagen.jpg" alt="Vista previa de la invitación de Camila y Andrés" width="1200" height="630" loading="lazy" decoding="async"></div>
+        </a>
+        <p class="estilo">Cereza</p>
+        <h3 translate="no">Camila &amp; Andrés</h3>
+        <p>Paneles crema y bordó como tarjetería impresa. Confirmación por WhatsApp con el número de personas.</p>
+        <a class="ver" href="muestras/camila-y-andres/">Ver invitación</a>
+      </article>
+
+      <article class="muestra">
+        <a class="tarjeta" href="muestras/valentina-y-tomas/">
+          <div class="vista"><img src="muestras/valentina-y-tomas/og-imagen.jpg" alt="Vista previa de la invitación de Valentina y Tomás" width="1200" height="630" loading="lazy" decoding="async"></div>
+        </a>
+        <p class="estilo">Editorial</p>
+        <h3 translate="no">Valentina &amp; Tomás</h3>
+        <p>Una edición única de revista: portada, índice, reportaje de la pareja y preguntas frecuentes.</p>
+        <a class="ver" href="muestras/valentina-y-tomas/">Ver invitación</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAQUETES ===================== -->
+<section id="paquetes" aria-labelledby="t-paquetes">
+  <div class="wrap">
+    <p class="rotulo">Paquetes</p>
+    <h2 id="t-paquetes">Elijan cómo quieren su invitación</h2>
+    <p class="intro">Precios en pesos colombianos. La publicación en línea está incluida en todos los paquetes.</p>
+
+    <div class="paquetes">
+      <article class="paquete">
+        <h3>Esencial</h3>
+        <p class="precio">$180.000<small>COP</small></p>
+        <p class="que">Una de nuestras plantillas con sus datos y sus colores.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Nombres, fecha, ceremonia y recepción</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Botón “Cómo llegar” con Google Maps</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cuenta regresiva hasta el gran día</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Botón para agregar al calendario</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Confirmación de asistencia por WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ronda de ajustes</li>
+        </ul>
+      </article>
+
+      <article class="paquete destacado">
+        <div class="cabeza-paquete"><h3>Completa</h3><span class="chip">Personalizada</span></div>
+        <p class="precio">$260.000<small>COP</small></p>
+        <p class="que">Todo lo del Esencial, más fotos, música y un link con el nombre de cada invitado.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Foto de portada y galería</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Música de fondo con botón de play</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Regalos o lluvia de sobres con botón “Copiar”</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cronograma y código de vestimenta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Vista previa elegante al compartir en WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Link con el nombre de cada invitado, sin límite de invitados</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 rondas de ajustes</li>
+        </ul>
+      </article>
+
+      <article class="paquete">
+        <h3>A medida</h3>
+        <p class="precio">$340.000<small>COP</small></p>
+        <p class="que">Un diseño creado desde cero, solo para ustedes.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Estilo, paleta y tipografía exclusivos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Monograma con sus iniciales</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Detalles especiales (sobre animado, portada ilustrada)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Todo lo incluido en Completa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Versión PDF de su invitación incluida</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>3 rondas de ajustes</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="pdf">
+      <p>¿Solo necesitan una tarjeta en PDF, con enlaces a ubicación y confirmación?</p>
+      <strong>$130.000</strong>
+    </div>
+
+    <div class="extras">
+      <h3>Extras</h3>
+      <dl>
+        <div><dt>Links por invitado en el Esencial</dt><dd>+$50.000</dd></div>
+        <div><dt>Versión PDF de su invitación web</dt><dd>+$40.000</dd></div>
+        <div><dt>Ronda adicional de ajustes</dt><dd>+$30.000</dd></div>
+        <div><dt>Versión en otro idioma</dt><dd>+$50.000</dd></div>
+      </dl>
+    </div>
+    <p class="letra-chica">Se separa con el 50% y el saldo se paga al aprobar el diseño.</p>
+  </div>
+</section>
+
+<!-- ===================== CÓMO FUNCIONA ===================== -->
+<section class="banda" aria-labelledby="t-pasos">
+  <div class="wrap">
+    <p class="rotulo">Cómo funciona</p>
+    <h2 id="t-pasos">De sus datos a un link listo</h2>
+    <ol class="pasos">
+      <li><h3>Nos cuentan</h3><p>Llenan un formulario con los datos de su boda.</p></li>
+      <li><h3>Diseñamos</h3><p>Reciben una primera versión en pocos días.</p></li>
+      <li><h3>Ajustamos</h3><p>Afinamos textos, fotos y colores con ustedes.</p></li>
+      <li><h3>Compartimos</h3><p>Reciben su link listo para enviar por WhatsApp.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section id="contacto" class="contacto" aria-labelledby="t-contacto">
+  <div class="wrap">
+    <p class="rotulo" style="color:var(--rubor)">Contacto</p>
+    <h2 id="t-contacto">Hablemos de su boda</h2>
+    <p class="intro">Escríbannos por WhatsApp con la fecha y el estilo que les gusta, y les contamos cómo empezar.</p>
+    <p class="numero">318&nbsp;508&nbsp;8370</p>
+    <div class="botones">
+      <a class="btn btn-lleno" href="https://wa.me/573185088370?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20invitaciones%20digitales%20de%20Serena%20Studio." target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.2-1.1A8.5 8.5 0 1 0 12 3.5z"/><path d="M9 8.6c.3-.3.8-.3 1 .1l.8 1.5c.1.3.1.6-.1.8l-.6.5c.6 1.2 1.5 2.1 2.7 2.7l.5-.6c.2-.2.5-.3.8-.1l1.5.8c.4.2.4.7.1 1l-.7.7c-.4.4-1 .6-1.6.4-2.5-.9-4.5-2.9-5.4-5.4-.2-.6 0-1.2.4-1.6z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap pie">
+  <p>© 2026 <span translate="no">Serena Studio</span> · Bogotá, Colombia</p>
+  <p>Invitaciones digitales para bodas</p>
+</footer>
+
+</body>
+</html>

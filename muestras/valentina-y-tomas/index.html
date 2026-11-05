@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- © 2026 Serena Studio · Diseño y código protegidos. Todos los derechos reservados. Ver LICENSE. -->
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- ========== SEGURIDAD ==========
+     CSP: solo se carga lo que está en este mismo sitio. Sin scripts en línea. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+
+<title>Valentina &amp; Tomás · Boda 20 de marzo de 2027 · Llanogrande</title>
+<meta name="description" content="Boda de Valentina y Tomás: sábado 20 de marzo de 2027 en la Hacienda Los Almendros, Llanogrande. Ceremonia 4:00 p. m. y recepción 6:00 p. m.">
+<meta name="author" content="Serena Studio">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://serena-studio.vercel.app/muestras/valentina-y-tomas/">
+<meta name="theme-color" content="#F6F4F1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- ========== OPEN GRAPH (vista previa en WhatsApp) ========== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Serena Studio">
+<meta property="og:locale" content="es_CO">
+<meta property="og:url" content="https://serena-studio.vercel.app/muestras/valentina-y-tomas/">
+<meta property="og:title" content="Valentina &amp; Tomás · Nos casamos">
+<meta property="og:description" content="Sábado 20 de marzo de 2027 · Hacienda Los Almendros, Llanogrande.">
+<meta property="og:image" content="https://serena-studio.vercel.app/muestras/valentina-y-tomas/og-imagen.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Valentina &amp; Tomás, 20 de marzo de 2027, en estilo de portada de revista">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Valentina &amp; Tomás · Nos casamos">
+<meta name="twitter:description" content="Sábado 20 de marzo de 2027 · Hacienda Los Almendros, Llanogrande.">
+<meta name="twitter:image" content="https://serena-studio.vercel.app/muestras/valentina-y-tomas/og-imagen.jpg">
+
+<!-- Datos estructurados del evento (Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Boda de Valentina & Tomás",
+  "description": "Ceremonia en la capilla y recepción en el salón del jardín de la Hacienda Los Almendros.",
+  "startDate": "2027-03-20T16:00:00-05:00",
+  "endDate": "2027-03-21T01:00:00-05:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "inLanguage": "es-CO",
+  "image": "https://serena-studio.vercel.app/muestras/valentina-y-tomas/og-imagen.jpg",
+  "url": "https://serena-studio.vercel.app/muestras/valentina-y-tomas/",
+  "location": {
+    "@type": "Place",
+    "name": "Hacienda Los Almendros",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rionegro",
+      "addressRegion": "Antioquia",
+      "addressCountry": "CO"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Serena Studio"
+  }
+}
+</script>
+
+<link rel="preload" href="fuentes/bodoni-moda-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fuentes/schibsted-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="invitacion.js" defer></script>
+<style>
+/* Fuentes alojadas en el mismo sitio (SIL Open Font License, ver fuentes/) */
+@font-face{font-family:"Bodoni Moda";src:url(fuentes/bodoni-moda-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(fuentes/bodoni-moda-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(fuentes/bodoni-moda-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(fuentes/bodoni-moda-latin-500-italic.woff2) format("woff2");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(fuentes/schibsted-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(fuentes/schibsted-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(fuentes/schibsted-grotesk-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+/* =========================================================
+   PLANTILLA "EDITORIAL" — invitación como edición única de revista.
+   Layout: portada con cabecera de revista y líneas de portada; el resto son
+   "páginas" de una sola columna con secciones de índice reales.
+   Un solo look a propósito (papel impreso), no cambia con modo oscuro.
+   Para otro cliente: cambiar tokens aquí y el bloque EVENTO en el script.
+   ========================================================= */
+:root{
+  --papel:#F6F4F1;     /* fondo: blanco papel frío */
+  --papel-2:#EEEAE6;   /* bandas alternas */
+  --tinta:#17141A;     /* texto principal */
+  --vino:#6B1E2C;      /* acento único */
+  --rubor:#E7D6D1;     /* tono suave para fotos y detalles */
+  --piedra:#6F6870;    /* texto secundario (contraste AA sobre papel) */
+  --linea:#D6CFCC;     /* filetes */
+
+  --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-texto:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --ancho:38rem;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--papel);color:var(--tinta);
+  font-family:var(--f-texto);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--vino);outline-offset:3px}
+
+.wrap{
+  max-width:var(--ancho);margin:0 auto;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px));
+}
+section{padding-block:4.5rem}
+.banda{background:var(--papel-2)}
+
+/* Etiquetas tipo sección de revista */
+.seccion{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  border-top:1px solid var(--tinta);padding-top:.6rem;margin-bottom:2rem;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+}
+.seccion span:last-child{color:var(--piedra);font-weight:500}
+
+h2{
+  font-family:var(--f-display);font-weight:400;font-size:clamp(2.3rem, 9vw, 3.4rem);
+  line-height:1.02;letter-spacing:-.01em;margin:0 0 1.4rem;text-wrap:balance;
+}
+h2 em{font-style:italic;color:var(--vino)}
+h3{font-family:var(--f-display);font-weight:500;font-size:1.45rem;line-height:1.15;margin:0 0 .3rem}
+p{margin:0 0 1rem}
+.secundario{color:var(--piedra)}
+
+/* ===================== PORTADA ===================== */
+.portada{padding-block:1.2rem 3rem}
+.cabecera{
+  display:flex;justify-content:space-between;gap:1rem;
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  border-bottom:1px solid var(--tinta);padding-bottom:.55rem;
+}
+.cabecera span:last-child{text-align:right}
+.mancheta{
+  font-family:var(--f-display);font-weight:400;
+  font-size:clamp(3.6rem, 21vw, 8.5rem);line-height:.86;letter-spacing:-.035em;
+  margin:1.1rem 0 .4rem;
+}
+.mancheta span{display:block}
+.mancheta .amp{
+  font-style:italic;color:var(--vino);font-size:.62em;line-height:1;
+  margin:.05em 0 .02em .9em;
+}
+.mancheta .l{display:inline-block;animation:sube .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sube{from{transform:translateY(.25em);opacity:.0}to{transform:none;opacity:1}}
+
+.foto-portada{position:relative;margin-top:1.2rem}
+.lineas{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.2rem;
+  border-top:1px solid var(--linea);padding-top:1rem;
+}
+.lineas b{display:block;font-family:var(--f-display);font-weight:500;font-size:1.25rem;line-height:1.15}
+.lineas small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--piedra)}
+.indice{
+  margin-top:2rem;border-top:1px solid var(--tinta);padding-top:.8rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:.35rem 1.5rem;
+  list-style:none;padding-left:0;font-size:.95rem;
+}
+.indice li{display:flex;justify-content:space-between;gap:.5rem;border-bottom:1px dotted var(--linea);padding-block:.25rem}
+.indice a{text-decoration:none}
+.indice a:hover{color:var(--vino)}
+.indice span{font-variant-numeric:tabular-nums;color:var(--piedra)}
+.indice-titulo{grid-column:1/-1;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border:0}
+
+/* Fotos: marcadores con forma definitiva (se reemplazan por la imagen real) */
+.foto{
+  position:relative;overflow:hidden;background:var(--rubor);
+  aspect-ratio:4/5;max-width:100%;
+}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto img[data-falla]{display:none}
+.ph{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;
+  color:var(--vino);text-align:center;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+}
+.ph i{font-family:var(--f-display);font-style:italic;font-size:4.5rem;letter-spacing:0;text-transform:none;line-height:1}
+.pie{font-size:.78rem;color:var(--piedra);margin-top:.45rem}
+
+/* ===================== PARA TI + CUENTA REGRESIVA ===================== */
+.para{font-family:var(--f-display);font-style:italic;font-size:1.5rem;color:var(--vino);margin-bottom:.6rem}
+.cuenta{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));border-top:1px solid var(--tinta);border-bottom:1px solid var(--tinta);margin-top:2rem}
+.cuenta div{padding:1rem .2rem;text-align:center}
+.cuenta div + div{border-left:1px solid var(--linea)}
+.cuenta b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(2rem, 10vw, 3rem);line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.cuenta small{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--piedra)}
+
+/* ===================== HISTORIA ===================== */
+.historia p:first-of-type::first-letter{
+  font-family:var(--f-display);float:left;font-size:4.4rem;line-height:.82;
+  padding:.35rem .5rem 0 0;color:var(--vino);
+}
+.cita{
+  margin:2.2rem 0;padding:1.4rem 0;border-top:1px solid var(--vino);border-bottom:1px solid var(--vino);
+  font-family:var(--f-display);font-style:italic;font-size:clamp(1.6rem, 6.5vw, 2.1rem);line-height:1.2;
+  color:var(--vino);text-align:center;text-wrap:balance;
+}
+.cita cite{display:block;margin-top:.6rem;font-family:var(--f-texto);font-style:normal;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--piedra)}
+
+/* ===================== EL DÍA ===================== */
+.lugar{border-top:1px solid var(--linea);padding-block:1.4rem;display:grid;grid-template-columns:5.5rem 1fr;gap:1rem}
+.lugar:last-of-type{border-bottom:1px solid var(--linea)}
+.hora{font-family:var(--f-display);font-size:2rem;line-height:1;font-variant-numeric:lining-nums}
+.hora small{display:block;font-family:var(--f-texto);font-size:.68rem;letter-spacing:.14em;margin-top:.3rem;color:var(--piedra)}
+.botones{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;min-height:48px;padding:.75rem 1.3rem;
+  font:600 .82rem/1 var(--f-texto);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer;border-radius:0;
+  transition:background .2s, color .2s;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:hover{background:var(--tinta);color:var(--papel)}
+.btn-lleno{background:var(--vino);border-color:var(--vino);color:var(--papel)}
+.btn-lleno:hover{background:var(--tinta);border-color:var(--tinta)}
+
+/* ===================== PROGRAMA ===================== */
+.programa{list-style:none;margin:0;padding:0}
+.programa li{display:grid;grid-template-columns:5.5rem 1fr;gap:1rem;padding-block:1rem;border-top:1px solid var(--linea)}
+.programa li:last-child{border-bottom:1px solid var(--linea)}
+.programa time{font-family:var(--f-display);font-size:1.5rem;line-height:1.1;font-variant-numeric:tabular-nums lining-nums}
+.programa p{margin:0;color:var(--piedra);font-size:.95rem}
+
+/* ===================== VESTIMENTA ===================== */
+.etiqueta-grande{font-family:var(--f-display);font-style:italic;font-size:2.4rem;line-height:1;margin-bottom:.8rem}
+.evitar{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:1.2rem}
+.evitar figure{margin:0;text-align:center;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--piedra)}
+.muestra{width:3.4rem;height:3.4rem;border-radius:50%;border:1px solid var(--linea);position:relative;margin:0 auto .45rem}
+.muestra::after{content:"";position:absolute;left:50%;top:-6%;width:1px;height:112%;background:var(--tinta);transform:rotate(45deg)}
+
+/* ===================== REGALOS ===================== */
+.cuenta-banco{border:1px solid var(--tinta);padding:1.3rem;margin-top:1.4rem;display:grid;gap:.9rem}
+.dato{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-bottom:1px solid var(--linea);padding-bottom:.6rem}
+.dato:last-of-type{border-bottom:0}
+.dato small{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--piedra)}
+.dato b{font-weight:500;font-variant-numeric:tabular-nums;min-width:0;overflow-wrap:anywhere}
+
+/* ===================== HOSPEDAJE ===================== */
+.hoteles{display:grid;gap:0}
+.hotel{border-top:1px solid var(--linea);padding-block:1.1rem}
+.hotel:last-child{border-bottom:1px solid var(--linea)}
+.hotel p{margin:0;font-size:.95rem;color:var(--piedra)}
+
+/* ===================== GALERÍA ===================== */
+.galeria{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.galeria figure{margin:0;min-width:0}
+.galeria figure:first-child{grid-column:1/-1}
+.galeria figure:first-child .foto{aspect-ratio:3/2}
+
+/* ===================== PREGUNTAS ===================== */
+details{border-top:1px solid var(--linea)}
+details:last-of-type{border-bottom:1px solid var(--linea)}
+summary{
+  list-style:none;cursor:pointer;padding-block:1.05rem;display:flex;justify-content:space-between;gap:1rem;
+  font-family:var(--f-display);font-size:1.25rem;line-height:1.2;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--f-texto);color:var(--vino);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--piedra);padding-bottom:.6rem}
+
+/* ===================== RSVP ===================== */
+.rsvp{background:var(--vino);color:var(--papel)}
+.rsvp .seccion{border-color:var(--papel)}
+.rsvp .seccion span:last-child,.rsvp .secundario{color:var(--rubor)}
+.rsvp h2 em{color:var(--rubor)}
+.limite{font-family:var(--f-display);font-style:italic;font-size:1.7rem;margin:.2rem 0 1.6rem}
+.campo{display:grid;gap:.35rem;margin-bottom:1rem}
+.campo label,.campo legend{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.campo input,.campo select{
+  font:inherit;color:var(--tinta);background:var(--papel);border:0;border-radius:0;
+  min-height:50px;padding:.7rem .9rem;width:100%;
+}
+.opciones{display:flex;gap:.6rem;flex-wrap:wrap}
+.opciones label{flex:1 1 9rem;display:flex;align-items:center;gap:.6rem;border:1px solid var(--rubor);padding:.75rem .9rem;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:500;font-size:1rem}
+.opciones input{accent-color:var(--papel);width:18px;height:18px;min-height:0}
+.rsvp .btn{border-color:var(--papel);background:var(--papel);color:var(--vino)}
+.rsvp .btn:hover{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
+.cupos{font-family:var(--f-display);font-style:italic;font-size:1.25rem;color:var(--rubor)}
+.error{color:var(--papel);background:var(--tinta);padding:.5rem .8rem;font-size:.9rem}
+
+/* ===================== CIERRE ===================== */
+.cierre{text-align:center;padding-block:4.5rem 6rem}
+.cierre .mono{font-family:var(--f-display);font-size:5rem;line-height:1;letter-spacing:-.04em}
+.cierre .mono em{color:var(--vino)}
+.cierre .hashtag{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--piedra);margin-top:1rem}
+.colofon{font-size:.72rem;color:var(--piedra);margin-top:2.5rem;letter-spacing:.08em}
+
+/* Botón de música flotante */
+.musica{
+  position:fixed;z-index:20;
+  right:calc(16px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));
+  width:52px;height:52px;border-radius:50%;border:1px solid var(--tinta);background:var(--papel);color:var(--tinta);
+  display:grid;place-items:center;cursor:pointer;
+}
+.musica svg{width:20px;height:20px}
+.musica .ic-pausa{display:none}
+.musica[aria-pressed="true"] .ic-pausa{display:block}
+.musica[aria-pressed="true"] .ic-play{display:none}
+.aviso{
+  position:fixed;left:50%;transform:translateX(-50%);z-index:30;
+  bottom:calc(84px + env(safe-area-inset-bottom, 0px));
+  background:var(--tinta);color:var(--papel);padding:.65rem 1.1rem;font-size:.9rem;max-width:calc(100% - 32px);
+}
+
+@media (min-width:700px){
+  section{padding-block:6rem}
+  .lineas{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .mancheta .l{animation:none}
+}
+
+/* ===================== AJUSTES DE ACCESIBILIDAD Y USO TÁCTIL =====================
+   (revisión con las Web Interface Guidelines) */
+html{scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom, 0px));-webkit-tap-highlight-color:rgba(107,30,44,.14)}
+a,button,summary,label,select,input{touch-action:manipulation}
+p{text-wrap:pretty}
+[id]{scroll-margin-top:1rem}
+/* Enlace para saltar al formulario: invisible hasta que se navega con teclado */
+.saltar{
+  position:absolute;z-index:40;left:max(16px, env(safe-area-inset-left, 0px));top:calc(8px + env(safe-area-inset-top, 0px));
+  padding:.75rem 1.1rem;background:var(--vino);color:var(--papel);font:600 .85rem/1 var(--f-texto);text-decoration:none;
+  transform:translateY(-200%);
+}
+.saltar:focus-visible{transform:none;outline-color:var(--vino)}
+/* El anillo de foco no se pierde sobre los fondos oscuros */
+.rsvp :focus-visible{outline-color:var(--papel)}
+.musica{transition:background-color .2s, color .2s}
+.musica:hover{background:var(--tinta);color:var(--papel)}
+.musica:focus-visible{outline-color:var(--vino);box-shadow:0 0 0 3px var(--papel)}
+fieldset.campo{border:0;margin:0 0 1rem;padding:0;min-width:0}
+fieldset.campo legend{padding:0;margin-bottom:.35rem}
+</style>
+</head>
+<body>
+
+<a class="saltar" href="#confirmar">Ir a confirmar asistencia</a>
+
+<!-- ===================== PORTADA ===================== -->
+<header class="portada">
+  <div class="wrap">
+    <div class="cabecera"><span>Edición única</span><span>Marzo · 2027</span></div>
+    <h1 class="mancheta" aria-label="Valentina y Tomás" translate="no">
+      <span class="l">Valentina</span>
+      <span class="amp l" style="animation-delay:.12s">&amp;</span>
+      <span class="l" style="animation-delay:.22s">Tomás</span>
+    </h1>
+    <p class="secundario" style="margin:0">Nos casamos, y esta edición es para ti.</p>
+
+    <figure class="foto-portada" style="margin-inline:0;margin-bottom:0">
+      <div class="foto">
+        <img src="foto-portada.jpg" width="1080" height="1350" fetchpriority="high" decoding="async" alt="Valentina y Tomás en su sesión de fotos antes de la boda">
+        <span class="ph" aria-hidden="true"><i>V&amp;T</i>FOTO_PORTADA.jpg<br>vertical 1080&nbsp;×&nbsp;1350</span>
+      </div>
+    </figure>
+
+    <div class="lineas">
+      <div><small>Fecha</small><b>Sábado 20 de marzo</b></div>
+      <div><small>Hora</small><b>4:00&nbsp;p.&nbsp;m.</b></div>
+      <div><small>Lugar</small><b>Hacienda Los Almendros</b></div>
+    </div>
+
+    <ul class="indice" aria-label="Índice de la invitación">
+      <li class="indice-titulo">En esta edición</li>
+      <li><a href="#historia">Nuestra historia</a><span>02</span></li>
+      <li><a href="#dia">El día</a><span>03</span></li>
+      <li><a href="#programa">Programa</a><span>04</span></li>
+      <li><a href="#detalles">Vestimenta y regalos</a><span>05</span></li>
+      <li><a href="#preguntas">Preguntas</a><span>07</span></li>
+      <li><a href="#confirmar">Confirmar</a><span>08</span></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== PARA TI + CUENTA REGRESIVA ===================== -->
+<section class="banda" aria-labelledby="t-faltan">
+  <div class="wrap">
+    <div class="seccion"><span>Carta de los editores</span><span>01</span></div>
+    <p class="para" id="para">Querida familia, querido amigo</p>
+    <h2 id="t-faltan">Queremos que estés <em>ahí</em>.</h2>
+    <p>Después de seis años, un perro llamado Bruno y más de un viaje que salió distinto a lo planeado, decidimos casarnos. Nos haría muy felices celebrarlo contigo.</p>
+    <div class="cuenta" role="timer" aria-live="off" aria-label="Tiempo que falta para la boda">
+      <div><b id="c-dias">—</b><small>Días</small></div>
+      <div><b id="c-horas">—</b><small>Horas</small></div>
+      <div><b id="c-min">—</b><small>Minutos</small></div>
+      <div><b id="c-seg">—</b><small>Segundos</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HISTORIA ===================== -->
+<section id="historia" aria-labelledby="t-historia">
+  <div class="wrap historia">
+    <div class="seccion"><span>Reportaje</span><span>02</span></div>
+    <h2 id="t-historia">Una fila de cine en <em>Laureles</em></h2>
+    <p>Nos conocimos en 2021, en la fila de un cineclub en Medellín. La función se canceló y terminamos tomando café en la esquina, hablando de la película que ninguno de los dos alcanzó a ver.</p>
+    <p>Desde entonces hemos aprendido a cocinar juntos, a viajar con poco equipaje y a reírnos de los planes que no salen. En diciembre de 2025, en un mirador de Guatapé, Tomás preguntó y Valentina dijo que sí antes de que terminara la frase.</p>
+    <blockquote class="cita">“Contigo, todo lo bueno empieza de nuevo.”<cite>Valentina &amp; Tomás</cite></blockquote>
+  </div>
+</section>
+
+<!-- ===================== EL DÍA ===================== -->
+<section id="dia" class="banda" aria-labelledby="t-dia">
+  <div class="wrap">
+    <div class="seccion"><span>Dónde y cuándo</span><span>03</span></div>
+    <h2 id="t-dia">Hacienda <em>Los Almendros</em></h2>
+    <p class="secundario">Vereda Llanogrande, Rionegro, Antioquia</p>
+
+    <div class="lugar">
+      <div class="hora">4:00<small>P.&nbsp;M.</small></div>
+      <div>
+        <h3>Ceremonia</h3>
+        <p class="secundario" style="margin:0">Capilla de la hacienda. Te pedimos llegar 20 minutos antes.</p>
+      </div>
+    </div>
+    <div class="lugar">
+      <div class="hora">6:00<small>P.&nbsp;M.</small></div>
+      <div>
+        <h3>Recepción</h3>
+        <p class="secundario" style="margin:0">Salón del jardín, en la misma hacienda.</p>
+      </div>
+    </div>
+
+    <div class="botones">
+      <a class="btn btn-lleno" id="btn-maps" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Cómo llegar
+      </a>
+      <a class="btn" id="btn-gcal" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        Google Calendar
+      </a>
+      <button class="btn" id="btn-ics" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        Otro calendario
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAMA ===================== -->
+<section id="programa" aria-labelledby="t-programa">
+  <div class="wrap">
+    <div class="seccion"><span>Programa</span><span>04</span></div>
+    <h2 id="t-programa">La noche, <em>hora por hora</em></h2>
+    <ol class="programa">
+      <li><time>4:00</time><div><h3>Ceremonia</h3><p>En la capilla de la hacienda.</p></div></li>
+      <li><time>5:00</time><div><h3>Cóctel</h3><p>Brindis y fotos en el jardín de los almendros.</p></div></li>
+      <li><time>6:30</time><div><h3>Cena</h3><p>Menú de tres tiempos en el salón del jardín.</p></div></li>
+      <li><time>8:00</time><div><h3>Primer baile</h3><p>Y después, la pista es de todos.</p></div></li>
+      <li><time>1:00</time><div><h3>Despedida</h3><p>Salida del bus de regreso a Medellín.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== VESTIMENTA Y REGALOS ===================== -->
+<section id="detalles" class="banda" aria-labelledby="t-vestimenta">
+  <div class="wrap">
+    <div class="seccion"><span>Estilo</span><span>05</span></div>
+    <h2 id="t-vestimenta">Código de <em>vestimenta</em></h2>
+    <p class="etiqueta-grande">Etiqueta</p>
+    <p>Vestido largo o de coctel para ellas; traje oscuro con corbata para ellos. La celebración es al aire libre en la tarde: piensa en un abrigo ligero y zapatos cómodos para el pasto.</p>
+    <p class="secundario" style="margin-bottom:0">Colores reservados para la novia y su cortejo:</p>
+    <div class="evitar">
+      <figure><div class="muestra" style="background:#FFFFFF"></div>Blanco</figure>
+      <figure><div class="muestra" style="background:#EFE6D8"></div>Marfil</figure>
+      <figure><div class="muestra" style="background:#6B1E2C"></div>Vino</figure>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="t-regalos">
+  <div class="wrap">
+    <div class="seccion"><span>Regalos</span><span>06</span></div>
+    <h2 id="t-regalos">Lluvia de <em>sobres</em></h2>
+    <p>Tu compañía es lo más importante. Si además quieres tener un detalle con nosotros, habrá una caja para sobres en la recepción, o puedes hacer una transferencia:</p>
+    <div class="cuenta-banco">
+      <!-- [DATOS DE EJEMPLO] reemplazar con los datos reales de la pareja -->
+      <div class="dato"><small>Banco</small><b>Banco de ejemplo</b></div>
+      <div class="dato"><small>Cuenta de ahorros</small><b id="num-cuenta">000-000000-00</b></div>
+      <div class="dato"><small>Titular</small><b>Valentina Ospina</b></div>
+      <button class="btn" id="btn-copiar" type="button" style="justify-self:start">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="12" height="12"/><path d="M16 8V4H4v12h4"/></svg>
+        Copiar número
+      </button>
+    </div>
+
+    <div style="margin-top:4rem">
+      <div class="seccion"><span>Hospedaje</span><span>Cerca de la hacienda</span></div>
+      <div class="hoteles">
+        <div class="hotel"><h3>Hotel Sendero del Bosque</h3><p>A 8 minutos en carro. Menciona la boda al reservar.</p></div>
+        <div class="hotel"><h3>Casa Arrayán</h3><p>A 15 minutos. Casa campestre para grupos de hasta 10 personas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA ===================== -->
+<section class="banda" aria-labelledby="t-galeria">
+  <div class="wrap">
+    <div class="seccion"><span>Portafolio</span><span>Fotos</span></div>
+    <h2 id="t-galeria">Antes del <em>sí</em></h2>
+    <div class="galeria">
+      <figure>
+        <div class="foto">
+          <img src="foto-1.jpg" width="1500" height="1000" decoding="async" alt="Valentina y Tomás caminando por el campo" loading="lazy">
+          <span class="ph" aria-hidden="true"><i>I</i>FOTO_1.jpg<br>horizontal 1500&nbsp;×&nbsp;1000</span>
+        </div>
+        <figcaption class="pie">Guatapé, diciembre de 2025.</figcaption>
+      </figure>
+      <figure>
+        <div class="foto">
+          <img src="foto-2.jpg" width="1080" height="1350" decoding="async" alt="Retrato de Valentina y Tomás" loading="lazy">
+          <span class="ph" aria-hidden="true"><i>II</i>FOTO_2.jpg<br>1080&nbsp;×&nbsp;1350</span>
+        </div>
+      </figure>
+      <figure>
+        <div class="foto">
+          <img src="foto-3.jpg" width="1080" height="1350" decoding="async" alt="Valentina y Tomás con su perro Bruno" loading="lazy">
+          <span class="ph" aria-hidden="true"><i>III</i>FOTO_3.jpg<br>1080&nbsp;×&nbsp;1350</span>
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PREGUNTAS FRECUENTES ===================== -->
+<section id="preguntas" aria-labelledby="t-preguntas">
+  <div class="wrap">
+    <div class="seccion"><span>Preguntas</span><span>07</span></div>
+    <h2 id="t-preguntas">Lo que nos <em>han preguntado</em></h2>
+    <details><summary>¿Pueden ir niños?</summary><p>Esta vez la celebración es solo para adultos. Gracias por entenderlo.</p></details>
+    <details><summary>¿Hay parqueadero?</summary><p>Sí, la hacienda tiene parqueadero gratuito con vigilancia.</p></details>
+    <details><summary>¿Hay transporte desde Medellín?</summary><p>Un bus sale a las 2:30&nbsp;p.&nbsp;m. desde el Parque de El Poblado y regresa a la 1:00&nbsp;a.&nbsp;m. Indícalo al confirmar.</p></details>
+    <details><summary>¿Y si llueve?</summary><p>Todo el evento tiene carpa. La fiesta sigue igual.</p></details>
+  </div>
+</section>
+
+<!-- ===================== CONFIRMACIÓN (RSVP por WhatsApp) ===================== -->
+<section id="confirmar" class="rsvp" aria-labelledby="t-confirmar">
+  <div class="wrap">
+    <div class="seccion"><span>Confirmación</span><span>08</span></div>
+    <h2 id="t-confirmar">¿Nos <em>acompañas</em>?</h2>
+    <p class="cupos" id="cupos-txt" hidden></p>
+    <p class="secundario" style="margin:0">Confírmanos a más tardar el</p>
+    <p class="limite">sábado 27 de febrero</p>
+
+    <form id="form-rsvp" novalidate>
+      <div class="campo">
+        <label for="rsvp-nombre">Tu nombre</label>
+        <input id="rsvp-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej. Laura Gómez…" aria-describedby="rsvp-error" aria-required="true">
+      </div>
+      <fieldset class="campo">
+        <legend>¿Vienes?</legend>
+        <div class="opciones">
+          <label><input type="radio" name="asiste" id="rsvp-si" value="si" checked> Sí, ahí estaré</label>
+          <label><input type="radio" name="asiste" id="rsvp-no" value="no"> No podré ir</label>
+        </div>
+      </fieldset>
+      <div class="campo">
+        <label for="rsvp-personas">Número de personas</label>
+        <select id="rsvp-personas" name="personas">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="rsvp-bus">Transporte desde Medellín</label>
+        <select id="rsvp-bus" name="bus">
+          <option value="no">No lo necesito</option><option value="si">Sí, quiero ir en el bus</option>
+        </select>
+      </div>
+      <p class="error" id="rsvp-error" role="alert" hidden>Escribe tu nombre para poder confirmar.</p>
+      <button class="btn" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+        Confirmar por WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== CIERRE ===================== -->
+<footer class="cierre">
+  <div class="wrap">
+    <p class="mono" translate="no">V<em>&amp;</em>T</p>
+    <p>Gracias por ser parte de esta historia.<br>Nos vemos el 20 de marzo.</p>
+    <p class="hashtag" translate="no">#ValeYTomásDicenSí</p>
+    <p class="colofon">Invitación digital · Diseño editorial</p>
+  </div>
+</footer>
+
+
+<p class="credito">Muestra de diseño · <a href="/">Ver más invitaciones de Serena Studio</a></p>
+<div class="aviso" id="aviso" role="status" hidden></div
+/* ===================== CRÉDITO DEL ESTUDIO (solo en muestras) ===================== */
+.credito{margin:0;padding:1.4rem max(16px, env(safe-area-inset-right, 0px)) calc(5.5rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  text-align:center;font-size:.8rem;letter-spacing:.08em;background:#F6F4F1;color:#17141A}
+.credito a{color:inherit;text-underline-offset:3px}
+>
+
+</body>
+</html>
