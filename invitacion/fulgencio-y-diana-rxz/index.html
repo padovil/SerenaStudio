@@ -173,9 +173,9 @@ a,button,label,select,input{touch-action:manipulation}
 .nombres .amp{font-family:var(--f-serif);font-style:italic;font-size:.5em;color:var(--rosa)}
 .fecha-corta{font-family:var(--f-titulo);font-size:1.05rem;letter-spacing:.3em;color:var(--vino);margin:.6rem 0 0}
 .foto-cover{position:relative;margin-top:-1.6rem;aspect-ratio:4/5;overflow:hidden}
-.foto-cover img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05) brightness(1.05)}
+.foto-cover img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;}
 /* Fundido de la foto con el papel crema arriba */
-.foto-cover::before{content:"";position:absolute;inset:0 0 auto;height:30%;background:linear-gradient(to bottom, var(--papel), rgba(244,239,231,0));z-index:1}
+.foto-cover img{-webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 14%,#000 36%);mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.35) 14%,#000 36%)}
 /* Cinta inferior con "nos casamos" */
 .cinta{position:relative;background:var(--vino-osc);color:var(--oro-claro);overflow:hidden;white-space:nowrap;height:44px;display:flex;align-items:center}
 .cinta-mov{display:inline-flex;align-items:center;animation:cinta 26s linear infinite}
